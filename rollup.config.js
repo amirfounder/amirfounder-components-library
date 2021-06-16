@@ -29,7 +29,10 @@ export default [
         presets: ['@babel/preset-react']
       }),
       external(),
-      resolve(),
+      resolve({
+        mainFields: ['module', 'main', 'jsnext:main', 'browser'],
+        extensions: ['.js', '.jsx']
+      }),
       terser()
     ]
   }
