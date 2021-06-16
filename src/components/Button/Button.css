@@ -1,37 +1,53 @@
-.size--large,
-.size--medium,
-.size--small
-{
-  border: none;
-}
-
-.size--large {
-  padding: 12px 36px;
+.button-size--large {
+  padding: 12px 28px;
   font-size: 16px;
 }
 
-.size--medium {
-  padding: 8px 24px;
+.button-size--medium {
+  padding: 8px 20px;
   font-size: 13px;
 }
 
-.size--small {
-  padding: 6px 16px;
+.button-size--small {
+  padding: 6px 14px;
   font-size: 11px;
 }
 
-.variant--primary {
+.button-variant--primary {
   background-color: black;
   color: white;
 }
 
-.variant--secondary {
-  background-color: lightgray;
+.button-variant--primary:hover {
+  background-color: #222;
+  transition-duration: .33s;
+}
+
+.button-variant--primary:not(:hover) {
+  background-color: black;
+  transition-duration: .33s;
+}
+
+.button-variant--secondary {
+  background-color: white;
   color: black;
+}
+
+.button-variant--secondary:hover {
+  background-color: #222;
+  color: white;
+  transition-duration: .33s;
+}
+
+.button-variant--secondary:not(:hover) {
+  background-color: white;
+  color: black;
+  transition-duration: .33s;
 }
 
 button {
   border-radius: 4px;
+  border: 1px solid black;
 }
 
 button:hover {

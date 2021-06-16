@@ -12,14 +12,11 @@ export const Button = ({
     <button
       onClick={onClick}
       className={`
-        button
-        size--${size.toLowerCase()}
-        variant--${variant.toLowerCase()}
+        button-size--${size.toLowerCase()}
+        button-variant--${variant.toLowerCase()}
       `}
     >
       {children}
     </button>
   )
 }
-
-export default Button

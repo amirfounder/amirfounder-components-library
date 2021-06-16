@@ -1,0 +1,27 @@
+.link {
+  color: black
+}
+
+.link-variant--primary {
+  color: white;
+}
+
+.link-variant--primary:hover {
+  color: #ddd;
+}
+
+.link-variant--primary:not(:hover) {
+  color: white;
+}
+
+.link-variant-secondary {
+  color: black;
+}
+
+.link-variant-secondary:hover {
+  color: #333
+}
+
+.link-variant-secondary:not(:hover) {
+  color: black;
+}
