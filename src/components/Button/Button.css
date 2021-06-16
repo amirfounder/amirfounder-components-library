@@ -1,0 +1,39 @@
+.size--large,
+.size--medium,
+.size--small
+{
+  border: none;
+}
+
+.size--large {
+  padding: 12px 36px;
+  font-size: 16px;
+}
+
+.size--medium {
+  padding: 8px 24px;
+  font-size: 13px;
+}
+
+.size--small {
+  padding: 6px 16px;
+  font-size: 11px;
+}
+
+.variant--primary {
+  background-color: black;
+  color: white;
+}
+
+.variant--secondary {
+  background-color: lightgray;
+  color: black;
+}
+
+button {
+  border-radius: 4px;
+}
+
+button:hover {
+  cursor: pointer;
+}
