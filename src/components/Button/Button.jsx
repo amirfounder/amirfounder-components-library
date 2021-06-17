@@ -12,6 +12,7 @@ export const Button = ({
     <button
       onClick={onClick}
       className={`
+        button
         button-size--${size.toLowerCase()}
         button-variant--${variant.toLowerCase()}
       `}

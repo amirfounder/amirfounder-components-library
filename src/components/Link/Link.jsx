@@ -1,4 +1,5 @@
 import React from 'react'
+import './Link.css'
 import { Link as ReactRouterLink } from 'react-router-dom'
 
 export const Link = ({
@@ -6,19 +7,25 @@ export const Link = ({
   path,
   size,
   weight,
-  variant="primary"
+  variant = "primary"
 }) => {
-  <ReactRouterLink
-    path={path}
-    className={`
-      link
-      link-variant--${variant}
-    `}
-    style={{
-      fontSize=`${size}`,
-      fontWeight=`${weight}`
-    }}
-  >
-    {children}
-  </ReactRouterLink>
+  return (
+    <li
+      style={{
+        listStyleType: 'none',
+        display: 'inline'
+      }}
+    >
+      <ReactRouterLink
+        to={path}
+        className={`link link-variant--${variant}`}
+        style={{
+          fontSize: `${size ? size : '16px'}`,
+          fontWeight: `${weight ? weight : 300}`,
+        }}
+      >
+        {children}
+      </ReactRouterLink>
+    </li>
+  )
 }

@@ -1,12 +1,18 @@
 import React from 'react';
+import './Menu.css'
 
 export const Menu = ({
-  links
+  children,
+  spacingDirection
 }) => {
   return(
-    <div>
-      {links && links.map((link) => (
-        link
+    <div
+      className={`
+        menu-spacing-direction--${spacingDirection}
+      `}
+    >
+      {children.map((child) => (
+        <span>{child}</span>
       ))}
     </div>
   )
