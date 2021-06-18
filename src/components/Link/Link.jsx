@@ -1,6 +1,8 @@
 import React from 'react'
 import './Link.css'
-import { Link as ReactRouterLink, useLocation } from 'react-router-dom'
+// BELOW IMPORTS REQUIRES COMMONJS FORMAT
+const { useLocation } = require('react-router-dom')
+const { ReactRouterLink } = require('react-router-dom').Link
 
 /**
  * @name Link

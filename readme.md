@@ -85,3 +85,7 @@ Added Components:
 #### 1.1.1 - Fix
 
 Fixed bug where components were not being exported
+
+#### 1.1.2 - Fix
+
+Fixed bug from previous fix

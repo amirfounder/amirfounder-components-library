@@ -24,15 +24,15 @@ export default [
         plugins: [],
         minimize: true
       }),
+      resolve({
+        mainFields: ['module', 'main', 'jsnext:main', 'browser'],
+        extensions: ['.js', '.jsx']
+      }),
       babel({
         exclude: 'node_modules/**',
         presets: ['@babel/preset-react']
       }),
       external(),
-      resolve({
-        mainFields: ['module', 'main', 'jsnext:main', 'browser'],
-        extensions: ['.js', '.jsx']
-      }),
       terser()
     ]
   }
