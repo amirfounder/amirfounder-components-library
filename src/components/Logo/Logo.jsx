@@ -2,7 +2,7 @@ import React from 'react';
 import './Logo.css'
 
 export const Logo = ({
-  size='medium',
+  size,
   onClick
 }) => {
   return(
@@ -10,7 +10,7 @@ export const Logo = ({
       onClick={onClick}
       className={`
         logo
-        logo-size--${size}
+        logo-size--${size ? size.toLowerCase() : 'medium'}
       `}
     >
       Amir Sharapov

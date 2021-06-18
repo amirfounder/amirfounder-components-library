@@ -2,19 +2,19 @@ import React from 'react';
 import './Button.css';
 
 export const Button = ({
-  children="Learn More",
+  children,
   onClick,
-  size="Medium",
-  variant="Primary"
+  size,
+  variant
 }) => {
 
-  return(
+  return (
     <button
       onClick={onClick}
       className={`
         button
-        button-size--${size.toLowerCase()}
-        button-variant--${variant.toLowerCase()}
+        button-size--${size ? size.toLowerCase() : 'medium'}
+        button-variant--${variant ? variant.toLowerCase() : 'primary'}
       `}
     >
       {children}

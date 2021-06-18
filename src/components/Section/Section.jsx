@@ -2,7 +2,7 @@ import React from 'react';
 import './Section.css'
 
 export const Section = ({
-  gridTemplateColumns,
+  columns,
   children,
   className,
   sidePadding,
@@ -16,18 +16,14 @@ export const Section = ({
       `}
       style={{
         gridTemplateColumns: `${
-          gridTemplateColumns ? // IF GRID TEMPLATE COLUMNS IS DEFINED
-          gridTemplateColumns : // DISPLAY GRID TEMPLATE COLUMNS
-          `repeat(${children.length}, minmax(100px, 1fr))` // ELSE AUTO CREATE ROWS FOR THE GRID TEMPLATE COLUMNS
+          columns ?
+          columns :
+          children ?
+          `repeat(${children && children.length}, minmax(100px, 1fr))` :
+          `repeat(${children && children.length}, minmax(100px, 1fr))`
         }`,
-        padding: `0 ${
-          sidePadding ?
-          sidePadding : '3vw'
-        }`,
-        backgroundColor: `${
-          backgroundColor ? 
-          backgroundColor : 'white'
-        }`
+        padding: `0 ${sidePadding ? sidePadding : '3vw'}`,
+        backgroundColor: `${backgroundColor ? backgroundColor : 'white'}`
       }}
     >
       {children}

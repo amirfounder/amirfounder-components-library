@@ -3,17 +3,25 @@ import './Menu.css'
 
 export const Menu = ({
   children,
-  spacingDirection
+  direction,
+  alignment,
+  className
 }) => {
-  return(
-    <div
-      className={`
-        menu-spacing-direction--${spacingDirection}
-      `}
-    >
-      {children.map((child) => (
-        <span>{child}</span>
+  return (
+    <>
+      {children.map((child, index) => (
+        <span
+          key={child + index}
+          className={`
+            menu
+            menu-child-wrapper-direction--${direction ? direction.toLowerCase() : 'horizontal'}
+            menu-child-wrapper-alignment--${alignment ? alignment.toLowerCase() : 'center'}
+            ${className}
+          `}
+        >
+          {child}
+        </span>
       ))}
-    </div>
+    </>
   )
 }

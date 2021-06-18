@@ -16,22 +16,22 @@ stories.add('Sandbox 1', () => {
   return (
     <>
       <BrowserRouter>
-        <Header>
+        <Header shadow>
           <Column>
             <Logo />
           </Column>
-          <Column justifySelf="center">
-            <Menu spacingDirection="center">
+          <Column alignment="right">
+            <Menu alignment="right">
+              <Link>NavLink 1</Link>
+              <Link>NavLink 1</Link>
               <Link>NavLink 1</Link>
               <Link>NavLink 1</Link>
               <Link>NavLink 1</Link>
             </Menu>
           </Column>
-          <Column justifySelf="end">
-            <Button variant="secondary">
-              Leave Feedback
-            </Button>
-          </Column>
+        </Header>
+        <Header variant="SECONDARY">
+          
         </Header>
       </BrowserRouter>
     </>

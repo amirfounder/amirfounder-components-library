@@ -3,7 +3,7 @@ import './Column.css'
 
 export const Column = ({
   children,
-  justifySelf
+  alignment
 }) => {
   return(
     <div
@@ -11,10 +11,7 @@ export const Column = ({
         column
       `}
       style={{
-        justifySelf: `${
-          justifySelf ?
-          justifySelf : 'start'
-        }`
+        justifySelf: `${alignment ? alignment.toLowerCase() : 'start'}`
       }}
     >
       {children}

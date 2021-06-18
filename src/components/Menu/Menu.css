@@ -1,0 +1,19 @@
+.menu-child-wrapper-alignment--center:not(:first-child):not(:last-child) {
+  margin: 0px 1vw;
+}
+
+.menu-child-wrapper-alignment--center:first-child {
+  margin-right: 1vw;
+}
+
+.menu-child-wrapper-alignment--center:last-child {
+  margin-left: 1vw;
+}
+
+.menu-child-wrapper-alignment--left:not(:last-child) {
+  margin-right: 2vw;
+}
+
+.menu-child-wrapper-alignment--right:not(:first-child) {
+  margin-left: 2vw;
+}
