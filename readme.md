@@ -2,7 +2,7 @@
 
 ## Usage
 
-Use this component library on an amirfounder website to enforce consistent styling.
+This is a componenet library for the react language.
 
 ## Dependencies:
 
@@ -15,4 +15,44 @@ Use this component library on an amirfounder website to enforce consistent styli
 - rollup-plugin-poscss: Used to allow css files in rollup
 - ...
 
+### Version History:
 
+#### 1.0.0 - First attempt
+
+Version should NOT be used.
+Test version.
+
+- Did not target the minified js file
+- Did not have support for ECMAScript support.
+
+#### 1.0.1 - Second attempt
+
+Version targets the correct js file + ECMAScript support.
+Still a test version.
+
+Added Components:
+
+- Button
+- Header
+- Input (incomplete...)
+- Link
+- Logo
+- Menu (incoomplete...)
+- Modal (incomplete...)
+
+#### 1.1.0 - More Components:
+
+All components now allow a size to be configured when calling.
+All components are no longer 'incomplete'
+
+Refactored Components:
+
+- All previous...
+
+Added Components:
+
+- Column
+- Section
+- Page
+- Paragraph
+- Heading

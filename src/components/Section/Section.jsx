@@ -23,7 +23,7 @@ export const Section = ({
           `repeat(${children && children.length}, minmax(100px, 1fr))`
         }`,
         padding: `0 ${sidePadding ? sidePadding : '3vw'}`,
-        backgroundColor: `${backgroundColor ? backgroundColor : 'white'}`
+        backgroundColor: `${backgroundColor && backgroundColor}`
       }}
     >
       {children}

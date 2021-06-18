@@ -8,9 +8,9 @@ export const Menu = ({
   className
 }) => {
   return (
-    <>
-      {children.map((child, index) => (
-        <span
+    <div>
+      {children.length > 1 && children.map((child, index) => (
+        <div
           key={child + index}
           className={`
             menu
@@ -20,8 +20,8 @@ export const Menu = ({
           `}
         >
           {child}
-        </span>
+        </div>
       ))}
-    </>
+    </div>
   )
 }

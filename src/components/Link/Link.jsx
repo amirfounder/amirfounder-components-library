@@ -1,24 +1,35 @@
 import React from 'react'
 import './Link.css'
-import { Link as ReactRouterLink, useHistory, useLocation } from 'react-router-dom'
+import { Link as ReactRouterLink, useLocation } from 'react-router-dom'
 
 export const Link = ({
   children,
   to,
   size,
   weight,
-  variant
+  variant,
+  href
 }) => {
 
   const location = useLocation()
 
   return (
-    <li
-      style={{
-        listStyleType: 'none',
-        display: 'inline'
-      }}
-    >
+    <>
+    {href ?
+      <a
+        href={href}
+        className={`
+          link
+          link-variant--${variant ? variant.toLowerCase() : 'primary'}
+        `}
+        style={{
+          fontSize: `${size ? size.toLowerCase() : '16px'}`,
+          fontWeight: `${weight ? weight : 300}`,
+        }}
+      >
+        {children}
+      </a>
+      :
       <ReactRouterLink
         to={to ? to : location.pathname}
         className={`
@@ -32,6 +43,7 @@ export const Link = ({
       >
         {children}
       </ReactRouterLink>
-    </li>
+    }
+    </>
   )
 }
