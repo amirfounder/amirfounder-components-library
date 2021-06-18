@@ -5,7 +5,7 @@ export const Paragraph = ({
   children,
   variant
 }) => {
-  return(
+  return (
     <p
       className={`
         paragraph

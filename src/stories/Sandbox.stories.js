@@ -12,11 +12,8 @@ import { Paragraph } from '../components/Paragraph';
 
 import { BrowserRouter } from 'react-router-dom';
 
-const stories = storiesOf('Sandbox', module);
-
-const BACKGROUND_IMAGE = 'https://images.unsplash.com/photo-1464802686167-b939a6910659?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1333&q=80'
-
-stories.add('1', () => {
+const stories = storiesOf('Sandbox', module)
+stories.add('main', () => {
   return (
     <>
       <BrowserRouter>
@@ -30,8 +27,7 @@ stories.add('1', () => {
               <Link>Blog</Link>
               <Link>AI</Link>
               <Link>Projects</Link>
-              <Link>Research</Link>
-              <Link>Contact</Link>
+              <Link>Connect</Link>
             </Menu>
           </Column>
         </Header>
@@ -50,10 +46,10 @@ stories.add('1', () => {
             </Menu>
           </Column>
         </Header>
-        <Page>
-          <Heading backgroundImage={BACKGROUND_IMAGE} level="1">About Me</Heading>
+        <Page columns="1fr 1fr">
+          <Heading level="1">About Me</Heading>
           <Paragraph>
-            Hello
+            Hello and thank you for taking the time to learn more about me. Although I won't say <i>too</i> much here, you can learn a lot about what I do professionally and for fun.
           </Paragraph>
         </Page>
       </BrowserRouter>

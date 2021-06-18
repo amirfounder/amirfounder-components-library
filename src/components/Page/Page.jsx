@@ -1,23 +1,25 @@
 import React from 'react';
+import { Section } from '../Section';
 import './Page.css'
 
 export const Page = ({
   minHeight,
   verticalPadding,
   sidePadding,
-  children
+  children,
+  columns
 }) => {
   return(
-    <div
-      className={`
-        page
-      `}
-      style={{
-        minHeight: `${minHeight ? minHeight.toLowerCase() : '90vh'}`,
-        padding: `${verticalPadding ? verticalPadding : '5vh'} ${sidePadding ? sidePadding.toLowerCase() : '3vw'}`,
-      }}
+    <Section
+      minHeight={minHeight ? minHeight : '90vh'}
+      verticalPadding={verticalPadding ? verticalPadding : '8vh'}
+      sidePadding={sidePadding ? sidePadding : '3vw'}
+      verticalAlign='start'
+      columns={columns ? columns : '1fr'}
     >
-      {children}
-    </div>
+      <div>
+        {children}
+      </div>
+    </Section>
   )
 }

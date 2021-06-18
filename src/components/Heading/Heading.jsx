@@ -10,7 +10,8 @@ export const Heading = ({
 }) => {
 
   useEffect(() => {
-    backgroundImage && document.documentElement.style.setProperty('--backgroundImage', `url(${backgroundImage})`)
+    backgroundImage &&
+    document.documentElement.style.setProperty('--backgroundImage', `url(${backgroundImage})`)
   })
 
   return(

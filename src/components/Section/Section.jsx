@@ -6,23 +6,27 @@ export const Section = ({
   children,
   className,
   sidePadding,
-  backgroundColor
+  backgroundColor,
+  verticalPadding,
+  minHeight,
+  verticalAlign
 }) => {
-  return(
+  return (
     <div
       className={`
         section
         ${className}
       `}
       style={{
-        gridTemplateColumns: `${
-          columns ?
-          columns :
-          children ?
-          `repeat(${children && children.length}, minmax(100px, 1fr))` :
-          `repeat(${children && children.length}, minmax(100px, 1fr))`
-        }`,
-        padding: `0 ${sidePadding ? sidePadding : '3vw'}`,
+        gridTemplateColumns: `${columns ?
+            columns :
+            children ?
+              `repeat(${children && children.length}, minmax(100px, 1fr))` :
+              `repeat(${children && children.length}, minmax(100px, 1fr))`
+          }`,
+        alignItems: `${verticalAlign ? verticalAlign : 'center'}`,
+        minHeight: `${minHeight ? minHeight : '0vh'}`,
+        padding: `${verticalPadding ? verticalPadding.toLowerCase() :'0'} ${sidePadding ? sidePadding.toLowerCase() : '3vw'}`,
         backgroundColor: `${backgroundColor && backgroundColor}`
       }}
     >
