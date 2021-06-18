@@ -81,3 +81,7 @@ Added Components:
 - Paragraph
 - Heading
 - Container
+
+#### 1.1.1 - Fix
+
+Fixed bug where components were not being exported
