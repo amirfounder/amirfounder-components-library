@@ -11,7 +11,7 @@ export const Heading = ({
 
   useEffect(() => {
     backgroundImage &&
-    document.documentElement.style.setProperty('--backgroundImage', `url(${backgroundImage})`)
+    document.documentElement.style.setProperty('--heading-backgroundImage', `url(${backgroundImage})`)
   })
 
   return(
@@ -39,7 +39,7 @@ export const Heading = ({
             ${backgroundImage && 'heading-background-image'}
           `}
           style={{
-            fontSize: `${size && size.toLowerCase()}`,
+            fontSize: `${size && size}`,
             fontWeight: `${weight && weight}`,
           }}
         >

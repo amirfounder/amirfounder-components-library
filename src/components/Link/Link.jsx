@@ -8,7 +8,7 @@ export const Link = ({
   size,
   weight,
   variant,
-  href
+  href,
 }) => {
 
   const location = useLocation()
@@ -18,6 +18,7 @@ export const Link = ({
     {href ?
       <a
         href={href}
+        target='_blank'
         className={`
           link
           link-variant--${variant ? variant.toLowerCase() : 'primary'}

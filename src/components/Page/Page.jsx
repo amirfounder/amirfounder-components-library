@@ -11,7 +11,7 @@ export const Page = ({
 }) => {
   return(
     <Section
-      minHeight={minHeight ? minHeight : '90vh'}
+      minHeight={minHeight ? minHeight : '50vh'}
       verticalPadding={verticalPadding ? verticalPadding : '8vh'}
       sidePadding={sidePadding ? sidePadding : '3vw'}
       verticalAlign='start'

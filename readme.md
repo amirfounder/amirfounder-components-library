@@ -56,3 +56,4 @@ Added Components:
 - Page
 - Paragraph
 - Heading
+- Container

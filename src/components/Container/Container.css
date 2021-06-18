@@ -1,0 +1,17 @@
+:root {
+  --container-topPadding: 20px;
+  --contianer-rightPadding: 20px;
+  --contianer-bottomPadding: 20px;
+  --contianer-leftPadding: 20px;
+  --container-backgroundColor: white;
+}
+
+.container {
+  padding:
+    var(--container-topPadding)
+    var(--contianer-rightPadding)
+    var(--contianer-bottomPadding)
+    var(--contianer-leftPadding);
+  background-color:
+    var(--container-backgroundColor);
+}

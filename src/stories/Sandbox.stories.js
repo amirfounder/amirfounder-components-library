@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Header } from '../components/Header';
 import { Logo } from '../components/Logo';
@@ -9,15 +10,19 @@ import { Menu } from '../components/Menu';
 import { Page } from '../components/Page';
 import { Heading } from '../components/Heading';
 import { Paragraph } from '../components/Paragraph';
-
-import { BrowserRouter } from 'react-router-dom';
+import { Button } from '../components/Button';
+import { Modal } from '../components/Modal';
+import { Container } from '../components/Container';
 
 const stories = storiesOf('Sandbox', module)
 stories.add('main', () => {
+  
+  const [showModal, setShowModal] = useState(false)
+
   return (
     <>
       <BrowserRouter>
-        <Header>
+        <Header size="medium">
           <Column>
             <Logo />
           </Column>
@@ -31,10 +36,7 @@ stories.add('main', () => {
             </Menu>
           </Column>
         </Header>
-        <Header
-          size="small"
-          variant="secondary"
-        >
+        <Header size="small" variant="secondary">
           <Column alignment="left">
             <Link size="14px" variant="secondary">About</Link>
           </Column>
@@ -46,11 +48,28 @@ stories.add('main', () => {
             </Menu>
           </Column>
         </Header>
-        <Page columns="1fr 1fr">
-          <Heading level="1">About Me</Heading>
+        <Page columns="1fr 2fr">
+          <Heading level="1">Title</Heading>
           <Paragraph>
-            Hello and thank you for taking the time to learn more about me. Although I won't say <i>too</i> much here, you can learn a lot about what I do professionally and for fun.
+            This is a paragraph.
+            You can put breaks in the code, but on the HTML, it won't display the breaks.
           </Paragraph>
+          <Paragraph>
+            This is the second paragraph. You should see a gap above this line.
+          </Paragraph>
+          <Button size="medium" variant="secondary" onClick={() => setShowModal(true)}>
+            Learn More
+          </Button>
+          <Modal show={showModal}>
+            <Container>
+              <Heading level="3">
+                Hello There.
+              </Heading>
+              <Button onClick={() => setShowModal(false)}>
+                Close
+              </Button>
+            </Container>
+          </Modal>
         </Page>
       </BrowserRouter>
     </>

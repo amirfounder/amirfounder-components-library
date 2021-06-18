@@ -26,7 +26,7 @@ export const Section = ({
           }`,
         alignItems: `${verticalAlign ? verticalAlign : 'center'}`,
         minHeight: `${minHeight ? minHeight : '0vh'}`,
-        padding: `${verticalPadding ? verticalPadding.toLowerCase() :'0'} ${sidePadding ? sidePadding.toLowerCase() : '3vw'}`,
+        padding: `${verticalPadding ? verticalPadding.toLowerCase() :'0'} ${sidePadding ? sidePadding.toLowerCase() : '0vw'}`,
         backgroundColor: `${backgroundColor && backgroundColor}`
       }}
     >
