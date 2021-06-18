@@ -1,7 +1,7 @@
 {
   "name": "amirfounder-ui",
   "version": "1.0.1",
-  "description": "Components for Amir Sharapov frontend websites",
+  "description": "A componenet library for the ReactJS Framework, built to be used by the @amirfounder brand.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "scripts": {
