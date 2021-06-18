@@ -2,6 +2,13 @@ import React from 'react'
 import './Header.css'
 import { Section } from '../Section'
 
+/**
+ * @name Header
+ * @description Renders a Header
+ * @implements Section component
+ * @param {*} param0 shadow, children, columns, sidePadding, size, variant, backgroundColor
+ * @returns Component
+ */
 export const Header = ({
   shadow,
   children,

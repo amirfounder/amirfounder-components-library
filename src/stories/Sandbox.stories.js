@@ -13,6 +13,7 @@ import { Paragraph } from '../components/Paragraph';
 import { Button } from '../components/Button';
 import { Modal } from '../components/Modal';
 import { Container } from '../components/Container';
+import { Input } from '../components/Input';
 
 const stories = storiesOf('Sandbox', module)
 stories.add('main', () => {
@@ -55,19 +56,19 @@ stories.add('main', () => {
             You can put breaks in the code, but on the HTML, it won't display the breaks.
           </Paragraph>
           <Paragraph>
-            This is the second paragraph. You should see a gap above this line.
+            This is the second paragraph. Enter your information below:
           </Paragraph>
-          <Button size="medium" variant="secondary" onClick={() => setShowModal(true)}>
+          <Input />
+          <Button
+            // variant="secondary"
+            onClick={() => setShowModal(true)}
+          >
             Learn More
           </Button>
           <Modal show={showModal}>
             <Container>
-              <Heading level="3">
-                Hello There.
-              </Heading>
-              <Button onClick={() => setShowModal(false)}>
-                Close
-              </Button>
+              <Heading level="3">Hello There.</Heading>
+              <Button onClick={() => setShowModal(false)}>Close</Button>
             </Container>
           </Modal>
         </Page>

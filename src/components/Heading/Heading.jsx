@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
 import './Heading.css'
 
+/**
+ * @name Heading
+ * @description Renderes a Heading componenet.
+ * @param {*} Props children, level, backgroundImage, size, weight
+ * @returns Component
+ */
 export const Heading = ({
   children,
   level,

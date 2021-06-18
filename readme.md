@@ -1,8 +1,24 @@
-# Amir Founder Component Library
+# Amir Sharapov (@amirfounder) Component Library
 
 ## Usage
 
-This is a componenet library for the react language.
+A componenet library for the ReactJS Framework, built to be used by the @amirfounder brand.
+
+### Components
+
+- Button
+- Column
+- Container
+- Header
+- Heading
+- Input
+- Link
+- Logo
+- Menu
+- Modal
+- Page
+- Paragraph
+- Section
 
 ## Dependencies:
 
@@ -14,6 +30,14 @@ This is a componenet library for the react language.
 - rollup-plugin-terser: Used to minify the js
 - rollup-plugin-poscss: Used to allow css files in rollup
 - ...
+
+### TODO:
+
+- Write tests
+- Mobile friendliness
+- Text/Select/Radio... Input Components
+- Dynamic elements at the :root node of CSS, drop inline 'style' attribute
+- Turn the entire styles variable into a single variable
 
 ### Version History:
 
