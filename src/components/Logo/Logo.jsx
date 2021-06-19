@@ -1,5 +1,7 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './Logo.css'
+import LogoDiv from './LogoStyles';
 
 /**
  * @name Logo
@@ -11,15 +13,23 @@ export const Logo = ({
   size,
   onClick
 }) => {
+
+  const history = useHistory();
+
+  /**
+   * @name handleClick
+   * @description Uses history to redirect to the root path '/'
+   * @returns null
+   */
+  const handleClick = () => onClick ? onClick : history.push('/')
+
   return (
-    <div
-      onClick={onClick}
-      className={`
-        logo
-        logo-size--${size ? size.toLowerCase() : 'medium'}
-      `}
+    <LogoDiv
+      className='af-logo'
+      onClick={handleClick}
+      size={size}
     >
       Amir Sharapov
-    </div>
+    </LogoDiv>
   )
 }

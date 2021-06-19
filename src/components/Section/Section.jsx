@@ -27,8 +27,8 @@ export const Section = ({
         gridTemplateColumns: `${columns ?
           columns :
           children ?
-            `repeat(${children && children.length}, minmax(100px, 1fr))` :
-            `repeat(${children && children.length}, minmax(100px, 1fr))`
+            `repeat(${children && children.length}, 1fr)` :
+            `repeat(${children && children.length}, 1fr)`
           }`,
         alignItems: `${verticalAlign ? verticalAlign : 'center'}`,
         minHeight: `${minHeight ? minHeight : '0vh'}`,

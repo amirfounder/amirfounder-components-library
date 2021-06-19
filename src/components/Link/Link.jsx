@@ -1,62 +1,39 @@
-import React from 'react'
+import React from 'react';
+const { useHistory } = require('react-router-dom')
+import LinkDiv from './LinkStyles'
 import './Link.css'
-// BELOW IMPORTS REQUIRES COMMONJS FORMAT
-const { useLocation, useHistory } = require('react-router-dom')
-const { Link: ReactRouterLink } = require('react-router-dom')
-// import { Link as ReactRouterLink } from 'react-router-dom'
 
 /**
  * @name Link
- * @requires Parent Requires Browser Router as a componenet
- * @description Renders a React Router Dom Link. Can be used to link to external sites in a new tab
- * @param {*} param0 children, to, size, weight, variant, href
+ * @description Renders a Custom Link Component.
+ * @param {*} Props children, to, color
  * @returns Component
  */
 export const Link = ({
   children,
   to,
+  color,
   size,
-  weight,
-  variant,
-  href,
+  weight
 }) => {
 
-  const location = useLocation()
-  const history = useHistory()
+  const history = useHistory();
 
-  return (
-    <>
-      {href ?
-        <a
-          href={href}
-          target='_blank'
-          className={`
-          link
-          link-variant--${variant ? variant.toLowerCase() : 'primary'}
-        `}
-          style={{
-            fontSize: `${size ? size.toLowerCase() : '16px'}`,
-            fontWeight: `${weight ? weight : 300}`,
-          }}
-        >
-          {children}
-        </a>
-        :
-        <ReactRouterLink
-          to={to ? to : location.pathname}
-          // onClick={() => history.push(to ? to : location.pathname)}
-          className={`
-          link
-          link-variant--${variant ? variant.toLowerCase() : 'primary'}
-        `}
-          style={{
-            fontSize: `${size ? size.toLowerCase() : '16px'}`,
-            fontWeight: `${weight ? weight : 300}`,
-          }}
-        >
-          {children}
-        </ReactRouterLink>
-      }
-    </>
+  /**
+   * @name handleClick
+   * @description Uses history to redirect to the provided path
+   */
+  const handleClick = () => to && history.push(to)
+  
+  return(
+    <LinkDiv
+      className='af-link'
+      color={color ? color : 'black'}
+      size={size ? size : '16px'}
+      weight={weight ? weight : 300}
+      onClick={handleClick}
+    >
+      {children}
+    </LinkDiv>
   )
 }

@@ -8,7 +8,7 @@ import {
 import { Header } from '../components/Header';
 import { Logo } from '../components/Logo';
 import { Column } from '../components/Column';
-import { LinkPro as Link } from '../components/LinkPro';
+import { Link } from '../components/Link';
 import { Menu } from '../components/Menu';
 import { Page } from '../components/Page';
 import { Heading } from '../components/Heading';
@@ -28,11 +28,11 @@ stories.add('main', () => {
       <BrowserRouter>
         <Header size="medium">
           <Column>
-            <Logo />
+            <Logo size="large"/>
           </Column>
           <Column alignment="right">
             <Menu alignment="right">
-              <Link to="/haha">About</Link>
+              <Link color="primary" >About</Link>
               <Link>Blog</Link>
               <Link>AI</Link>
               <Link>Projects</Link>
@@ -42,15 +42,15 @@ stories.add('main', () => {
         </Header>
         <Header size="small" variant="secondary">
           <Column alignment="left">
-            <Menu variant="secondary" alignment="left" size='12px'>
-              <Link size="14px">About</Link>
+            <Menu variant="secondary" size='12px'>
+              <Link size="14px" color="white">About</Link>
             </Menu>
           </Column>
           <Column alignment="right">
             <Menu alignment="right">
-              <Link size="14px" variant="secondary">Skills</Link>
-              <Link size="14px" variant="secondary">Resumes</Link>
-              <Link size="14px" variant="secondary">Interests</Link>
+              <Link size="14px" color="white">Skills</Link>
+              <Link size="14px" color="white">Resumes</Link>
+              <Link size="14px" color="white">Interests</Link>
             </Menu>
           </Column>
         </Header>

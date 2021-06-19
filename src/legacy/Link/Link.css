@@ -1,0 +1,33 @@
+.link-variant--primary {
+  color: black;
+}
+
+.link-variant--primary:hover {
+  color: #666;
+  transition-duration: .3s;
+}
+
+.link-variant--primary:not(:hover) {
+  color: black;
+  transition-duration: .3s;
+}
+
+.link-variant--secondary {
+  color: #ddd;
+}
+
+.link-variant--secondary:hover {
+  color: white;
+  transition-duration: .3s;
+}
+
+.link-variant--secondary:not(:hover) {
+  color: #ddd;
+  transition-duration: .3s;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
