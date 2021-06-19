@@ -1,7 +1,7 @@
 import React from 'react'
 import './Link.css'
 // BELOW IMPORTS REQUIRES COMMONJS FORMAT
-const { useLocation } = require('react-router-dom')
+const { useLocation, useHistory } = require('react-router-dom')
 const { Link: ReactRouterLink } = require('react-router-dom')
 // import { Link as ReactRouterLink } from 'react-router-dom'
 
@@ -22,6 +22,7 @@ export const Link = ({
 }) => {
 
   const location = useLocation()
+  const history = useHistory()
 
   return (
     <>
@@ -43,6 +44,7 @@ export const Link = ({
         :
         <ReactRouterLink
           to={to ? to : location.pathname}
+          // onClick={() => history.push(to ? to : location.pathname)}
           className={`
           link
           link-variant--${variant ? variant.toLowerCase() : 'primary'}

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
+import {
+  BrowserRouter,
+  // Link
+} from 'react-router-dom';
 
 import { Header } from '../components/Header';
 import { Logo } from '../components/Logo';
 import { Column } from '../components/Column';
-import { Link } from '../components/Link';
+import { LinkPro as Link } from '../components/LinkPro';
 import { Menu } from '../components/Menu';
 import { Page } from '../components/Page';
 import { Heading } from '../components/Heading';
@@ -29,7 +32,7 @@ stories.add('main', () => {
           </Column>
           <Column alignment="right">
             <Menu alignment="right">
-              <Link>About</Link>
+              <Link to="/haha">About</Link>
               <Link>Blog</Link>
               <Link>AI</Link>
               <Link>Projects</Link>
@@ -39,7 +42,9 @@ stories.add('main', () => {
         </Header>
         <Header size="small" variant="secondary">
           <Column alignment="left">
-            <Link size="14px" variant="secondary">About</Link>
+            <Menu variant="secondary" alignment="left" size='12px'>
+              <Link size="14px">About</Link>
+            </Menu>
           </Column>
           <Column alignment="right">
             <Menu alignment="right">

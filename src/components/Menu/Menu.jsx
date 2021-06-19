@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Menu.css'
 
 /**
@@ -12,24 +12,29 @@ export const Menu = ({
   children,
   direction,
   alignment,
-  className
+  className,
+  variant,
+  size
 }) => {
   // MAKE THE LIST BE POSSIBLE TO BE VERTICAL
+
+  useEffect(() => {
+    size &&
+    document.getElementsByClassName('menu')
+      .forEach((ele) => ele.style.setProperty('font-size', size))
+  })
+
   return (
-    <div>
-      {children.length > 1 && children.map((child, index) => (
-        <div
-          key={child + index}
-          className={`
-            menu
-            menu-child-wrapper-direction--${direction ? direction.toLowerCase() : 'horizontal'}
-            menu-child-wrapper-alignment--${alignment ? alignment.toLowerCase() : 'center'}
-            ${className}
-          `}
-        >
-          {child}
-        </div>
-      ))}
+    <div
+      className={`
+        menu
+        menu-direction--${direction ? direction.toLowerCase() : 'horizontal'}
+        menu-alignment--${alignment ? alignment.toLowerCase() : 'center'}
+        menu-variant--${variant ? variant.toLowerCase() : 'primary'}
+        ${className}
+      `}
+    >
+      {children}
     </div>
   )
 }
