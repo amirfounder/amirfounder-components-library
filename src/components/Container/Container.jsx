@@ -1,5 +1,6 @@
 import React from 'react';
 import './Container.css'
+import ContainerDiv from './ContainerStyles';
 
 /**
  * @name Container
@@ -8,15 +9,21 @@ import './Container.css'
  * @returns Component
  */
 export const Container = ({
-  children
+  children,
+  backgroundColor,
+  size,
+  width,
+  height
 }) => {
   return(
-    <div
-      className={`
-        container
-      `}
+    <ContainerDiv
+      size={size}
+      backgroundColor={backgroundColor}
+      className='container'
+      width={width}
+      height={height}
     >
       {children}
-    </div>
+    </ContainerDiv>
   )
 }

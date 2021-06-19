@@ -12,9 +12,7 @@ export const Paragraph = ({
 }) => {
   return (
     <p
-      className={`
-        paragraph
-      `}
+      className='paragraph'
     >
       {children}
     </p>

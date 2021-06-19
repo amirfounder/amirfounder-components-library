@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { handleSizeProp } from './LogoService';
+import { handleSizeStyle } from './LogoService';
 
 const LogoDiv = styled.div`
-  font-size: ${(props) => handleSizeProp(props.size)}
+  font-size: ${(props) => handleSizeStyle(props.size)}
 `
 
 export default LogoDiv

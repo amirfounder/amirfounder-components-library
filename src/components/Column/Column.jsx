@@ -1,11 +1,12 @@
 import React from 'react';
 import './Column.css'
+import ColumnDiv from './ColumnStyles';
 
 /**
  * @name Column
  * @description Renders a column.
  * @usage Use to wrap components in a Section
- * @param {*} param0 children, alignment
+ * @param {*} Props children, alignment
  * @returns Component
  */
 export const Column = ({
@@ -13,15 +14,11 @@ export const Column = ({
   alignment
 }) => {
   return(
-    <div
-      className={`
-        column
-      `}
-      style={{
-        justifySelf: `${alignment ? alignment.toLowerCase() : 'start'}`
-      }}
+    <ColumnDiv
+      className='column'
+      alignment={alignment}
     >
       {children}
-    </div>
+    </ColumnDiv>
   )
 }

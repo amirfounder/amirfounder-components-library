@@ -14,7 +14,8 @@ export const Link = ({
   to,
   color,
   size,
-  weight
+  weight,
+  hoverColor
 }) => {
 
   const history = useHistory();
@@ -28,9 +29,10 @@ export const Link = ({
   return(
     <LinkDiv
       className='af-link'
-      color={color ? color : 'black'}
-      size={size ? size : '16px'}
-      weight={weight ? weight : 300}
+      color={color}
+      size={size}
+      weight={weight}
+      hoverColor={hoverColor}
       onClick={handleClick}
     >
       {children}

@@ -15,7 +15,6 @@ import { Heading } from '../components/Heading';
 import { Paragraph } from '../components/Paragraph';
 import { Button } from '../components/Button';
 import { Modal } from '../components/Modal';
-import { Container } from '../components/Container';
 import { Input } from '../components/Input';
 
 const stories = storiesOf('Sandbox', module)
@@ -40,7 +39,7 @@ stories.add('main', () => {
             </Menu>
           </Column>
         </Header>
-        <Header size="small" variant="secondary">
+        <Header size="small" backgroundColor="black">
           <Column alignment="left">
             <Menu variant="secondary" size='12px'>
               <Link size="14px" color="white">About</Link>
@@ -55,26 +54,29 @@ stories.add('main', () => {
           </Column>
         </Header>
         <Page columns="1fr 2fr">
-          <Heading level="1">Title</Heading>
+          <Heading level="1" size="5.5rem">
+            Title
+          </Heading>
           <Paragraph>
-            This is a paragraph.
-            You can put breaks in the code, but on the HTML, it won't display the breaks.
+            This is a paragraph. Try entering a new line.
+            See! That wasn't so hard. The cool thing is... The webpage doesn't account for the newline!
           </Paragraph>
           <Paragraph>
             This is the second paragraph. Enter your information below:
           </Paragraph>
           <Input />
           <Button
-            // variant="secondary"
+            size="large"
             onClick={() => setShowModal(true)}
           >
             Learn More
           </Button>
-          <Modal show={showModal}>
-            <Container>
-              <Heading level="3">Hello There.</Heading>
-              <Button onClick={() => setShowModal(false)}>Close</Button>
-            </Container>
+          <Modal show={showModal} size='large' width="50vw">
+            <Heading level="3">Hello There.</Heading>
+            <Paragraph>
+              This is the second paragraph. Enter your information below:
+            </Paragraph>
+            <Button onClick={() => setShowModal(false)}>Close</Button>
           </Modal>
         </Page>
       </BrowserRouter>

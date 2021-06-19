@@ -28,8 +28,9 @@ export const Menu = ({
       }
       {children &&
         children.length > 1 &&
-        children.map((child) => (
+        children.map((child, index) => (
           <MenuChildDiv
+            key={child + index}
             direciton={direction ? direction : 'horizontal'}
             alignment={alignment ? alignment : 'left'}
           >

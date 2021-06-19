@@ -11,6 +11,7 @@ const { Link: ReactRouterLink } = require('react-router-dom')
  * @description Renders a React Router Dom Link. Can be used to link to external sites in a new tab
  * @param {*} param0 children, to, size, weight, variant, href
  * @returns Component
+ * @deprecated
  */
 export const Link = ({
   children,

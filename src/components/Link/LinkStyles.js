@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import { handleColor, handleHoverColor } from './LinkService';
+import { handleColorStyle, handleHoverColorStyle, handleSizeStyle, handleFontWeightStyle } from './LinkService';
 
 const LinkDiv = styled.div`
-  color: ${(props) => handleColor(props.color)};
-  font-size: ${(props) => props.size};
-  font-weight: ${(props) => props.weight};
+  color: ${(props) => handleColorStyle(props.color)};
+  font-size: ${(props) => handleSizeStyle(props.size)};
+  font-weight: ${(props) => handleFontWeightStyle(props.weight)};
   &:hover {
-    color: ${(props) => handleHoverColor(props.color)};
+    color: ${(props) => handleHoverColorStyle(props.color, props.hoverColor)};
     transition-duration: .3s;
   }
-  &:not(&:hover) {
-    color: ${(props) => handleColor(props.color)};
+  &:not(:hover) {
+    color: ${(props) => handleColorStyle(props.color)};
     transition-duration: .3s;
   }
 `

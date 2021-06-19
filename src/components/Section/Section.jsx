@@ -1,42 +1,33 @@
 import React from 'react';
 import './Section.css'
+import SectionDiv from './SectionStyles';
 
 /**
  * @name Section
  * @description Redners a section that allows multiple columns. Recommended to use column componenet as children wrapper.
- * @param {*} Props children, columns, className, sidePadding, backgroundColor, verticalPadding, minHeight, verticalAlign
+ * @param {*} Props children, columns, className, horizontalPadding, backgroundColor, verticalPadding, minHeight, verticalAlign
  * @returns Component
  */
 export const Section = ({
   columns,
   children,
-  className,
-  sidePadding,
+  horizontalPadding,
   backgroundColor,
   verticalPadding,
-  minHeight,
-  verticalAlign
+  height,
+  verticalAlignment
 }) => {
   return (
-    <div
-      className={`
-        section
-        ${className}
-      `}
-      style={{
-        gridTemplateColumns: `${columns ?
-          columns :
-          children ?
-            `repeat(${children && children.length}, 1fr)` :
-            `repeat(${children && children.length}, 1fr)`
-          }`,
-        alignItems: `${verticalAlign ? verticalAlign : 'center'}`,
-        minHeight: `${minHeight ? minHeight : '0vh'}`,
-        padding: `${verticalPadding ? verticalPadding.toLowerCase() : '0'} ${sidePadding ? sidePadding.toLowerCase() : '0vw'}`,
-        backgroundColor: `${backgroundColor && backgroundColor}`
-      }}
+    <SectionDiv
+      className='af-section'
+      verticalAlignment={verticalAlignment}
+      verticalPadding={verticalPadding}
+      horizontalPadding={horizontalPadding}
+      columns={columns}
+      height={height}
+      backgroundColor={backgroundColor}
     >
       {children}
-    </div>
+    </SectionDiv>
   )
 }

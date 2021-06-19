@@ -1,4 +1,4 @@
-export const handleSizeProp = (size) => {
+export const handleSizeStyle = (size) => {
   if (!size) return '18px'
   if (size.toLowerCase() === 'small') return '14px'
   if (size.toLowerCase() === 'medium') return '18px'

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { handleAlignment, handleDirection } from './MenuService';
+import { handleAlignmentStyle, handleDirectionStyle } from './MenuService';
 
 const MenuChildDiv = styled.div`
-  display: ${(props) => handleDirection(props.direction)};
-  margin: ${(props) => handleAlignment(props.alignment)};
+  display: ${(props) => handleDirectionStyle(props.direction)};
+  margin: ${(props) => handleAlignmentStyle(props.alignment)};
 `
 
 export default MenuChildDiv

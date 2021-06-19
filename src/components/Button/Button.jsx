@@ -1,5 +1,6 @@
 import React from 'react';
 import './Button.css';
+import ButtonButton from './ButtonStyles';
 
 /**
  * @name Button
@@ -11,19 +12,21 @@ export const Button = ({
   children,
   onClick,
   size,
-  variant
+  variant,
+  backgroundColor,
+  color
 }) => {
 
   return (
-    <button
+    <ButtonButton
+      color={color}
+      className="button"
       onClick={onClick}
-      className={`
-        button
-        button-size--${size ? size.toLowerCase() : 'medium'}
-        button-variant--${variant ? variant.toLowerCase() : 'primary'}
-      `}
+      variant={variant}
+      backgroundColor={backgroundColor}
+      size={size}
     >
       {children}
-    </button>
+    </ButtonButton>
   )
 }
