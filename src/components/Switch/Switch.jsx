@@ -1,4 +1,4 @@
-const { ReactRouterDomSwitch } = require("react-router-dom").Switch;
+const { Switch: ReactRouterDomSwitch } = require("react-router-dom");
 
 export const Switch = ({children}) => {
   return(
