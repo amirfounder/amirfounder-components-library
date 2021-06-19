@@ -6,6 +6,7 @@ const { ReactRouterLink } = require('react-router-dom').Link
 
 /**
  * @name Link
+ * @requires Parent Requires Browser Router as a componenet
  * @description Renders a React Router Dom Link. Can be used to link to external sites in a new tab
  * @param {*} param0 children, to, size, weight, variant, href
  * @returns Component

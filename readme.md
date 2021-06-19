@@ -41,7 +41,7 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 
 ### Version History:
 
-#### 1.0.0 - First attempt
+#### 1.0.0: First attempt
 
 Version should NOT be used.
 Test version.
@@ -49,7 +49,7 @@ Test version.
 - Did not target the minified js file
 - Did not have support for ECMAScript support.
 
-#### 1.0.1 - Second attempt
+#### 1.0.1: Second attempt
 
 Version targets the correct js file + ECMAScript support.
 Still a test version.
@@ -64,7 +64,7 @@ Added Components:
 - Menu (incoomplete...)
 - Modal (incomplete...)
 
-#### 1.1.0 - More Components:
+#### 1.1.0: More Components
 
 All components now allow a size to be configured when calling.
 All components are no longer 'incomplete'
@@ -82,10 +82,9 @@ Added Components:
 - Heading
 - Container
 
-#### 1.1.1 - Fix
+#### 1.1.1-4 - Fixes
 
 Fixed bug where components were not being exported
-
-#### 1.1.2 - Fix
-
 Fixed bug from previous fix
+Testing bug fix where react-router-dom link throws error
+Rebuilding Library
