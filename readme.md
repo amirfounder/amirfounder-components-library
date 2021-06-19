@@ -84,7 +84,8 @@ Added Components:
 
 #### 1.1.1-4 - Fixes
 
-Fixed bug where components were not being exported
-Fixed bug from previous fix
-Testing bug fix where react-router-dom link throws error
-Rebuilding Library
+1 - Fixed bug where components were not being exported
+2 - Fixed bug from previous fix
+3 - Testing bug fix where react-router-dom link throws error
+4 - Rebuilding Library
+5 - Fixed CommonJS Import
