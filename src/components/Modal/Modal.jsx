@@ -1,5 +1,7 @@
 import React from 'react';
 import './Modal.css'
+import ModalBackgroundDiv from './ModalStyles';
+import { Container } from '../Container';
 
 /**
  * @name Modal
@@ -11,15 +13,24 @@ import './Modal.css'
 export const Modal = ({
   children,
   show,
+  size,
+  width,
+  height
 }) => {
   return (
     <div
       hidden={!show}
       className={`modal`}
     >
-      <div className={'modal-background'}>
-        {children}
-      </div>
+      <ModalBackgroundDiv className={'modal-background'}>
+        <Container
+          size={size}
+          width={width ? width : '40vw'}
+          height={height}
+        >
+          {children}
+        </Container>
+      </ModalBackgroundDiv>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import './Menu.css'
+import { MenuDiv, MenuChildDiv } from './MenuStyles';
+import './Menu.css';
 
 /**
  * @name Menu
@@ -12,24 +13,33 @@ export const Menu = ({
   children,
   direction,
   alignment,
-  className
 }) => {
-  // MAKE THE LIST BE POSSIBLE TO BE VERTICAL
+
   return (
-    <div>
-      {children.length > 1 && children.map((child, index) => (
-        <div
-          key={child + index}
-          className={`
-            menu
-            menu-child-wrapper-direction--${direction ? direction.toLowerCase() : 'horizontal'}
-            menu-child-wrapper-alignment--${alignment ? alignment.toLowerCase() : 'center'}
-            ${className}
-          `}
+    <MenuDiv
+      alignment={alignment}
+      className='menu'
+    >
+      {children &&
+        !children.length &&
+        <MenuChildDiv
+          direction={direction ? direction : 'horizontal'}
+          alignment={alignment ? alignment : 'left'}
         >
-          {child}
-        </div>
-      ))}
-    </div>
+          {children}
+        </MenuChildDiv>
+      }
+      {children &&
+        children.length > 1 &&
+        children.map((child, index) => (
+          <MenuChildDiv
+            key={child + index}
+            direciton={direction ? direction : 'horizontal'}
+            alignment={alignment ? alignment : 'left'}
+          >
+            {child}
+          </MenuChildDiv>
+        ))}
+    </MenuDiv>
   )
 }

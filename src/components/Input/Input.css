@@ -1,37 +1,10 @@
-:root {
-  /* COLORS */
-  --input-borderColor: #ccc;
-  --input-backgroundColor: #f7f7f7;
-
-  /* PADDING */
-  --input-paddingTop: 10px;
-  --input-paddingRight: 10px;
-  --input-paddingBottom: 10px;
-  --input-paddingLeft: 10px;
-
-  --input-fontSize: 16px;
-  --input-fontWeigth: 100;
-  --input-lineHeight: 1.2em;
-}
-
 .input {
-  background-color: var(--input-backgroundColor);
+  background-color: #f7f7f7;
   border: none;
-  border-bottom: 1px solid var(--input-borderColor);
+  border-bottom: 1px solid #ccc;
   display: block;
-  font-size: var(--input-fontSize);
-  font-weight: var(--input-fontWeigth);
-  line-height: var(--input-lineHeight);
   margin-block-end: .67em;
   margin-block-start: .67em;
-  padding:
-    var(--input-paddingTop)
-    var(--input-paddingRight)
-    var(--input-paddingBottom)
-    var(--input-paddingLeft);
-  width: calc(100%
-    - var(--input-paddingRight)
-    - var(--input-paddingLeft));
 }
 
 .input:focus {

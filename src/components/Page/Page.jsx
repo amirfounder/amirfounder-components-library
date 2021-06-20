@@ -1,31 +1,36 @@
 import React from 'react';
 import { Section } from '../Section';
+import { Column } from '../Column';
 import './Page.css'
 
 /**
  * @name Page
  * @description Renders a Page. Use as a wrapper when rendering a new page.
- * @param {*} Props minHeight, verticalPadding, sidePadding, children, columns
+ * @param {*} Props minHeight, verticalPadding, horizontalPadding, children, columns
  * @returns Component
  */
 export const Page = ({
   minHeight,
   verticalPadding,
-  sidePadding,
+  horizontalPadding,
   children,
   columns
 }) => {
   return (
-    <Section
-      minHeight={minHeight ? minHeight : '50vh'}
-      verticalPadding={verticalPadding ? verticalPadding : '8vh'}
-      sidePadding={sidePadding ? sidePadding : '3vw'}
-      verticalAlign='start'
-      columns={columns ? columns : '1fr'}
+    <div
+      className="af-page"
     >
-      <div>
-        {children}
-      </div>
-    </Section>
+      <Section
+        columns={columns}
+        horizontalPadding={horizontalPadding ? horizontalPadding : '3vw'}
+        minHeight={minHeight ? minHeight : '50vh'}
+        verticalPadding={verticalPadding ? verticalPadding : '8vh'}
+        verticalAlignment='start'
+      >
+        <Column>
+          {children}
+        </Column>
+      </Section>
+    </div>
   )
 }

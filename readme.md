@@ -31,17 +31,45 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 - rollup-plugin-poscss: Used to allow css files in rollup
 - ...
 
-### TODO:
+## TODO:
 
 - Write tests
 - Mobile friendliness
 - Text/Select/Radio... Input Components
-- Dynamic elements at the :root node of CSS, drop inline 'style' attribute
-- Turn the entire styles variable into a single variable
+- Header 'position: fixed' ability
+- Variants
+- Change all style 'handlers' to style 'generators'
+- Write JSDocs
+- Rewrite functions to follow code styleguide
+- Look into javascript destructuring to pass unnamed props to styled component
+- Page and paragraph components need styled components as well
 
-### Version History:
+## For Developers:
 
-#### 1.0.0 - First attempt
+When writing code for this guide, follow the following code guidelines
+
+### Publishing Steps
+
+1. If new components were created, export them via the /src/index.js file
+2. Run `npm run build-lib` to run rollup and minify file
+3. Run `npm version patch / minor / major` to update the package version
+4. Update the readme.md file to account for the changes in the latest version
+5. Commit
+6. Run `npm publish` to publish package! 
+
+### Coding Styleguide
+
+### Writing '...StylesService.js' functions:
+
+Paramaters should be in the following order for easier readability and maintanability:
+
+1. Custom (i.e. 'variant', 'size', etc.) -> determines multiple styles
+2. Actual (i.e. padding : paddingProp, color: colorProp, etc) -> The actual attribute if it exists
+3. Other -> Any other prop that can help determine the return value of the function
+
+## Version History:
+
+#### 1.0.0: First attempt
 
 Version should NOT be used.
 Test version.
@@ -49,7 +77,7 @@ Test version.
 - Did not target the minified js file
 - Did not have support for ECMAScript support.
 
-#### 1.0.1 - Second attempt
+#### 1.0.1: Second attempt
 
 Version targets the correct js file + ECMAScript support.
 Still a test version.
@@ -64,7 +92,7 @@ Added Components:
 - Menu (incoomplete...)
 - Modal (incomplete...)
 
-#### 1.1.0 - More Components:
+#### 1.1.0: More Components
 
 All components now allow a size to be configured when calling.
 All components are no longer 'incomplete'
@@ -82,10 +110,16 @@ Added Components:
 - Heading
 - Container
 
-#### 1.1.1 - Fix
+#### 1.1.1-7 - Bug Fixes
 
-Fixed bug where components were not being exported
-
-#### 1.1.2 - Fix
-
-Fixed bug from previous fix
+1. Fixed bug where components were not being exported
+2. Fixed bug from previous fix
+3. Testing bug fix where react-router-dom link throws error
+4. Rebuilding Library
+5. (__blank__)
+6. Rebuilt Package after another import fix
+7. LinkPro component for testing
+8. Beta release of every component using styled components
+9. Updated logo and menu to not require column to align selfnpm
+10. Tried another fix with the logo onclick
+11. Fixed history import from 'react-router-dom' in the header
