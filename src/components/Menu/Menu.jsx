@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuChildDiv from './MenuStyles';
+import { MenuDiv, MenuChildDiv } from './MenuStyles';
 import './Menu.css';
 
 /**
@@ -16,7 +16,10 @@ export const Menu = ({
 }) => {
 
   return (
-    <div className='menu' >
+    <MenuDiv
+      alignment={alignment}
+      className='menu'
+    >
       {children &&
         !children.length &&
         <MenuChildDiv
@@ -37,6 +40,6 @@ export const Menu = ({
             {child}
           </MenuChildDiv>
         ))}
-    </div>
+    </MenuDiv>
   )
 }

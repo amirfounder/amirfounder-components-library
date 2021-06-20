@@ -26,10 +26,7 @@ stories.add('main', () => {
     <>
       <BrowserRouter>
         <Header size="medium">
-          <Column>
             <Logo size="large"/>
-          </Column>
-          <Column alignment="right">
             <Menu alignment="right">
               <Link color="primary" >About</Link>
               <Link>Blog</Link>
@@ -37,7 +34,6 @@ stories.add('main', () => {
               <Link>Projects</Link>
               <Link>Connect</Link>
             </Menu>
-          </Column>
         </Header>
         <Header size="small" backgroundColor="black">
           <Column alignment="left">

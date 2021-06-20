@@ -48,6 +48,16 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 
 When writing code for this guide, follow the following code guidelines
 
+### Publishing Steps
+
+1. If new components were created, export them via the /src/index.js file
+2. Run `npm run build-lib` to run rollup and minify file
+3. Run `npm version patch / minor / major` to update the package version
+4. Update the readme.md file to account for the changes in the latest version
+5. Run `npm publish` to publish package! 
+
+### Coding Styleguide
+
 ### Writing '...StylesService.js' functions:
 
 Paramaters should be in the following order for easier readability and maintanability:
@@ -101,10 +111,11 @@ Added Components:
 
 #### 1.1.1-7 - Bug Fixes
 
-1 - Fixed bug where components were not being exported
-2 - Fixed bug from previous fix
-3 - Testing bug fix where react-router-dom link throws error
-4 - Rebuilding Library
-5 - ...
-6 - Rebuilt Package after another import fix
-7 - LinkPro component for testing
+1. Fixed bug where components were not being exported
+2. Fixed bug from previous fix
+3. Testing bug fix where react-router-dom link throws error
+4. Rebuilding Library
+5. (__blank__)
+6. Rebuilt Package after another import fix
+7. LinkPro component for testing
+8. Beta release of every component using styled components

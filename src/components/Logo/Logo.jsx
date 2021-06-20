@@ -21,7 +21,9 @@ export const Logo = ({
    * @description Uses history to redirect to the root path '/'
    * @returns null
    */
-  const handleClick = () => onClick ? onClick : history.push('/')
+  const handleClick = () => {
+    onClick ? onClick() : history.push('/')
+  }
 
   return (
     <LogoDiv

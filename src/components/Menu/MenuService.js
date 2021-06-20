@@ -16,3 +16,10 @@ export const handleAlignmentStyle = (alignmentProp, childSelector) => {
   if (alignmentProp === 'left') return '0px 2.5vw 0px 0px'
   return '0px 2.5vw 0px 0px'
 }
+
+export const handleMenuDivAlignment = (alignmentProp) => {
+  if (!alignmentProp) return 'start'
+  if (alignmentProp === 'left') return 'start'
+  if (alignmentProp === 'center') return 'center'
+  if (alignmentProp === 'right') return 'end'
+}
