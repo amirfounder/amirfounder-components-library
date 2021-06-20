@@ -42,6 +42,7 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 - Write JSDocs
 - Rewrite functions to follow code styleguide
 - Look into javascript destructuring to pass unnamed props to styled component
+- Page and paragraph components need styled components as well
 
 ## For Developers:
 
