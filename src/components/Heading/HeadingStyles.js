@@ -8,7 +8,7 @@ import {
   handleFontSizeStyle,
   handleFontWeightStyle,
   handleWebkitTextFillColor
-} from "./HeadingService";
+} from "./HeadingStylesService";
 
 const shared = () => css`
   ${(props) => handleBackgroundImageStyle(props.backgroundImage)};

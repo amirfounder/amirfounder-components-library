@@ -31,15 +31,28 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 - rollup-plugin-poscss: Used to allow css files in rollup
 - ...
 
-### TODO:
+## TODO:
 
 - Write tests
 - Mobile friendliness
 - Text/Select/Radio... Input Components
-- Dynamic elements at the :root node of CSS, drop inline 'style' attribute
-- Turn the entire styles variable into a single variable
+- Header 'position: fixed' ability
+- Variants
+- Change all style 'handlers' to style 'generators'
+- Write JSDocs
+- Rewrite functions to follow code styleguide
 
-### Version History:
+## For Developers:
+
+When writing code for this guide, follow the following code guidelines
+
+### Writing '[COMPONENT]StylesService.js' functions:
+
+Paramaters should be in the following order for easier readability and maintanability:
+
+1. 
+
+## Version History:
 
 #### 1.0.0: First attempt
 

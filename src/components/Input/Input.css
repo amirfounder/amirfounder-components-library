@@ -1,6 +1,5 @@
 :root {
   /* COLORS */
-  --input-borderColor: #ccc;
   --input-backgroundColor: #f7f7f7;
 
   /* PADDING */
@@ -17,7 +16,7 @@
 .input {
   background-color: var(--input-backgroundColor);
   border: none;
-  border-bottom: 1px solid var(--input-borderColor);
+  border-bottom: 1px solid #ccc;
   display: block;
   font-size: var(--input-fontSize);
   font-weight: var(--input-fontWeigth);

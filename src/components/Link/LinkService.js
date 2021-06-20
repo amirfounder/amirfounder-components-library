@@ -5,9 +5,14 @@ export const handleColorStyle = (colorProp="primary") => {
   return colorProp.toLowerCase()
 }
 
-export const handleHoverColorStyle = (colorProp="primary", hoverColorProp="#aaa") => {
-  if (colorProp.toLowerCase() === 'primary') return '#aaa'
-  if (colorProp.toLowerCase() === 'secondary') return '#aaa'
+export const handleHoverColorStyle = (colorProp="primary", hoverColorProp) => {
+  if (!hoverColorProp) {
+    if (colorProp.toLowerCase() === 'primary') return '#666'
+    if (colorProp.toLowerCase() === 'secondary') return '#ccc'
+    return '#666'
+  }
+  if (colorProp.toLowerCase() === 'primary') return '#666'
+  if (colorProp.toLowerCase() === 'secondary') return '#ccc'
   return hoverColorProp.toLowerCase()
 }
 

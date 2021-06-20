@@ -19,9 +19,9 @@ export const Container = ({
     <ContainerDiv
       size={size}
       backgroundColor={backgroundColor}
-      className='container'
-      width={width}
+      className='af-container'
       height={height}
+      width={width}
     >
       {children}
     </ContainerDiv>

@@ -25,7 +25,7 @@ export const Modal = ({
       <ModalBackgroundDiv className={'modal-background'}>
         <Container
           size={size}
-          width={width}
+          width={width ? width : '40vw'}
           height={height}
         >
           {children}

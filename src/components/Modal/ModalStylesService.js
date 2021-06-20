@@ -5,6 +5,6 @@
  * @returns String
  */
 export const handleBackgroundColorStyle = (backgroundColor) => {
-  if (!backgroundColor) return 'rgba(0,0,0,.2)'
+  if (!backgroundColor) return 'rgba(0,0,0,.3)'
   return backgroundColor
 }

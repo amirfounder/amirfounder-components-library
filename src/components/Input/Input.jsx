@@ -1,5 +1,6 @@
 import React from 'react';
 import './Input.css';
+import StyledInput from './InputStyles'
 
 /**
  * @name Input
@@ -17,11 +18,8 @@ export const Input = ({
   placeholder
 }) => {
   return(
-    <input
-      className={`
-        input
-        input-type--${type}
-      `}
+    <StyledInput
+      className='input'
       id={id}
       placeholder={placeholder}
       onChange={onChange}

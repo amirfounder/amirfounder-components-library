@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { handleBackgroundColorStyle } from './ModalService';
+import { handleBackgroundColorStyle } from './ModalStylesService';
 
 const ModalBackgroundDiv = styled.div`
   background-color: ${(props) => handleBackgroundColorStyle(props.backgroundColor)};
