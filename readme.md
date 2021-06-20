@@ -54,7 +54,8 @@ When writing code for this guide, follow the following code guidelines
 2. Run `npm run build-lib` to run rollup and minify file
 3. Run `npm version patch / minor / major` to update the package version
 4. Update the readme.md file to account for the changes in the latest version
-5. Run `npm publish` to publish package! 
+5. Commit
+6. Run `npm publish` to publish package! 
 
 ### Coding Styleguide
 
@@ -119,3 +120,4 @@ Added Components:
 6. Rebuilt Package after another import fix
 7. LinkPro component for testing
 8. Beta release of every component using styled components
+9. Updated logo and menu to not require column to align self
