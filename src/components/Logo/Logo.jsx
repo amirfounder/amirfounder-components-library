@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+const { useHistory } = require('react-router-dom')
 import './Logo.css'
 import LogoDiv from './LogoStyles';
 
