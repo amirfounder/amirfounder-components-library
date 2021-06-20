@@ -15,7 +15,10 @@ export const Input = ({
   onInput,
   onKeyDown,
   type,
-  placeholder
+  placeholder,
+  fontSize,
+  lineHeight,
+  size={size}
 }) => {
   return(
     <StyledInput
@@ -27,6 +30,9 @@ export const Input = ({
       onKeyDown={onKeyDown}
       type={type}
       value={value}
+      fontSize={fontSize}
+      lineHeight={lineHeight}
+      size={size}
     />
   )
 }

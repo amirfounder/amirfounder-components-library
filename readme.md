@@ -41,16 +41,19 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 - Change all style 'handlers' to style 'generators'
 - Write JSDocs
 - Rewrite functions to follow code styleguide
+- Look into javascript destructuring to pass unnamed props to styled component
 
 ## For Developers:
 
 When writing code for this guide, follow the following code guidelines
 
-### Writing '[COMPONENT]StylesService.js' functions:
+### Writing '...StylesService.js' functions:
 
 Paramaters should be in the following order for easier readability and maintanability:
 
-1. 
+1. Custom (i.e. 'variant', 'size', etc.) -> determines multiple styles
+2. Actual (i.e. padding : paddingProp, color: colorProp, etc) -> The actual attribute if it exists
+3. Other -> Any other prop that can help determine the return value of the function
 
 ## Version History:
 
@@ -95,7 +98,7 @@ Added Components:
 - Heading
 - Container
 
-#### 1.1.1-4 - Fixes
+#### 1.1.1-7 - Bug Fixes
 
 1 - Fixed bug where components were not being exported
 2 - Fixed bug from previous fix
