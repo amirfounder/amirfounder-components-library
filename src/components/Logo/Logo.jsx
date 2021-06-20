@@ -18,11 +18,11 @@ export const Logo = ({
 
   /**
    * @name handleClick
-   * @description Uses history to redirect to the root path '/'
+   * @description Uses history to redirect to the root path '/' if onclick not specified
    * @returns null
    */
   const handleClick = () => {
-    onClick ? onClick() : history.push('/')
+    onClick ? onClick() : history.push("/")
   }
 
   return (

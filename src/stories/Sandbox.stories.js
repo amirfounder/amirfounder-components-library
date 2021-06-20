@@ -26,7 +26,7 @@ stories.add('main', () => {
     <>
       <BrowserRouter>
         <Header size="medium">
-            <Logo size="large"/>
+            <Logo size="large" />
             <Menu alignment="right">
               <Link color="primary" >About</Link>
               <Link>Blog</Link>

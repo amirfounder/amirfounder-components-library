@@ -1,7 +1,5 @@
 export const handleColorStyle = (colorProp) => {
-  console.log('test')
   if (!colorProp) return 'black';
-  console.log('test2')
   return colorProp.toLowerCase()
 }
 

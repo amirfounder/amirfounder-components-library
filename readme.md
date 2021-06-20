@@ -120,4 +120,5 @@ Added Components:
 6. Rebuilt Package after another import fix
 7. LinkPro component for testing
 8. Beta release of every component using styled components
-9. Updated logo and menu to not require column to align self
+9. Updated logo and menu to not require column to align selfnpm
+10. Tried another fix with the logo onclick    
