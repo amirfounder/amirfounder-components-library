@@ -1,30 +1,30 @@
 import styled from "styled-components";
 import {
-  generateButtonBorder,
-  generateButtonFontSize,
-  generateButtonPadding,
   generateButtonBorderColor,
-  generateBackgroundColorStyle,
-  handleColorStyle,
-  handleHoverBackgroundColorStyle,
-  handleHoverBorderColorStyle,
-  handleHoverColorStyle,
+  generateButtonBackgroundColor,
+  generateButtonColor,
+  generateButtonFontSize,
+  generateButtonHoverBackgroundColor,
+  generateButtonHoverBorderColor,
+  generateButtonHoverColor,
+  generateButtonPadding,
 } from "./ButtonStylingService";
 
 const StyledButton = styled.button`
-  background-color: ${(props) => generateBackgroundColorStyle(props.variant,props.backgroundColor)};
-  border: ${(props) => generateButtonBorder(props.backgroundColor)};
+  background-color: ${(props) => generateButtonBackgroundColor(props.variant, props.backgroundColor)};
   border-color: ${(props) => generateButtonBorderColor(props.backgroundColor, props.borderColor)};
   border-radius: 3px;
-  color: ${(props) => handleColorStyle(props.variant, props.backgroundColor,props.color)};
+  border-style: solid;
+  border-width: 1px;
+  color: ${(props) => generateButtonColor(props.variant, props.color)};
   font-size: ${(props) => generateButtonFontSize(props.size, props.fontSize)};
   padding: ${(props) => generateButtonPadding(props.size, props.padding)};
   :hover {
-    background-color: ${(props) => handleHoverBackgroundColorStyle(props.variant, props.backgroundHoverColor)};
-    border: ${(props) => handleHoverBorderColorStyle(props.variant, props.backgroundColor, props.borderhoverColor)};
-    color: ${(props) => handleHoverColorStyle(props.variant, props.hoverColor)};
-    transition-duration: .3s;
+    background-color: ${(props) => generateButtonHoverBackgroundColor(props.variant, props.hoverBackgroundColor)};
+    border-color: ${(props) => generateButtonHoverBorderColor(props.variant, props.hoverBackgroundColor, props.hoverBorderColor)};
+    color: ${(props) => generateButtonHoverColor(props.hoverColor)};
     cursor: pointer;
+    transition-duration: .3s;
   }
   :not(:hover) {
     transition-duration: .3s;
