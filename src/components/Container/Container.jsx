@@ -1,11 +1,10 @@
 import React from 'react';
-import './Container.css'
 import ContainerDiv from './ContainerStyles';
 
 /**
  * @name Container
- * @description Renders a container component
- * @param {*} Props children
+ * @description Renders the Container component
+ * @param {*} Props Props
  * @returns Component
  */
 export const Container = (props) => {

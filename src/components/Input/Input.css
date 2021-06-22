@@ -1,4 +1,4 @@
-.input {
+.af-input {
   background-color: #f7f7f7;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -7,6 +7,6 @@
   margin-block-start: .67em;
 }
 
-.input:focus {
+.af-input:focus {
   outline: none;
 }

@@ -10,7 +10,7 @@ import {
   handleWebkitTextFillColor
 } from "./HeadingStylingService";
 
-const shared = () => css`
+const shared = css`
   ${(props) => generateBackgroundImageStyle(props.backgroundImage)};
   background-attachment: ${(props) => generateBackgroundAttachmentStyle(props.backgroundAttachment)};
   background-size: ${(props) => generateBackgroundSizeStyle(props.backgroundSize)};
@@ -24,30 +24,30 @@ const shared = () => css`
 
 export const HeadingH1 = styled.h1`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 1)};
+  font-size: ${(props) => handleFontSizeStyle(1, props.size)};
 `
 
 export const HeadingH2 = styled.h2`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 2)};
+  font-size: ${(props) => handleFontSizeStyle(2, props.size)};
 `
 
 export const HeadingH3 = styled.h3`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 3)};
+  font-size: ${(props) => handleFontSizeStyle(3, props.size)};
 `
 
 export const HeadingH4 = styled.h4`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 4)};
+  font-size: ${(props) => handleFontSizeStyle(4, props.size)};
 `
 
 export const HeadingH5 = styled.h5`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 5)};
+  font-size: ${(props) => handleFontSizeStyle(5, props.size)};
 `
 
 export const HeadingH6 = styled.h6`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 6)};
+  font-size: ${(props) => handleFontSizeStyle(6, props.size)};
 `

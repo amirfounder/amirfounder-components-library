@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from '../Section';
-import { Column } from '../Column';
+import { Column } from '../Column/Column';
 import './Page.css'
 
 /**

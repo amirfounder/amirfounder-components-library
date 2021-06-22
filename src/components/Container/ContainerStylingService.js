@@ -9,6 +9,36 @@ export const generateContainerBackgroundColor = (backgroundColorProp) => {
   return backgroundColorProp
 }
 
+export const generateContainerMaxWidth = (widthProp, maxWidthProp) => {
+  if (maxWidthProp) return maxWidthProp.toLowerCase();
+  if (widthProp) return widthProp.toLowerCase();
+  return 'none';
+}
+
+/**
+ * @name handleSizeStyle
+ * @description Converts the height prop into a height for the contianer
+ * @param {String} heightProp Height prop
+ * @returns String height
+ */
+export const generateContainerMinHeight = (heightProp, minHeight) => {
+  if (heightProp) return heightProp.toLowerCase();
+  if (minHeight) return minHeight.toLowerCase();
+  return 'none';
+}
+
+/**
+ * @name handleWidthStyle
+ * @description Converts the width prop into a width for the container
+ * @param {String} widthProp Width prop
+ * @returns String width
+ */
+export const generateContainerMinWidth = (widthProp, minWidthProp) => {
+  if (minWidthProp) return minWidthProp.toLowerCase();
+  if (widthProp) return widthProp.toLowerCase();
+  return 'none';
+}
+
 export const generateContainerPadding = (sizeProp, paddingProp) => {
   if (paddingProp) return paddingProp.toLowerCase();
   if (sizeProp) {
@@ -18,19 +48,3 @@ export const generateContainerPadding = (sizeProp, paddingProp) => {
   }
   return '20px'
 }
-
-/**
- * @name handleSizeStyle
- * @description Converts the height prop into a height for the contianer
- * @param {String} heightProp Height prop
- * @returns String height
- */
-export const generateContainerHeight = (heightProp) => heightProp ? heightProp.toLowerCase() : 'none';
-
-/**
- * @name handleWidthStyle
- * @description Converts the width prop into a width for the container
- * @param {String} widthProp Width prop
- * @returns String width
- */
-export const generateContainerWidth = (widthProp) => widthProp ? widthProp.toLowerCase() : 'none';

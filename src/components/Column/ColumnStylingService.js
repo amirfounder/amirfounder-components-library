@@ -1,3 +1,1 @@
-export const handleJustifySelfStyle = (alignmentProp="inherit") => {
-  return alignmentProp.toLowerCase()
-}
+export const handleJustifySelfStyle = (alignmentProp) => alignmentProp ? alignmentProp.toLowerCase() : 'inherit'

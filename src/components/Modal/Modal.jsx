@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css'
 import ModalBackgroundDiv from './ModalStyles';
-import { Container } from '../Container';
+import { Container } from '../Container/Container';
 
 /**
  * @name Modal

@@ -10,6 +10,9 @@ import {
   generateButtonPadding,
 } from "./ButtonStylingService";
 
+/**
+ * Styling for the Button Component
+ */
 const StyledButton = styled.button`
   background-color: ${(props) => generateButtonBackgroundColor(props.variant, props.backgroundColor)};
   border-color: ${(props) => generateButtonBorderColor(props.backgroundColor, props.borderColor)};

@@ -3,7 +3,7 @@ import StyledButton from './ButtonStyles';
 
 /**
  * @name Button
- * @description Renders a button component
+ * @description Renders the Button component
  * @param {*} props Props
  * @returns Component
  */

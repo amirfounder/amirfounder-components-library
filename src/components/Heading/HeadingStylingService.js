@@ -8,26 +8,15 @@ export const handleFontWeightStyle = (weightProp) => {
   return weightProp;
 }
 
-export const handleFontSizeStyle = (sizeProp, level) => {
-  if (!sizeProp) {
-    switch(Number(level)) {
-      case 1:
-        return('4rem')
-      case 2:
-        return('3rem')
-      case 3:
-        return('2rem')
-      case 4:
-        return('1.5rem')
-      case 5:
-        return('1rem')
-      case 6:
-        return('.8rem')
-      default:
-        return('3rem')
-    }
-  }
-  return sizeProp.toLowerCase()
+export const handleFontSizeStyle = (level, fontSizeProp) => {
+  if (fontSizeProp) return fontSizeProp.toLowerCase();
+  if (Number(level) === 1) return '4rem';
+  if (Number(level) === 2) return '3rem';
+  if (Number(level) === 3) return '2rem';
+  if (Number(level) === 4) return '1.6rem';
+  if (Number(level) === 5) return '1.2rem';
+  if (Number(level) === 6) return '0.8rem';
+  return '3rem'
 }
 
 export const generateBackgroundRepeatStyle = (backgroundRepeatProp, backgroundImageProp) => {

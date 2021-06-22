@@ -112,7 +112,7 @@ Added Components:
 - Heading
 - Container
 
-#### 1.1.1-7 - Bug Fixes
+#### 1.1.1 - 1.1.11 - Bug Fixes
 
 1. Fixed bug where components were not being exported
 2. Fixed bug from previous fix
@@ -125,3 +125,7 @@ Added Components:
 9. Updated logo and menu to not require column to align selfnpm
 10. Tried another fix with the logo onclick
 11. Fixed history import from 'react-router-dom' in the header
+
+#### 1.2.0 - Refactored components
+
+Components no longer use an external .css file for styling and depend fully on styled components.
