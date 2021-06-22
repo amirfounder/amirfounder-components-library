@@ -36,14 +36,14 @@ stories.add('Sandbox', () => {
         <Header size="small" backgroundColor="black">
           <Column alignment="left">
             <Menu variant="secondary" size='12px'>
-              <Link size="14px" color="secondary">About</Link>
+              <Link size="14px" color="white">About</Link>
             </Menu>
           </Column>
           <Column alignment="right">
             <Menu alignment="right">
-              <Link size="14px" color="secondary">Skills</Link>
-              <Link size="14px" color="secondary">Resumes</Link>
-              <Link size="14px" color="secondary">Interests</Link>
+              <Link size="14px" color="white">Skills</Link>
+              <Link size="14px" color="white">Resumes</Link>
+              <Link size="14px" color="white">Interests</Link>
             </Menu>
           </Column>
         </Header>
