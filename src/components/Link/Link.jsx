@@ -5,8 +5,8 @@ import './Link.css'
 
 /**
  * @name Link
- * @description Renders a Custom Link Component.
- * @param {*} Props children, to, color
+ * @description Renders the Link component.
+ * @param {*} Props Props
  * @returns Component
  */
 export const Link = (props) => {
