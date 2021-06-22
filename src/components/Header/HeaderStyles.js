@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {
-  generateHeaderBackgroundColorStyle,
+  generateHeaderBackgroundColor,
   generateHeaderBoxShadow,
   generateHeaderHeight,
   generateHeaderMaxHeight,
@@ -10,7 +10,7 @@ import {
 const StyledHeader = styled.div`
   align-items: center;
   display: grid;
-  background-color: ${(props) => generateHeaderBackgroundColorStyle(props.backgroundColor)};
+  background-color: ${(props) => generateHeaderBackgroundColor(props.backgroundColor)};
   box-shadow: ${(props) => generateHeaderBoxShadow(props.shadow)};
   height: ${(props) => generateHeaderHeight(props.size, props.height)};
   max-height: ${(props) => generateHeaderMaxHeight(props.size, props.maxHeight)};

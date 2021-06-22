@@ -1,5 +1,4 @@
 import React from 'react';
-import './Heading.css'
 import {
   HeadingH1,
   HeadingH2,
@@ -11,8 +10,8 @@ import {
 
 /**
  * @name Heading
- * @description Renderes a Heading componenet.
- * @param {*} Props props.children, level, backgroundImage, size, weight
+ * @description Renders the Heading component
+ * @param {*} Props Props
  * @returns Component
  */
 export const Heading = (props) => (

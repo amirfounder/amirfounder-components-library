@@ -4,7 +4,7 @@ import StyledHeader from './HeaderStyles'
 
 /**
  * @name Header
- * @description Renders a header wrapper
+ * @description Renders the Header compoennt
  * @param {*} props Props
  * @returns Component
  */
