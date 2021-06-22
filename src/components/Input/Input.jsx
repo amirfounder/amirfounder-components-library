@@ -8,31 +8,11 @@ import StyledInput from './InputStyles'
  * @param {*} param0 value, id, onChange, onInput, onKeyDown, type
  * @returns Component
  */
-export const Input = ({
-  value,
-  id,
-  onChange,
-  onInput,
-  onKeyDown,
-  type,
-  placeholder,
-  fontSize,
-  lineHeight,
-  size={size}
-}) => {
+export const Input = (props) => {
   return(
     <StyledInput
-      className='input'
-      id={id}
-      placeholder={placeholder}
-      onChange={onChange}
-      onInput={onInput}
-      onKeyDown={onKeyDown}
-      type={type}
-      value={value}
-      fontSize={fontSize}
-      lineHeight={lineHeight}
-      size={size}
+      className='af-input'
+      {...props}
     />
   )
 }

@@ -1,38 +1,26 @@
 import React from 'react'
-import './Header.css'
 import { Section } from '../Section'
-import HeaderDiv from './HeaderStyles'
+import StyledHeader from './HeaderStyles'
 
 /**
  * @name Header
- * @description Renders a Header
- * @implements Section component
- * @param {*} param0 shadow, children, columns, verticalPadding, size, variant, backgroundColor
+ * @description Renders a header wrapper
+ * @param {*} props Props
  * @returns Component
  */
-export const Header = ({
-  shadow,
-  children,
-  columns,
-  verticalPadding,
-  size,
-  backgroundColor
-}) => {
+export const Header = (props) => {
   return(
-    <HeaderDiv
-      backgroundColor={backgroundColor}
+    <StyledHeader
       className="af-header"
-      shadow={shadow}
-      size={size}
+      {...props}
     >
       <Section
-        backgroundColor={backgroundColor}
-        columns={columns}
-        horizontalPadding={verticalPadding ? verticalPadding : '3vw'}
+        horizontalPadding={props.verticalPadding ? props.verticalPadding : '3vw'}
         verticalAlignment="center"
+        {...props}
       >
-        {children}
+        {props.children}
       </Section>
-    </HeaderDiv>
+    </StyledHeader>
   )
 }

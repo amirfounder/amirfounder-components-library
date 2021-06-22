@@ -9,15 +9,7 @@ import './Link.css'
  * @param {*} Props children, to, color
  * @returns Component
  */
-export const Link = ({
-  children,
-  to,
-  color,
-  size,
-  weight,
-  hoverColor
-}) => {
-
+export const Link = (props) => {
   const history = useHistory();
 
   /**
@@ -29,13 +21,10 @@ export const Link = ({
   return(
     <LinkDiv
       className='af-link'
-      color={color}
-      size={size}
-      weight={weight}
-      hoverColor={hoverColor}
       onClick={handleClick}
+      {...props}
     >
-      {children}
+      {props.children}
     </LinkDiv>
   )
 }

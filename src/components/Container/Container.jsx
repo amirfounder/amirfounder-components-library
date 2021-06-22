@@ -8,22 +8,13 @@ import ContainerDiv from './ContainerStyles';
  * @param {*} Props children
  * @returns Component
  */
-export const Container = ({
-  children,
-  backgroundColor,
-  size,
-  width,
-  height
-}) => {
+export const Container = (props) => {
   return(
     <ContainerDiv
-      size={size}
-      backgroundColor={backgroundColor}
       className='af-container'
-      height={height}
-      width={width}
+      {...props}
     >
-      {children}
+      {props.children}
     </ContainerDiv>
   )
 }

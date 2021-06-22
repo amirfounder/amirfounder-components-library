@@ -4,7 +4,7 @@ import {
   generateInputPadding,
   generateInputFontSize,
   generateInputLineHeight
-} from "./InputStylesService";
+} from "./InputStylingService";
 
 const StyledInput = styled.input`
   width: ${(props) => generateInputWidth(props.size, props.width, props.padding)};

@@ -30,28 +30,28 @@ export const handleFontSizeStyle = (sizeProp, level) => {
   return sizeProp.toLowerCase()
 }
 
-export const handleBackgroundRepeatStyle = (backgroundRepeatProp, backgroundImageProp) => {
+export const generateBackgroundRepeatStyle = (backgroundRepeatProp, backgroundImageProp) => {
   if (backgroundImageProp) {
     if (!backgroundRepeatProp) return 'no-repeat'
     return backgroundRepeatProp.toLowerCase()
   }
 }
 
-export const handleBackgroundSizeStyle = (backgroundSizeProp, backgroundImageProp) => {
+export const generateBackgroundSizeStyle = (backgroundSizeProp, backgroundImageProp) => {
   if (backgroundImageProp) {
     if (!backgroundSizeProp) return 'cover'
     return backgroundSizeProp.toLowerCase()
   }
 }
 
-export const handleBackgroundAttachmentStyle = (backgroundAttachmentProp, backgroundImageProp) => {
+export const generateBackgroundAttachmentStyle = (backgroundAttachmentProp, backgroundImageProp) => {
   if (backgroundImageProp) {
     if (!backgroundAttachmentProp) return 'scroll'
     return backgroundAttachmentProp.toLowerCase()
   }
 }
 
-export const handleBackgroundImageStyle = (backgroundImageProp) => {
+export const generateBackgroundImageStyle = (backgroundImageProp) => {
   if (!backgroundImageProp) return null
   return `background-image: url(${backgroundImageProp})`
 }

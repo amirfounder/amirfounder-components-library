@@ -9,11 +9,7 @@ import LogoDiv from './LogoStyles';
  * @param {*} Props size, onClick
  * @returns Component
  */
-export const Logo = ({
-  size,
-  onClick
-}) => {
-
+export const Logo = (props) => {
   const history = useHistory();
 
   /**
@@ -21,15 +17,13 @@ export const Logo = ({
    * @description Uses history to redirect to the root path '/' if onclick not specified
    * @returns null
    */
-  const handleClick = () => {
-    onClick ? onClick() : history.push("/")
-  }
+  const handleClick = () => props.onClick ? props.onClick() : history.push("/")
 
   return (
     <LogoDiv
       className='af-logo'
       onClick={handleClick}
-      size={size}
+      {...props}
     >
       Amir Sharapov
     </LogoDiv>

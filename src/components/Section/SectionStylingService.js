@@ -39,7 +39,7 @@ export const handleHeightStyle = (heightProp) => {
   return heightProp
 }
 
-export const handleBackgroundColorStyle = (backgroundColorProp) => {
+export const generateBackgroundColorStyle = (backgroundColorProp) => {
   if (!backgroundColorProp) return 'white'
   return backgroundColorProp
 }

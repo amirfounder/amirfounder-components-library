@@ -5,15 +5,15 @@ import {
   handleVerticalPaddingStyle,
   handleHorizontalPaddingStyle,
   handleHeightStyle,
-  handleBackgroundColorStyle
-} from "./SectionService";
+  generateBackgroundColorStyle
+} from "./SectionStylingService";
 
 const SectionDiv = styled.div`
   grid-template-columns: ${(props) => handleColumnsStyle(props.columns, props.children)};
   align-items: ${(props) => handleVerticalAlignmentStyle(props.verticalAlignment)};
   padding: ${(props) => handleVerticalPaddingStyle(props.verticalPadding) + ' ' + handleHorizontalPaddingStyle(props.horizontalPadding)};
   min-height: ${(props) => handleHeightStyle(props.height)};
-  background-color: ${(props) => handleBackgroundColorStyle(props.backgroundColor)};
+  background-color: ${(props) => generateBackgroundColorStyle(props.backgroundColor)};
 `
 
 export default SectionDiv

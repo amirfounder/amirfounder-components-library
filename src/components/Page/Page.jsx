@@ -9,26 +9,20 @@ import './Page.css'
  * @param {*} Props minHeight, verticalPadding, horizontalPadding, children, columns
  * @returns Component
  */
-export const Page = ({
-  minHeight,
-  verticalPadding,
-  horizontalPadding,
-  children,
-  columns
-}) => {
+export const Page = (props) => {
   return (
     <div
       className="af-page"
     >
       <Section
-        columns={columns}
-        horizontalPadding={horizontalPadding ? horizontalPadding : '3vw'}
-        minHeight={minHeight ? minHeight : '50vh'}
-        verticalPadding={verticalPadding ? verticalPadding : '8vh'}
+        {...props}
+        horizontalPadding={props.horizontalPadding ? props.horizontalPadding : '3vw'}
+        minHeight={props.minHeight ? props.minHeight : '50vh'}
+        verticalPadding={props.verticalPadding ? props.verticalPadding : '8vh'}
         verticalAlignment='start'
       >
         <Column>
-          {children}
+          {props.children}
         </Column>
       </Section>
     </div>

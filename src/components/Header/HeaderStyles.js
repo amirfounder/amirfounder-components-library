@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import {
-  handleBackgroundColorStyle,
-  handleBoxShadowStyle,
-  handleHeightStyle,
-  handleMinHeightStyle
-} from "./HeaderService";
+  generateHeaderBackgroundColorStyle,
+  generateHeaderBoxShadow,
+  generateHeaderHeight,
+  generateHeaderMaxHeight,
+  generateHeaderMinHeight
+} from "./HeaderStylingService";
 
-const HeaderDiv = styled.div`
-  background-color: ${(props) => handleBackgroundColorStyle(props.backgroundColor)};
-  box-shadow: ${(props) => handleBoxShadowStyle(props.shadow)};
-  min-height: ${(props) => handleMinHeightStyle(props.size)};
-  height: ${(props) => handleHeightStyle(props.size)};
+const StyledHeader = styled.div`
+  align-items: center;
+  display: grid;
+  background-color: ${(props) => generateHeaderBackgroundColorStyle(props.backgroundColor)};
+  box-shadow: ${(props) => generateHeaderBoxShadow(props.shadow)};
+  height: ${(props) => generateHeaderHeight(props.size, props.height)};
+  max-height: ${(props) => generateHeaderMaxHeight(props.size, props.maxHeight)};
+  min-height: ${(props) => generateHeaderMinHeight(props.size, props.minHeight)};
 `
 
-export default HeaderDiv
+export default StyledHeader

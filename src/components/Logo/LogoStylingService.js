@@ -5,3 +5,5 @@ export const handleSizeStyle = (size) => {
   if (size.toLowerCase() === 'large') return '22px'
   return size.toLowerCase()
 }
+
+export const generateLogoColor = (colorProp) => colorProp ? colorProp.toLowerCase() : 'black'

@@ -9,16 +9,13 @@ import ColumnDiv from './ColumnStyles';
  * @param {*} Props children, alignment
  * @returns Component
  */
-export const Column = ({
-  children,
-  alignment
-}) => {
+export const Column = (props) => {
   return(
     <ColumnDiv
-      className='column'
-      alignment={alignment}
+      className='af-column'
+      {...props}
     >
-      {children}
+      {props.children}
     </ColumnDiv>
   )
 }

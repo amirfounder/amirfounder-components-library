@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { handleAlignmentStyle, handleDirectionStyle, handleMenuDivAlignment } from './MenuService';
+import { handleAlignmentStyle, handleDirectionStyle, handleMenuDivAlignment } from './MenuStylingService';
 
 export const MenuDiv = styled.div`
   justify-self: ${(props) => handleMenuDivAlignment(props.alignment)};

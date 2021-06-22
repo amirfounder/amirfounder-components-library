@@ -48,6 +48,8 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 
 When writing code for this guide, follow the following code guidelines
 
+Backlog → https://github.com/orgs/amirfounder/projects/1
+
 ### Publishing Steps
 
 1. If new components were created, export them via the /src/index.js file
@@ -63,9 +65,9 @@ When writing code for this guide, follow the following code guidelines
 
 Paramaters should be in the following order for easier readability and maintanability:
 
-1. Custom (i.e. 'variant', 'size', etc.) -> determines multiple styles
-2. Actual (i.e. padding : paddingProp, color: colorProp, etc) -> The actual attribute if it exists
-3. Other -> Any other prop that can help determine the return value of the function
+1. Custom (i.e. 'variant', 'size', etc.) → determines multiple styles
+2. Actual (i.e. padding : paddingProp, color: colorProp, etc) → The actual attribute if it exists
+3. Other → Any other prop that can help determine the return value of the function
 
 ## Version History:
 

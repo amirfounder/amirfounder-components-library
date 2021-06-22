@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import {
   BrowserRouter,
-  // Link
 } from 'react-router-dom';
 
-import { Header } from '../components/Header';
+import { Header } from '../components/Header/Header';
 import { Logo } from '../components/Logo';
 import { Column } from '../components/Column';
 import { Link } from '../components/Link';

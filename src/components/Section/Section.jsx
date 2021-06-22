@@ -8,26 +8,13 @@ import SectionDiv from './SectionStyles';
  * @param {*} Props children, columns, className, horizontalPadding, backgroundColor, verticalPadding, minHeight, verticalAlign
  * @returns Component
  */
-export const Section = ({
-  columns,
-  children,
-  horizontalPadding,
-  backgroundColor,
-  verticalPadding,
-  height,
-  verticalAlignment
-}) => {
+export const Section = (props) => {
   return (
     <SectionDiv
       className='af-section'
-      verticalAlignment={verticalAlignment}
-      verticalPadding={verticalPadding}
-      horizontalPadding={horizontalPadding}
-      columns={columns}
-      height={height}
-      backgroundColor={backgroundColor}
+      {...props}
     >
-      {children}
+      {props.children}
     </SectionDiv>
   )
 }

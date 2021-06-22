@@ -3,15 +3,15 @@ import {
   generateButtonBorder,
   generateButtonFontSize,
   generateButtonPadding,
-  handleBackgroundColorStyle,
+  generateBackgroundColorStyle,
   handleColorStyle,
   handleHoverBackgroundColorStyle,
   handleHoverBorderColorStyle,
   handleHoverColorStyle,
-} from "./ButtonStylesService";
+} from "./ButtonStylingService";
 
 const StyledButton = styled.button`
-  background-color: ${(props) => handleBackgroundColorStyle(props.variant,props.backgroundColor)};
+  background-color: ${(props) => generateBackgroundColorStyle(props.variant,props.backgroundColor)};
   border: ${(props) => generateButtonBorder(props.backgroundColor)};
   color: ${(props) => handleColorStyle(props.variant, props.backgroundColor,props.color)};
   font-size: ${(props) => generateButtonFontSize(props.size)};
@@ -23,7 +23,7 @@ const StyledButton = styled.button`
     transition-duration: .3s;
   }
   :not(:hover) {
-    background-color: ${(props) => handleBackgroundColorStyle(props.variant, props.backgroundColor)};
+    background-color: ${(props) => generateBackgroundColorStyle(props.variant, props.backgroundColor)};
     border: ${(props) => generateButtonBorder(props.backgroundColor)};
     color: ${(props) => handleColorStyle(props.variant, props.backgroundColor, props.color)};
     transition-duration: .3s;

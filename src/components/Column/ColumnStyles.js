@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { handleJustifySelfStyle } from "./ColumnService";
+import { handleJustifySelfStyle } from "./ColumnStylingService";
 
 const ColumnDiv = styled.div`
   justify-self: ${(props) => handleJustifySelfStyle(props.alignment)};

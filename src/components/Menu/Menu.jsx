@@ -9,33 +9,27 @@ import './Menu.css';
  * @param {*} Props children, direction, alignment, className
  * @returns Component
  */
-export const Menu = ({
-  children,
-  direction,
-  alignment,
-}) => {
+export const Menu = (props) => {
 
   return (
     <MenuDiv
-      alignment={alignment}
+      alignment={props.alignment}
       className='menu'
     >
-      {children &&
-        !children.length &&
+      {props.children && !props.children.length &&
         <MenuChildDiv
-          direction={direction ? direction : 'horizontal'}
-          alignment={alignment ? alignment : 'left'}
+          direction={props.direction ? props.direction : 'horizontal'}
+          alignment={props.alignment ? props.alignment : 'left'}
         >
-          {children}
+          {props.children}
         </MenuChildDiv>
       }
-      {children &&
-        children.length > 1 &&
-        children.map((child, index) => (
+      {props.children && props.children.length > 1 &&
+        props.children.map((child, index) => (
           <MenuChildDiv
             key={child + index}
-            direciton={direction ? direction : 'horizontal'}
-            alignment={alignment ? alignment : 'left'}
+            direciton={props.direction ? props.direction : 'horizontal'}
+            alignment={props.alignment ? props.alignment : 'left'}
           >
             {child}
           </MenuChildDiv>

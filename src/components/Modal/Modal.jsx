@@ -10,25 +10,20 @@ import { Container } from '../Container';
  * @param {*} Props children, show
  * @returns Component
  */
-export const Modal = ({
-  children,
-  show,
-  size,
-  width,
-  height
-}) => {
+export const Modal = (props) => {
   return (
     <div
-      hidden={!show}
-      className={`modal`}
+      className="af-modal"
+      hidden={!props.show}
     >
-      <ModalBackgroundDiv className={'modal-background'}>
+      <ModalBackgroundDiv
+        className="af-modal-background"
+      >
         <Container
-          size={size}
-          width={width ? width : '40vw'}
-          height={height}
+          width={props.width ? props.width.toLowercase() : '40vw'}
+          {...props}
         >
-          {children}
+          {props.children}
         </Container>
       </ModalBackgroundDiv>
     </div>

@@ -16,31 +16,14 @@ import StyledButton from './ButtonStyles';
  * @property {String} variant Variant of the button ['filled', 'outline']
  * @returns Component
  */
-export const Button = ({
-  backgroundColor,
-  backgroundHoverColor,
-  borderHoverColor,
-  children,
-  color,
-  hoverColor,
-  onClick,
-  size,
-  variant,
-}) => {
+export const Button = (props) => {
 
   return (
     <StyledButton
-      color={color}
       className="button"
-      onClick={onClick}
-      variant={variant}
-      backgroundColor={backgroundColor}
-      backgroundHoverColor={backgroundHoverColor}
-      hoverColor={hoverColor}
-      borderHoverColor={borderHoverColor}
-      size={size}
+      {...props}
     >
-      {children}
+      {props.children}
     </StyledButton>
   )
 }

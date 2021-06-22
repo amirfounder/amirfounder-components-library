@@ -1,21 +1,21 @@
 import styled, { css } from "styled-components";
 import {
-  handleBackgroundAttachmentStyle,
-  handleBackgroundImageStyle,
-  handleBackgroundRepeatStyle,
-  handleBackgroundSizeStyle,
+  generateBackgroundAttachmentStyle,
+  generateBackgroundImageStyle,
+  generateBackgroundRepeatStyle,
+  generateBackgroundSizeStyle,
   handleColorStyle,
   handleFontSizeStyle,
   handleFontWeightStyle,
   handleWebkitTextFillColor
-} from "./HeadingStylesService";
+} from "./HeadingStylingService";
 
 const shared = () => css`
-  ${(props) => handleBackgroundImageStyle(props.backgroundImage)};
-  background-attachment: ${(props) => handleBackgroundAttachmentStyle(props.backgroundAttachment)};
-  background-size: ${(props) => handleBackgroundSizeStyle(props.backgroundSize)};
+  ${(props) => generateBackgroundImageStyle(props.backgroundImage)};
+  background-attachment: ${(props) => generateBackgroundAttachmentStyle(props.backgroundAttachment)};
+  background-size: ${(props) => generateBackgroundSizeStyle(props.backgroundSize)};
   background-clip: text;
-  background-repeat: ${(props) => handleBackgroundRepeatStyle(props.backgroundRepeatStyle)};
+  background-repeat: ${(props) => generateBackgroundRepeatStyle(props.backgroundRepeatStyle)};
   color: ${(props) => handleColorStyle(props.color)};
   font-weight: ${(props) => handleFontWeightStyle(props.weight)};
   -webkit-background-clip: text;
