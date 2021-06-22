@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 import {
-  BrowserRouter,
-} from 'react-router-dom';
-
-import { Header } from '../components/Header/Header';
-import { Logo } from '../components/Logo';
-import { Column } from '../components/Column';
-import { Link } from '../components/Link';
-import { Menu } from '../components/Menu';
-import { Page } from '../components/Page';
-import { Heading } from '../components/Heading';
-import { Paragraph } from '../components/Paragraph';
-import { Button } from '../components/Button';
-import { Modal } from '../components/Modal';
-import { Input } from '../components/Input';
+  Header,
+  Logo,
+  Container,
+  Column,
+  Link,
+  Menu,
+  Page,
+  Heading,
+  Paragraph,
+  Button,
+  Modal,
+  Input,
+} from '../index'
 
 const stories = storiesOf('Sandbox', module)
-stories.add('main', () => {
-  
-  const [showModal, setShowModal] = useState(false)
 
+stories.add('Sandbox', () => {
+  const [showModal, setShowModal] = useState(false)
   return (
     <>
       <BrowserRouter>
@@ -76,6 +75,70 @@ stories.add('main', () => {
           </Modal>
         </Page>
       </BrowserRouter>
+    </>
+  )
+})
+
+stories.add('Sandbox 2', () => {
+  return(
+    <>
+        <Container padding="5px">
+          <Button size="large">Learn More</Button>
+        </Container>
+        <Container padding="5px">
+          <Button size="medium">Learn More</Button>
+        </Container>
+        <Container padding="5px">
+          <Button size="small">Learn More</Button>
+        </Container>
+        <hr />
+        <Heading level="1">Heading 1</Heading>
+        <Heading>Heading 2</Heading>
+        <Heading level="3">Heading 3</Heading>
+        <Heading level="4">Heading 4</Heading>
+        <Heading level="5">Heading 5</Heading>
+        <Heading level="6">Heading 6</Heading>
+        <hr />
+        <Container padding="5px">
+          <Link size="large">Link</Link>
+        </Container>
+        <Container padding="5px">
+          <Link size="medium">Link</Link>
+        </Container>
+        <Container padding="5px">
+          <Link size="small">Link</Link>
+        </Container>
+        <hr />
+        <Container padding="25px 0px">
+          <Header shadow>
+            <Logo />
+            <Menu alignment="right">
+              <Link>Nav Link 1</Link>
+              <Link>Nav Link 1</Link>
+              <Link>Nav Link 1</Link>
+            </Menu>
+          </Header>
+        </Container>
+        <Container padding="25px 0px">
+          <Header shadow backgroundColor="black">
+            <Logo color="white"/>
+            <Menu alignment="right">
+              <Link>Nav Link 1</Link>
+              <Link>Nav Link 1</Link>
+              <Link>Nav Link 1</Link>
+            </Menu>
+          </Header>
+        </Container>
+    </>
+  )
+})
+
+stories.add('Sandbox 3', () => {
+  return(
+    <>
+      <Heading>
+        Coming soon...
+      </Heading>
     </>
   )
 })

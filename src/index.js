@@ -1,4 +1,4 @@
-export * from './components/Button'
+export * from './components/Button/Button'
 export * from './components/Column'
 export * from './components/Container'
 export * from './components/Header/Header'

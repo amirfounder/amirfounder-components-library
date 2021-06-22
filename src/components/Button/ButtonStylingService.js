@@ -1,22 +1,32 @@
-export const generateButtonPadding = (paddingProp) => {
-  if (!paddingProp) return '8px 20px'
-  if (paddingProp.toLowerCase() === 'large') return '12px 30px'
-  if (paddingProp.toLowerCase() === 'medium') return '8px 20px'
-  if (paddingProp.toLowerCase() === 'small') return '6px 15px'
-  return paddingProp.toLowerCase()
+export const generateButtonPadding = (sizeProp, paddingProp) => {
+  if (paddingProp) return paddingProp.toLowerCase();
+  if (sizeProp) {
+    if (sizeProp.toLowerCase() === 'large') return '12px 30px'
+    if (sizeProp.toLowerCase() === 'medium') return '8px 20px'
+    if (sizeProp.toLowerCase() === 'small') return '6px 15px'
+  }
+  return '8px 20px'
 }
 
-export const generateButtonFontSize = (sizeProp) => {
-  if (!sizeProp) return '16px';
-  if (sizeProp.toLowerCase() === 'large') return '18px';
-  if (sizeProp.toLowerCase() === 'medium') return '15px';
-  if (sizeProp.toLowerCase() === 'small') return '12px';
-  return sizeProp.toLowerCase();
+export const generateButtonFontSize = (sizeProp, fontSizeProp) => {
+  if (fontSizeProp) return fontSizeProp.toLowerCase();
+  if (sizeProp) {
+    if (sizeProp.toLowerCase() === 'large') return '18px';
+    if (sizeProp.toLowerCase() === 'medium') return '15px';
+    if (sizeProp.toLowerCase() === 'small') return '12px';
+  }
+  return '15px';
 }
 
-export const generateButtonBorder = (backgroundColorProp) => {
+export const generateButtonBorder = (backgroundColorProp, ) => {
   if (!backgroundColorProp) return '1px solid black'
   return `1px solid ${backgroundColorProp.toLowerCase()}`
+}
+
+export const generateButtonBorderColor = (backgroundColorProp, borderColorProp) => {
+  if (borderColorProp) return borderColorProp.toLowerCase();
+  if (backgroundColorProp) return backgroundColorProp.toLowerCase();
+  return 'black'
 }
 
 export const generateBackgroundColorStyle = (variantProp, backgroundColorProp) => {
