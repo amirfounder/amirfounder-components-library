@@ -1,29 +1,19 @@
 import React from 'react';
-import './Container.css'
 import ContainerDiv from './ContainerStyles';
 
 /**
  * @name Container
- * @description Renders a container component
- * @param {*} Props children
+ * @description Renders the Container component
+ * @param {*} props Props
  * @returns Component
  */
-export const Container = ({
-  children,
-  backgroundColor,
-  size,
-  width,
-  height
-}) => {
+export const Container = (props) => {
   return(
     <ContainerDiv
-      size={size}
-      backgroundColor={backgroundColor}
       className='af-container'
-      height={height}
-      width={width}
+      {...props}
     >
-      {children}
+      {props.children}
     </ContainerDiv>
   )
 }

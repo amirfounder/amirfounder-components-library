@@ -1,11 +1,16 @@
 import styled from 'styled-components';
-import { handleAlignmentStyle, handleDirectionStyle, handleMenuDivAlignment } from './MenuService';
+import {
+  generateMenuChildDisplay,
+  generateMenuChildMargin,
+  generateMenuJustifySelf
+} from './MenuStylingService';
 
 export const MenuDiv = styled.div`
-  justify-self: ${(props) => handleMenuDivAlignment(props.alignment)};
+  justify-self: ${(props) => generateMenuJustifySelf(props.alignment)};
+  padding: 10px 0px;
 `
 
 export const MenuChildDiv = styled.div`
-  display: ${(props) => handleDirectionStyle(props.direction)};
-  margin: ${(props) => handleAlignmentStyle(props.alignment)};
+  display: ${(props) => generateMenuChildDisplay(props.direction)};
+  margin: ${(props) => generateMenuChildMargin(props.alignment)};
 `

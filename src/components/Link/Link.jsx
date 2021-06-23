@@ -1,41 +1,29 @@
 import React from 'react';
 const { useHistory } = require('react-router-dom')
-import LinkDiv from './LinkStyles'
-import './Link.css'
+import StyledLink from './LinkStyles'
 
 /**
  * @name Link
- * @description Renders a Custom Link Component.
- * @param {*} Props children, to, color
+ * @description Renders the Link component.
+ * @param {*} props Props
  * @returns Component
  */
-export const Link = ({
-  children,
-  to,
-  color,
-  size,
-  weight,
-  hoverColor
-}) => {
-
+export const Link = (props) => {
   const history = useHistory();
 
   /**
    * @name handleClick
    * @description Uses history to redirect to the provided path
    */
-  const handleClick = () => to && history.push(to)
+  const handleClick = () => props.to && history.push(props.to)
   
   return(
-    <LinkDiv
+    <StyledLink
       className='af-link'
-      color={color}
-      size={size}
-      weight={weight}
-      hoverColor={hoverColor}
       onClick={handleClick}
+      {...props}
     >
-      {children}
-    </LinkDiv>
+      {props.children}
+    </StyledLink>
   )
 }

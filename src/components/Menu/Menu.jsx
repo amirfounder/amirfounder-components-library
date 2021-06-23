@@ -1,41 +1,36 @@
 import React from 'react';
-import { MenuDiv, MenuChildDiv } from './MenuStyles';
-import './Menu.css';
+import {
+  MenuDiv,
+  MenuChildDiv
+} from './MenuStyles';
 
 /**
  * @name Menu
- * @description Renders a Navigation Menu. Requires at LEAST TWO children.
- * @recommendedChild Link Props
- * @param {*} Props children, direction, alignment, className
+ * @description Renders the Menu component
+ * @param {*} props Props
  * @returns Component
  */
-export const Menu = ({
-  children,
-  direction,
-  alignment,
-}) => {
+export const Menu = (props) => {
 
   return (
     <MenuDiv
-      alignment={alignment}
+      alignment={props.alignment}
       className='menu'
     >
-      {children &&
-        !children.length &&
+      {props.children && !props.children.length &&
         <MenuChildDiv
-          direction={direction ? direction : 'horizontal'}
-          alignment={alignment ? alignment : 'left'}
+          direction={props.direction ? props.direction : 'horizontal'}
+          alignment={props.alignment ? props.alignment : 'left'}
         >
-          {children}
+          {props.children}
         </MenuChildDiv>
       }
-      {children &&
-        children.length > 1 &&
-        children.map((child, index) => (
+      {props.children && props.children.length > 1 &&
+        props.children.map((child, index) => (
           <MenuChildDiv
             key={child + index}
-            direciton={direction ? direction : 'horizontal'}
-            alignment={alignment ? alignment : 'left'}
+            direciton={props.direction ? props.direction : 'horizontal'}
+            alignment={props.alignment ? props.alignment : 'left'}
           >
             {child}
           </MenuChildDiv>

@@ -1,18 +1,26 @@
 import styled from 'styled-components';
-import { handleColorStyle, handleHoverColorStyle, handleSizeStyle, handleFontWeightStyle } from './LinkService';
+import { Constants } from '../../utils/Constants';
+import {
+  generateLinkColor,
+  generateLinkHoverColor,
+  generateLinkFontSize,
+  generateLinkFontWeight,
+} from './LinkStylingService';
 
-const LinkDiv = styled.div`
-  color: ${(props) => handleColorStyle(props.color)};
-  font-size: ${(props) => handleSizeStyle(props.size)};
-  font-weight: ${(props) => handleFontWeightStyle(props.weight)};
+const StyledLink = styled.div`
+  color: ${(props) => generateLinkColor(props.color)};
+  display: inline;
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-size: ${(props) => generateLinkFontSize(props.size)};
+  font-weight: ${(props) => generateLinkFontWeight(props.weight)};
   &:hover {
-    color: ${(props) => handleHoverColorStyle(props.color, props.hoverColor)};
+    color: ${(props) => generateLinkHoverColor(props.color, props.hoverColor)};
+    cursor: pointer;
     transition-duration: .3s;
   }
   &:not(:hover) {
-    color: ${(props) => handleColorStyle(props.color)};
     transition-duration: .3s;
   }
 `
 
-export default LinkDiv
+export default StyledLink

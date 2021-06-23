@@ -1,53 +1,57 @@
 import styled, { css } from "styled-components";
+import { Constants } from "../../utils/Constants";
 import {
-  handleBackgroundAttachmentStyle,
-  handleBackgroundImageStyle,
-  handleBackgroundRepeatStyle,
-  handleBackgroundSizeStyle,
-  handleColorStyle,
-  handleFontSizeStyle,
-  handleFontWeightStyle,
-  handleWebkitTextFillColor
-} from "./HeadingStylesService";
+  generateHeadingBackgroundAttachment,
+  generateHeadingBackground,
+  generateHeadingBackgroundRepeat,
+  generateHeadingBackgroundSize,
+  generateHeadingColor,
+  generateHeadingFontSize,
+  generateHeadingFontWeight,
+  generateHeadingWebkitTextFillColor
+} from "./HeadingStylingService";
 
-const shared = () => css`
-  ${(props) => handleBackgroundImageStyle(props.backgroundImage)};
-  background-attachment: ${(props) => handleBackgroundAttachmentStyle(props.backgroundAttachment)};
-  background-size: ${(props) => handleBackgroundSizeStyle(props.backgroundSize)};
+const shared = css`
+  background: ${(props) => generateHeadingBackground(props.backgroundImage)};
+  background-attachment: ${(props) => generateHeadingBackgroundAttachment(props.backgroundAttachment, props.background)};
   background-clip: text;
-  background-repeat: ${(props) => handleBackgroundRepeatStyle(props.backgroundRepeatStyle)};
-  color: ${(props) => handleColorStyle(props.color)};
-  font-weight: ${(props) => handleFontWeightStyle(props.weight)};
+  background-repeat: ${(props) => generateHeadingBackgroundRepeat(props.backgroundRepeat, props.background)};
+  background-size: ${(props) => generateHeadingBackgroundSize(props.backgroundSize, props.background)};
+  color: ${(props) => generateHeadingColor(props.color)};
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-weight: ${(props) => generateHeadingFontWeight(props.fontWeight)};
+  margin-block-start: 0em;
+  margin-block-end: .5em;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: ${(props) => handleWebkitTextFillColor(props.backgroundImage)};
+  -webkit-text-fill-color: ${(props) => generateHeadingWebkitTextFillColor(props.background)};
 `
 
 export const HeadingH1 = styled.h1`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 1)};
+  font-size: ${(props) => generateHeadingFontSize(1, props.size)};
 `
 
 export const HeadingH2 = styled.h2`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 2)};
+  font-size: ${(props) => generateHeadingFontSize(2, props.size)};
 `
 
 export const HeadingH3 = styled.h3`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 3)};
+  font-size: ${(props) => generateHeadingFontSize(3, props.size)};
 `
 
 export const HeadingH4 = styled.h4`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 4)};
+  font-size: ${(props) => generateHeadingFontSize(4, props.size)};
 `
 
 export const HeadingH5 = styled.h5`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 5)};
+  font-size: ${(props) => generateHeadingFontSize(5, props.size)};
 `
 
 export const HeadingH6 = styled.h6`
   ${shared}
-  font-size: ${(props) => handleFontSizeStyle(props.size, 6)};
+  font-size: ${(props) => generateHeadingFontSize(6, props.size)};
 `

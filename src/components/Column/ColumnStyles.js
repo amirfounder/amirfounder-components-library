@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import { handleJustifySelfStyle } from "./ColumnService";
+import { generateColumnJustifySelf } from "./ColumnStylingService";
 
+/**
+ * Styling for the Column Component
+ */
 const ColumnDiv = styled.div`
-  justify-self: ${(props) => handleJustifySelfStyle(props.alignment)};
+  align-items: center;
+  justify-self: ${(props) => generateColumnJustifySelf(props.alignment)};
 `
 
 export default ColumnDiv

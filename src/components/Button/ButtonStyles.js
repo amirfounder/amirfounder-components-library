@@ -1,31 +1,35 @@
 import styled from "styled-components";
 import {
-  generateButtonBorder,
+  generateButtonBorderColor,
+  generateButtonBackgroundColor,
+  generateButtonColor,
   generateButtonFontSize,
+  generateButtonHoverBackgroundColor,
+  generateButtonHoverBorderColor,
+  generateButtonHoverColor,
   generateButtonPadding,
-  handleBackgroundColorStyle,
-  handleColorStyle,
-  handleHoverBackgroundColorStyle,
-  handleHoverBorderColorStyle,
-  handleHoverColorStyle,
-} from "./ButtonStylesService";
+} from "./ButtonStylingService";
 
+/**
+ * Styling for the Button Component
+ */
 const StyledButton = styled.button`
-  background-color: ${(props) => handleBackgroundColorStyle(props.variant,props.backgroundColor)};
-  border: ${(props) => generateButtonBorder(props.backgroundColor)};
-  color: ${(props) => handleColorStyle(props.variant, props.backgroundColor,props.color)};
-  font-size: ${(props) => generateButtonFontSize(props.size)};
-  padding: ${(props) => generateButtonPadding(props.size)};
+  background-color: ${(props) => generateButtonBackgroundColor(props.variant, props.backgroundColor)};
+  border-color: ${(props) => generateButtonBorderColor(props.backgroundColor, props.borderColor)};
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  color: ${(props) => generateButtonColor(props.variant, props.color)};
+  font-size: ${(props) => generateButtonFontSize(props.size, props.fontSize)};
+  padding: ${(props) => generateButtonPadding(props.size, props.padding)};
   :hover {
-    background-color: ${(props) => handleHoverBackgroundColorStyle(props.variant, props.backgroundHoverColor)};
-    border: ${(props) => handleHoverBorderColorStyle(props.variant, props.backgroundColor, props.borderhoverColor)};
-    color: ${(props) => handleHoverColorStyle(props.variant, props.hoverColor)};
+    background-color: ${(props) => generateButtonHoverBackgroundColor(props.variant, props.hoverBackgroundColor)};
+    border-color: ${(props) => generateButtonHoverBorderColor(props.variant, props.hoverBackgroundColor, props.hoverBorderColor)};
+    color: ${(props) => generateButtonHoverColor(props.hoverColor)};
+    cursor: pointer;
     transition-duration: .3s;
   }
   :not(:hover) {
-    background-color: ${(props) => handleBackgroundColorStyle(props.variant, props.backgroundColor)};
-    border: ${(props) => generateButtonBorder(props.backgroundColor)};
-    color: ${(props) => handleColorStyle(props.variant, props.backgroundColor, props.color)};
     transition-duration: .3s;
   }
   

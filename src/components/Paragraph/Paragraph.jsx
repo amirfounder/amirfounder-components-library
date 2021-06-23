@@ -1,5 +1,5 @@
 import React from 'react';
-import './Paragraph.css'
+import StyledParagraph from './ParagraphStyles';
 
 /**
  * @name Paragraph
@@ -7,14 +7,13 @@ import './Paragraph.css'
  * @param {*} Props children
  * @returns Component
  */
-export const Paragraph = ({
-  children,
-}) => {
+export const Paragraph = (props) => {
   return (
-    <p
-      className='paragraph'
+    <StyledParagraph
+      className="af-paragraph"
+      {...props}
     >
-      {children}
-    </p>
+      {props.children}
+    </StyledParagraph>
   )
 }

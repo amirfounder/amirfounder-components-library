@@ -1,38 +1,17 @@
 import React from 'react';
-import './Input.css';
 import StyledInput from './InputStyles'
 
 /**
  * @name Input
- * @description Renders Input Component. Recommended to use with the Specific Input componenet
- * @param {*} param0 value, id, onChange, onInput, onKeyDown, type
+ * @description Renders the Input component
+ * @param {*} props Props
  * @returns Component
  */
-export const Input = ({
-  value,
-  id,
-  onChange,
-  onInput,
-  onKeyDown,
-  type,
-  placeholder,
-  fontSize,
-  lineHeight,
-  size={size}
-}) => {
+export const Input = (props) => {
   return(
     <StyledInput
-      className='input'
-      id={id}
-      placeholder={placeholder}
-      onChange={onChange}
-      onInput={onInput}
-      onKeyDown={onKeyDown}
-      type={type}
-      value={value}
-      fontSize={fontSize}
-      lineHeight={lineHeight}
-      size={size}
+      className='af-input'
+      {...props}
     />
   )
 }
