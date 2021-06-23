@@ -5,7 +5,7 @@
  * @param {HTMLElement(s)} children either an HTML element or collection of such prop
  * @returns String - grid template columns
  */
-export const handleColumnsStyle = (columnsProp, childrenProp) => {
+export const generateSectionGridTemplateColumns = (columnsProp, childrenProp) => {
   if (!columnsProp) {
     if (!childrenProp.length) return '1fr'
     if (childrenProp.length > 1) return `repeat(${childrenProp.length}, minmax(100px, 1fr))`
@@ -19,27 +19,16 @@ export const handleColumnsStyle = (columnsProp, childrenProp) => {
   return returnValue.trim()
 }
 
-export const handleVerticalAlignmentStyle = (verticalAlignmentProp) => {
+export const generateSectionAlignItems = (verticalAlignmentProp) => {
   if (!verticalAlignmentProp) return 'center'
   return verticalAlignmentProp
 }
 
-export const handleVerticalPaddingStyle = (verticalPaddingProp) => {
-  if (!verticalPaddingProp) return '0px'
-  return verticalPaddingProp
-}
+export const generateSectionPadding = (paddingProp) => paddingProp ? paddingProp.toLowerCase() : '0px'
 
-export const handleHorizontalPaddingStyle = (horizontalPaddingProp) => {
-  if (!horizontalPaddingProp) return '0px'
-  return horizontalPaddingProp
-}
+export const generateSectionHeight = (heightProp) => heightProp ? heightProp.toLowerCase() : '0px'
 
-export const handleHeightStyle = (heightProp) => {
-  if (!heightProp) return '0vh'
-  return heightProp
-}
-
-export const generateBackgroundColorStyle = (backgroundColorProp) => {
+export const generateBackgroundColor = (backgroundColorProp) => {
   if (!backgroundColorProp) return 'white'
   return backgroundColorProp
 }

@@ -1,19 +1,18 @@
 import styled from "styled-components";
 import {
-  handleColumnsStyle,
-  handleVerticalAlignmentStyle,
-  handleVerticalPaddingStyle,
-  handleHorizontalPaddingStyle,
-  handleHeightStyle,
-  generateBackgroundColorStyle
+  generateSectionGridTemplateColumns,
+  generateSectionAlignItems,
+  generateSectionHeight,
+  generateBackgroundColor,
+  generateSectionPadding
 } from "./SectionStylingService";
 
 const SectionDiv = styled.div`
-  grid-template-columns: ${(props) => handleColumnsStyle(props.columns, props.children)};
-  align-items: ${(props) => handleVerticalAlignmentStyle(props.verticalAlignment)};
-  padding: ${(props) => handleVerticalPaddingStyle(props.verticalPadding) + ' ' + handleHorizontalPaddingStyle(props.horizontalPadding)};
-  min-height: ${(props) => handleHeightStyle(props.height)};
-  background-color: ${(props) => generateBackgroundColorStyle(props.backgroundColor)};
+  grid-template-columns: ${(props) => generateSectionGridTemplateColumns(props.columns, props.children)};
+  align-items: ${(props) => generateSectionAlignItems(props.verticalAlignment)};
+  padding: ${(props) => generateSectionPadding(props.padding)};
+  min-height: ${(props) => generateSectionHeight(props.height)};
+  background-color: ${(props) => generateBackgroundColor(props.backgroundColor)};
   display: grid;
   column-gap: 1rem;
   align-items: center;

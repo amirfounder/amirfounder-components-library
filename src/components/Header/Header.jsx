@@ -15,7 +15,7 @@ export const Header = (props) => {
       {...props}
     >
       <Section
-        horizontalPadding={props.verticalPadding ? props.verticalPadding : '3vw'}
+        padding={props.padding ? props.padding : '0px 3vw'}
         verticalAlignment="center"
         {...props}
       >

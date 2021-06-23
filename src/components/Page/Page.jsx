@@ -5,8 +5,8 @@ import StyledPage from './PageStyles';
 
 /**
  * @name Page
- * @description Renders a Page. Use as a wrapper when rendering a new page.
- * @param {*} Props minHeight, verticalPadding, horizontalPadding, children, columns
+ * @description Renders the Page component
+ * @param {*} props Props
  * @returns Component
  */
 export const Page = (props) => {
@@ -16,9 +16,8 @@ export const Page = (props) => {
     >
       <Section
         {...props}
-        horizontalPadding={props.horizontalPadding ? props.horizontalPadding : '3vw'}
         minHeight={props.minHeight ? props.minHeight : '50vh'}
-        verticalPadding={props.verticalPadding ? props.verticalPadding : '8vh'}
+        padding={props.paddings ? props.padding : '8vh 3vw'}
         verticalAlignment='start'
       >
         <Column>
