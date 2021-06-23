@@ -1,12 +1,13 @@
 import React from 'react';
-import { MenuDiv, MenuChildDiv } from './MenuStyles';
-import './Menu.css';
+import {
+  MenuDiv,
+  MenuChildDiv
+} from './MenuStyles';
 
 /**
  * @name Menu
- * @description Renders a Navigation Menu. Requires at LEAST TWO children.
- * @recommendedChild Link Props
- * @param {*} Props children, direction, alignment, className
+ * @description Renders the Menu component
+ * @param {*} props Props
  * @returns Component
  */
 export const Menu = (props) => {

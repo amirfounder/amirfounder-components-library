@@ -1,6 +1,8 @@
 import React from 'react';
-import './Modal.css'
-import ModalBackgroundDiv from './ModalStyles';
+import {
+  StyledModal,
+  StyledModalBackground
+} from './ModalStyles';
 import { Container } from '../Container/Container';
 
 /**
@@ -12,11 +14,11 @@ import { Container } from '../Container/Container';
  */
 export const Modal = (props) => {
   return (
-    <div
+    <StyledModal
       className="af-modal"
       hidden={!props.show}
     >
-      <ModalBackgroundDiv
+      <StyledModalBackground
         className="af-modal-background"
       >
         <Container
@@ -25,7 +27,7 @@ export const Modal = (props) => {
         >
           {props.children}
         </Container>
-      </ModalBackgroundDiv>
-    </div>
+      </StyledModalBackground>
+    </StyledModal>
   )
 }

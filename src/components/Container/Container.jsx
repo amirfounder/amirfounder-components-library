@@ -4,7 +4,7 @@ import ContainerDiv from './ContainerStyles';
 /**
  * @name Container
  * @description Renders the Container component
- * @param {*} Props Props
+ * @param {*} props Props
  * @returns Component
  */
 export const Container = (props) => {

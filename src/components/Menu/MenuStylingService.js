@@ -1,11 +1,16 @@
-export const handleDirectionStyle = (directionProp) => {
-  if (!directionProp) return 'inline'
-  if (directionProp.toLowerCase() === 'horizontal') return 'inline'
-  if (directionProp.toLowerCase() === 'vertical') return 'block'
+export const generateMenuChildDisplay = (directionProp) => {
+  if (directionProp) {
+    if (directionProp.toLowerCase() === 'horizontal') return 'inline'
+    if (directionProp.toLowerCase() === 'vertical') return 'block'
+  }
   return 'inline'
 }
 
-export const handleAlignmentStyle = (alignmentProp, childSelector) => {
+/**
+ * @todo rewrite this documentation
+ * @todo get the margins correct for each selector
+ */
+export const generateMenuChildMargin = (alignmentProp, childSelector) => {
   if (!alignmentProp) return '0px 2.5vw 0px 0px'
   if (alignmentProp === 'center') {
     if (childSelector === 'not-first-not-last') return '0px 1.25vw'
@@ -17,7 +22,7 @@ export const handleAlignmentStyle = (alignmentProp, childSelector) => {
   return '0px 2.5vw 0px 0px'
 }
 
-export const handleMenuDivAlignment = (alignmentProp) => {
+export const generateMenuJustifySelf = (alignmentProp) => {
   if (!alignmentProp) return 'start'
   if (alignmentProp === 'left') return 'start'
   if (alignmentProp === 'center') return 'center'

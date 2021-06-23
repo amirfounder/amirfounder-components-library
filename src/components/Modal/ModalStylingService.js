@@ -1,10 +1,7 @@
 /**
- * @name generateBackgroundColorStyle
- * @description Converts user inputted background color into a useable format for styled component
- * @param {String} backgroundColor Background color. Either String or RGBA format
- * @returns String
+ * @name generateModalBackground
+ * @description Generates css styling for the modal background color
+ * @param {String} backgroundColorProp Background color
+ * @returns String css style
  */
-export const generateBackgroundColorStyle = (backgroundColor) => {
-  if (!backgroundColor) return 'rgba(0,0,0,.3)'
-  return backgroundColor
-}
+export const generateModalBackground = (backgroundColorProp) => backgroundColorProp ? backgroundColorProp.toLowerCase() : 'rgba(0,0,0,0.25)'

@@ -11,7 +11,7 @@ import {
 /**
  * @name Heading
  * @description Renders the Heading component
- * @param {*} Props Props
+ * @param {*} props Props
  * @returns Component
  */
 export const Heading = (props) => (

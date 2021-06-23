@@ -3,8 +3,8 @@ import StyledInput from './InputStyles'
 
 /**
  * @name Input
- * @description Renders Input Component. Recommended to use with the Specific Input componenet
- * @param {*} param0 value, id, onChange, onInput, onKeyDown, type
+ * @description Renders the Input component
+ * @param {*} props Props
  * @returns Component
  */
 export const Input = (props) => {

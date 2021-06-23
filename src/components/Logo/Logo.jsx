@@ -4,8 +4,8 @@ import LogoDiv from './LogoStyles';
 
 /**
  * @name Logo
- * @description Renders the 'amirfounder' logo
- * @param {*} Props size, onClick
+ * @description Renders the Logo component
+ * @param {*} props Props
  * @returns Component
  */
 export const Logo = (props) => {
@@ -24,7 +24,7 @@ export const Logo = (props) => {
       onClick={handleClick}
       {...props}
     >
-      Amir Sharapov
+      Amir Sharapov {props.unit}
     </LogoDiv>
   )
 }

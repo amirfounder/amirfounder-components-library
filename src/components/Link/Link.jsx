@@ -5,7 +5,7 @@ import StyledLink from './LinkStyles'
 /**
  * @name Link
  * @description Renders the Link component.
- * @param {*} Props Props
+ * @param {*} props Props
  * @returns Component
  */
 export const Link = (props) => {
