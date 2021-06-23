@@ -7,7 +7,7 @@ import {
   generateLinkFontWeight,
 } from './LinkStylingService';
 
-const LinkDiv = styled.div`
+const StyledLink = styled.div`
   color: ${(props) => generateLinkColor(props.color)};
   display: inline;
   font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
@@ -23,4 +23,4 @@ const LinkDiv = styled.div`
   }
 `
 
-export default LinkDiv
+export default StyledLink

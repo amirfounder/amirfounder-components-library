@@ -19,4 +19,4 @@ export const generateLinkFontSize = (sizeProp, fontSizeProp) => {
   return '16px';
 }
 
-export const generateLinkFontWeight = (weightProp) => weightProp ? weightProp : 300
+export const generateLinkFontWeight = (weightProp) => weightProp ? weightProp.toLowerCase() : 300

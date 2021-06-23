@@ -1,7 +1,6 @@
 import React from 'react';
 const { useHistory } = require('react-router-dom')
-import LinkDiv from './LinkStyles'
-import './Link.css'
+import StyledLink from './LinkStyles'
 
 /**
  * @name Link
@@ -19,12 +18,12 @@ export const Link = (props) => {
   const handleClick = () => to && history.push(to)
   
   return(
-    <LinkDiv
+    <StyledLink
       className='af-link'
       onClick={handleClick}
       {...props}
     >
       {props.children}
-    </LinkDiv>
+    </StyledLink>
   )
 }
