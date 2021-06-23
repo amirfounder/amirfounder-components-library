@@ -1,7 +1,7 @@
 import React from 'react';
-import { Section } from '../Section';
+import { Section } from '../Section/Section';
 import { Column } from '../Column/Column';
-import './Page.css'
+import StyledPage from './PageStyles';
 
 /**
  * @name Page
@@ -11,7 +11,7 @@ import './Page.css'
  */
 export const Page = (props) => {
   return (
-    <div
+    <StyledPage
       className="af-page"
     >
       <Section
@@ -25,6 +25,6 @@ export const Page = (props) => {
           {props.children}
         </Column>
       </Section>
-    </div>
+    </StyledPage>
   )
 }

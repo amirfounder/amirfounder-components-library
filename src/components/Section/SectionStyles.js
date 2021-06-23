@@ -14,6 +14,10 @@ const SectionDiv = styled.div`
   padding: ${(props) => handleVerticalPaddingStyle(props.verticalPadding) + ' ' + handleHorizontalPaddingStyle(props.horizontalPadding)};
   min-height: ${(props) => handleHeightStyle(props.height)};
   background-color: ${(props) => generateBackgroundColorStyle(props.backgroundColor)};
+  display: grid;
+  column-gap: 1rem;
+  align-items: center;
+}
 `
 
 export default SectionDiv
