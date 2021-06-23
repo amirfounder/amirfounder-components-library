@@ -16,7 +16,6 @@ const SectionDiv = styled.div`
   display: grid;
   column-gap: 1rem;
   align-items: center;
-}
 `
 
 export default SectionDiv

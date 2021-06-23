@@ -61,7 +61,7 @@ Backlog → https://github.com/orgs/amirfounder/projects/1
 
 ### Coding Styleguide
 
-### Writing '...StylesService.js' functions:
+#### Writing '...StylesService.js' functions:
 
 Paramaters should be in the following order for easier readability and maintanability:
 
