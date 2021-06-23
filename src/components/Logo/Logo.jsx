@@ -22,7 +22,7 @@ export const Logo = (props) => {
     <LogoDiv
       className='af-logo'
       onClick={handleClick}
-      {...props}
+      {...props} 
     >
       Amir Sharapov {props.unit}
     </LogoDiv>
