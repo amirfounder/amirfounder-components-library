@@ -137,4 +137,5 @@ Components no longer use an external .css file for styling and depend fully on s
 #### 1.2.1 - 1.2.x
 
 1. Updated README Installation Warning and Publishing Steps for developers
+2. Fixed Link Bug
 

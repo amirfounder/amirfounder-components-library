@@ -15,7 +15,7 @@ export const Link = (props) => {
    * @name handleClick
    * @description Uses history to redirect to the provided path
    */
-  const handleClick = () => to && history.push(to)
+  const handleClick = () => props.to && history.push(props.to)
   
   return(
     <StyledLink
