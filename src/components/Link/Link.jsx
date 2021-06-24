@@ -15,7 +15,10 @@ export const Link = (props) => {
    * @name handleClick
    * @description Uses history to redirect to the provided path
    */
-  const handleClick = () => props.to && history.push(props.to)
+  const handleClick = () => {
+    if (props.to) history.push(props.to);
+    if (props.href) window.location.href = props.href
+  }
   
   return(
     <StyledLink
