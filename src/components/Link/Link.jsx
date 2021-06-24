@@ -17,7 +17,7 @@ export const Link = (props) => {
    */
   const handleClick = () => {
     if (props.to) history.push(props.to);
-    if (props.href) window.location.href = props.href
+    if (props.href) window.open(props.href, '_blank')
   }
   
   return(

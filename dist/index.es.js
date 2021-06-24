@@ -112,7 +112,7 @@ import e,{useRef as t,useDebugValue as r,useContext as n,createElement as o}from
   &:not(:hover) {
     transition-duration: .3s;
   }
-`,{useHistory:_t}=require("react-router-dom"),It=t=>{const r=_t();return e.createElement(Pt,i({className:"af-link",onClick:()=>{t.to&&r.push(t.to),t.href&&(window.location.href=t.href)}},t),t.children)},Rt=ct.div`
+`,{useHistory:_t}=require("react-router-dom"),It=t=>{const r=_t();return e.createElement(Pt,i({className:"af-link",onClick:()=>{t.to&&r.push(t.to),t.href&&window.open(t.href,"_blank")}},t),t.children)},Rt=ct.div`
   color: ${e=>{return(t=e.color)?t.toLowerCase():"black";var t}};
   font-family: ${bt.PROPS.FONT_FAMILIES.ROBOTO};
   font-size: ${e=>((e,t)=>{if(t)return t.toLowerCase();if(e){if("small"===e.toLowerCase())return"14px";if("medium"===e.toLowerCase())return"18px";if("large"===e.toLowerCase())return"22px"}return"18px"})(e.size,e.fontSize)};

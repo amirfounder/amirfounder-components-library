@@ -138,4 +138,5 @@ Components no longer use an external .css file for styling and depend fully on s
 
 1. Updated README Installation Warning and Publishing Steps for developers
 2. Fixed Link Bug
-3. Allowd Link to redirect to external sites
+3. Allows Link to redirect to external sites
+4. Allows Link to redirect to external site in new tab
