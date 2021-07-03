@@ -24,7 +24,7 @@ export const Logo = (props) => {
       onClick={handleClick}
       {...props} 
     >
-      Amir Sharapov {props.unit}
+      {props.children ? props.children : 'Amir Sharapov'}
     </LogoDiv>
   )
 }

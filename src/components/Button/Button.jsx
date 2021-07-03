@@ -11,10 +11,10 @@ import StyledButton from './ButtonStyles';
 export const Button = (props) => {
 
   const globalStyles = useGlobalStylesContext();
-  
+
   return (
     <StyledButton
-      className="button"
+      className="af-button"
       global={globalStyles}
       {...props}
     >

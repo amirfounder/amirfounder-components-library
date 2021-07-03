@@ -138,7 +138,8 @@ stories.add('Sandbox 3', () => {
 
   const globalStyles = {
     button: {
-      backgroundColor: "red"
+      size: 'large',
+      variant: 'outline',
     },
     heading: {
       color: "red"
@@ -146,16 +147,17 @@ stories.add('Sandbox 3', () => {
   }
 
   return(
-    <>
+    <Page>
       <GlobalStylesProvider
         globalStyles={globalStyles}
       >
         <Heading>
           Coming soon...
         </Heading>
-        <Button>Hello</Button>
-        <Button>Another one</Button>
+        <Button size="small">Click me</Button>
+        <Button size="medium">Click me</Button>
+        <Button>Click me</Button>
       </GlobalStylesProvider>
-    </>
+    </Page>
   )
 })
