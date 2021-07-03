@@ -8,13 +8,13 @@ import {
 } from './LinkStylingService';
 
 const StyledLink = styled.div`
-  color: ${(props) => generateLinkColor(props.color)};
+  color: ${(props) => generateLinkColor(props)};
   display: inline;
   font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
-  font-size: ${(props) => generateLinkFontSize(props.size)};
-  font-weight: ${(props) => generateLinkFontWeight(props.weight)};
+  font-size: ${(props) => generateLinkFontSize(props)};
+  font-weight: ${(props) => generateLinkFontWeight(props)};
   &:hover {
-    color: ${(props) => generateLinkHoverColor(props.color, props.hoverColor)};
+    color: ${(props) => generateLinkHoverColor(props)};
     cursor: pointer;
     transition-duration: .3s;
   }
