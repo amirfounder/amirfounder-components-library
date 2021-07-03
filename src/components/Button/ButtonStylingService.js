@@ -13,7 +13,7 @@ export const generateButtonBackgroundColor = (props) => {
       // IMPORTANCE LEVEL 2.1 --> BACKGROUND COLOR
       if (backgroundColor) return backgroundColor.toLowerCase()
       // IMPORTANCE LEVEL 2.2 --> (GLOBAL) BACKGROUND COLOR
-      if (global.backgroundColor) return global.backgroundColor.toLowerCase()
+      if (global && global.backgroundColor) return global.backgroundColor.toLowerCase()
       // DEFAULT
       return 'white'
     };
@@ -21,7 +21,7 @@ export const generateButtonBackgroundColor = (props) => {
       // IMPORTANCE LEVEL 2.1 --> BACKGROUND COLOR
       if (backgroundColor) return backgroundColor.toLowerCase()
       // IMPORTANCE LEVEL 2.2 --> (GLOBAL) BACKGROUND COLOR
-      if (global.backgroundColor) return global.backgroundColor.toLowerCase()
+      if (global && global.backgroundColor) return global.backgroundColor.toLowerCase()
       // DEFAULT
       return 'black'
     };
@@ -97,7 +97,7 @@ export const generateButtonColor = (props) => {
       // IMPORTANCE LEVEL 2.1 --> COLOR
       if (color) return color.toLowerCase();
       // IMPORTANCE LEVEL 2.2 --> (GLOBAL) COLOR
-      if (global.color) return global.color.toLowerCase();
+      if (global && global.color) return global.color.toLowerCase();
       // DEFAULT
       return 'black'
     }
@@ -105,7 +105,7 @@ export const generateButtonColor = (props) => {
       // IMPORTANCE LEVEL 2.1 --> COLOR
       if (color) return color.toLowerCase();
       // IMPORTANCE LEVEL 2.2 --> (GLOBAL) COLOR
-      if (global.color) return global.color.toLowerCase();
+      if (global && global.color) return global.color.toLowerCase();
       // DEFAULT
       return 'white'
     }

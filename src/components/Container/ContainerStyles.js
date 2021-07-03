@@ -1,18 +1,19 @@
 import styled from "styled-components";
 import {
-  generateContainerBackgroundColor,
-  generateContainerMinHeight,
-  generateContainerPadding,
-  generateContainerMinWidth,
-  generateContainerMaxWidth
+  generateContainerBackgroundColor as generateBackgroundColor,
+  generateContainerMinHeight as generateMinHeight,
+  generateContainerPadding as generatePadding,
+  generateContainerMinWidth as generateMinWidth,
+  generateContainerMaxWidth as generateMaxWidth
 } from "./ContainerStylingService";
 
 const ContainerDiv = styled.div`
-  background-color: ${(props) => generateContainerBackgroundColor(props.backgroundColor)};
-  max-width: ${(props) => generateContainerMaxWidth(props.width, props.maxWidth)};
-  min-height: ${(props) => generateContainerMinHeight(props.height, props.minHeight)};
-  min-width: ${(props) => generateContainerMinWidth(props.width, props.minWidth)};
-  padding: ${(props) => generateContainerPadding(props.size, props.padding)};
+  background-color: ${(props) => generateBackgroundColor(props)};
+  max-height: ${(props) => generateMinHeight(props)}
+  max-width: ${(props) => generateMaxWidth(props)};
+  min-height: ${(props) => generateMinHeight(props)};
+  min-width: ${(props) => generateMinWidth(props)};
+  padding: ${(props) => generatePadding(props)};
 `
 
 export default ContainerDiv
