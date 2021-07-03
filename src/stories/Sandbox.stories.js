@@ -142,7 +142,14 @@ stories.add('Sandbox 3', () => {
       variant: 'outline',
     },
     heading: {
-      color: "red"
+      color: "red",
+      one: {
+        fontSize: '3rem',
+        color: 'red'
+      },
+      two: {
+        fontSize: '2rem'
+      }
     }
   }
 
