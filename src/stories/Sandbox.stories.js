@@ -25,14 +25,14 @@ stories.add('Sandbox', () => {
     <>
       <BrowserRouter>
         <Header size="medium">
-            <Logo size="large" />
-            <Menu alignment="right">
-              <Link color="primary" >About</Link>
-              <Link>Blog</Link>
-              <Link>AI</Link>
-              <Link>Projects</Link>
-              <Link>Connect</Link>
-            </Menu>
+          <Logo size="large" />
+          <Menu alignment="right">
+            <Link color="primary" >About</Link>
+            <Link>Blog</Link>
+            <Link>AI</Link>
+            <Link>Projects</Link>
+            <Link>Connect</Link>
+          </Menu>
         </Header>
         <Header size="small" backgroundColor="black">
           <Column alignment="left">
@@ -49,31 +49,38 @@ stories.add('Sandbox', () => {
           </Column>
         </Header>
         <Page columns="1fr 2fr">
-          <Heading level="1" size="5.5rem">
-            Title
-          </Heading>
-          <Paragraph>
-            This is a paragraph. Try entering a new line.
-            See! That wasn't so hard. The cool thing is... The webpage doesn't account for the newline!
-          </Paragraph>
-          <Paragraph>
-            This is the second paragraph. Enter your information below:
-          </Paragraph>
-          <Input />
-          <Button
-            variant="outline"
-            size="medium"
-            onClick={() => setShowModal(true)}
-          >
-            Learn More
-          </Button>
-          <Modal show={showModal} size='large'>
-            <Heading level="3">Hello There.</Heading>
+          <Column>
+            <Heading level="1" size="5.5rem">
+              Title
+            </Heading>
             <Paragraph>
-              Check it out! You wanted to learn more... so you learned how to open the modal! Neat right? ;)
+              This is a paragraph. Try entering a new line.
+              See! That wasn't so hard. The cool thing is... The webpage doesn't account for the newline!
             </Paragraph>
-            <Button onClick={() => setShowModal(false)}>Close</Button>
-          </Modal>
+            <Paragraph>
+              This is the second paragraph. Enter your information below:
+            </Paragraph>
+            <Paragraph>
+              iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+              iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+              iiiiiiiiiiiiiiiiiiiIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiI</Paragraph>
+            <Input />
+            <Button
+              variant="outline"
+              size="medium"
+              onClick={() => setShowModal(true)}
+            >
+              Learn More
+            </Button>
+            <Modal show={showModal} size='large'>
+              <Heading level="3">Hello There.</Heading>
+              <Paragraph>
+                Check it out! You wanted to learn more... so you learned how to open the modal! Neat right? ;)
+              </Paragraph>
+              <Button onClick={() => setShowModal(false)}>Close</Button>
+            </Modal>
+          </Column>
+          <Column />
         </Page>
       </BrowserRouter>
     </>
@@ -81,55 +88,55 @@ stories.add('Sandbox', () => {
 })
 
 stories.add('Sandbox 2', () => {
-  return(
+  return (
     <>
-        <Container padding="5px">
-          <Button size="large">Learn More</Button>
-        </Container>
-        <Container padding="5px">
-          <Button size="medium">Learn More</Button>
-        </Container>
-        <Container padding="5px">
-          <Button size="small">Learn More</Button>
-        </Container>
-        <hr />
-        <Heading level="1">Heading 1</Heading>
-        <Heading>Heading 2</Heading>
-        <Heading level="3">Heading 3</Heading>
-        <Heading level="4">Heading 4</Heading>
-        <Heading level="5">Heading 5</Heading>
-        <Heading level="6">Heading 6</Heading>
-        <hr />
-        <Container padding="5px">
-          <Link size="large">Link</Link>
-        </Container>
-        <Container padding="5px">
-          <Link size="medium">Link</Link>
-        </Container>
-        <Container padding="5px">
-          <Link size="small">Link</Link>
-        </Container>
-        <hr />
-        <Container padding="25px 0px">
-          <Header shadow>
-            <Logo />
-            <Menu alignment="right">
-              <Link>Nav Link 1</Link>
-              <Link>Nav Link 1</Link>
-              <Link>Nav Link 1</Link>
-            </Menu>
-          </Header>
-        </Container>
-        <Container padding="25px 0px">
-          <Header shadow backgroundColor="black">
-            <Logo color="white"/>
-            <Menu alignment="right">
-              <Link>Nav Link 1</Link>
-              <Link>Nav Link 1</Link>
-              <Link>Nav Link 1</Link>
-            </Menu>
-          </Header>
-        </Container>
+      <Container padding="5px">
+        <Button size="large">Learn More</Button>
+      </Container>
+      <Container padding="5px">
+        <Button size="medium">Learn More</Button>
+      </Container>
+      <Container padding="5px">
+        <Button size="small">Learn More</Button>
+      </Container>
+      <hr />
+      <Heading level="1">Heading 1</Heading>
+      <Heading>Heading 2</Heading>
+      <Heading level="3">Heading 3</Heading>
+      <Heading level="4">Heading 4</Heading>
+      <Heading level="5">Heading 5</Heading>
+      <Heading level="6">Heading 6</Heading>
+      <hr />
+      <Container padding="5px">
+        <Link size="large">Link</Link>
+      </Container>
+      <Container padding="5px">
+        <Link size="medium">Link</Link>
+      </Container>
+      <Container padding="5px">
+        <Link size="small">Link</Link>
+      </Container>
+      <hr />
+      <Container padding="25px 0px">
+        <Header shadow>
+          <Logo />
+          <Menu alignment="right">
+            <Link>Nav Link 1</Link>
+            <Link>Nav Link 1</Link>
+            <Link>Nav Link 1</Link>
+          </Menu>
+        </Header>
+      </Container>
+      <Container padding="25px 0px">
+        <Header shadow backgroundColor="black">
+          <Logo color="white" />
+          <Menu alignment="right">
+            <Link>Nav Link 1</Link>
+            <Link>Nav Link 1</Link>
+            <Link>Nav Link 1</Link>
+          </Menu>
+        </Header>
+      </Container>
     </>
   )
 })
@@ -153,7 +160,7 @@ stories.add('Sandbox 3', () => {
     }
   }
 
-  return(
+  return (
     <Page>
       <GlobalStylesProvider
         globalStyles={globalStyles}

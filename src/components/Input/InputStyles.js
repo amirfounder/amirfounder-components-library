@@ -13,12 +13,12 @@ const StyledInput = styled.input`
   border-color: #aaa;
   border-style: solid;
   display: block;
-  font-size: ${(props) => generateInputFontSize(props.size, props.fontSize)};
-  line-height: ${(props) => generateInputLineHeight(props.size, props.lineHeight)};
+  font-size: ${(props) => generateInputFontSize(props)};
+  line-height: ${(props) => generateInputLineHeight(props)};
   margin-block-end: .67em;
   margin-block-start: .67em;
-  width: ${(props) => generateInputWidth(props.size, props.width, props.padding)};
-  padding: ${(props) => generateInputPadding(props.size, props.padding)};
+  width: ${(props) => generateInputWidth(props)};
+  padding: ${(props) => generateInputPadding(props)};
   :focus {
     outline: none;
   }

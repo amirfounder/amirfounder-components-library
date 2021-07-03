@@ -18,11 +18,10 @@ export const Page = (props) => {
         {...props}
         minHeight={props.minHeight ? props.minHeight : '50vh'}
         padding={props.paddings ? props.padding : '8vh 3vw'}
+        columns={props.columns && props.columns}
         verticalAlignment='start'
       >
-        <Column>
-          {props.children}
-        </Column>
+        {props.children}
       </Section>
     </StyledPage>
   )
