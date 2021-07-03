@@ -1,4 +1,5 @@
 import React from 'react';
+import { useGlobalStylesContext } from '../GlobalStyles/GlobalStyles';
 import StyledButton from './ButtonStyles';
 
 /**
@@ -7,11 +8,17 @@ import StyledButton from './ButtonStyles';
  * @param {*} props Props
  * @returns Component
  */
-export const Button = (props) =>  (
-  <StyledButton
-    className="button"
-    {...props}
-  >
-    {props.children}
-  </StyledButton>
-)
+export const Button = (props) => {
+
+  const globalStyles = useGlobalStylesContext();
+  
+  return (
+    <StyledButton
+      className="button"
+      global={globalStyles}
+      {...props}
+    >
+      {props.children}
+    </StyledButton>
+  )
+}

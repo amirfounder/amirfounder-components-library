@@ -14,6 +14,7 @@ import {
   Button,
   Modal,
   Input,
+  GlobalStylesProvider
 } from '../index'
 
 const stories = storiesOf('Sandbox', module)
@@ -134,11 +135,27 @@ stories.add('Sandbox 2', () => {
 })
 
 stories.add('Sandbox 3', () => {
+
+  const globalStyles = {
+    button: {
+      backgroundColor: "red"
+    },
+    heading: {
+      color: "red"
+    }
+  }
+
   return(
     <>
-      <Heading>
-        Coming soon...
-      </Heading>
+      <GlobalStylesProvider
+        globalStyles={globalStyles}
+      >
+        <Heading>
+          Coming soon...
+        </Heading>
+        <Button>Hello</Button>
+        <Button>Another one</Button>
+      </GlobalStylesProvider>
     </>
   )
 })

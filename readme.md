@@ -2,6 +2,8 @@
 
 NOTE: Breaking Changes released WEEKLY if not DAILY! Do not install and use on production website unless you know what you are getting yourself into. (...and there is 99.99% chance you don't).
 
+Backlog → https://github.com/orgs/amirfounder/projects/1
+
 ## Usage
 
 A componenet library for the ReactJS Framework, built to be used by the @amirfounder brand.
@@ -22,6 +24,40 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 - Paragraph
 - Section
 
+### Global Styles (NEW)
+
+`globalStyles` Object structure:
+
+```
+globalStyles = {
+  <COMPONENT>: {
+    <PROPERTY>: <VALUE>,
+    ...
+    <PSEUDO-SELECTOR>: {
+      <PROPERTY>: <VALUE>,
+      ...
+    },
+    ...
+  },
+  ...
+}
+```
+
+`globalStyles` Object example:
+
+```
+globalStyles = {
+  button: {
+    backgroundColor: "red",
+    color: "#fff",
+    hover {
+      backgroundColor: "dark-red"
+    }
+  }
+}
+
+```
+
 ## Dependencies:
 
 - Storybook: Used for viewing components
@@ -33,24 +69,20 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 - rollup-plugin-poscss: Used to allow css files in rollup
 - ...
 
-## TODO:
+## Developers:
+
+
+### TODO:
 
 - Write tests
 - Mobile friendliness
 - Text/Select/Radio... Input Components
 - Header 'position: fixed' ability
 - Variants
-- Change all style 'handlers' to style 'generators'
 - Write JSDocs
 - Rewrite functions to follow code styleguide
 - Look into javascript destructuring to pass unnamed props to styled component
 - Page and paragraph components need styled components as well
-
-## For Developers:
-
-When writing code for this guide, follow the following code guidelines
-
-Backlog → https://github.com/orgs/amirfounder/projects/1
 
 ### Publishing Steps
 
@@ -62,6 +94,8 @@ Backlog → https://github.com/orgs/amirfounder/projects/1
 6. Run `npm publish` to publish package!
 
 ### Coding Styleguide
+
+When writing code for this guide, follow the following code guidelines
 
 #### Writing '...StylesService.js' functions:
 
