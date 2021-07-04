@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStyleGuideContext } from '../../index';
 import { useGlobalStylesContext } from '../GlobalStyles/GlobalStyles';
 import {
   HeadingH1,
