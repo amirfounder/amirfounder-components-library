@@ -1,6 +1,4 @@
 import React from 'react';
-import { Section } from '../Section/Section';
-import { Column } from '../Column/Column';
 import StyledPage from './PageStyles';
 
 /**
@@ -13,15 +11,9 @@ export const Page = (props) => {
   return (
     <StyledPage
       className="af-page"
+      {...props}
     >
-      <Section
-        {...props}
-        minHeight={props.minHeight ? props.minHeight : '50vh'}
-        padding={props.paddings ? props.padding : '8vh 3vw'}
-        verticalAlignment='start'
-      >
-        {props.children}
-      </Section>
+      {props.children}
     </StyledPage>
   )
 }

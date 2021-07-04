@@ -11,6 +11,7 @@ export const Section = (props) => {
   return (
     <SectionDiv
       className='af-section'
+      padding={props.padding ? props.padding : '0 3vw'}
       {...props}
     >
       {props.children}

@@ -21,7 +21,7 @@ import {
 const stories = storiesOf('Sandbox', module)
 
 stories.add('Sandbox', () => {
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
   return (
     <>
       <BrowserRouter>
@@ -50,7 +50,7 @@ stories.add('Sandbox', () => {
           </Column>
         </Header>
         <Page>
-          <Section columns="1fr 2fr">
+          <Section columns="1fr 2fr" padding="8vh 3vw">
             <Column>
               <Heading level="1" size="5.5rem">
                 Title
