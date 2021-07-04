@@ -8,7 +8,7 @@ export const StyledModal = styled.div`
 `
 
 export const StyledModalBackground = styled.div`
-  background-color: ${(props) => generateModalBackground(props.backgroundColor)};
+  background-color: ${(props) => generateModalBackground(props)};
   width: 100vw;
   height: 100vh;
   display: grid;

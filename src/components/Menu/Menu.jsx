@@ -13,7 +13,6 @@ import {
 export const Menu = (props) => {
   return (
     <MenuDiv
-      alignment={props.alignment}
       className='af-menu'
       direction={props.direction ? props.direction : 'horizontal'}
       alignment={props.alignment ? props.alignment : 'left'}

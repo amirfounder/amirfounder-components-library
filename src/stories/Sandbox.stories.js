@@ -14,7 +14,8 @@ import {
   Button,
   Modal,
   Input,
-  GlobalStylesProvider
+  GlobalStylesProvider,
+  Section
 } from '../index'
 
 const stories = storiesOf('Sandbox', module)
@@ -24,7 +25,7 @@ stories.add('Sandbox', () => {
   return (
     <>
       <BrowserRouter>
-        <Header size="medium" shadow>
+        <Header size="medium">
           <Logo size="large" />
           <Menu alignment="right">
             <Link color="primary" >About</Link>
@@ -34,7 +35,7 @@ stories.add('Sandbox', () => {
             <Link>Connect</Link>
           </Menu>
         </Header>
-        {/* <Header size="small" backgroundColor="black">
+        <Header size="small" backgroundColor="black">
           <Column alignment="left">
             <Menu variant="secondary" size='12px'>
               <Link size="14px" color="white">About</Link>
@@ -47,40 +48,50 @@ stories.add('Sandbox', () => {
               <Link size="14px" color="white">Interests</Link>
             </Menu>
           </Column>
-        </Header> */}
-        <Page columns="1fr 2fr">
-          <Column>
-            <Heading level="1" size="5.5rem">
-              Title
-            </Heading>
-            <Paragraph>
-              This is a paragraph. Try entering a new line.
-              See! That wasn't so hard. The cool thing is... The webpage doesn't account for the newline!
-            </Paragraph>
-            <Paragraph>
-              This is the second paragraph. Enter your information below:
-            </Paragraph>
-            <Paragraph>
-              iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-              iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-              iiiiiiiiiiiiiiiiiiiIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiI</Paragraph>
-            <Input />
-            <Button
-              variant="outline"
-              size="medium"
-              onClick={() => setShowModal(true)}
-            >
-              Learn More
-            </Button>
-            <Modal show={showModal} size='large'>
-              <Heading level="3">Hello There.</Heading>
+        </Header>
+        <Page>
+          <Section columns="1fr 2fr"
+            // style={{
+            //   backgroundColor: 'gray',
+            //   marginLeft: '-3vw',
+            //   // marginLeft: 'inherit',
+            //   width: 'calc(100% + 6vw)',
+            //   padding: '0px 3vw'
+            // }}
+          >
+            <Column>
+              <Heading level="1" size="5.5rem">
+                Title
+              </Heading>
               <Paragraph>
-                Check it out! You wanted to learn more... so you learned how to open the modal! Neat right? ;)
+                This is a paragraph. Try entering a new line.
+                See! That wasn't so hard. The cool thing is... The webpage doesn't account for the newline!
               </Paragraph>
-              <Button onClick={() => setShowModal(false)}>Close</Button>
-            </Modal>
-          </Column>
-          <Column />
+              <Paragraph>
+                This is the second paragraph. Enter your information below:
+              </Paragraph>
+              <Paragraph>
+                iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+                iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+                iiiiiiiiiiiiiiiiiiiIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiI</Paragraph>
+              <Input />
+              <Button
+                variant="outline"
+                size="medium"
+                onClick={() => setShowModal(true)}
+              >
+                Learn More
+              </Button>
+              <Modal show={showModal} size='large'>
+                <Heading level="3">Hello There.</Heading>
+                <Paragraph>
+                  Check it out! You wanted to learn more... so you learned how to open the modal! Neat right? ;)
+                </Paragraph>
+                <Button onClick={() => setShowModal(false)}>Close</Button>
+              </Modal>
+            </Column>
+            <Column />
+          </Section>
         </Page>
       </BrowserRouter>
     </>
