@@ -11,14 +11,16 @@ import {
  * @returns Component
  */
 export const Menu = (props) => {
-
   return (
     <MenuDiv
       alignment={props.alignment}
-      className='menu'
+      className='af-menu'
+      direction={props.direction ? props.direction : 'horizontal'}
+      alignment={props.alignment ? props.alignment : 'left'}
     >
       {props.children && !props.children.length &&
         <MenuChildDiv
+          className='af-menu-child'
           direction={props.direction ? props.direction : 'horizontal'}
           alignment={props.alignment ? props.alignment : 'left'}
         >
@@ -28,6 +30,7 @@ export const Menu = (props) => {
       {props.children && props.children.length > 1 &&
         props.children.map((child, index) => (
           <MenuChildDiv
+            className='af-menu-child'
             key={child + index}
             direciton={props.direction ? props.direction : 'horizontal'}
             alignment={props.alignment ? props.alignment : 'left'}

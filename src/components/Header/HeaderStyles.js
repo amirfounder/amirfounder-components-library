@@ -8,6 +8,7 @@ import {
 } from "./HeaderStylingService";
 
 const StyledHeader = styled.div`
+  z-index: 99;
   align-items: center;
   display: grid;
   background-color: ${(props) => generateHeaderBackgroundColor(props)};

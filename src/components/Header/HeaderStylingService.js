@@ -21,7 +21,7 @@ export const generateHeaderBoxShadow = (props) => {
   const global = props.global && props.global.header
 
   // IMPORTANCE LEVEL 1 --> EXACT
-  if (shadow) return '0px 10px 15px rgba(0,0,0,0.25)'
+  if (shadow) return '0px 10px 15px rgba(0,0,0,0.15)'
 
   // IMPORTANCE LEVEL 2 --> GLOBAL
   if (
@@ -29,7 +29,7 @@ export const generateHeaderBoxShadow = (props) => {
     global.shadow
   ) return shadow.toLowerCase();
 
-  return '0px 10px 15px rgba(0,0,0,0.25)'
+  // NO DEFAULT
 }
 
 export const generateHeaderHeight = (props) => {

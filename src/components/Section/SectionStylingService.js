@@ -29,6 +29,6 @@ export const generateSectionPadding = (paddingProp) => paddingProp ? paddingProp
 export const generateSectionHeight = (heightProp) => heightProp ? heightProp.toLowerCase() : '0px'
 
 export const generateBackgroundColor = (backgroundColorProp) => {
-  if (!backgroundColorProp) return 'white'
+  if (!backgroundColorProp) return 'transparent'
   return backgroundColorProp
 }
