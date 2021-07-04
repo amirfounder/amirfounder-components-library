@@ -8,9 +8,9 @@ import {
 
 const StyledParagraph = styled.p`
   font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
-  font-size: ${(props) => generateParagraphFontSize(props.size, props.fontSize)};
-  font-weight: ${(props) => generateParagraphFontWeight(props.fontWeight)};
-  line-height: ${(props) => generateParagraphLineHeight(props.lineHeight)};
+  font-size: ${(props) => generateParagraphFontSize(props)};
+  font-weight: ${(props) => generateParagraphFontWeight(props)};
+  line-height: ${(props) => generateParagraphLineHeight(props)};
   margin-block-end: 2rem;
 `
 
