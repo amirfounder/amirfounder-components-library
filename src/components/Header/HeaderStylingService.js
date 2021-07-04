@@ -3,10 +3,10 @@ export const generateHeaderBackgroundColor = (props) => {
   const backgroundColor = props.backgroundColor
   const global = props.global && props.global.header
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.backgroundColor
@@ -20,10 +20,10 @@ export const generateHeaderBoxShadow = (props) => {
   const shadow = props.shadow
   const global = props.global && props.global.header
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (shadow) return '0px 10px 15px rgba(0,0,0,0.15)'
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.shadow
@@ -38,22 +38,22 @@ export const generateHeaderHeight = (props) => {
   const height = props.height
   const global = props.global && props.global.header
   
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (height) return height.toLowerCase();
   
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   if (size) {
     if (size.toLowerCase() === 'large') return '10vh';
     if (size.toLowerCase() === 'medium') return '7vh';
     if (size.toLowerCase() === 'small') return '5vh';
   }
   
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) EXACT
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (global.height) return global.height.toLowerCase();
     
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       if (global.size.toLowerCase() === 'large') return '10vh';
       if (global.size.toLowerCase() === 'medium') return '7vh';
@@ -70,22 +70,22 @@ export const generateHeaderMaxHeight = (props) => {
   const maxHeight = props.maxHeight
   const global = props.global && props.global.header
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (maxHeight) return maxHeight.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   if (size) {
     if (size.toLowerCase() === 'large') return '130px';
     if (size.toLowerCase() === 'medium') return '100px';
     if (size.toLowerCase() === 'small') return '70px';
   }
 
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) EXACT
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (global.maxHeight) return global.maxHeight.toLowerCase();
 
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       if (global.size.toLowerCase() === 'large') return '130px';
       if (global.size.toLowerCase() === 'medium') return '100px';
@@ -102,22 +102,22 @@ export const generateHeaderMinHeight = (props) => {
   const minHeight = props.minHeight
   const global = props.global && props.global.header
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (minHeight) return minHeight.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   if (size) {
     if (size.toLowerCase() === 'large') return '100px';
     if (size.toLowerCase() === 'medium') return '70px';
     if (size.toLowerCase() === 'small') return '40px'; 
   }
 
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) EXACT
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (global.minHeight) return global.minHeight.toLowerCase();
     
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       if (global.size.toLowerCase() === 'large') return '100px';
       if (global.size.toLowerCase() === 'medium') return '70px';

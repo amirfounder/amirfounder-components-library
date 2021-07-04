@@ -3,10 +3,10 @@ export const generateColumnJustifySelf = (props) => {
   const alignment = props.alignment
   const global = props.global && props.global.column
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (alignment) return alignment.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.alignment

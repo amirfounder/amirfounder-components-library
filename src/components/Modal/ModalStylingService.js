@@ -9,10 +9,10 @@ export const generateModalBackground = (props) => {
   const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
   const global = props.global && props.global.modal
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor;
   
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.backgroundColor
@@ -27,10 +27,10 @@ export const generateModalAlignItems = (props) => {
   const alignItems = props.alignItems && props.alignItems.toLowerCase();
   const global = props.global && props.global.modal
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (alignItems) return alignItems;
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.alignItems
@@ -45,10 +45,10 @@ export const generateModalJustifyContent = (props) => {
   const justifyContent = props.justifyContent && props.justifyContent.toLowerCase();
   const global = props.global && props.global.modal
   
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (justifyContent) return justifyContent;
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.justifyContent

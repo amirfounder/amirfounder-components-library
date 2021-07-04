@@ -3,10 +3,10 @@ export const generateHeadingColor = (props) => {
   const color = props.color
   const global = props.global && props.global.heading
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (color) return color.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.color
@@ -21,7 +21,7 @@ export const generateHeadingFontWeight = (props) => {
   const fontWeight = props.fontWeight
   const global = props.global && props.global.heading
   
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (fontWeight) return fontWeight.toLowerCase();
 
   if (
@@ -38,14 +38,14 @@ export const generateHeadingFontSize = (level, props) => {
   const fontSize = props.fontSize
   const global = props.global && props.global.heading
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> LEVEL
+  // IMPORTANCE 2 --> LEVEL
   if (level) {
     switch (Number(level)) {
       case 1:
-        // IMPORTANCE LEVEL 2.1 --> (GLOBAL) LEVEL 1
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 1
         if (
           global &&
           global.one &&
@@ -54,7 +54,7 @@ export const generateHeadingFontSize = (level, props) => {
         // DEFAULT LEVEL 1
         return '4rem'
       case 2:
-        // IMPORTANCE LEVEL 2.1 --> (GLOBAL) LEVEL 2
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 2
         if (
           global &&
           global.two &&
@@ -63,7 +63,7 @@ export const generateHeadingFontSize = (level, props) => {
         // DEFAULT LEVEL 2
         return '3rem'
       case 3:
-        // IMPORTANCE LEVEL 2.1 --> (GLOBAL) LEVEL 3
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 3
         if (
           global &&
           global.three &&
@@ -72,7 +72,7 @@ export const generateHeadingFontSize = (level, props) => {
         // DEFAULT LEVEL 3
         return '2rem'
       case 4:
-        // IMPORTANCE LEVEL 2.1 --> (GLOBAL) LEVEL 4
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 4
         if (
           global &&
           global.four &&
@@ -81,7 +81,7 @@ export const generateHeadingFontSize = (level, props) => {
         // DEFAULT LEVEL 4
         return '1.6rem'
       case 5:
-        // IMPORTANCE LEVEL 2.1 --> (GLOBAL) LEVEL 5
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 5
         if (
           global &&
           global.five &&
@@ -90,7 +90,7 @@ export const generateHeadingFontSize = (level, props) => {
         // DEFAULT LEVEL 5
         return '1.2rem'
       case 6:
-        // IMPORTANCE LEVEL 2.1 --> (GLOBAL) LEVEL 6
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 6
         if (
           global &&
           global.six &&

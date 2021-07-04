@@ -3,10 +3,10 @@ export const generatePageBackgroundColor = (props) => {
   const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
   const global = props.global && props.global.toLowerCase();
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor;
 
-  // IMPORTANCE LEVEL 1 --> GLOBAL
+  // IMPORTANCE 1 --> GLOBAL
   if (
     global &&
     global.backgroundColor

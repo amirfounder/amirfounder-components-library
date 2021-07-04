@@ -5,18 +5,18 @@ export const generateInputWidth = (props) => {
   const padding = props.padding
   const global = props.global && props.global.input
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (width) {
-    // IMPORTANCE LEVEL 1.1 --> PADDING
+    // IMPORTANCE 1.1 --> PADDING
     if (padding) return `calc(${width} - ${getHorizontalPadding(padding)})`
     // DEFAULT
     return width
   };
 
-  // IMPORTANCE LEVEL 2 --> PADDING
+  // IMPORTANCE 2 --> PADDING
   if (padding) return `calc(100% - ${getHorizontalPadding(padding)})`
 
-  // IMPORTANCE LEVEL 3 --> SIZE
+  // IMPORTANCE 3 --> SIZE
   if (size) {
     switch (size.toLowerCase()) {
       case 'large': return `calc(100% - 30px)`
@@ -25,22 +25,22 @@ export const generateInputWidth = (props) => {
     }
   }
 
-  // IMPORTANCE LEVEL 4 --> GLOBAL
+  // IMPORTANCE 4 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 4.1 --> (GLOBAL) WIDTH
+    // IMPORTANCE 4.1 --> (GLOBAL) WIDTH
     if (global.width) {
-      // IMPORTANCE LEVEL 4.1.1 --> (GLOBAL) WIDTH AND (GLOBAL) PADDING
+      // IMPORTANCE 4.1.1 --> (GLOBAL) WIDTH AND (GLOBAL) PADDING
       if (global.padding) return `calc(${global.width} - ${getHorizontalPadding(global.padding)})`
-      // IMPORTANCE LEVEL 4.1.2 --> (GLOBAL) WIDTH AND PADDING
+      // IMPORTANCE 4.1.2 --> (GLOBAL) WIDTH AND PADDING
       if (padding) return `calc(${global.width} - ${getHorizontalPadding(padding)})`
       // DEFAULT
       return global.width
     };
 
-    // IMPORTANCE LEVEL 4.2 --> (GLOBAL) PADDING
+    // IMPORTANCE 4.2 --> (GLOBAL) PADDING
     if (global.padding) `calc(100% - ${getHorizontalPadding(global.padding)})`
     
-    // IMPORTANCE LEVEL 4.3 --> (GLOBAL) SIZE
+    // IMPORTANCE 4.3 --> (GLOBAL) SIZE
     if (global.size) {
       switch (global.size.toLowerCase()) {
         case 'large': return `calc(100% - 30px)`
@@ -60,21 +60,21 @@ export const generateInputPadding = (props) => {
   const padding = props.padding && props.padding.toLowerCase();
   const global = props.global && props.global.input
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (padding) return padding.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   if (size) {
     if (size === 'large') return '15px'
     if (size === 'medium') return '10px'
     if (size === 'small') return '5px'
   };
   
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) PADDING
+    // IMPORTANCE 3.1 --> (GLOBAL) PADDING
     if (global.padding) return global.padding.toLowerCase();
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       if (global.size.toLowerCase() === 'large') return '15px'
       if (global.size.toLowerCase() === 'medium') return '10px'
@@ -92,21 +92,21 @@ export const generateInputLineHeight = (props) => {
   const lineHeight = props.lineHeight && props.lineHeight.toLowerCase();
   const global = props.global && props.global.input
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (lineHeight) return lineHeight.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   switch (size) {
     case 'large': return '1.4em'
     case 'medium': return '1.2em'
     case 'small': return '1em'
   }
 
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) EXACT
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (global.lineHeight) return global.lineHeight.toLowerCase();
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       switch (global.size) {
         case 'large': return '1.4em'
@@ -126,21 +126,21 @@ export const generateInputFontSize = (props) => {
   const fontSize = props.fontSize && props.fontSize.toLowerCase();
   const global = props.global && props.global.input
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   if (size) {
     if (size === 'large') return '20px'
     if (size === 'medium') return '16px'
     if (size === 'small') return '12px'
   }
   
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) FONT SIZE
+    // IMPORTANCE 3.1 --> (GLOBAL) FONT SIZE
     if (global.fontSize) return global.fontSize.toLowerCase();
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       switch (global.size.toLowerCase()) {
         case 'large': return '20px';

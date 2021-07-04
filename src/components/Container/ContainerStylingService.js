@@ -9,10 +9,10 @@ export const generateContainerBackgroundColor = (props) => {
   const backgroundColor = props.backgroundColor
   const global = props.global && props.global.container
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.backgroundColor
@@ -26,10 +26,10 @@ export const generateContainerMaxHeight = (props) => {
   const maxHeight = props.maxWidth
   const global = props.global && props.global.container
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (maxHeight) return maxHeight.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.maxHeight
@@ -43,10 +43,10 @@ export const generateContainerMaxWidth = (props) => {
   const maxWidth = props.maxWidth && props.maxWidth.toLowerCase();
   const global = props.global && props.global.container
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (maxWidth) return maxWidth;
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.maxWidth
@@ -66,10 +66,10 @@ export const generateContainerMinHeight = (props) => {
   const minHeight = props.minHeight
   const global = props.global && props.global.container
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (minHeight) return minHeight.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.minHeight
@@ -89,10 +89,10 @@ export const generateContainerMinWidth = (props) => {
   const minWidth = props.minWidth
   const global = props.global && props.global.minWidth
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (minWidth) return minWidth.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global && 
     global.minWidth
@@ -106,10 +106,10 @@ export const generateContainerMargin = (props) => {
   const margin = props.margin && props.margin.toLowerCase();
   const global = props.global && props.global.container
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (margin) return margin;
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.margin
@@ -125,22 +125,22 @@ export const generateContainerPadding = (props) => {
   const size = props.size
   const global = props.global && props.global.container
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (padding) return padding.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   if (size) {
     if (size === 'large') return '40px'
     if (size === 'medium') return '20px'
     if (size === 'small') return '10px'
   }
 
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) EXACT
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (global.padding) return global.padding.toLowerCase();
     
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       if (global.size === 'large') return '40px'
       if (global.size === 'medium') return '20px'

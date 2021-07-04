@@ -3,10 +3,10 @@ export const generateLogoFontSize = (props) => {
   const fontSize = props.fontSize && props.fontSize.toLowerCase();
   const size = props.size && props.size.toLowerCase();
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   if (size) {
     switch (size.toLowerCase()) {
       case 'large': return '20px';
@@ -15,11 +15,11 @@ export const generateLogoFontSize = (props) => {
     }
   }
 
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) EXACT
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (global.fontSize) return global.fontSize.toLowerCase();
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       switch (global.size.toLowerCase()) {
         case 'large': return '20px';
@@ -38,10 +38,10 @@ export const generateLogoColor = (props) => {
   const color = props.color && props.color.toLowerCase();
   const global = props.global && props.global.logo
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (color) return color;
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.color

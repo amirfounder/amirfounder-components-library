@@ -3,7 +3,7 @@ export const generateMenuChildDisplay = (props) => {
   const direction = props.direction && props.direction.toLowerCase();
   const global = props.global && props.global.toLowerCase();
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (direction) {
     switch (direction) {
       case 'vertical': return 'block'
@@ -12,7 +12,7 @@ export const generateMenuChildDisplay = (props) => {
     }
   }
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.direction
@@ -31,10 +31,10 @@ export const generateMenuDirectChildPadding = (props) => {
   const padding = props.padding && props.padding.toLowerCase();
   const global = props.global && props.global.menu
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (padding) return padding;
 
-  // IMPORTANCE LEVEL 2 --> GLOBALS
+  // IMPORTANCE 2 --> GLOBALS
   if (
     global &&
     global.padding
@@ -62,25 +62,25 @@ export const generateMenuDirectChildMargin = (props, childSelector) => {
 
     // IF CHILD ELEMENT IS NOT FIRST NOR LAST
     case 'not-first-not-last':
-      // IMPORTANCE LEVEL 1 --> EXACT
+      // IMPORTANCE 1 --> EXACT
       if (spaceBetween) return `0px ${spaceBetween}`
-      // IMPORTANCE LEVEL 2 --> GLOBAL
+      // IMPORTANCE 2 --> GLOBAL
       if (global && global.spaceBetween) return `0px ${global.spaceBetween}`
       return '0px 1.5vw';
 
     // IF CHILD ELEMENT IS FIRST
     case 'first':
-      // IMPORTANCE LEVEL 1 --> EXACT
+      // IMPORTANCE 1 --> EXACT
       if (spaceBetween) return `0px ${spaceBetween} 0px 0px`
-      // IMPORTANCE LEVEL 2 --> GLOBAL
+      // IMPORTANCE 2 --> GLOBAL
       if (global && global.spaceBetween) return `0px ${global.spaceBetween} 0px 0px`
       return '0px 1.5vw 0px 0px';
 
     // IF CHILD ELEMENT IS LAST
     case 'last':
-      // IMPORTANCE LEVEL 1 --> EXACT
+      // IMPORTANCE 1 --> EXACT
       if (spaceBetween) return `0px 0px 0px ${spaceBetween}`
-      // IMPORTANCE LEVEL 2 --> GLOBAL
+      // IMPORTANCE 2 --> GLOBAL
       if (global && global.spaceBetween) return `0px 0px 0px ${global.spaceBetween}`
       return '0px 0px 0px 1.5vw';
 
@@ -98,7 +98,7 @@ export const generateMenuJustifySelf = (props) => {
   const alignment = props.alignment && props.alignment.toLowerCase();
   const global = props.global && props.global.toLowerCase();
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (alignment) {
     switch (alignment) {
       // IF START OR LEFT
@@ -118,7 +118,7 @@ export const generateMenuJustifySelf = (props) => {
     }
   }
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.alignment

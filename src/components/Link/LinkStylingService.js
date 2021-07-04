@@ -3,10 +3,10 @@ export const generateLinkColor = (props) => {
   const color = props.color && props.color.toLowerCase();
   const global = props.global && props.global.link
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (color) return color.toLowerCase();
 
-  // IMPORTANCE LEVEL 2 --> GLOBAL
+  // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
     global.color
@@ -22,16 +22,16 @@ export const generateLinkHoverColor = (props) => {
   const hoverColor = props.hoverColor && props.hoverColor.toLowerCase();
   const global = props.global && props.global.link
 
-  // IMPORTANCE LEVEL 1 --> HOVER COLOR
+  // IMPORTANCE 1 --> HOVER COLOR
   if (hoverColor) return hoverColor
 
-  // IMPORTANCE LEVEL 2 --> (GLOBAL) HOVER COLOR
+  // IMPORTANCE 2 --> (GLOBAL) HOVER COLOR
   if (
     global &&
     global.hoverColor
   ) return global.hoverColor.toLowerCase();
 
-  // IMPORTANCE LEVEL 3 --> COLOR
+  // IMPORTANCE 3 --> COLOR
   if (color) {
     switch (color) {
       case 'black': return '#666';
@@ -39,7 +39,7 @@ export const generateLinkHoverColor = (props) => {
     }
   }
 
-  // IMPORTANCE LEVEL 4 --> (GLOBAL) COLOR
+  // IMPORTANCE 4 --> (GLOBAL) COLOR
   if (
     global &&
     global.color
@@ -58,21 +58,21 @@ export const generateLinkFontSize = (props) => {
   const fontSize = props.fontSize && props.fontSize.toLowerCase();
   const global = props.global && props.global.link
 
-  // IMPORTANCE LEVEL 1 --> EXACT
+  // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize;
 
-  // IMPORTANCE LEVEL 2 --> SIZE
+  // IMPORTANCE 2 --> SIZE
   switch (size) {
     case 'large': return '18px';
     case 'medium': return '16px';
     case 'small': return '14px';
   }
 
-  // IMPORTANCE LEVEL 3 --> GLOBAL
+  // IMPORTANCE 3 --> GLOBAL
   if (global) {
-    // IMPORTANCE LEVEL 3.1 --> (GLOBAL) FONT SIZE
+    // IMPORTANCE 3.1 --> (GLOBAL) FONT SIZE
     if (global.fontSize) return global.fontSize.toLowerCase()
-    // IMPORTANCE LEVEL 3.2 --> (GLOBAL) SIZE
+    // IMPORTANCE 3.2 --> (GLOBAL) SIZE
     if (global.size) {
       switch (global.size.toLowerCase()) {
         case 'large': return '18px';
@@ -91,10 +91,10 @@ export const generateLinkFontWeight = (props) => {
   const weight = props.weight && props.weight.toLowerCase();
   const global = props.global && props.global.link
 
-  // IMPORTANCE LEVEL 1 --> EXACT 
+  // IMPORTANCE 1 --> EXACT 
   if (weight) return weight;
 
-  // IMPORTANCE LEVEL 2 --> GLOBALS
+  // IMPORTANCE 2 --> GLOBALS
   if (
     global &&
     global.weight
