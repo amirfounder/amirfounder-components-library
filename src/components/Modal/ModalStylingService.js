@@ -21,3 +21,39 @@ export const generateModalBackground = (props) => {
   // DEFAULT
   return 'rgba(0,0,0,0.25)'
 }
+
+export const generateModalAlignItems = (props) => {
+  // SETUP
+  const alignItems = props.alignItems && props.alignItems.toLowerCase();
+  const global = props.global && props.global.modal
+
+  // IMPORTANCE LEVEL 1 --> EXACT
+  if (alignItems) return alignItems;
+
+  // IMPORTANCE LEVEL 2 --> GLOBAL
+  if (
+    global &&
+    global.alignItems
+  ) return global.alignItems.toLowerCase();
+
+  // DEFAULT
+  return 'center'
+}
+
+export const generateModalJustifyContent = (props) => {
+  // SETUP
+  const justifyContent = props.justifyContent && props.justifyContent.toLowerCase();
+  const global = props.global && props.global.modal
+  
+  // IMPORTANCE LEVEL 1 --> EXACT
+  if (justifyContent) return justifyContent;
+
+  // IMPORTANCE LEVEL 2 --> GLOBAL
+  if (
+    global &&
+    global.justifyContent
+  ) return global.justifyContent.toLowerCase();
+
+  // DEFAULT
+  return 'center'
+}

@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { generateModalBackground } from './ModalStylingService';
+import {
+  generateModalAlignItems,
+  generateModalBackground,
+  generateModalJustifyContent
+} from './ModalStylingService';
 
 export const StyledModal = styled.div`
   position: fixed;
@@ -12,6 +16,6 @@ export const StyledModalBackground = styled.div`
   width: 100vw;
   height: 100vh;
   display: grid;
-  align-items: center;
-  justify-content: center;
+  align-items: ${(props) => generateModalAlignItems(props)};
+  justify-content: ${(props) => generateModalJustifyContent(props)};
 `

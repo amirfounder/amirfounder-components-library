@@ -17,12 +17,16 @@ export const Modal = (props) => {
     <StyledModal
       className="af-modal"
       hidden={!props.show}
+      {...props}
     >
       <StyledModalBackground
         className="af-modal-background"
+        {...props}
       >
         <Container
-          width={props.width ? props.width.toLowercase() : '40vw'}
+          minWidth={props.width ? props.width.toLowercase() : '40vw'}
+          maxWidth={props.width ? props.width.toLowercase() : '40vw'}
+          margin={props.margin ? props.margin.toLowercase() : '20px'}
           {...props}
         >
           {props.children}

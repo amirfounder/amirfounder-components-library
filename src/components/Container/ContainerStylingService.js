@@ -35,17 +35,16 @@ export const generateContainerMaxHeight = (props) => {
     global.maxHeight
   ) return global.maxHeight.toLowerCase()
 
-  // DEFAULT
-  return 'none'
+  // NO DEFAULT
 }
 
 export const generateContainerMaxWidth = (props) => {
   // SETUP
-  const maxWidth = props.maxWidth
+  const maxWidth = props.maxWidth && props.maxWidth.toLowerCase();
   const global = props.global && props.global.container
 
   // IMPORTANCE LEVEL 1 --> EXACT
-  if (maxWidth) return maxWidth.toLowerCase();
+  if (maxWidth) return maxWidth;
 
   // IMPORTANCE LEVEL 2 --> GLOBAL
   if (
@@ -53,8 +52,7 @@ export const generateContainerMaxWidth = (props) => {
     global.maxWidth
   ) return global.maxWidth.toLowerCase()
 
-  // DEFAULT
-  return 'none';
+  // NO DEFAULT
 }
 
 /**
@@ -77,8 +75,7 @@ export const generateContainerMinHeight = (props) => {
     global.minHeight
   ) return global.minHeight.toLowerCase();
 
-  // DEFAULT
-  return 'none';
+  // NO DEFAULT
 }
 
 /**
@@ -101,8 +98,25 @@ export const generateContainerMinWidth = (props) => {
     global.minWidth
   ) return global.minWidth.toLowerCase();
 
+  // NO DEFAULT
+}
+
+export const generateContainerMargin = (props) => {
+  // SETUP
+  const margin = props.margin && props.margin.toLowerCase();
+  const global = props.global && props.global.container
+
+  // IMPORTANCE LEVEL 1 --> EXACT
+  if (margin) return margin;
+
+  // IMPORTANCE LEVEL 2 --> GLOBAL
+  if (
+    global &&
+    global.margin
+  ) return global.margin.toLowerCase();
+
   // DEFAULT
-  return 'none';
+  return '0px'
 }
 
 export const generateContainerPadding = (props) => {
