@@ -19,3 +19,30 @@ const getVericalPadding = (padding) => {
     default: throw new Error("Invalid padding")
   }
 }
+
+const getColumnsArray = (columns) => columns.split(' ')
+
+/**
+ * @todo Do this
+ */
+const generateColumnsStyles = (columns) => {
+  const columnsArr = getColumnsArray(columns)
+  const newColumnsArr = []
+  for (column in columnsArr) {
+    // SETUP
+    const tempColumn = column.toString().toLowerCase();
+
+    // CHECK VALUE FOR '1fr', 2fr'
+    // WILL NOT ACCEPT '1frabc...'
+    if (
+      tempColumn.includes('fr') &&
+      Number(tempColumn.replace('fr', '')) !== NaN
+    ) newColumnsArr.push(tempColumn)
+
+    // CHEK VALUE WITHOUT '...fr' TO BE A NUMBER
+    if (
+      !tempColumn.includes('1fr') &&
+      Number(tempColumn) !== NaN
+    ) newColumnsArr.push(`${tempColumn}fr`)
+  }
+}
