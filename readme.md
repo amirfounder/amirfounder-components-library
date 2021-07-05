@@ -178,3 +178,7 @@ Components no longer use an external .css file for styling and depend fully on s
 ### 1.3.0 Global styles
 
 Components can now accept global styles into their styling services by using the GlobalStyles context provider.
+
+#### 1.3.1 - 1.3.x
+
+1. Added JSdocs to each component
