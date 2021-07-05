@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import {
   generateTextColor,
+  generateTextDisplay,
   generateTextFontSize
 } from "./TextStylingService";
 
 const StyledText = styled.span`
-  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
   color: ${(props) => generateTextColor(props)};
+  display: ${(props) => generateTextDisplay(props)};
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
   font-size: ${(props) => generateTextFontSize(props)};
 `
 

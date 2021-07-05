@@ -49,3 +49,20 @@ export const generateTextFontSize = () => {
   // DEFAULT
   return '16px'
 }
+
+export const generateTextDisplay = (props) => {
+  // SETUP
+  const display = props.display && props.display.toLowerCase();
+  const global = props.global && props.global.text;
+
+  // IMPORTANCE 1 --> EXACT
+  if (display) return display
+
+  // IMPORTANCE 2 --> GLOBAL
+  if (
+    global &&
+    global.display
+  ) return global.display.toLowerCase();
+
+  // NO DEFAULT
+}
