@@ -183,3 +183,4 @@ Components can now accept global styles into their styling services by using the
 
 1. Added JSdocs to each component
 2. Added the Text component
+3. Added export to index.js
