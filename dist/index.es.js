@@ -132,9 +132,9 @@ object-assign
     cursor: pointer;
   }
 `,{useHistory:ur}=require("react-router-dom"),fr=t=>{const r=l(),n=ur();return e.createElement(lr,i({className:"af-logo",onClick:()=>t.onClick?t.onClick():n.push("/"),theme:r},t),t.children?t.children:"Amir Sharapov")},dr=(e,t)=>{const r=e.direction&&e.direction.toLowerCase(),n=e.spaceBetween&&e.spaceBetween.toLowerCase(),o=e.theme&&e.theme.menu;if(!r||"horizontal"===r)switch(t){case"only":return"0vw";case"not-first-not-last":return n?`0px ${n}`:o&&o.spaceBetween?`0px ${o.spaceBetween}`:"0px 1.5vw";case"first":return n?`0px ${n} 0px 0px`:o&&o.spaceBetween?`0px ${o.spaceBetween} 0px 0px`:"0px 1.5vw 0px 0px";case"last":return n?`0px 0px 0px ${n}`:o&&o.spaceBetween?`0px 0px 0px ${o.spaceBetween}`:"0px 0px 0px 1.5vw";default:return"0vw"}return"0vw"},pr=dt.div`
-  justify-self: ${e=>(e=>{const t=e.alignment&&e.alignment.toLowerCase(),r=e.theme&&e.theme.toLowerCase();if(t)switch(t){case"start":case"left":return"start";case"center":return"center";case"end":case"right":return"end";default:return"start"}if(r&&r.alignment)switch(r.alignment){case"start":case"left":return"start";case"center":return"center";case"end":case"right":return"end";default:return"start"}return"start"})(e)};
+  justify-self: ${e=>(e=>{const t=e.alignment&&e.alignment.toLowerCase(),r=e.theme&&e.theme.menu;if(t)switch(t){case"start":case"left":return"start";case"center":return"center";case"end":case"right":return"end";default:return"start"}if(r&&r.alignment)switch(r.alignment){case"start":case"left":return"start";case"center":return"center";case"end":case"right":return"end";default:return"start"}return"start"})(e)};
 `,hr=dt.div`
-  display: ${e=>(e=>{const t=e.direction&&e.direction.toLowerCase(),r=e.theme&&e.theme.toLowerCase();if(t)switch(t){case"vertical":return"block";case"horizontal":default:return"inline"}if(r&&r.direction)switch(r.direction.toLowerCase()){case"vertical":return"block";case"horizontal":default:return"inline"}return"inline"})(e)};
+  display: ${e=>(e=>{const t=e.direction&&e.direction.toLowerCase(),r=e.theme&&e.menu;if(t)switch(t){case"vertical":return"block";case"horizontal":default:return"inline"}if(r&&r.direction)switch(r.direction.toLowerCase()){case"vertical":return"block";case"horizontal":default:return"inline"}return"inline"})(e)};
   padding: ${e=>(e=>{const t=e.padding&&e.padding.toLowerCase(),r=e.theme&&e.theme.menu;return t||(r&&r.padding?r.padding.toLowerCase():"0px")})(e)};
   :only-child {
     margin: ${e=>dr(e,"only")};
@@ -161,7 +161,7 @@ object-assign
   justify-content: ${e=>(e=>{const t=e.justifyContent&&e.justifyContent.toLowerCase(),r=e.theme&&e.theme.modal;return t||(r&&r.justifyContent?r.justifyContent.toLowerCase():"center")})(e)};
 `,wr=t=>{const r=l();return e.createElement(gr,i({className:"af-modal",hidden:!t.show,theme:r},t),e.createElement(yr,i({className:"af-modal-background",theme:r},t),e.createElement(Vt,i({minWidth:t.width?t.width.toLowercase():"40vw",maxWidth:t.width?t.width.toLowercase():"40vw",margin:t.margin?t.margin.toLowercase():"20px",theme:r},t),t.children)))},vr=dt.div`
   z-index: 0;
-  background-color: ${e=>(e=>{const t=e.backgroundColor&&e.backgroundColor.toLowerCase(),r=e.theme&&e.theme.toLowerCase();return t||(r&&r.backgroundColor?r.backgroundColor.toLowerCase():"transparent")})(e)};
+  background-color: ${e=>(e=>{const t=e.backgroundColor&&e.backgroundColor.toLowerCase(),r=e.theme&&e.theme.page;return t||(r&&r.backgroundColor?r.backgroundColor.toLowerCase():"transparent")})(e)};
 `,br=t=>{const r=l();return e.createElement(vr,i({className:"af-page",theme:r},t),t.children)},Cr=dt.p`
   font-family: ${Yt.PROPS.FONT_FAMILIES.ROBOTO};
   font-size: ${e=>(e=>{const t=e.size&&e.size.toLowerCase(),r=e.fontSize&&e.fontSize.toLowerCase(),n=e.theme&&e.theme.paragraph;if(r)return r.toLowerCase();if(t){if("large"===t.toLowerCase())return"18px";if("medium"===t.toLowerCase())return"16px";if("small"===t.toLowerCase())return"14px"}if(n){if(n.fontSize)return n.fontSize.toLowerCase();if(n.size)switch(n.size.toLowerCase()){case"large":return"20px";case"medium":return"16px";case"small":return"12px"}}return"16px"})(e)};
