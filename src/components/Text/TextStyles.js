@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Constants } from '../../utils/Constants';
 import {
   generateTextColor,
   generateTextDisplay,

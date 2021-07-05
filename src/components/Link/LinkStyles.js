@@ -7,18 +7,18 @@ import {
   generateLinkFontWeight,
 } from './LinkStylingService';
 
-const StyledLink = styled.div`
+const StyledLink = styled.span`
   color: ${(props) => generateLinkColor(props)};
   display: inline;
   font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
   font-size: ${(props) => generateLinkFontSize(props)};
   font-weight: ${(props) => generateLinkFontWeight(props)};
-  &:hover {
+  :hover {
     color: ${(props) => generateLinkHoverColor(props)};
     cursor: pointer;
     transition-duration: .3s;
   }
-  &:not(:hover) {
+  :not(:hover) {
     transition-duration: .3s;
   }
 `

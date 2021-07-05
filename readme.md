@@ -11,7 +11,19 @@ A componenet library for the ReactJS Framework, built to be used by the @amirfou
 ### Components
 
 - Button
+  - backgroundColor
+  - borderColor
+  - color
+  - hoverBorderColor
+  - hoverBackgroundColor
+  - hoverColor
+  - fontSize
+  - global
+  - padding
+  - size
+  - variant
 - Column
+  - 
 - Container
 - Header
 - Heading
@@ -70,7 +82,6 @@ globalStyles = {
 - ...
 
 ## Developers:
-
 
 ### TODO:
 
