@@ -62,10 +62,6 @@ stories.add('Sandbox', () => {
               <Paragraph>
                 This is the second paragraph. Enter your information below:
               </Paragraph>
-              <Paragraph>
-                iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-                iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-                iiiiiiiiiiiiiiiiiiiIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiI</Paragraph>
               <Input />
               <Button
                 variant="outline"
@@ -146,7 +142,11 @@ stories.add('Sandbox 2', () => {
 
 stories.add('Sandbox 3', () => {
 
-  const globalStyles = {
+  /**
+   * @name GlobalStyles
+   * @constant
+   */
+  const globalStyles = Object.freeze({
     button: {
       size: 'large',
       variant: 'outline',
@@ -161,7 +161,7 @@ stories.add('Sandbox 3', () => {
         fontSize: '2rem'
       }
     }
-  }
+  })
 
   return (
     <Page>
@@ -173,7 +173,6 @@ stories.add('Sandbox 3', () => {
         </Heading>
         <Button size="small">Click me</Button>
         <Button size="medium">Click me</Button>
-        <Button>Click me</Button>
       </GlobalStylesProvider>
     </Page>
   )

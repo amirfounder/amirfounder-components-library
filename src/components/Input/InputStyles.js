@@ -7,10 +7,11 @@ import {
 } from "./InputStylingService";
 
 const StyledInput = styled.input`
-  background-color: #f7f7f7;
+  background-color: #fff;
   border: ;
-  border-width: 0px 0px 1px 0px;
-  border-color: #aaa;
+  border-width: 1px;
+  border-radius: 3px;
+  border-color: #999;
   border-style: solid;
   display: block;
   font-size: ${(props) => generateInputFontSize(props)};
