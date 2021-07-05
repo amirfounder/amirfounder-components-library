@@ -197,3 +197,4 @@ Components can now accept global styles into their styling services by using the
 3. Added export to index.js
 4. Fixed bug with Text component
 5. Converted global to theme
+6. Updated ThemeProvider export from index.js
