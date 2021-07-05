@@ -1,4 +1,78 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("react");function t(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}var r=t(e);const n=e.createContext(),o=()=>e.useContext(n);function a(){return(a=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e}).apply(this,arguments)}var i={exports:{}},s={},c="function"==typeof Symbol&&Symbol.for,l=c?Symbol.for("react.element"):60103,u=c?Symbol.for("react.portal"):60106,f=c?Symbol.for("react.fragment"):60107,d=c?Symbol.for("react.strict_mode"):60108,p=c?Symbol.for("react.profiler"):60114,h=c?Symbol.for("react.provider"):60109,m=c?Symbol.for("react.context"):60110,g=c?Symbol.for("react.async_mode"):60111,y=c?Symbol.for("react.concurrent_mode"):60111,w=c?Symbol.for("react.forward_ref"):60112,v=c?Symbol.for("react.suspense"):60113,b=c?Symbol.for("react.suspense_list"):60120,C=c?Symbol.for("react.memo"):60115,x=c?Symbol.for("react.lazy"):60116,k=c?Symbol.for("react.block"):60121,S=c?Symbol.for("react.fundamental"):60117,L=c?Symbol.for("react.responder"):60118,E=c?Symbol.for("react.scope"):60119;function O(e){if("object"==typeof e&&null!==e){var t=e.$$typeof;switch(t){case l:switch(e=e.type){case g:case y:case f:case p:case d:case v:return e;default:switch(e=e&&e.$$typeof){case m:case w:case x:case C:case h:return e;default:return t}}case u:return t}}}function z(e){return O(e)===y}s.AsyncMode=g,s.ConcurrentMode=y,s.ContextConsumer=m,s.ContextProvider=h,s.Element=l,s.ForwardRef=w,s.Fragment=f,s.Lazy=x,s.Memo=C,s.Portal=u,s.Profiler=p,s.StrictMode=d,s.Suspense=v,s.isAsyncMode=function(e){return z(e)||O(e)===g},s.isConcurrentMode=z,s.isContextConsumer=function(e){return O(e)===m},s.isContextProvider=function(e){return O(e)===h},s.isElement=function(e){return"object"==typeof e&&null!==e&&e.$$typeof===l},s.isForwardRef=function(e){return O(e)===w},s.isFragment=function(e){return O(e)===f},s.isLazy=function(e){return O(e)===x},s.isMemo=function(e){return O(e)===C},s.isPortal=function(e){return O(e)===u},s.isProfiler=function(e){return O(e)===p},s.isStrictMode=function(e){return O(e)===d},s.isSuspense=function(e){return O(e)===v},s.isValidElementType=function(e){return"string"==typeof e||"function"==typeof e||e===f||e===y||e===p||e===d||e===v||e===b||"object"==typeof e&&null!==e&&(e.$$typeof===x||e.$$typeof===C||e.$$typeof===h||e.$$typeof===m||e.$$typeof===w||e.$$typeof===S||e.$$typeof===L||e.$$typeof===E||e.$$typeof===k)},s.typeOf=O;var A={};
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var React = require('react');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+
+const ThemeContext = /*#__PURE__*/React.createContext();
+/**
+ * @name ThemeProvider
+ * @description Renders the theme styles context onto the page
+ * @param {*} props Props
+ * @prop theme
+ * @returns Component
+ */
+
+const ThemeProvider = ({
+  theme,
+  ...props
+}) => {
+  return /*#__PURE__*/React__default['default'].createElement(ThemeContext.Provider, {
+    value: theme
+  }, props.children);
+};
+/**
+ * @name useThemeContext
+ * @description Wrapper for the useContext(ThemeContext) method.
+ * @returns Object
+ */
+
+
+const useThemeContext = () => React.useContext(ThemeContext);
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var reactIs$1 = {exports: {}};
+
+var reactIs_production_min = {};
+
+/** @license React v16.13.1
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var b$1="function"===typeof Symbol&&Symbol.for,c=b$1?Symbol.for("react.element"):60103,d=b$1?Symbol.for("react.portal"):60106,e=b$1?Symbol.for("react.fragment"):60107,f=b$1?Symbol.for("react.strict_mode"):60108,g$1=b$1?Symbol.for("react.profiler"):60114,h=b$1?Symbol.for("react.provider"):60109,k$1=b$1?Symbol.for("react.context"):60110,l=b$1?Symbol.for("react.async_mode"):60111,m=b$1?Symbol.for("react.concurrent_mode"):60111,n=b$1?Symbol.for("react.forward_ref"):60112,p=b$1?Symbol.for("react.suspense"):60113,q$1=b$1?
+Symbol.for("react.suspense_list"):60120,r=b$1?Symbol.for("react.memo"):60115,t=b$1?Symbol.for("react.lazy"):60116,v$1=b$1?Symbol.for("react.block"):60121,w$1=b$1?Symbol.for("react.fundamental"):60117,x$1=b$1?Symbol.for("react.responder"):60118,y=b$1?Symbol.for("react.scope"):60119;
+function z$1(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g$1:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k$1:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A$1(a){return z$1(a)===m}reactIs_production_min.AsyncMode=l;reactIs_production_min.ConcurrentMode=m;reactIs_production_min.ContextConsumer=k$1;reactIs_production_min.ContextProvider=h;reactIs_production_min.Element=c;reactIs_production_min.ForwardRef=n;reactIs_production_min.Fragment=e;reactIs_production_min.Lazy=t;reactIs_production_min.Memo=r;reactIs_production_min.Portal=d;
+reactIs_production_min.Profiler=g$1;reactIs_production_min.StrictMode=f;reactIs_production_min.Suspense=p;reactIs_production_min.isAsyncMode=function(a){return A$1(a)||z$1(a)===l};reactIs_production_min.isConcurrentMode=A$1;reactIs_production_min.isContextConsumer=function(a){return z$1(a)===k$1};reactIs_production_min.isContextProvider=function(a){return z$1(a)===h};reactIs_production_min.isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===c};reactIs_production_min.isForwardRef=function(a){return z$1(a)===n};reactIs_production_min.isFragment=function(a){return z$1(a)===e};reactIs_production_min.isLazy=function(a){return z$1(a)===t};
+reactIs_production_min.isMemo=function(a){return z$1(a)===r};reactIs_production_min.isPortal=function(a){return z$1(a)===d};reactIs_production_min.isProfiler=function(a){return z$1(a)===g$1};reactIs_production_min.isStrictMode=function(a){return z$1(a)===f};reactIs_production_min.isSuspense=function(a){return z$1(a)===p};
+reactIs_production_min.isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===e||a===m||a===g$1||a===f||a===p||a===q$1||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k$1||a.$$typeof===n||a.$$typeof===w$1||a.$$typeof===x$1||a.$$typeof===y||a.$$typeof===v$1)};reactIs_production_min.typeOf=z$1;
+
+var reactIs_development = {};
+
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -6,19 +80,1330 @@
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */function $(e){function t(e,n,c,l,d){for(var p,h,m,g,b,x=0,k=0,S=0,L=0,E=0,P=0,I=m=p=0,R=0,j=0,D=0,M=0,F=c.length,H=F-1,B="",V="",W="",q="";R<F;){if(h=c.charCodeAt(R),R===H&&0!==k+L+S+x&&(0!==k&&(h=47===k?10:47),L=S=x=0,F++,H++),0===k+L+S+x){if(R===H&&(0<j&&(B=B.replace(f,"")),0<B.trim().length)){switch(h){case 32:case 9:case 59:case 13:case 10:break;default:B+=c.charAt(R)}h=59}switch(h){case 123:for(p=(B=B.trim()).charCodeAt(0),m=1,M=++R;R<F;){switch(h=c.charCodeAt(R)){case 123:m++;break;case 125:m--;break;case 47:switch(h=c.charCodeAt(R+1)){case 42:case 47:e:{for(I=R+1;I<H;++I)switch(c.charCodeAt(I)){case 47:if(42===h&&42===c.charCodeAt(I-1)&&R+2!==I){R=I+1;break e}break;case 10:if(47===h){R=I+1;break e}}R=I}}break;case 91:h++;case 40:h++;case 34:case 39:for(;R++<H&&c.charCodeAt(R)!==h;);}if(0===m)break;R++}switch(m=c.substring(M,R),0===p&&(p=(B=B.replace(u,"").trim()).charCodeAt(0)),p){case 64:switch(0<j&&(B=B.replace(f,"")),h=B.charCodeAt(1)){case 100:case 109:case 115:case 45:j=n;break;default:j=N}if(M=(m=t(n,j,m,h,d+1)).length,0<_&&(b=s(3,m,j=r(N,B,D),n,z,O,M,h,d,l),B=j.join(""),void 0!==b&&0===(M=(m=b.trim()).length)&&(h=0,m="")),0<M)switch(h){case 115:B=B.replace(C,i);case 100:case 109:case 45:m=B+"{"+m+"}";break;case 107:m=(B=B.replace(y,"$1 $2"))+"{"+m+"}",m=1===$||2===$&&a("@"+m,3)?"@-webkit-"+m+"@"+m:"@"+m;break;default:m=B+m,112===l&&(V+=m,m="")}else m="";break;default:m=t(n,r(n,B,D),m,l,d+1)}W+=m,m=D=j=I=p=0,B="",h=c.charCodeAt(++R);break;case 125:case 59:if(1<(M=(B=(0<j?B.replace(f,""):B).trim()).length))switch(0===I&&(p=B.charCodeAt(0),45===p||96<p&&123>p)&&(M=(B=B.replace(" ",":")).length),0<_&&void 0!==(b=s(1,B,n,e,z,O,V.length,l,d,l))&&0===(M=(B=b.trim()).length)&&(B="\0\0"),p=B.charCodeAt(0),h=B.charCodeAt(1),p){case 0:break;case 64:if(105===h||99===h){q+=B+c.charAt(R);break}default:58!==B.charCodeAt(M-1)&&(V+=o(B,p,h,B.charCodeAt(2)))}D=j=I=p=0,B="",h=c.charCodeAt(++R)}}switch(h){case 13:case 10:47===k?k=0:0===1+p&&107!==l&&0<B.length&&(j=1,B+="\0"),0<_*T&&s(0,B,n,e,z,O,V.length,l,d,l),O=1,z++;break;case 59:case 125:if(0===k+L+S+x){O++;break}default:switch(O++,g=c.charAt(R),h){case 9:case 32:if(0===L+x+k)switch(E){case 44:case 58:case 9:case 32:g="";break;default:32!==h&&(g=" ")}break;case 0:g="\\0";break;case 12:g="\\f";break;case 11:g="\\v";break;case 38:0===L+k+x&&(j=D=1,g="\f"+g);break;case 108:if(0===L+k+x+A&&0<I)switch(R-I){case 2:112===E&&58===c.charCodeAt(R-3)&&(A=E);case 8:111===P&&(A=P)}break;case 58:0===L+k+x&&(I=R);break;case 44:0===k+S+L+x&&(j=1,g+="\r");break;case 34:case 39:0===k&&(L=L===h?0:0===L?h:L);break;case 91:0===L+k+S&&x++;break;case 93:0===L+k+S&&x--;break;case 41:0===L+k+x&&S--;break;case 40:if(0===L+k+x){if(0===p)switch(2*E+3*P){case 533:break;default:p=1}S++}break;case 64:0===k+S+L+x+I+m&&(m=1);break;case 42:case 47:if(!(0<L+x+S))switch(k){case 0:switch(2*h+3*c.charCodeAt(R+1)){case 235:k=47;break;case 220:M=R,k=42}break;case 42:47===h&&42===E&&M+2!==R&&(33===c.charCodeAt(M+2)&&(V+=c.substring(M,R+1)),g="",k=0)}}0===k&&(B+=g)}P=E,E=h,R++}if(0<(M=V.length)){if(j=n,0<_&&(void 0!==(b=s(2,V,j,e,z,O,M,l,d,l))&&0===(V=b).length))return q+V+W;if(V=j.join(",")+"{"+V+"}",0!=$*A){switch(2!==$||a(V,2)||(A=0),A){case 111:V=V.replace(v,":-moz-$1")+V;break;case 112:V=V.replace(w,"::-webkit-input-$1")+V.replace(w,"::-moz-$1")+V.replace(w,":-ms-input-$1")+V}A=0}}return q+V+W}function r(e,t,r){var o=t.trim().split(m);t=o;var a=o.length,i=e.length;switch(i){case 0:case 1:var s=0;for(e=0===i?"":e[0]+" ";s<a;++s)t[s]=n(e,t[s],r).trim();break;default:var c=s=0;for(t=[];s<a;++s)for(var l=0;l<i;++l)t[c++]=n(e[l]+" ",o[s],r).trim()}return t}function n(e,t,r){var n=t.charCodeAt(0);switch(33>n&&(n=(t=t.trim()).charCodeAt(0)),n){case 38:return t.replace(g,"$1"+e.trim());case 58:return e.trim()+t.replace(g,"$1"+e.trim());default:if(0<1*r&&0<t.indexOf("\f"))return t.replace(g,(58===e.charCodeAt(0)?"":"$1")+e.trim())}return e+t}function o(e,t,r,n){var i=e+";",s=2*t+3*r+4*n;if(944===s){e=i.indexOf(":",9)+1;var c=i.substring(e,i.length-1).trim();return c=i.substring(0,e).trim()+c+";",1===$||2===$&&a(c,1)?"-webkit-"+c+c:c}if(0===$||2===$&&!a(i,1))return i;switch(s){case 1015:return 97===i.charCodeAt(10)?"-webkit-"+i+i:i;case 951:return 116===i.charCodeAt(3)?"-webkit-"+i+i:i;case 963:return 110===i.charCodeAt(5)?"-webkit-"+i+i:i;case 1009:if(100!==i.charCodeAt(4))break;case 969:case 942:return"-webkit-"+i+i;case 978:return"-webkit-"+i+"-moz-"+i+i;case 1019:case 983:return"-webkit-"+i+"-moz-"+i+"-ms-"+i+i;case 883:if(45===i.charCodeAt(8))return"-webkit-"+i+i;if(0<i.indexOf("image-set(",11))return i.replace(E,"$1-webkit-$2")+i;break;case 932:if(45===i.charCodeAt(4))switch(i.charCodeAt(5)){case 103:return"-webkit-box-"+i.replace("-grow","")+"-webkit-"+i+"-ms-"+i.replace("grow","positive")+i;case 115:return"-webkit-"+i+"-ms-"+i.replace("shrink","negative")+i;case 98:return"-webkit-"+i+"-ms-"+i.replace("basis","preferred-size")+i}return"-webkit-"+i+"-ms-"+i+i;case 964:return"-webkit-"+i+"-ms-flex-"+i+i;case 1023:if(99!==i.charCodeAt(8))break;return"-webkit-box-pack"+(c=i.substring(i.indexOf(":",15)).replace("flex-","").replace("space-between","justify"))+"-webkit-"+i+"-ms-flex-pack"+c+i;case 1005:return p.test(i)?i.replace(d,":-webkit-")+i.replace(d,":-moz-")+i:i;case 1e3:switch(t=(c=i.substring(13).trim()).indexOf("-")+1,c.charCodeAt(0)+c.charCodeAt(t)){case 226:c=i.replace(b,"tb");break;case 232:c=i.replace(b,"tb-rl");break;case 220:c=i.replace(b,"lr");break;default:return i}return"-webkit-"+i+"-ms-"+c+i;case 1017:if(-1===i.indexOf("sticky",9))break;case 975:switch(t=(i=e).length-10,s=(c=(33===i.charCodeAt(t)?i.substring(0,t):i).substring(e.indexOf(":",7)+1).trim()).charCodeAt(0)+(0|c.charCodeAt(7))){case 203:if(111>c.charCodeAt(8))break;case 115:i=i.replace(c,"-webkit-"+c)+";"+i;break;case 207:case 102:i=i.replace(c,"-webkit-"+(102<s?"inline-":"")+"box")+";"+i.replace(c,"-webkit-"+c)+";"+i.replace(c,"-ms-"+c+"box")+";"+i}return i+";";case 938:if(45===i.charCodeAt(5))switch(i.charCodeAt(6)){case 105:return c=i.replace("-items",""),"-webkit-"+i+"-webkit-box-"+c+"-ms-flex-"+c+i;case 115:return"-webkit-"+i+"-ms-flex-item-"+i.replace(k,"")+i;default:return"-webkit-"+i+"-ms-flex-line-pack"+i.replace("align-content","").replace(k,"")+i}break;case 973:case 989:if(45!==i.charCodeAt(3)||122===i.charCodeAt(4))break;case 931:case 953:if(!0===L.test(e))return 115===(c=e.substring(e.indexOf(":")+1)).charCodeAt(0)?o(e.replace("stretch","fill-available"),t,r,n).replace(":fill-available",":stretch"):i.replace(c,"-webkit-"+c)+i.replace(c,"-moz-"+c.replace("fill-",""))+i;break;case 962:if(i="-webkit-"+i+(102===i.charCodeAt(5)?"-ms-"+i:"")+i,211===r+n&&105===i.charCodeAt(13)&&0<i.indexOf("transform",10))return i.substring(0,i.indexOf(";",27)+1).replace(h,"$1-webkit-$2")+i}return i}function a(e,t){var r=e.indexOf(1===t?":":"{"),n=e.substring(0,3!==t?r:10);return r=e.substring(r+1,e.length-1),I(2!==t?n:n.replace(S,"$1"),r,t)}function i(e,t){var r=o(t,t.charCodeAt(0),t.charCodeAt(1),t.charCodeAt(2));return r!==t+";"?r.replace(x," or ($1)").substring(4):"("+t+")"}function s(e,t,r,n,o,a,i,s,c,u){for(var f,d=0,p=t;d<_;++d)switch(f=P[d].call(l,e,p,r,n,o,a,i,s,c,u)){case void 0:case!1:case!0:case null:break;default:p=f}if(p!==t)return p}function c(e){return void 0!==(e=e.prefix)&&(I=null,e?"function"!=typeof e?$=1:($=2,I=e):$=0),c}function l(e,r){var n=e;if(33>n.charCodeAt(0)&&(n=n.trim()),n=[n],0<_){var o=s(-1,r,n,n,z,O,0,0,0,0);void 0!==o&&"string"==typeof o&&(r=o)}var a=t(N,n,r,0,0);return 0<_&&(void 0!==(o=s(-2,a,n,n,z,O,a.length,0,0,0))&&(a=o)),"",A=0,O=z=1,a}var u=/^\0+/g,f=/[\0\r\f]/g,d=/: */g,p=/zoo|gra/,h=/([,: ])(transform)/g,m=/,\r+?/g,g=/([\t\r\n ])*\f?&/g,y=/@(k\w+)\s*(\S*)\s*/,w=/::(place)/g,v=/:(read-only)/g,b=/[svh]\w+-[tblr]{2}/,C=/\(\s*(.*)\s*\)/g,x=/([\s\S]*?);/g,k=/-self|flex-/g,S=/[^]*?(:[rp][el]a[\w-]+)[^]*/,L=/stretch|:\s*\w+\-(?:conte|avail)/,E=/([^-])(image-set\()/,O=1,z=1,A=0,$=1,N=[],P=[],_=0,I=null,T=0;return l.use=function e(t){switch(t){case void 0:case null:_=P.length=0;break;default:if("function"==typeof t)P[_++]=t;else if("object"==typeof t)for(var r=0,n=t.length;r<n;++r)e(t[r]);else T=0|!!t}return e},l.set=c,void 0!==e&&c(e),l}"production"!==process.env.NODE_ENV&&function(){var e="function"==typeof Symbol&&Symbol.for,t=e?Symbol.for("react.element"):60103,r=e?Symbol.for("react.portal"):60106,n=e?Symbol.for("react.fragment"):60107,o=e?Symbol.for("react.strict_mode"):60108,a=e?Symbol.for("react.profiler"):60114,i=e?Symbol.for("react.provider"):60109,s=e?Symbol.for("react.context"):60110,c=e?Symbol.for("react.async_mode"):60111,l=e?Symbol.for("react.concurrent_mode"):60111,u=e?Symbol.for("react.forward_ref"):60112,f=e?Symbol.for("react.suspense"):60113,d=e?Symbol.for("react.suspense_list"):60120,p=e?Symbol.for("react.memo"):60115,h=e?Symbol.for("react.lazy"):60116,m=e?Symbol.for("react.block"):60121,g=e?Symbol.for("react.fundamental"):60117,y=e?Symbol.for("react.responder"):60118,w=e?Symbol.for("react.scope"):60119;function v(e){if("object"==typeof e&&null!==e){var d=e.$$typeof;switch(d){case t:var m=e.type;switch(m){case c:case l:case n:case a:case o:case f:return m;default:var g=m&&m.$$typeof;switch(g){case s:case u:case h:case p:case i:return g;default:return d}}case r:return d}}}var b=c,C=l,x=s,k=i,S=t,L=u,E=n,O=h,z=p,$=r,N=a,P=o,_=f,I=!1;function T(e){return v(e)===l}A.AsyncMode=b,A.ConcurrentMode=C,A.ContextConsumer=x,A.ContextProvider=k,A.Element=S,A.ForwardRef=L,A.Fragment=E,A.Lazy=O,A.Memo=z,A.Portal=$,A.Profiler=N,A.StrictMode=P,A.Suspense=_,A.isAsyncMode=function(e){return I||(I=!0,console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")),T(e)||v(e)===c},A.isConcurrentMode=T,A.isContextConsumer=function(e){return v(e)===s},A.isContextProvider=function(e){return v(e)===i},A.isElement=function(e){return"object"==typeof e&&null!==e&&e.$$typeof===t},A.isForwardRef=function(e){return v(e)===u},A.isFragment=function(e){return v(e)===n},A.isLazy=function(e){return v(e)===h},A.isMemo=function(e){return v(e)===p},A.isPortal=function(e){return v(e)===r},A.isProfiler=function(e){return v(e)===a},A.isStrictMode=function(e){return v(e)===o},A.isSuspense=function(e){return v(e)===f},A.isValidElementType=function(e){return"string"==typeof e||"function"==typeof e||e===n||e===l||e===a||e===o||e===f||e===d||"object"==typeof e&&null!==e&&(e.$$typeof===h||e.$$typeof===p||e.$$typeof===i||e.$$typeof===s||e.$$typeof===u||e.$$typeof===g||e.$$typeof===y||e.$$typeof===w||e.$$typeof===m)},A.typeOf=v}(),"production"===process.env.NODE_ENV?i.exports=s:i.exports=A;var N={animationIterationCount:1,borderImageOutset:1,borderImageSlice:1,borderImageWidth:1,boxFlex:1,boxFlexGroup:1,boxOrdinalGroup:1,columnCount:1,columns:1,flex:1,flexGrow:1,flexPositive:1,flexShrink:1,flexNegative:1,flexOrder:1,gridRow:1,gridRowEnd:1,gridRowSpan:1,gridRowStart:1,gridColumn:1,gridColumnEnd:1,gridColumnSpan:1,gridColumnStart:1,msGridRow:1,msGridRowSpan:1,msGridColumn:1,msGridColumnSpan:1,fontWeight:1,lineHeight:1,opacity:1,order:1,orphans:1,tabSize:1,widows:1,zIndex:1,zoom:1,WebkitLineClamp:1,fillOpacity:1,floodOpacity:1,stopOpacity:1,strokeDasharray:1,strokeDashoffset:1,strokeMiterlimit:1,strokeOpacity:1,strokeWidth:1};var P,_,I=/^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|inert|itemProp|itemScope|itemType|itemID|itemRef|on|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/,T=(P=function(e){return I.test(e)||111===e.charCodeAt(0)&&110===e.charCodeAt(1)&&e.charCodeAt(2)<91},_={},function(e){return void 0===_[e]&&(_[e]=P(e)),_[e]}),R=i.exports,j={childContextTypes:!0,contextType:!0,contextTypes:!0,defaultProps:!0,displayName:!0,getDefaultProps:!0,getDerivedStateFromError:!0,getDerivedStateFromProps:!0,mixins:!0,propTypes:!0,type:!0},D={name:!0,length:!0,prototype:!0,caller:!0,callee:!0,arguments:!0,arity:!0},M={$$typeof:!0,compare:!0,defaultProps:!0,displayName:!0,propTypes:!0,type:!0},F={};function H(e){return R.isMemo(e)?M:F[e.$$typeof]||j}F[R.ForwardRef]={$$typeof:!0,render:!0,defaultProps:!0,displayName:!0,propTypes:!0},F[R.Memo]=M;var B=Object.defineProperty,V=Object.getOwnPropertyNames,W=Object.getOwnPropertySymbols,q=Object.getOwnPropertyDescriptor,U=Object.getPrototypeOf,G=Object.prototype;var Y=function e(t,r,n){if("string"!=typeof r){if(G){var o=U(r);o&&o!==G&&e(t,o,n)}var a=V(r);W&&(a=a.concat(W(r)));for(var i=H(t),s=H(r),c=0;c<a.length;++c){var l=a[c];if(!(D[l]||n&&n[l]||s&&s[l]||i&&i[l])){var u=q(r,l);try{B(t,l,u)}catch(e){}}}}return t};function X(){return(X=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e}).apply(this,arguments)}var J=function(e,t){for(var r=[e[0]],n=0,o=t.length;n<o;n+=1)r.push(t[n],e[n+1]);return r},Z=function(e){return null!==e&&"object"==typeof e&&"[object Object]"===(e.toString?e.toString():Object.prototype.toString.call(e))&&!i.exports.typeOf(e)},K=Object.freeze([]),Q=Object.freeze({});function ee(e){return"function"==typeof e}function te(e){return"production"!==process.env.NODE_ENV&&"string"==typeof e&&e||e.displayName||e.name||"Component"}function re(e){return e&&"string"==typeof e.styledComponentId}var ne="undefined"!=typeof process&&(process.env.REACT_APP_SC_ATTR||process.env.SC_ATTR)||"data-styled",oe="undefined"!=typeof window&&"HTMLElement"in window,ae=Boolean("boolean"==typeof SC_DISABLE_SPEEDY?SC_DISABLE_SPEEDY:"undefined"!=typeof process&&void 0!==process.env.REACT_APP_SC_DISABLE_SPEEDY&&""!==process.env.REACT_APP_SC_DISABLE_SPEEDY?"false"!==process.env.REACT_APP_SC_DISABLE_SPEEDY&&process.env.REACT_APP_SC_DISABLE_SPEEDY:"undefined"!=typeof process&&void 0!==process.env.SC_DISABLE_SPEEDY&&""!==process.env.SC_DISABLE_SPEEDY?"false"!==process.env.SC_DISABLE_SPEEDY&&process.env.SC_DISABLE_SPEEDY:"production"!==process.env.NODE_ENV),ie="production"!==process.env.NODE_ENV?{1:"Cannot create styled-component for component: %s.\n\n",2:"Can't collect styles once you've consumed a `ServerStyleSheet`'s styles! `ServerStyleSheet` is a one off instance for each server-side render cycle.\n\n- Are you trying to reuse it across renders?\n- Are you accidentally calling collectStyles twice?\n\n",3:"Streaming SSR is only supported in a Node.js environment; Please do not try to call this method in the browser.\n\n",4:"The `StyleSheetManager` expects a valid target or sheet prop!\n\n- Does this error occur on the client and is your target falsy?\n- Does this error occur on the server and is the sheet falsy?\n\n",5:"The clone method cannot be used on the client!\n\n- Are you running in a client-like environment on the server?\n- Are you trying to run SSR on the client?\n\n",6:"Trying to insert a new style tag, but the given Node is unmounted!\n\n- Are you using a custom target that isn't mounted?\n- Does your document not have a valid head element?\n- Have you accidentally removed a style tag manually?\n\n",7:'ThemeProvider: Please return an object from your "theme" prop function, e.g.\n\n```js\ntheme={() => ({})}\n```\n\n',8:'ThemeProvider: Please make your "theme" prop an object.\n\n',9:"Missing document `<head>`\n\n",10:"Cannot find a StyleSheet instance. Usually this happens if there are multiple copies of styled-components loaded at once. Check out this issue for how to troubleshoot and fix the common cases where this situation can happen: https://github.com/styled-components/styled-components/issues/1941#issuecomment-417862021\n\n",11:"_This error was replaced with a dev-time warning, it will be deleted for v4 final._ [createGlobalStyle] received children which will not be rendered. Please use the component without passing children elements.\n\n",12:"It seems you are interpolating a keyframe declaration (%s) into an untagged string. This was supported in styled-components v3, but is not longer supported in v4 as keyframes are now injected on-demand. Please wrap your string in the css\\`\\` helper which ensures the styles are injected correctly. See https://www.styled-components.com/docs/api#css\n\n",13:"%s is not a styled component and cannot be referred to via component selector. See https://www.styled-components.com/docs/advanced#referring-to-other-components for more details.\n\n",14:'ThemeProvider: "theme" prop is required.\n\n',15:"A stylis plugin has been supplied that is not named. We need a name for each plugin to be able to prevent styling collisions between different stylis configurations within the same app. Before you pass your plugin to `<StyleSheetManager stylisPlugins={[]}>`, please make sure each plugin is uniquely-named, e.g.\n\n```js\nObject.defineProperty(importedPlugin, 'name', { value: 'some-unique-name' });\n```\n\n",16:"Reached the limit of how many styled components may be created at group %s.\nYou may only create up to 1,073,741,824 components. If you're creating components dynamically,\nas for instance in your render method then you may be running into this limitation.\n\n",17:"CSSStyleSheet could not be found on HTMLStyleElement.\nHas styled-components' style tag been unmounted or altered by another script?\n"}:{};function se(){for(var e=arguments.length<=0?void 0:arguments[0],t=[],r=1,n=arguments.length;r<n;r+=1)t.push(r<0||arguments.length<=r?void 0:arguments[r]);return t.forEach((function(t){e=e.replace(/%[a-z]/,t)})),e}function ce(e){for(var t=arguments.length,r=new Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];throw"production"===process.env.NODE_ENV?new Error("An error occurred. See https://git.io/JUIaE#"+e+" for more information."+(r.length>0?" Args: "+r.join(", "):"")):new Error(se.apply(void 0,[ie[e]].concat(r)).trim())}var le=function(){function e(e){this.groupSizes=new Uint32Array(512),this.length=512,this.tag=e}var t=e.prototype;return t.indexOfGroup=function(e){for(var t=0,r=0;r<e;r++)t+=this.groupSizes[r];return t},t.insertRules=function(e,t){if(e>=this.groupSizes.length){for(var r=this.groupSizes,n=r.length,o=n;e>=o;)(o<<=1)<0&&ce(16,""+e);this.groupSizes=new Uint32Array(o),this.groupSizes.set(r),this.length=o;for(var a=n;a<o;a++)this.groupSizes[a]=0}for(var i=this.indexOfGroup(e+1),s=0,c=t.length;s<c;s++)this.tag.insertRule(i,t[s])&&(this.groupSizes[e]++,i++)},t.clearGroup=function(e){if(e<this.length){var t=this.groupSizes[e],r=this.indexOfGroup(e),n=r+t;this.groupSizes[e]=0;for(var o=r;o<n;o++)this.tag.deleteRule(r)}},t.getGroup=function(e){var t="";if(e>=this.length||0===this.groupSizes[e])return t;for(var r=this.groupSizes[e],n=this.indexOfGroup(e),o=n+r,a=n;a<o;a++)t+=this.tag.getRule(a)+"/*!sc*/\n";return t},e}(),ue=new Map,fe=new Map,de=1,pe=function(e){if(ue.has(e))return ue.get(e);for(;fe.has(de);)de++;var t=de++;return"production"!==process.env.NODE_ENV&&((0|t)<0||t>1<<30)&&ce(16,""+t),ue.set(e,t),fe.set(t,e),t},he=function(e){return fe.get(e)},me=function(e,t){ue.set(e,t),fe.set(t,e)},ge="style["+ne+'][data-styled-version="5.3.0"]',ye=new RegExp("^"+ne+'\\.g(\\d+)\\[id="([\\w\\d-]+)"\\].*?"([^"]*)'),we=function(e,t,r){for(var n,o=r.split(","),a=0,i=o.length;a<i;a++)(n=o[a])&&e.registerName(t,n)},ve=function(e,t){for(var r=t.innerHTML.split("/*!sc*/\n"),n=[],o=0,a=r.length;o<a;o++){var i=r[o].trim();if(i){var s=i.match(ye);if(s){var c=0|parseInt(s[1],10),l=s[2];0!==c&&(me(l,c),we(e,l,s[3]),e.getTag().insertRules(c,n)),n.length=0}else n.push(i)}}},be=function(e){var t=document.head,r=e||t,n=document.createElement("style"),o=function(e){for(var t=e.childNodes,r=t.length;r>=0;r--){var n=t[r];if(n&&1===n.nodeType&&n.hasAttribute(ne))return n}}(r),a=void 0!==o?o.nextSibling:null;n.setAttribute(ne,"active"),n.setAttribute("data-styled-version","5.3.0");var i="undefined"!=typeof window&&void 0!==window.__webpack_nonce__?window.__webpack_nonce__:null;return i&&n.setAttribute("nonce",i),r.insertBefore(n,a),n},Ce=function(){function e(e){var t=this.element=be(e);t.appendChild(document.createTextNode("")),this.sheet=function(e){if(e.sheet)return e.sheet;for(var t=document.styleSheets,r=0,n=t.length;r<n;r++){var o=t[r];if(o.ownerNode===e)return o}ce(17)}(t),this.length=0}var t=e.prototype;return t.insertRule=function(e,t){try{return this.sheet.insertRule(t,e),this.length++,!0}catch(e){return!1}},t.deleteRule=function(e){this.sheet.deleteRule(e),this.length--},t.getRule=function(e){var t=this.sheet.cssRules[e];return void 0!==t&&"string"==typeof t.cssText?t.cssText:""},e}(),xe=function(){function e(e){var t=this.element=be(e);this.nodes=t.childNodes,this.length=0}var t=e.prototype;return t.insertRule=function(e,t){if(e<=this.length&&e>=0){var r=document.createTextNode(t),n=this.nodes[e];return this.element.insertBefore(r,n||null),this.length++,!0}return!1},t.deleteRule=function(e){this.element.removeChild(this.nodes[e]),this.length--},t.getRule=function(e){return e<this.length?this.nodes[e].textContent:""},e}(),ke=function(){function e(e){this.rules=[],this.length=0}var t=e.prototype;return t.insertRule=function(e,t){return e<=this.length&&(this.rules.splice(e,0,t),this.length++,!0)},t.deleteRule=function(e){this.rules.splice(e,1),this.length--},t.getRule=function(e){return e<this.length?this.rules[e]:""},e}(),Se=oe,Le={isServer:!oe,useCSSOMInjection:!ae},Ee=function(){function e(e,t,r){void 0===e&&(e=Q),void 0===t&&(t={}),this.options=X({},Le,{},e),this.gs=t,this.names=new Map(r),!this.options.isServer&&oe&&Se&&(Se=!1,function(e){for(var t=document.querySelectorAll(ge),r=0,n=t.length;r<n;r++){var o=t[r];o&&"active"!==o.getAttribute(ne)&&(ve(e,o),o.parentNode&&o.parentNode.removeChild(o))}}(this))}e.registerId=function(e){return pe(e)};var t=e.prototype;return t.reconstructWithOptions=function(t,r){return void 0===r&&(r=!0),new e(X({},this.options,{},t),this.gs,r&&this.names||void 0)},t.allocateGSInstance=function(e){return this.gs[e]=(this.gs[e]||0)+1},t.getTag=function(){return this.tag||(this.tag=(r=(t=this.options).isServer,n=t.useCSSOMInjection,o=t.target,e=r?new ke(o):n?new Ce(o):new xe(o),new le(e)));var e,t,r,n,o},t.hasNameForId=function(e,t){return this.names.has(e)&&this.names.get(e).has(t)},t.registerName=function(e,t){if(pe(e),this.names.has(e))this.names.get(e).add(t);else{var r=new Set;r.add(t),this.names.set(e,r)}},t.insertRules=function(e,t,r){this.registerName(e,t),this.getTag().insertRules(pe(e),r)},t.clearNames=function(e){this.names.has(e)&&this.names.get(e).clear()},t.clearRules=function(e){this.getTag().clearGroup(pe(e)),this.clearNames(e)},t.clearTag=function(){this.tag=void 0},t.toString=function(){return function(e){for(var t=e.getTag(),r=t.length,n="",o=0;o<r;o++){var a=he(o);if(void 0!==a){var i=e.names.get(a),s=t.getGroup(o);if(void 0!==i&&0!==s.length){var c=ne+".g"+o+'[id="'+a+'"]',l="";void 0!==i&&i.forEach((function(e){e.length>0&&(l+=e+",")})),n+=""+s+c+'{content:"'+l+'"}/*!sc*/\n'}}}return n}(this)},e}(),Oe=/(a)(d)/gi,ze=function(e){return String.fromCharCode(e+(e>25?39:97))};function Ae(e){var t,r="";for(t=Math.abs(e);t>52;t=t/52|0)r=ze(t%52)+r;return(ze(t%52)+r).replace(Oe,"$1-$2")}var $e=function(e,t){for(var r=t.length;r;)e=33*e^t.charCodeAt(--r);return e},Ne=function(e){return $e(5381,e)};var Pe=Ne("5.3.0"),_e=function(){function e(e,t,r){this.rules=e,this.staticRulesId="",this.isStatic="production"===process.env.NODE_ENV&&(void 0===r||r.isStatic)&&function(e){for(var t=0;t<e.length;t+=1){var r=e[t];if(ee(r)&&!re(r))return!1}return!0}(e),this.componentId=t,this.baseHash=$e(Pe,t),this.baseStyle=r,Ee.registerId(t)}return e.prototype.generateAndInjectStyles=function(e,t,r){var n=this.componentId,o=[];if(this.baseStyle&&o.push(this.baseStyle.generateAndInjectStyles(e,t,r)),this.isStatic&&!r.hash)if(this.staticRulesId&&t.hasNameForId(n,this.staticRulesId))o.push(this.staticRulesId);else{var a=Ge(this.rules,e,t,r).join(""),i=Ae($e(this.baseHash,a.length)>>>0);if(!t.hasNameForId(n,i)){var s=r(a,"."+i,void 0,n);t.insertRules(n,i,s)}o.push(i),this.staticRulesId=i}else{for(var c=this.rules.length,l=$e(this.baseHash,r.hash),u="",f=0;f<c;f++){var d=this.rules[f];if("string"==typeof d)u+=d,"production"!==process.env.NODE_ENV&&(l=$e(l,d+f));else if(d){var p=Ge(d,e,t,r),h=Array.isArray(p)?p.join(""):p;l=$e(l,h+f),u+=h}}if(u){var m=Ae(l>>>0);if(!t.hasNameForId(n,m)){var g=r(u,"."+m,void 0,n);t.insertRules(n,m,g)}o.push(m)}}return o.join(" ")},e}(),Ie=/^\s*\/\/.*$/gm,Te=[":","[",".","#"];var Re=r.default.createContext();Re.Consumer;var je=r.default.createContext(),De=(je.Consumer,new Ee),Me=function(e){var t,r,n,o,a=void 0===e?Q:e,i=a.options,s=void 0===i?Q:i,c=a.plugins,l=void 0===c?K:c,u=new $(s),f=[],d=function(e){function t(t){if(t)try{e(t+"}")}catch(e){}}return function(r,n,o,a,i,s,c,l,u,f){switch(r){case 1:if(0===u&&64===n.charCodeAt(0))return e(n+";"),"";break;case 2:if(0===l)return n+"/*|*/";break;case 3:switch(l){case 102:case 112:return e(o[0]+n),"";default:return n+(0===f?"/*|*/":"")}case-2:n.split("/*|*/}").forEach(t)}}}((function(e){f.push(e)})),p=function(e,n,a){return 0===n&&-1!==Te.indexOf(a[r.length])||a.match(o)?e:"."+t};function h(e,a,i,s){void 0===s&&(s="&");var c=e.replace(Ie,""),l=a&&i?i+" "+a+" { "+c+" }":c;return t=s,r=a,n=new RegExp("\\"+r+"\\b","g"),o=new RegExp("(\\"+r+"\\b){2,}"),u(i||!a?"":a,l)}return u.use([].concat(l,[function(e,t,o){2===e&&o.length&&o[0].lastIndexOf(r)>0&&(o[0]=o[0].replace(n,p))},d,function(e){if(-2===e){var t=f;return f=[],t}}])),h.hash=l.length?l.reduce((function(e,t){return t.name||ce(15),$e(e,t.name)}),5381).toString():"",h}();var Fe=function(){function e(e,t){var r=this;this.inject=function(e,t){void 0===t&&(t=Me);var n=r.name+t.hash;e.hasNameForId(r.id,n)||e.insertRules(r.id,n,t(r.rules,n,"@keyframes"))},this.toString=function(){return ce(12,String(r.name))},this.name=e,this.id="sc-keyframes-"+e,this.rules=t}return e.prototype.getName=function(e){return void 0===e&&(e=Me),this.name+e.hash},e}(),He=/([A-Z])/,Be=/([A-Z])/g,Ve=/^ms-/,We=function(e){return"-"+e.toLowerCase()};function qe(e){return He.test(e)?e.replace(Be,We).replace(Ve,"-ms-"):e}var Ue=function(e){return null==e||!1===e||""===e};function Ge(e,t,r,n){if(Array.isArray(e)){for(var o,a=[],s=0,c=e.length;s<c;s+=1)""!==(o=Ge(e[s],t,r,n))&&(Array.isArray(o)?a.push.apply(a,o):a.push(o));return a}if(Ue(e))return"";if(re(e))return"."+e.styledComponentId;if(ee(e)){if("function"!=typeof(u=e)||u.prototype&&u.prototype.isReactComponent||!t)return e;var l=e(t);return"production"!==process.env.NODE_ENV&&i.exports.isElement(l)&&console.warn(te(e)+" is not a styled component and cannot be referred to via component selector. See https://www.styled-components.com/docs/advanced#referring-to-other-components for more details."),Ge(l,t,r,n)}var u;return e instanceof Fe?r?(e.inject(r,n),e.getName(n)):e:Z(e)?function e(t,r){var n,o,a=[];for(var i in t)t.hasOwnProperty(i)&&!Ue(t[i])&&(Z(t[i])?a.push.apply(a,e(t[i],i)):ee(t[i])?a.push(qe(i)+":",t[i],";"):a.push(qe(i)+": "+(n=i,(null==(o=t[i])||"boolean"==typeof o||""===o?"":"number"!=typeof o||0===o||n in N?String(o).trim():o+"px")+";")));return r?[r+" {"].concat(a,["}"]):a}(e):e.toString()}function Ye(e){for(var t=arguments.length,r=new Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];return ee(e)||Z(e)?Ge(J(K,[e].concat(r))):0===r.length&&1===e.length&&"string"==typeof e[0]?e:Ge(J(e,r))}var Xe=/invalid hook call/i,Je=new Set,Ze=/[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~-]+/g,Ke=/(^-|-$)/g;function Qe(e){return e.replace(Ze,"-").replace(Ke,"")}function et(e){return"string"==typeof e&&("production"===process.env.NODE_ENV||e.charAt(0)===e.charAt(0).toLowerCase())}var tt=function(e){return"function"==typeof e||"object"==typeof e&&null!==e&&!Array.isArray(e)},rt=function(e){return"__proto__"!==e&&"constructor"!==e&&"prototype"!==e};function nt(e,t,r){var n=e[r];tt(t)&&tt(n)?ot(n,t):e[r]=t}function ot(e){for(var t=arguments.length,r=new Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];for(var o=0,a=r;o<a.length;o++){var i=a[o];if(tt(i))for(var s in i)rt(s)&&nt(e,i[s],s)}return e}var at=r.default.createContext();at.Consumer;var it={};function st(t,n,o){var a=re(t),i=!et(t),s=n.attrs,c=void 0===s?K:s,l=n.componentId,u=void 0===l?function(e,t){var r="string"!=typeof e?"sc":Qe(e);it[r]=(it[r]||0)+1;var n=r+"-"+function(e){return Ae(Ne(e)>>>0)}("5.3.0"+r+it[r]);return t?t+"-"+n:n}(n.displayName,n.parentComponentId):l,f=n.displayName,d=void 0===f?function(e){return et(e)?"styled."+e:"Styled("+te(e)+")"}(t):f,p=n.displayName&&n.componentId?Qe(n.displayName)+"-"+n.componentId:n.componentId||u,h=a&&t.attrs?Array.prototype.concat(t.attrs,c).filter(Boolean):c,m=n.shouldForwardProp;a&&t.shouldForwardProp&&(m=n.shouldForwardProp?function(e,r,o){return t.shouldForwardProp(e,r,o)&&n.shouldForwardProp(e,r,o)}:t.shouldForwardProp);var g,y=new _e(o,p,a?t.componentStyle:void 0),w=y.isStatic&&0===c.length,v=function(t,r){return function(t,r,n,o){var a=t.attrs,i=t.componentStyle,s=t.defaultProps,c=t.foldedComponentIds,l=t.shouldForwardProp,u=t.styledComponentId,f=t.target;"production"!==process.env.NODE_ENV&&e.useDebugValue(u);var d=function(e,t,r){void 0===e&&(e=Q);var n=X({},t,{theme:e}),o={};return r.forEach((function(e){var t,r,a,i=e;for(t in ee(i)&&(i=i(n)),i)n[t]=o[t]="className"===t?(r=o[t],a=i[t],r&&a?r+" "+a:r||a):i[t]})),[n,o]}(function(e,t,r){return void 0===r&&(r=Q),e.theme!==r.theme&&e.theme||t||r.theme}(r,e.useContext(at),s)||Q,r,a),p=d[0],h=d[1],m=function(t,r,n,o){var a=e.useContext(Re)||De,i=e.useContext(je)||Me,s=r?t.generateAndInjectStyles(Q,a,i):t.generateAndInjectStyles(n,a,i);return"production"!==process.env.NODE_ENV&&e.useDebugValue(s),"production"!==process.env.NODE_ENV&&!r&&o&&o(s),s}(i,o,p,"production"!==process.env.NODE_ENV?t.warnTooManyClasses:void 0),g=n,y=h.$as||r.$as||h.as||r.as||f,w=et(y),v=h!==r?X({},r,{},h):r,b={};for(var C in v)"$"!==C[0]&&"as"!==C&&("forwardedAs"===C?b.as=v[C]:(l?l(C,T,y):!w||T(C))&&(b[C]=v[C]));return r.style&&h.style!==r.style&&(b.style=X({},r.style,{},h.style)),b.className=Array.prototype.concat(c,u,m!==u?m:null,r.className,h.className).filter(Boolean).join(" "),b.ref=g,e.createElement(y,b)}(g,t,r,w)};return v.displayName=d,(g=r.default.forwardRef(v)).attrs=h,g.componentStyle=y,g.displayName=d,g.shouldForwardProp=m,g.foldedComponentIds=a?Array.prototype.concat(t.foldedComponentIds,t.styledComponentId):K,g.styledComponentId=p,g.target=a?t.target:t,g.withComponent=function(e){var t=n.componentId,r=function(e,t){if(null==e)return{};var r,n,o={},a=Object.keys(e);for(n=0;n<a.length;n++)r=a[n],t.indexOf(r)>=0||(o[r]=e[r]);return o}(n,["componentId"]),a=t&&t+"-"+(et(e)?e:Qe(te(e)));return st(e,X({},r,{attrs:h,componentId:a}),o)},Object.defineProperty(g,"defaultProps",{get:function(){return this._foldedDefaultProps},set:function(e){this._foldedDefaultProps=a?ot({},t.defaultProps,e):e}}),"production"!==process.env.NODE_ENV&&(function(t,r){if("production"!==process.env.NODE_ENV){var n="The component "+t+(r?' with the id of "'+r+'"':"")+" has been created dynamically.\nYou may see this warning because you've called styled inside another component.\nTo resolve this only create new StyledComponents outside of any render method and function component.";try{e.useRef(),Je.has(n)||(console.warn(n),Je.add(n))}catch(t){Xe.test(t.message)&&Je.delete(n)}}}(d,p),g.warnTooManyClasses=function(e,t){var r={},n=!1;return function(o){if(!n&&(r[o]=!0,Object.keys(r).length>=200)){var a=t?' with the id of "'+t+'"':"";console.warn("Over 200 classes were generated for component "+e+a+".\nConsider using the attrs method, together with a style object for frequently changed styles.\nExample:\n  const Component = styled.div.attrs(props => ({\n    style: {\n      background: props.background,\n    },\n  }))`width: 100%;`\n\n  <Component />"),n=!0,r={}}}}(d,p)),g.toString=function(){return"."+g.styledComponentId},i&&Y(g,t,{attrs:!0,componentStyle:!0,displayName:!0,foldedComponentIds:!0,shouldForwardProp:!0,styledComponentId:!0,target:!0,withComponent:!0}),g}var ct=function(e){return function e(t,r,n){if(void 0===n&&(n=Q),!i.exports.isValidElementType(r))return ce(1,String(r));var o=function(){return t(r,n,Ye.apply(void 0,arguments))};return o.withConfig=function(o){return e(t,r,X({},n,{},o))},o.attrs=function(o){return e(t,r,X({},n,{attrs:Array.prototype.concat(n.attrs,o).filter(Boolean)}))},o}(st,e)};["a","abbr","address","area","article","aside","audio","b","base","bdi","bdo","big","blockquote","body","br","button","canvas","caption","cite","code","col","colgroup","data","datalist","dd","del","details","dfn","dialog","div","dl","dt","em","embed","fieldset","figcaption","figure","footer","form","h1","h2","h3","h4","h5","h6","head","header","hgroup","hr","html","i","iframe","img","input","ins","kbd","keygen","label","legend","li","link","main","map","mark","marquee","menu","menuitem","meta","meter","nav","noscript","object","ol","optgroup","option","output","p","param","picture","pre","progress","q","rp","rt","ruby","s","samp","script","section","select","small","source","span","strong","style","sub","summary","sup","table","tbody","td","textarea","tfoot","th","thead","time","title","tr","track","u","ul","var","video","wbr","circle","clipPath","defs","ellipse","foreignObject","g","image","line","linearGradient","marker","mask","path","pattern","polygon","polyline","radialGradient","rect","stop","svg","text","textPath","tspan"].forEach((function(e){ct[e]=ct(e)})),"production"!==process.env.NODE_ENV&&"undefined"!=typeof navigator&&"ReactNative"===navigator.product&&console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native"),"production"!==process.env.NODE_ENV&&"test"!==process.env.NODE_ENV&&(window["__styled-components-init__"]=window["__styled-components-init__"]||0,1===window["__styled-components-init__"]&&console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."),window["__styled-components-init__"]+=1);const lt=ct.button`
-  background-color: ${e=>(e=>{const t=e.variant,r=e.backgroundColor,n=e.theme&&e.theme.button;if(r)return r.toLowerCase();if(t){if("outline"===t.toLowerCase())return r?r.toLowerCase():n&&n.backgroundColor?n.backgroundColor.toLowerCase():"white";if("filled"===t.toLowerCase())return r?r.toLowerCase():n&&n.backgroundColor?n.backgroundColor.toLowerCase():"black"}if(n){if(n.backgroundColor)return n.backgroundColor.toLowerCase();if(n.variant){if("outline"===n.variant.toLowerCase())return r?r.toLowerCase():n.backgroundColor?n.backgroundColor.toLowerCase():"white";if("filled"===n.variant.toLowerCase())return r?r.toLowerCase():n.backgroundColor?n.backgroundColor.toLowerCase():"black"}}return"black"})(e)};
-  border-color: ${e=>(e=>{const t=e.backgroundColor,r=e.borderColor,n=e.theme&&e.theme.button;if(r)return r.toLowerCase();if(t)return t.toLowerCase();if(n){if(n.borderColor)return n.borderColor.toLowerCase();if(n.backgroundColor)return n.backgroundColor.toLowerCase()}return"black"})(e)};
+ */
+
+
+
+if (process.env.NODE_ENV !== "production") {
+  (function() {
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+// (unstable) APIs that have been removed. Can we remove the symbols?
+
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+}
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+
+              default:
+                return $$typeof;
+            }
+
+        }
+
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+} // AsyncMode is deprecated along with isAsyncMode
+
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+reactIs_development.AsyncMode = AsyncMode;
+reactIs_development.ConcurrentMode = ConcurrentMode;
+reactIs_development.ContextConsumer = ContextConsumer;
+reactIs_development.ContextProvider = ContextProvider;
+reactIs_development.Element = Element;
+reactIs_development.ForwardRef = ForwardRef;
+reactIs_development.Fragment = Fragment;
+reactIs_development.Lazy = Lazy;
+reactIs_development.Memo = Memo;
+reactIs_development.Portal = Portal;
+reactIs_development.Profiler = Profiler;
+reactIs_development.StrictMode = StrictMode;
+reactIs_development.Suspense = Suspense;
+reactIs_development.isAsyncMode = isAsyncMode;
+reactIs_development.isConcurrentMode = isConcurrentMode;
+reactIs_development.isContextConsumer = isContextConsumer;
+reactIs_development.isContextProvider = isContextProvider;
+reactIs_development.isElement = isElement;
+reactIs_development.isForwardRef = isForwardRef;
+reactIs_development.isFragment = isFragment;
+reactIs_development.isLazy = isLazy;
+reactIs_development.isMemo = isMemo;
+reactIs_development.isPortal = isPortal;
+reactIs_development.isProfiler = isProfiler;
+reactIs_development.isStrictMode = isStrictMode;
+reactIs_development.isSuspense = isSuspense;
+reactIs_development.isValidElementType = isValidElementType;
+reactIs_development.typeOf = typeOf;
+  })();
+}
+
+if (process.env.NODE_ENV === 'production') {
+  reactIs$1.exports = reactIs_production_min;
+} else {
+  reactIs$1.exports = reactIs_development;
+}
+
+function stylis_min (W) {
+  function M(d, c, e, h, a) {
+    for (var m = 0, b = 0, v = 0, n = 0, q, g, x = 0, K = 0, k, u = k = q = 0, l = 0, r = 0, I = 0, t = 0, B = e.length, J = B - 1, y, f = '', p = '', F = '', G = '', C; l < B;) {
+      g = e.charCodeAt(l);
+      l === J && 0 !== b + n + v + m && (0 !== b && (g = 47 === b ? 10 : 47), n = v = m = 0, B++, J++);
+
+      if (0 === b + n + v + m) {
+        if (l === J && (0 < r && (f = f.replace(N, '')), 0 < f.trim().length)) {
+          switch (g) {
+            case 32:
+            case 9:
+            case 59:
+            case 13:
+            case 10:
+              break;
+
+            default:
+              f += e.charAt(l);
+          }
+
+          g = 59;
+        }
+
+        switch (g) {
+          case 123:
+            f = f.trim();
+            q = f.charCodeAt(0);
+            k = 1;
+
+            for (t = ++l; l < B;) {
+              switch (g = e.charCodeAt(l)) {
+                case 123:
+                  k++;
+                  break;
+
+                case 125:
+                  k--;
+                  break;
+
+                case 47:
+                  switch (g = e.charCodeAt(l + 1)) {
+                    case 42:
+                    case 47:
+                      a: {
+                        for (u = l + 1; u < J; ++u) {
+                          switch (e.charCodeAt(u)) {
+                            case 47:
+                              if (42 === g && 42 === e.charCodeAt(u - 1) && l + 2 !== u) {
+                                l = u + 1;
+                                break a;
+                              }
+
+                              break;
+
+                            case 10:
+                              if (47 === g) {
+                                l = u + 1;
+                                break a;
+                              }
+
+                          }
+                        }
+
+                        l = u;
+                      }
+
+                  }
+
+                  break;
+
+                case 91:
+                  g++;
+
+                case 40:
+                  g++;
+
+                case 34:
+                case 39:
+                  for (; l++ < J && e.charCodeAt(l) !== g;) {
+                  }
+
+              }
+
+              if (0 === k) break;
+              l++;
+            }
+
+            k = e.substring(t, l);
+            0 === q && (q = (f = f.replace(ca, '').trim()).charCodeAt(0));
+
+            switch (q) {
+              case 64:
+                0 < r && (f = f.replace(N, ''));
+                g = f.charCodeAt(1);
+
+                switch (g) {
+                  case 100:
+                  case 109:
+                  case 115:
+                  case 45:
+                    r = c;
+                    break;
+
+                  default:
+                    r = O;
+                }
+
+                k = M(c, r, k, g, a + 1);
+                t = k.length;
+                0 < A && (r = X(O, f, I), C = H(3, k, r, c, D, z, t, g, a, h), f = r.join(''), void 0 !== C && 0 === (t = (k = C.trim()).length) && (g = 0, k = ''));
+                if (0 < t) switch (g) {
+                  case 115:
+                    f = f.replace(da, ea);
+
+                  case 100:
+                  case 109:
+                  case 45:
+                    k = f + '{' + k + '}';
+                    break;
+
+                  case 107:
+                    f = f.replace(fa, '$1 $2');
+                    k = f + '{' + k + '}';
+                    k = 1 === w || 2 === w && L('@' + k, 3) ? '@-webkit-' + k + '@' + k : '@' + k;
+                    break;
+
+                  default:
+                    k = f + k, 112 === h && (k = (p += k, ''));
+                } else k = '';
+                break;
+
+              default:
+                k = M(c, X(c, f, I), k, h, a + 1);
+            }
+
+            F += k;
+            k = I = r = u = q = 0;
+            f = '';
+            g = e.charCodeAt(++l);
+            break;
+
+          case 125:
+          case 59:
+            f = (0 < r ? f.replace(N, '') : f).trim();
+            if (1 < (t = f.length)) switch (0 === u && (q = f.charCodeAt(0), 45 === q || 96 < q && 123 > q) && (t = (f = f.replace(' ', ':')).length), 0 < A && void 0 !== (C = H(1, f, c, d, D, z, p.length, h, a, h)) && 0 === (t = (f = C.trim()).length) && (f = '\x00\x00'), q = f.charCodeAt(0), g = f.charCodeAt(1), q) {
+              case 0:
+                break;
+
+              case 64:
+                if (105 === g || 99 === g) {
+                  G += f + e.charAt(l);
+                  break;
+                }
+
+              default:
+                58 !== f.charCodeAt(t - 1) && (p += P(f, q, g, f.charCodeAt(2)));
+            }
+            I = r = u = q = 0;
+            f = '';
+            g = e.charCodeAt(++l);
+        }
+      }
+
+      switch (g) {
+        case 13:
+        case 10:
+          47 === b ? b = 0 : 0 === 1 + q && 107 !== h && 0 < f.length && (r = 1, f += '\x00');
+          0 < A * Y && H(0, f, c, d, D, z, p.length, h, a, h);
+          z = 1;
+          D++;
+          break;
+
+        case 59:
+        case 125:
+          if (0 === b + n + v + m) {
+            z++;
+            break;
+          }
+
+        default:
+          z++;
+          y = e.charAt(l);
+
+          switch (g) {
+            case 9:
+            case 32:
+              if (0 === n + m + b) switch (x) {
+                case 44:
+                case 58:
+                case 9:
+                case 32:
+                  y = '';
+                  break;
+
+                default:
+                  32 !== g && (y = ' ');
+              }
+              break;
+
+            case 0:
+              y = '\\0';
+              break;
+
+            case 12:
+              y = '\\f';
+              break;
+
+            case 11:
+              y = '\\v';
+              break;
+
+            case 38:
+              0 === n + b + m && (r = I = 1, y = '\f' + y);
+              break;
+
+            case 108:
+              if (0 === n + b + m + E && 0 < u) switch (l - u) {
+                case 2:
+                  112 === x && 58 === e.charCodeAt(l - 3) && (E = x);
+
+                case 8:
+                  111 === K && (E = K);
+              }
+              break;
+
+            case 58:
+              0 === n + b + m && (u = l);
+              break;
+
+            case 44:
+              0 === b + v + n + m && (r = 1, y += '\r');
+              break;
+
+            case 34:
+            case 39:
+              0 === b && (n = n === g ? 0 : 0 === n ? g : n);
+              break;
+
+            case 91:
+              0 === n + b + v && m++;
+              break;
+
+            case 93:
+              0 === n + b + v && m--;
+              break;
+
+            case 41:
+              0 === n + b + m && v--;
+              break;
+
+            case 40:
+              if (0 === n + b + m) {
+                if (0 === q) switch (2 * x + 3 * K) {
+                  case 533:
+                    break;
+
+                  default:
+                    q = 1;
+                }
+                v++;
+              }
+
+              break;
+
+            case 64:
+              0 === b + v + n + m + u + k && (k = 1);
+              break;
+
+            case 42:
+            case 47:
+              if (!(0 < n + m + v)) switch (b) {
+                case 0:
+                  switch (2 * g + 3 * e.charCodeAt(l + 1)) {
+                    case 235:
+                      b = 47;
+                      break;
+
+                    case 220:
+                      t = l, b = 42;
+                  }
+
+                  break;
+
+                case 42:
+                  47 === g && 42 === x && t + 2 !== l && (33 === e.charCodeAt(t + 2) && (p += e.substring(t, l + 1)), y = '', b = 0);
+              }
+          }
+
+          0 === b && (f += y);
+      }
+
+      K = x;
+      x = g;
+      l++;
+    }
+
+    t = p.length;
+
+    if (0 < t) {
+      r = c;
+      if (0 < A && (C = H(2, p, r, d, D, z, t, h, a, h), void 0 !== C && 0 === (p = C).length)) return G + p + F;
+      p = r.join(',') + '{' + p + '}';
+
+      if (0 !== w * E) {
+        2 !== w || L(p, 2) || (E = 0);
+
+        switch (E) {
+          case 111:
+            p = p.replace(ha, ':-moz-$1') + p;
+            break;
+
+          case 112:
+            p = p.replace(Q, '::-webkit-input-$1') + p.replace(Q, '::-moz-$1') + p.replace(Q, ':-ms-input-$1') + p;
+        }
+
+        E = 0;
+      }
+    }
+
+    return G + p + F;
+  }
+
+  function X(d, c, e) {
+    var h = c.trim().split(ia);
+    c = h;
+    var a = h.length,
+        m = d.length;
+
+    switch (m) {
+      case 0:
+      case 1:
+        var b = 0;
+
+        for (d = 0 === m ? '' : d[0] + ' '; b < a; ++b) {
+          c[b] = Z(d, c[b], e).trim();
+        }
+
+        break;
+
+      default:
+        var v = b = 0;
+
+        for (c = []; b < a; ++b) {
+          for (var n = 0; n < m; ++n) {
+            c[v++] = Z(d[n] + ' ', h[b], e).trim();
+          }
+        }
+
+    }
+
+    return c;
+  }
+
+  function Z(d, c, e) {
+    var h = c.charCodeAt(0);
+    33 > h && (h = (c = c.trim()).charCodeAt(0));
+
+    switch (h) {
+      case 38:
+        return c.replace(F, '$1' + d.trim());
+
+      case 58:
+        return d.trim() + c.replace(F, '$1' + d.trim());
+
+      default:
+        if (0 < 1 * e && 0 < c.indexOf('\f')) return c.replace(F, (58 === d.charCodeAt(0) ? '' : '$1') + d.trim());
+    }
+
+    return d + c;
+  }
+
+  function P(d, c, e, h) {
+    var a = d + ';',
+        m = 2 * c + 3 * e + 4 * h;
+
+    if (944 === m) {
+      d = a.indexOf(':', 9) + 1;
+      var b = a.substring(d, a.length - 1).trim();
+      b = a.substring(0, d).trim() + b + ';';
+      return 1 === w || 2 === w && L(b, 1) ? '-webkit-' + b + b : b;
+    }
+
+    if (0 === w || 2 === w && !L(a, 1)) return a;
+
+    switch (m) {
+      case 1015:
+        return 97 === a.charCodeAt(10) ? '-webkit-' + a + a : a;
+
+      case 951:
+        return 116 === a.charCodeAt(3) ? '-webkit-' + a + a : a;
+
+      case 963:
+        return 110 === a.charCodeAt(5) ? '-webkit-' + a + a : a;
+
+      case 1009:
+        if (100 !== a.charCodeAt(4)) break;
+
+      case 969:
+      case 942:
+        return '-webkit-' + a + a;
+
+      case 978:
+        return '-webkit-' + a + '-moz-' + a + a;
+
+      case 1019:
+      case 983:
+        return '-webkit-' + a + '-moz-' + a + '-ms-' + a + a;
+
+      case 883:
+        if (45 === a.charCodeAt(8)) return '-webkit-' + a + a;
+        if (0 < a.indexOf('image-set(', 11)) return a.replace(ja, '$1-webkit-$2') + a;
+        break;
+
+      case 932:
+        if (45 === a.charCodeAt(4)) switch (a.charCodeAt(5)) {
+          case 103:
+            return '-webkit-box-' + a.replace('-grow', '') + '-webkit-' + a + '-ms-' + a.replace('grow', 'positive') + a;
+
+          case 115:
+            return '-webkit-' + a + '-ms-' + a.replace('shrink', 'negative') + a;
+
+          case 98:
+            return '-webkit-' + a + '-ms-' + a.replace('basis', 'preferred-size') + a;
+        }
+        return '-webkit-' + a + '-ms-' + a + a;
+
+      case 964:
+        return '-webkit-' + a + '-ms-flex-' + a + a;
+
+      case 1023:
+        if (99 !== a.charCodeAt(8)) break;
+        b = a.substring(a.indexOf(':', 15)).replace('flex-', '').replace('space-between', 'justify');
+        return '-webkit-box-pack' + b + '-webkit-' + a + '-ms-flex-pack' + b + a;
+
+      case 1005:
+        return ka.test(a) ? a.replace(aa, ':-webkit-') + a.replace(aa, ':-moz-') + a : a;
+
+      case 1e3:
+        b = a.substring(13).trim();
+        c = b.indexOf('-') + 1;
+
+        switch (b.charCodeAt(0) + b.charCodeAt(c)) {
+          case 226:
+            b = a.replace(G, 'tb');
+            break;
+
+          case 232:
+            b = a.replace(G, 'tb-rl');
+            break;
+
+          case 220:
+            b = a.replace(G, 'lr');
+            break;
+
+          default:
+            return a;
+        }
+
+        return '-webkit-' + a + '-ms-' + b + a;
+
+      case 1017:
+        if (-1 === a.indexOf('sticky', 9)) break;
+
+      case 975:
+        c = (a = d).length - 10;
+        b = (33 === a.charCodeAt(c) ? a.substring(0, c) : a).substring(d.indexOf(':', 7) + 1).trim();
+
+        switch (m = b.charCodeAt(0) + (b.charCodeAt(7) | 0)) {
+          case 203:
+            if (111 > b.charCodeAt(8)) break;
+
+          case 115:
+            a = a.replace(b, '-webkit-' + b) + ';' + a;
+            break;
+
+          case 207:
+          case 102:
+            a = a.replace(b, '-webkit-' + (102 < m ? 'inline-' : '') + 'box') + ';' + a.replace(b, '-webkit-' + b) + ';' + a.replace(b, '-ms-' + b + 'box') + ';' + a;
+        }
+
+        return a + ';';
+
+      case 938:
+        if (45 === a.charCodeAt(5)) switch (a.charCodeAt(6)) {
+          case 105:
+            return b = a.replace('-items', ''), '-webkit-' + a + '-webkit-box-' + b + '-ms-flex-' + b + a;
+
+          case 115:
+            return '-webkit-' + a + '-ms-flex-item-' + a.replace(ba, '') + a;
+
+          default:
+            return '-webkit-' + a + '-ms-flex-line-pack' + a.replace('align-content', '').replace(ba, '') + a;
+        }
+        break;
+
+      case 973:
+      case 989:
+        if (45 !== a.charCodeAt(3) || 122 === a.charCodeAt(4)) break;
+
+      case 931:
+      case 953:
+        if (!0 === la.test(d)) return 115 === (b = d.substring(d.indexOf(':') + 1)).charCodeAt(0) ? P(d.replace('stretch', 'fill-available'), c, e, h).replace(':fill-available', ':stretch') : a.replace(b, '-webkit-' + b) + a.replace(b, '-moz-' + b.replace('fill-', '')) + a;
+        break;
+
+      case 962:
+        if (a = '-webkit-' + a + (102 === a.charCodeAt(5) ? '-ms-' + a : '') + a, 211 === e + h && 105 === a.charCodeAt(13) && 0 < a.indexOf('transform', 10)) return a.substring(0, a.indexOf(';', 27) + 1).replace(ma, '$1-webkit-$2') + a;
+    }
+
+    return a;
+  }
+
+  function L(d, c) {
+    var e = d.indexOf(1 === c ? ':' : '{'),
+        h = d.substring(0, 3 !== c ? e : 10);
+    e = d.substring(e + 1, d.length - 1);
+    return R(2 !== c ? h : h.replace(na, '$1'), e, c);
+  }
+
+  function ea(d, c) {
+    var e = P(c, c.charCodeAt(0), c.charCodeAt(1), c.charCodeAt(2));
+    return e !== c + ';' ? e.replace(oa, ' or ($1)').substring(4) : '(' + c + ')';
+  }
+
+  function H(d, c, e, h, a, m, b, v, n, q) {
+    for (var g = 0, x = c, w; g < A; ++g) {
+      switch (w = S[g].call(B, d, x, e, h, a, m, b, v, n, q)) {
+        case void 0:
+        case !1:
+        case !0:
+        case null:
+          break;
+
+        default:
+          x = w;
+      }
+    }
+
+    if (x !== c) return x;
+  }
+
+  function T(d) {
+    switch (d) {
+      case void 0:
+      case null:
+        A = S.length = 0;
+        break;
+
+      default:
+        if ('function' === typeof d) S[A++] = d;else if ('object' === typeof d) for (var c = 0, e = d.length; c < e; ++c) {
+          T(d[c]);
+        } else Y = !!d | 0;
+    }
+
+    return T;
+  }
+
+  function U(d) {
+    d = d.prefix;
+    void 0 !== d && (R = null, d ? 'function' !== typeof d ? w = 1 : (w = 2, R = d) : w = 0);
+    return U;
+  }
+
+  function B(d, c) {
+    var e = d;
+    33 > e.charCodeAt(0) && (e = e.trim());
+    V = e;
+    e = [V];
+
+    if (0 < A) {
+      var h = H(-1, c, e, e, D, z, 0, 0, 0, 0);
+      void 0 !== h && 'string' === typeof h && (c = h);
+    }
+
+    var a = M(O, e, c, 0, 0);
+    0 < A && (h = H(-2, a, e, e, D, z, a.length, 0, 0, 0), void 0 !== h && (a = h));
+    V = '';
+    E = 0;
+    z = D = 1;
+    return a;
+  }
+
+  var ca = /^\0+/g,
+      N = /[\0\r\f]/g,
+      aa = /: */g,
+      ka = /zoo|gra/,
+      ma = /([,: ])(transform)/g,
+      ia = /,\r+?/g,
+      F = /([\t\r\n ])*\f?&/g,
+      fa = /@(k\w+)\s*(\S*)\s*/,
+      Q = /::(place)/g,
+      ha = /:(read-only)/g,
+      G = /[svh]\w+-[tblr]{2}/,
+      da = /\(\s*(.*)\s*\)/g,
+      oa = /([\s\S]*?);/g,
+      ba = /-self|flex-/g,
+      na = /[^]*?(:[rp][el]a[\w-]+)[^]*/,
+      la = /stretch|:\s*\w+\-(?:conte|avail)/,
+      ja = /([^-])(image-set\()/,
+      z = 1,
+      D = 1,
+      E = 0,
+      w = 1,
+      O = [],
+      S = [],
+      A = 0,
+      R = null,
+      Y = 0,
+      V = '';
+  B.use = T;
+  B.set = U;
+  void 0 !== W && U(W);
+  return B;
+}
+
+var unitlessKeys = {
+  animationIterationCount: 1,
+  borderImageOutset: 1,
+  borderImageSlice: 1,
+  borderImageWidth: 1,
+  boxFlex: 1,
+  boxFlexGroup: 1,
+  boxOrdinalGroup: 1,
+  columnCount: 1,
+  columns: 1,
+  flex: 1,
+  flexGrow: 1,
+  flexPositive: 1,
+  flexShrink: 1,
+  flexNegative: 1,
+  flexOrder: 1,
+  gridRow: 1,
+  gridRowEnd: 1,
+  gridRowSpan: 1,
+  gridRowStart: 1,
+  gridColumn: 1,
+  gridColumnEnd: 1,
+  gridColumnSpan: 1,
+  gridColumnStart: 1,
+  msGridRow: 1,
+  msGridRowSpan: 1,
+  msGridColumn: 1,
+  msGridColumnSpan: 1,
+  fontWeight: 1,
+  lineHeight: 1,
+  opacity: 1,
+  order: 1,
+  orphans: 1,
+  tabSize: 1,
+  widows: 1,
+  zIndex: 1,
+  zoom: 1,
+  WebkitLineClamp: 1,
+  // SVG-related properties
+  fillOpacity: 1,
+  floodOpacity: 1,
+  stopOpacity: 1,
+  strokeDasharray: 1,
+  strokeDashoffset: 1,
+  strokeMiterlimit: 1,
+  strokeOpacity: 1,
+  strokeWidth: 1
+};
+
+function memoize(fn) {
+  var cache = {};
+  return function (arg) {
+    if (cache[arg] === undefined) cache[arg] = fn(arg);
+    return cache[arg];
+  };
+}
+
+var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|inert|itemProp|itemScope|itemType|itemID|itemRef|on|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/; // https://esbench.com/bench/5bfee68a4cd7e6009ef61d23
+
+var index = memoize(function (prop) {
+  return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111
+  /* o */
+  && prop.charCodeAt(1) === 110
+  /* n */
+  && prop.charCodeAt(2) < 91;
+}
+/* Z+1 */
+);
+
+var reactIs = reactIs$1.exports;
+
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+var REACT_STATICS = {
+  childContextTypes: true,
+  contextType: true,
+  contextTypes: true,
+  defaultProps: true,
+  displayName: true,
+  getDefaultProps: true,
+  getDerivedStateFromError: true,
+  getDerivedStateFromProps: true,
+  mixins: true,
+  propTypes: true,
+  type: true
+};
+var KNOWN_STATICS = {
+  name: true,
+  length: true,
+  prototype: true,
+  caller: true,
+  callee: true,
+  arguments: true,
+  arity: true
+};
+var FORWARD_REF_STATICS = {
+  '$$typeof': true,
+  render: true,
+  defaultProps: true,
+  displayName: true,
+  propTypes: true
+};
+var MEMO_STATICS = {
+  '$$typeof': true,
+  compare: true,
+  defaultProps: true,
+  displayName: true,
+  propTypes: true,
+  type: true
+};
+var TYPE_STATICS = {};
+TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
+TYPE_STATICS[reactIs.Memo] = MEMO_STATICS;
+
+function getStatics(component) {
+  // React v16.11 and below
+  if (reactIs.isMemo(component)) {
+    return MEMO_STATICS;
+  } // React v16.12 and above
+
+
+  return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
+}
+
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols$1 = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = Object.prototype;
+function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+  if (typeof sourceComponent !== 'string') {
+    // don't hoist over string (html) components
+    if (objectPrototype) {
+      var inheritedComponent = getPrototypeOf(sourceComponent);
+
+      if (inheritedComponent && inheritedComponent !== objectPrototype) {
+        hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+      }
+    }
+
+    var keys = getOwnPropertyNames(sourceComponent);
+
+    if (getOwnPropertySymbols$1) {
+      keys = keys.concat(getOwnPropertySymbols$1(sourceComponent));
+    }
+
+    var targetStatics = getStatics(targetComponent);
+    var sourceStatics = getStatics(sourceComponent);
+
+    for (var i = 0; i < keys.length; ++i) {
+      var key = keys[i];
+
+      if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
+        var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+
+        try {
+          // Avoid failures from read-only properties
+          defineProperty(targetComponent, key, descriptor);
+        } catch (e) {}
+      }
+    }
+  }
+
+  return targetComponent;
+}
+
+var hoistNonReactStatics_cjs = hoistNonReactStatics;
+
+function v(){return (v=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r]);}return e}).apply(this,arguments)}var g=function(e,t){for(var n=[e[0]],r=0,o=t.length;r<o;r+=1)n.push(t[r],e[r+1]);return n},S=function(t){return null!==t&&"object"==typeof t&&"[object Object]"===(t.toString?t.toString():Object.prototype.toString.call(t))&&!reactIs$1.exports.typeOf(t)},w=Object.freeze([]),E=Object.freeze({});function b(e){return "function"==typeof e}function _(e){return "production"!==process.env.NODE_ENV&&"string"==typeof e&&e||e.displayName||e.name||"Component"}function N(e){return e&&"string"==typeof e.styledComponentId}var A="undefined"!=typeof process&&(process.env.REACT_APP_SC_ATTR||process.env.SC_ATTR)||"data-styled",I="undefined"!=typeof window&&"HTMLElement"in window,P=Boolean("boolean"==typeof SC_DISABLE_SPEEDY?SC_DISABLE_SPEEDY:"undefined"!=typeof process&&void 0!==process.env.REACT_APP_SC_DISABLE_SPEEDY&&""!==process.env.REACT_APP_SC_DISABLE_SPEEDY?"false"!==process.env.REACT_APP_SC_DISABLE_SPEEDY&&process.env.REACT_APP_SC_DISABLE_SPEEDY:"undefined"!=typeof process&&void 0!==process.env.SC_DISABLE_SPEEDY&&""!==process.env.SC_DISABLE_SPEEDY?"false"!==process.env.SC_DISABLE_SPEEDY&&process.env.SC_DISABLE_SPEEDY:"production"!==process.env.NODE_ENV),R="production"!==process.env.NODE_ENV?{1:"Cannot create styled-component for component: %s.\n\n",2:"Can't collect styles once you've consumed a `ServerStyleSheet`'s styles! `ServerStyleSheet` is a one off instance for each server-side render cycle.\n\n- Are you trying to reuse it across renders?\n- Are you accidentally calling collectStyles twice?\n\n",3:"Streaming SSR is only supported in a Node.js environment; Please do not try to call this method in the browser.\n\n",4:"The `StyleSheetManager` expects a valid target or sheet prop!\n\n- Does this error occur on the client and is your target falsy?\n- Does this error occur on the server and is the sheet falsy?\n\n",5:"The clone method cannot be used on the client!\n\n- Are you running in a client-like environment on the server?\n- Are you trying to run SSR on the client?\n\n",6:"Trying to insert a new style tag, but the given Node is unmounted!\n\n- Are you using a custom target that isn't mounted?\n- Does your document not have a valid head element?\n- Have you accidentally removed a style tag manually?\n\n",7:'ThemeProvider: Please return an object from your "theme" prop function, e.g.\n\n```js\ntheme={() => ({})}\n```\n\n',8:'ThemeProvider: Please make your "theme" prop an object.\n\n',9:"Missing document `<head>`\n\n",10:"Cannot find a StyleSheet instance. Usually this happens if there are multiple copies of styled-components loaded at once. Check out this issue for how to troubleshoot and fix the common cases where this situation can happen: https://github.com/styled-components/styled-components/issues/1941#issuecomment-417862021\n\n",11:"_This error was replaced with a dev-time warning, it will be deleted for v4 final._ [createGlobalStyle] received children which will not be rendered. Please use the component without passing children elements.\n\n",12:"It seems you are interpolating a keyframe declaration (%s) into an untagged string. This was supported in styled-components v3, but is not longer supported in v4 as keyframes are now injected on-demand. Please wrap your string in the css\\`\\` helper which ensures the styles are injected correctly. See https://www.styled-components.com/docs/api#css\n\n",13:"%s is not a styled component and cannot be referred to via component selector. See https://www.styled-components.com/docs/advanced#referring-to-other-components for more details.\n\n",14:'ThemeProvider: "theme" prop is required.\n\n',15:"A stylis plugin has been supplied that is not named. We need a name for each plugin to be able to prevent styling collisions between different stylis configurations within the same app. Before you pass your plugin to `<StyleSheetManager stylisPlugins={[]}>`, please make sure each plugin is uniquely-named, e.g.\n\n```js\nObject.defineProperty(importedPlugin, 'name', { value: 'some-unique-name' });\n```\n\n",16:"Reached the limit of how many styled components may be created at group %s.\nYou may only create up to 1,073,741,824 components. If you're creating components dynamically,\nas for instance in your render method then you may be running into this limitation.\n\n",17:"CSSStyleSheet could not be found on HTMLStyleElement.\nHas styled-components' style tag been unmounted or altered by another script?\n"}:{};function D(){for(var e=arguments.length<=0?void 0:arguments[0],t=[],n=1,r=arguments.length;n<r;n+=1)t.push(n<0||arguments.length<=n?void 0:arguments[n]);return t.forEach((function(t){e=e.replace(/%[a-z]/,t);})),e}function j(e){for(var t=arguments.length,n=new Array(t>1?t-1:0),r=1;r<t;r++)n[r-1]=arguments[r];throw "production"===process.env.NODE_ENV?new Error("An error occurred. See https://git.io/JUIaE#"+e+" for more information."+(n.length>0?" Args: "+n.join(", "):"")):new Error(D.apply(void 0,[R[e]].concat(n)).trim())}var T=function(){function e(e){this.groupSizes=new Uint32Array(512),this.length=512,this.tag=e;}var t=e.prototype;return t.indexOfGroup=function(e){for(var t=0,n=0;n<e;n++)t+=this.groupSizes[n];return t},t.insertRules=function(e,t){if(e>=this.groupSizes.length){for(var n=this.groupSizes,r=n.length,o=r;e>=o;)(o<<=1)<0&&j(16,""+e);this.groupSizes=new Uint32Array(o),this.groupSizes.set(n),this.length=o;for(var i=r;i<o;i++)this.groupSizes[i]=0;}for(var s=this.indexOfGroup(e+1),a=0,c=t.length;a<c;a++)this.tag.insertRule(s,t[a])&&(this.groupSizes[e]++,s++);},t.clearGroup=function(e){if(e<this.length){var t=this.groupSizes[e],n=this.indexOfGroup(e),r=n+t;this.groupSizes[e]=0;for(var o=n;o<r;o++)this.tag.deleteRule(n);}},t.getGroup=function(e){var t="";if(e>=this.length||0===this.groupSizes[e])return t;for(var n=this.groupSizes[e],r=this.indexOfGroup(e),o=r+n,i=r;i<o;i++)t+=this.tag.getRule(i)+"/*!sc*/\n";return t},e}(),k=new Map,x=new Map,V=1,B=function(e){if(k.has(e))return k.get(e);for(;x.has(V);)V++;var t=V++;return "production"!==process.env.NODE_ENV&&((0|t)<0||t>1<<30)&&j(16,""+t),k.set(e,t),x.set(t,e),t},M=function(e){return x.get(e)},z=function(e,t){k.set(e,t),x.set(t,e);},L="style["+A+'][data-styled-version="5.3.0"]',G=new RegExp("^"+A+'\\.g(\\d+)\\[id="([\\w\\d-]+)"\\].*?"([^"]*)'),F=function(e,t,n){for(var r,o=n.split(","),i=0,s=o.length;i<s;i++)(r=o[i])&&e.registerName(t,r);},Y=function(e,t){for(var n=t.innerHTML.split("/*!sc*/\n"),r=[],o=0,i=n.length;o<i;o++){var s=n[o].trim();if(s){var a=s.match(G);if(a){var c=0|parseInt(a[1],10),u=a[2];0!==c&&(z(u,c),F(e,u,a[3]),e.getTag().insertRules(c,r)),r.length=0;}else r.push(s);}}},q=function(){return "undefined"!=typeof window&&void 0!==window.__webpack_nonce__?window.__webpack_nonce__:null},H=function(e){var t=document.head,n=e||t,r=document.createElement("style"),o=function(e){for(var t=e.childNodes,n=t.length;n>=0;n--){var r=t[n];if(r&&1===r.nodeType&&r.hasAttribute(A))return r}}(n),i=void 0!==o?o.nextSibling:null;r.setAttribute(A,"active"),r.setAttribute("data-styled-version","5.3.0");var s=q();return s&&r.setAttribute("nonce",s),n.insertBefore(r,i),r},$=function(){function e(e){var t=this.element=H(e);t.appendChild(document.createTextNode("")),this.sheet=function(e){if(e.sheet)return e.sheet;for(var t=document.styleSheets,n=0,r=t.length;n<r;n++){var o=t[n];if(o.ownerNode===e)return o}j(17);}(t),this.length=0;}var t=e.prototype;return t.insertRule=function(e,t){try{return this.sheet.insertRule(t,e),this.length++,!0}catch(e){return !1}},t.deleteRule=function(e){this.sheet.deleteRule(e),this.length--;},t.getRule=function(e){var t=this.sheet.cssRules[e];return void 0!==t&&"string"==typeof t.cssText?t.cssText:""},e}(),W=function(){function e(e){var t=this.element=H(e);this.nodes=t.childNodes,this.length=0;}var t=e.prototype;return t.insertRule=function(e,t){if(e<=this.length&&e>=0){var n=document.createTextNode(t),r=this.nodes[e];return this.element.insertBefore(n,r||null),this.length++,!0}return !1},t.deleteRule=function(e){this.element.removeChild(this.nodes[e]),this.length--;},t.getRule=function(e){return e<this.length?this.nodes[e].textContent:""},e}(),U=function(){function e(e){this.rules=[],this.length=0;}var t=e.prototype;return t.insertRule=function(e,t){return e<=this.length&&(this.rules.splice(e,0,t),this.length++,!0)},t.deleteRule=function(e){this.rules.splice(e,1),this.length--;},t.getRule=function(e){return e<this.length?this.rules[e]:""},e}(),J=I,X={isServer:!I,useCSSOMInjection:!P},Z=function(){function e(e,t,n){void 0===e&&(e=E),void 0===t&&(t={}),this.options=v({},X,{},e),this.gs=t,this.names=new Map(n),!this.options.isServer&&I&&J&&(J=!1,function(e){for(var t=document.querySelectorAll(L),n=0,r=t.length;n<r;n++){var o=t[n];o&&"active"!==o.getAttribute(A)&&(Y(e,o),o.parentNode&&o.parentNode.removeChild(o));}}(this));}e.registerId=function(e){return B(e)};var t=e.prototype;return t.reconstructWithOptions=function(t,n){return void 0===n&&(n=!0),new e(v({},this.options,{},t),this.gs,n&&this.names||void 0)},t.allocateGSInstance=function(e){return this.gs[e]=(this.gs[e]||0)+1},t.getTag=function(){return this.tag||(this.tag=(n=(t=this.options).isServer,r=t.useCSSOMInjection,o=t.target,e=n?new U(o):r?new $(o):new W(o),new T(e)));var e,t,n,r,o;},t.hasNameForId=function(e,t){return this.names.has(e)&&this.names.get(e).has(t)},t.registerName=function(e,t){if(B(e),this.names.has(e))this.names.get(e).add(t);else {var n=new Set;n.add(t),this.names.set(e,n);}},t.insertRules=function(e,t,n){this.registerName(e,t),this.getTag().insertRules(B(e),n);},t.clearNames=function(e){this.names.has(e)&&this.names.get(e).clear();},t.clearRules=function(e){this.getTag().clearGroup(B(e)),this.clearNames(e);},t.clearTag=function(){this.tag=void 0;},t.toString=function(){return function(e){for(var t=e.getTag(),n=t.length,r="",o=0;o<n;o++){var i=M(o);if(void 0!==i){var s=e.names.get(i),a=t.getGroup(o);if(void 0!==s&&0!==a.length){var c=A+".g"+o+'[id="'+i+'"]',u="";void 0!==s&&s.forEach((function(e){e.length>0&&(u+=e+",");})),r+=""+a+c+'{content:"'+u+'"}/*!sc*/\n';}}}return r}(this)},e}(),K=/(a)(d)/gi,Q=function(e){return String.fromCharCode(e+(e>25?39:97))};function ee(e){var t,n="";for(t=Math.abs(e);t>52;t=t/52|0)n=Q(t%52)+n;return (Q(t%52)+n).replace(K,"$1-$2")}var te=function(e,t){for(var n=t.length;n;)e=33*e^t.charCodeAt(--n);return e},ne=function(e){return te(5381,e)};function re(e){for(var t=0;t<e.length;t+=1){var n=e[t];if(b(n)&&!N(n))return !1}return !0}var oe=ne("5.3.0"),ie=function(){function e(e,t,n){this.rules=e,this.staticRulesId="",this.isStatic="production"===process.env.NODE_ENV&&(void 0===n||n.isStatic)&&re(e),this.componentId=t,this.baseHash=te(oe,t),this.baseStyle=n,Z.registerId(t);}return e.prototype.generateAndInjectStyles=function(e,t,n){var r=this.componentId,o=[];if(this.baseStyle&&o.push(this.baseStyle.generateAndInjectStyles(e,t,n)),this.isStatic&&!n.hash)if(this.staticRulesId&&t.hasNameForId(r,this.staticRulesId))o.push(this.staticRulesId);else {var i=Ne(this.rules,e,t,n).join(""),s=ee(te(this.baseHash,i.length)>>>0);if(!t.hasNameForId(r,s)){var a=n(i,"."+s,void 0,r);t.insertRules(r,s,a);}o.push(s),this.staticRulesId=s;}else {for(var c=this.rules.length,u=te(this.baseHash,n.hash),l="",d=0;d<c;d++){var h=this.rules[d];if("string"==typeof h)l+=h,"production"!==process.env.NODE_ENV&&(u=te(u,h+d));else if(h){var p=Ne(h,e,t,n),f=Array.isArray(p)?p.join(""):p;u=te(u,f+d),l+=f;}}if(l){var m=ee(u>>>0);if(!t.hasNameForId(r,m)){var y=n(l,"."+m,void 0,r);t.insertRules(r,m,y);}o.push(m);}}return o.join(" ")},e}(),se=/^\s*\/\/.*$/gm,ae=[":","[",".","#"];function ce(e){var t,n,r,o,i=void 0===e?E:e,s=i.options,a=void 0===s?E:s,c=i.plugins,u=void 0===c?w:c,l=new stylis_min(a),d=[],h=function(e){function t(t){if(t)try{e(t+"}");}catch(e){}}return function(n,r,o,i,s,a,c,u,l,d){switch(n){case 1:if(0===l&&64===r.charCodeAt(0))return e(r+";"),"";break;case 2:if(0===u)return r+"/*|*/";break;case 3:switch(u){case 102:case 112:return e(o[0]+r),"";default:return r+(0===d?"/*|*/":"")}case-2:r.split("/*|*/}").forEach(t);}}}((function(e){d.push(e);})),f=function(e,r,i){return 0===r&&-1!==ae.indexOf(i[n.length])||i.match(o)?e:"."+t};function m(e,i,s,a){void 0===a&&(a="&");var c=e.replace(se,""),u=i&&s?s+" "+i+" { "+c+" }":c;return t=a,n=i,r=new RegExp("\\"+n+"\\b","g"),o=new RegExp("(\\"+n+"\\b){2,}"),l(s||!i?"":i,u)}return l.use([].concat(u,[function(e,t,o){2===e&&o.length&&o[0].lastIndexOf(n)>0&&(o[0]=o[0].replace(r,f));},h,function(e){if(-2===e){var t=d;return d=[],t}}])),m.hash=u.length?u.reduce((function(e,t){return t.name||j(15),te(e,t.name)}),5381).toString():"",m}var ue=React__default['default'].createContext();ue.Consumer;var de=React__default['default'].createContext(),he=(de.Consumer,new Z),pe=ce();function fe(){return React.useContext(ue)||he}function me(){return React.useContext(de)||pe}var ve=function(){function e(e,t){var n=this;this.inject=function(e,t){void 0===t&&(t=pe);var r=n.name+t.hash;e.hasNameForId(n.id,r)||e.insertRules(n.id,r,t(n.rules,r,"@keyframes"));},this.toString=function(){return j(12,String(n.name))},this.name=e,this.id="sc-keyframes-"+e,this.rules=t;}return e.prototype.getName=function(e){return void 0===e&&(e=pe),this.name+e.hash},e}(),ge=/([A-Z])/,Se=/([A-Z])/g,we=/^ms-/,Ee=function(e){return "-"+e.toLowerCase()};function be(e){return ge.test(e)?e.replace(Se,Ee).replace(we,"-ms-"):e}var _e=function(e){return null==e||!1===e||""===e};function Ne(e,n,r,o){if(Array.isArray(e)){for(var i,s=[],a=0,c=e.length;a<c;a+=1)""!==(i=Ne(e[a],n,r,o))&&(Array.isArray(i)?s.push.apply(s,i):s.push(i));return s}if(_e(e))return "";if(N(e))return "."+e.styledComponentId;if(b(e)){if("function"!=typeof(l=e)||l.prototype&&l.prototype.isReactComponent||!n)return e;var u=e(n);return "production"!==process.env.NODE_ENV&&reactIs$1.exports.isElement(u)&&console.warn(_(e)+" is not a styled component and cannot be referred to via component selector. See https://www.styled-components.com/docs/advanced#referring-to-other-components for more details."),Ne(u,n,r,o)}var l;return e instanceof ve?r?(e.inject(r,o),e.getName(o)):e:S(e)?function e(t,n){var r,o,i=[];for(var s in t)t.hasOwnProperty(s)&&!_e(t[s])&&(S(t[s])?i.push.apply(i,e(t[s],s)):b(t[s])?i.push(be(s)+":",t[s],";"):i.push(be(s)+": "+(r=s,null==(o=t[s])||"boolean"==typeof o||""===o?"":"number"!=typeof o||0===o||r in unitlessKeys?String(o).trim():o+"px")+";"));return n?[n+" {"].concat(i,["}"]):i}(e):e.toString()}function Ae(e){for(var t=arguments.length,n=new Array(t>1?t-1:0),r=1;r<t;r++)n[r-1]=arguments[r];return b(e)||S(e)?Ne(g(w,[e].concat(n))):0===n.length&&1===e.length&&"string"==typeof e[0]?e:Ne(g(e,n))}var Ce=/invalid hook call/i,Ie=new Set,Pe=function(e,t){if("production"!==process.env.NODE_ENV){var n="The component "+e+(t?' with the id of "'+t+'"':"")+" has been created dynamically.\nYou may see this warning because you've called styled inside another component.\nTo resolve this only create new StyledComponents outside of any render method and function component.";try{React.useRef(),Ie.has(n)||(console.warn(n),Ie.add(n));}catch(e){Ce.test(e.message)&&Ie.delete(n);}}},Oe=function(e,t,n){return void 0===n&&(n=E),e.theme!==n.theme&&e.theme||t||n.theme},Re=/[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~-]+/g,De=/(^-|-$)/g;function je(e){return e.replace(Re,"-").replace(De,"")}var Te=function(e){return ee(ne(e)>>>0)};function ke(e){return "string"==typeof e&&("production"===process.env.NODE_ENV||e.charAt(0)===e.charAt(0).toLowerCase())}var xe=function(e){return "function"==typeof e||"object"==typeof e&&null!==e&&!Array.isArray(e)},Ve=function(e){return "__proto__"!==e&&"constructor"!==e&&"prototype"!==e};function Be(e,t,n){var r=e[n];xe(t)&&xe(r)?Me(r,t):e[n]=t;}function Me(e){for(var t=arguments.length,n=new Array(t>1?t-1:0),r=1;r<t;r++)n[r-1]=arguments[r];for(var o=0,i=n;o<i.length;o++){var s=i[o];if(xe(s))for(var a in s)Ve(a)&&Be(e,s[a],a);}return e}var ze=React__default['default'].createContext();ze.Consumer;var Fe={};function Ye(e,t,n){var o=N(e),s=!ke(e),a=t.attrs,c=void 0===a?w:a,d=t.componentId,h=void 0===d?function(e,t){var n="string"!=typeof e?"sc":je(e);Fe[n]=(Fe[n]||0)+1;var r=n+"-"+Te("5.3.0"+n+Fe[n]);return t?t+"-"+r:r}(t.displayName,t.parentComponentId):d,p=t.displayName,f=void 0===p?function(e){return ke(e)?"styled."+e:"Styled("+_(e)+")"}(e):p,g=t.displayName&&t.componentId?je(t.displayName)+"-"+t.componentId:t.componentId||h,S=o&&e.attrs?Array.prototype.concat(e.attrs,c).filter(Boolean):c,A=t.shouldForwardProp;o&&e.shouldForwardProp&&(A=t.shouldForwardProp?function(n,r,o){return e.shouldForwardProp(n,r,o)&&t.shouldForwardProp(n,r,o)}:e.shouldForwardProp);var C,I=new ie(n,g,o?e.componentStyle:void 0),P=I.isStatic&&0===c.length,O=function(e,t){return function(e,t,n,r){var o=e.attrs,s=e.componentStyle,a=e.defaultProps,c=e.foldedComponentIds,d=e.shouldForwardProp,h=e.styledComponentId,p=e.target;"production"!==process.env.NODE_ENV&&React.useDebugValue(h);var f=function(e,t,n){void 0===e&&(e=E);var r=v({},t,{theme:e}),o={};return n.forEach((function(e){var t,n,i,s=e;for(t in b(s)&&(s=s(r)),s)r[t]=o[t]="className"===t?(n=o[t],i=s[t],n&&i?n+" "+i:n||i):s[t];})),[r,o]}(Oe(t,React.useContext(ze),a)||E,t,o),y=f[0],g=f[1],S=function(e,t,n,r){var o=fe(),i=me(),s=t?e.generateAndInjectStyles(E,o,i):e.generateAndInjectStyles(n,o,i);return "production"!==process.env.NODE_ENV&&React.useDebugValue(s),"production"!==process.env.NODE_ENV&&!t&&r&&r(s),s}(s,r,y,"production"!==process.env.NODE_ENV?e.warnTooManyClasses:void 0),w=n,_=g.$as||t.$as||g.as||t.as||p,N=ke(_),A=g!==t?v({},t,{},g):t,C={};for(var I in A)"$"!==I[0]&&"as"!==I&&("forwardedAs"===I?C.as=A[I]:(d?d(I,index,_):!N||index(I))&&(C[I]=A[I]));return t.style&&g.style!==t.style&&(C.style=v({},t.style,{},g.style)),C.className=Array.prototype.concat(c,h,S!==h?S:null,t.className,g.className).filter(Boolean).join(" "),C.ref=w,React.createElement(_,C)}(C,e,t,P)};return O.displayName=f,(C=React__default['default'].forwardRef(O)).attrs=S,C.componentStyle=I,C.displayName=f,C.shouldForwardProp=A,C.foldedComponentIds=o?Array.prototype.concat(e.foldedComponentIds,e.styledComponentId):w,C.styledComponentId=g,C.target=o?e.target:e,C.withComponent=function(e){var r=t.componentId,o=function(e,t){if(null==e)return {};var n,r,o={},i=Object.keys(e);for(r=0;r<i.length;r++)n=i[r],t.indexOf(n)>=0||(o[n]=e[n]);return o}(t,["componentId"]),i=r&&r+"-"+(ke(e)?e:je(_(e)));return Ye(e,v({},o,{attrs:S,componentId:i}),n)},Object.defineProperty(C,"defaultProps",{get:function(){return this._foldedDefaultProps},set:function(t){this._foldedDefaultProps=o?Me({},e.defaultProps,t):t;}}),"production"!==process.env.NODE_ENV&&(Pe(f,g),C.warnTooManyClasses=function(e,t){var n={},r=!1;return function(o){if(!r&&(n[o]=!0,Object.keys(n).length>=200)){var i=t?' with the id of "'+t+'"':"";console.warn("Over 200 classes were generated for component "+e+i+".\nConsider using the attrs method, together with a style object for frequently changed styles.\nExample:\n  const Component = styled.div.attrs(props => ({\n    style: {\n      background: props.background,\n    },\n  }))`width: 100%;`\n\n  <Component />"),r=!0,n={};}}}(f,g)),C.toString=function(){return "."+C.styledComponentId},s&&hoistNonReactStatics_cjs(C,e,{attrs:!0,componentStyle:!0,displayName:!0,foldedComponentIds:!0,shouldForwardProp:!0,styledComponentId:!0,target:!0,withComponent:!0}),C}var qe=function(e){return function e(t,r,o){if(void 0===o&&(o=E),!reactIs$1.exports.isValidElementType(r))return j(1,String(r));var i=function(){return t(r,o,Ae.apply(void 0,arguments))};return i.withConfig=function(n){return e(t,r,v({},o,{},n))},i.attrs=function(n){return e(t,r,v({},o,{attrs:Array.prototype.concat(o.attrs,n).filter(Boolean)}))},i}(Ye,e)};["a","abbr","address","area","article","aside","audio","b","base","bdi","bdo","big","blockquote","body","br","button","canvas","caption","cite","code","col","colgroup","data","datalist","dd","del","details","dfn","dialog","div","dl","dt","em","embed","fieldset","figcaption","figure","footer","form","h1","h2","h3","h4","h5","h6","head","header","hgroup","hr","html","i","iframe","img","input","ins","kbd","keygen","label","legend","li","link","main","map","mark","marquee","menu","menuitem","meta","meter","nav","noscript","object","ol","optgroup","option","output","p","param","picture","pre","progress","q","rp","rt","ruby","s","samp","script","section","select","small","source","span","strong","style","sub","summary","sup","table","tbody","td","textarea","tfoot","th","thead","time","title","tr","track","u","ul","var","video","wbr","circle","clipPath","defs","ellipse","foreignObject","g","image","line","linearGradient","marker","mask","path","pattern","polygon","polyline","radialGradient","rect","stop","svg","text","textPath","tspan"].forEach((function(e){qe[e]=qe(e);}));"production"!==process.env.NODE_ENV&&"undefined"!=typeof navigator&&"ReactNative"===navigator.product&&console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native"),"production"!==process.env.NODE_ENV&&"test"!==process.env.NODE_ENV&&(window["__styled-components-init__"]=window["__styled-components-init__"]||0,1===window["__styled-components-init__"]&&console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."),window["__styled-components-init__"]+=1);
+
+/**
+ * @name generateButtonBackgroundColor
+ * @description Generates a value for the 'background-color' css property
+ * @param {*} props Props
+ * @prop variant
+ * @prop backgroundColor
+ * @prop theme
+ * @returns String
+ */
+const generateButtonBackgroundColor = props => {
+  // SETUP
+  const variant = props.variant;
+  const backgroundColor = props.backgroundColor;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT
+
+  if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 2 --> VARIANT
+
+  if (variant) {
+    if (variant.toLowerCase() === 'outline') {
+      // IMPORTANCE 2.1 --> BACKGROUND COLOR
+      if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
+
+      if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // DEFAULT
+
+      return 'white';
+    }
+
+    if (variant.toLowerCase() === 'filled') {
+      // IMPORTANCE 2.1 --> BACKGROUND COLOR
+      if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
+
+      if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // DEFAULT
+
+      return 'black';
+    }
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) VARIANT
+
+    if (theme.variant) {
+      if (theme.variant.toLowerCase() === 'outline') {
+        // IMPORTANCE 2.1 --> BACKGROUND COLOR
+        if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
+
+        if (theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // DEFAULT
+
+        return 'white';
+      }
+
+      if (theme.variant.toLowerCase() === 'filled') {
+        // IMPORTANCE 2.1 --> BACKGROUND COLOR
+        if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
+
+        if (theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // DEFAULT
+
+        return 'black';
+      }
+    }
+  } // DEFAULT
+
+
+  return 'black';
+};
+/**
+ * @name generateButtonBorderColor
+ * @description Generates a value for the 'border-color' css property
+ * @param {*} props Props
+ * @prop backgroundColor
+ * @prop borderColor
+ * @prop theme
+ * @returns String
+ */
+
+const generateButtonBorderColor = props => {
+  // SETUP
+  const backgroundColor = props.backgroundColor;
+  const borderColor = props.borderColor;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT
+
+  if (borderColor) return borderColor.toLowerCase(); // IMPORTANCE 2 --> MATCH BACKGROUND COLOR
+
+  if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 3 --> GLOBAL
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.borderColor) return theme.borderColor.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) MATCH BACKGROUND COLOR
+
+    if (theme.backgroundColor) return theme.backgroundColor.toLowerCase();
+  } // DEFAULT
+
+
+  return 'black';
+};
+/**
+ * @name generateButtonColor
+ * @description Generates a value for the 'color' css property
+ * @param {*} props Props
+ * @prop variant
+ * @prop color
+ * @prop theme
+ * @returns String
+ */
+
+const generateButtonColor = props => {
+  // SETUP
+  const variant = props.variant;
+  const color = props.color;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT
+
+  if (color) return color.toLowerCase(); // IMPORTANCE 2 --> VARIANT
+
+  if (variant) {
+    if (variant.toLowerCase() === 'outline') {
+      // IMPORTANCE 2.1 --> COLOR
+      if (color) return color.toLowerCase(); // IMPORTANCE 2.2 --> (GLOBAL) COLOR
+
+      if (theme && theme.color) return theme.color.toLowerCase(); // DEFAULT
+
+      return 'black';
+    }
+
+    if (variant.toLowerCase() === 'filled') {
+      // IMPORTANCE 2.1 --> COLOR
+      if (color) return color.toLowerCase(); // IMPORTANCE 2.2 --> (GLOBAL) COLOR
+
+      if (theme && theme.color) return theme.color.toLowerCase(); // DEFAULT
+
+      return 'white';
+    }
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.color) return theme.color.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) VARIANT
+
+    if (theme.variant) {
+      if (theme.variant.toLowerCase() === 'outline') {
+        // IMPORTANCE 3.2.1 --> COLOR
+        if (color) return color.toLowerCase(); // IMPORTANCE 3.2.2 --> (GLOBAL) COLOR
+
+        if (theme.color) return theme.color.toLowerCase(); // DEFAULT
+
+        return 'black';
+      }
+
+      if (theme.variant.toLowerCase() === 'filled') {
+        // IMPORTANCE 3.2.1 --> COLOR
+        if (color) return color.toLowerCase(); // IMPORTANCE 3.2.2 --> (GLOBAL) COLOR
+
+        if (theme.color) return theme.color.toLowerCase(); // DEFAULT
+
+        return 'white';
+      }
+    }
+  } // DEFAULT
+
+
+  return 'white';
+};
+/**
+ * @name generateButtonFontSize
+ * @description Generates a value for the 'font-size' css property
+ * @param {*} props Props
+ * @prop size
+ * @prop fontSize
+ * @prop theme
+ * @returns String
+ */
+
+const generateButtonFontSize = props => {
+  // SETUP
+  const size = props.size;
+  const fontSize = props.fontSize;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT 
+
+  if (fontSize) return fontSize.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size.toLowerCase() === 'large') return '18px';
+    if (size.toLowerCase() === 'medium') return '15px';
+    if (size.toLowerCase() === 'small') return '12px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.fontSize) return theme.fontSize.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '18px';
+      if (theme.size.toLowerCase() === 'medium') return '15px';
+      if (theme.size.toLowerCase() === 'small') return '12px';
+    }
+  } // DEFAULT
+
+
+  return '15px';
+};
+/**
+ * @name generateButtonHoverBackgroundColor
+ * @description Generates a value for the 'background-color' css property for the :hover pseudo element
+ * @param {*} props Props
+ * @prop variant
+ * @prop hoverBackgroundColor
+ * @prop theme
+ * @returns String
+ */
+
+const generateButtonHoverBackgroundColor = props => {
+  // SETUP
+  const variant = props.variant;
+  const hoverBackgroundColor = props.hoverBackgroundColor;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT
+
+  if (hoverBackgroundColor) return hoverBackgroundColor.toLowerCase(); // IMPORTANCE 2 --> VARIANT
+
+  if (variant) {
+    if (variant.toLowerCase() === 'outline') return 'black';
+    if (variant.toLowerCase() === 'filled') return '#333';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.hover && theme.hover.backgroundColor) return theme.hover.backgroundColor.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) VARIANT
+
+    if (theme.variant) {
+      if (theme.variant.toLowerCase() === 'outline') return 'black';
+      if (theme.variant.toLowerCase() === 'filled') return '#333';
+    }
+  } // DEFAULT
+
+
+  return '#333';
+};
+/**
+ * @name generateButtonHoverBorderColor
+ * @description Generates a value for the 'border-color' css property for the :hover pseudo element
+ * @param {*} props Props
+ * @prop variant
+ * @prop hoverBackgroundColor
+ * @prop hoverBorderColor
+ * @prop theme
+ * @returns String
+ */
+
+const generateButtonHoverBorderColor = props => {
+  // SETUP
+  const variant = props.variant;
+  const hoverBackgroundColor = props.hoverBackgroundColor;
+  const hoverBorderColor = props.hoverBorderColor;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT
+
+  if (hoverBorderColor) return hoverBorderColor.toLowerCase(); // IMPORTANCE 2 --> VARIANT
+
+  if (variant) {
+    if (variant === 'filled') return '#333';
+    if (variant === 'outline') return 'black';
+  }
+
+  if (hoverBackgroundColor) return hoverBackgroundColor.toLowerCase(); // IMPORTANCE 4 --> GLOBAL
+
+  if (theme) {
+    // IMPORTANCE 4.1 --> (GLOBAL) EXACT
+    if (theme.hover && theme.hover.borderColor) return theme.hover.borderColor.toLowerCase(); // IMPORTANCE 4.2 --> (GLOBAL) VARIANT
+
+    if (theme.variant) {
+      if (theme.variant === 'filled') return '#333';
+      if (theme.variant === 'outline') return 'black';
+    } // IMPORTANCE 4.3 --> (GLOBAL) MATCH HOVER BACKGROUND COLOR
+
+
+    if (theme.hover && theme.hover.backgroundColor) return theme.hover.backgroundColor.toLowerCase();
+  } // DEFAULT
+
+
+  return '#333';
+};
+/**
+ * @name generateButtonHoverColor
+ * @description Generates a value for the 'color' css property for the :hover pseudo element
+ * @param {*} props Props
+ * @prop hoverColor
+ * @prop theme
+ * @returns String
+ */
+
+const generateButtonHoverColor = props => {
+  // SETUP
+  const hoverColor = props.hoverColor;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT
+
+  if (hoverColor) return hoverColor.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.hover && theme.hover.color) return theme.hover.color.toLowerCase(); // DEFAULT  
+
+  return 'white';
+};
+/**
+ * @name generateButtonPadding
+ * @description Generates a value for the 'padding' css property
+ * @param {*} props Props
+ * @prop size
+ * @prop padding
+ * @prop theme
+ * @returns String
+ */
+
+const generateButtonPadding = props => {
+  // SETUP 
+  const size = props.size;
+  const padding = props.padding;
+  const theme = props.theme && props.theme.button; // IMPORTANCE 1 --> EXACT
+
+  if (padding) return padding.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size.toLowerCase() === 'large') return '12px 30px';
+    if (size.toLowerCase() === 'medium') return '8px 20px';
+    if (size.toLowerCase() === 'small') return '6px 15px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.hover && theme.hover.padding) return theme.hover.padding.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '12px 30px';
+      if (theme.size.toLowerCase() === 'medium') return '8px 20px';
+      if (theme.size.toLowerCase() === 'small') return '6px 15px';
+    }
+  } // DEFAULT
+
+
+  return '8px 20px';
+};
+
+/**
+ * Styling for the Button Component
+ */
+
+const StyledButton = qe.button`
+  background-color: ${props => generateButtonBackgroundColor(props)};
+  border-color: ${props => generateButtonBorderColor(props)};
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
-  color: ${e=>(e=>{const t=e.variant,r=e.color,n=e.theme&&e.theme.button;if(r)return r.toLowerCase();if(t){if("outline"===t.toLowerCase())return r?r.toLowerCase():n&&n.color?n.color.toLowerCase():"black";if("filled"===t.toLowerCase())return r?r.toLowerCase():n&&n.color?n.color.toLowerCase():"white"}if(n){if(n.color)return n.color.toLowerCase();if(n.variant){if("outline"===n.variant.toLowerCase())return r?r.toLowerCase():n.color?n.color.toLowerCase():"black";if("filled"===n.variant.toLowerCase())return r?r.toLowerCase():n.color?n.color.toLowerCase():"white"}}return"white"})(e)};
-  font-size: ${e=>(e=>{const t=e.size,r=e.fontSize,n=e.theme&&e.theme.button;if(r)return r.toLowerCase();if(t){if("large"===t.toLowerCase())return"18px";if("medium"===t.toLowerCase())return"15px";if("small"===t.toLowerCase())return"12px"}if(n){if(n.fontSize)return n.fontSize.toLowerCase();if(n.size){if("large"===n.size.toLowerCase())return"18px";if("medium"===n.size.toLowerCase())return"15px";if("small"===n.size.toLowerCase())return"12px"}}return"15px"})(e)};
-  padding: ${e=>(e=>{const t=e.size,r=e.padding,n=e.theme&&e.theme.button;if(r)return r.toLowerCase();if(t){if("large"===t.toLowerCase())return"12px 30px";if("medium"===t.toLowerCase())return"8px 20px";if("small"===t.toLowerCase())return"6px 15px"}if(n){if(n.hover&&n.hover.padding)return n.hover.padding.toLowerCase();if(n.size){if("large"===n.size.toLowerCase())return"12px 30px";if("medium"===n.size.toLowerCase())return"8px 20px";if("small"===n.size.toLowerCase())return"6px 15px"}}return"8px 20px"})(e)};
+  color: ${props => generateButtonColor(props)};
+  font-size: ${props => generateButtonFontSize(props)};
+  padding: ${props => generateButtonPadding(props)};
   :hover {
-    background-color: ${e=>(e=>{const t=e.variant,r=e.hoverBackgroundColor,n=e.theme&&e.theme.button;if(r)return r.toLowerCase();if(t){if("outline"===t.toLowerCase())return"black";if("filled"===t.toLowerCase())return"#333"}if(n){if(n.hover&&n.hover.backgroundColor)return n.hover.backgroundColor.toLowerCase();if(n.variant){if("outline"===n.variant.toLowerCase())return"black";if("filled"===n.variant.toLowerCase())return"#333"}}return"#333"})(e)};
-    border-color: ${e=>(e=>{const t=e.variant,r=e.hoverBackgroundColor,n=e.hoverBorderColor,o=e.theme&&e.theme.button;if(n)return n.toLowerCase();if(t){if("filled"===t)return"#333";if("outline"===t)return"black"}if(r)return r.toLowerCase();if(o){if(o.hover&&o.hover.borderColor)return o.hover.borderColor.toLowerCase();if(o.variant){if("filled"===o.variant)return"#333";if("outline"===o.variant)return"black"}if(o.hover&&o.hover.backgroundColor)return o.hover.backgroundColor.toLowerCase()}return"#333"})(e)};
-    color: ${e=>(e=>{const t=e.hoverColor,r=e.theme&&e.theme.button;return t?t.toLowerCase():r&&r.hover&&r.hover.color?r.hover.color.toLowerCase():"white"})(e)};
+    background-color: ${props => generateButtonHoverBackgroundColor(props)};
+    border-color: ${props => generateButtonHoverBorderColor(props)};
+    color: ${props => generateButtonHoverColor(props)};
     cursor: pointer;
     transition-duration: .3s;
   }
@@ -26,73 +1411,1706 @@
     transition-duration: .3s;
   }
   
-`;var ut={exports:{}},ft=Object.getOwnPropertySymbols,dt=Object.prototype.hasOwnProperty,pt=Object.prototype.propertyIsEnumerable;
+`;
+
+var propTypes = {exports: {}};
+
 /*
 object-assign
 (c) Sindre Sorhus
 @license MIT
-*/function ht(e){if(null==e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}var mt=function(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},r=0;r<10;r++)t["_"+String.fromCharCode(r)]=r;if("0123456789"!==Object.getOwnPropertyNames(t).map((function(e){return t[e]})).join(""))return!1;var n={};return"abcdefghijklmnopqrst".split("").forEach((function(e){n[e]=e})),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},n)).join("")}catch(e){return!1}}()?Object.assign:function(e,t){for(var r,n,o=ht(e),a=1;a<arguments.length;a++){for(var i in r=Object(arguments[a]))dt.call(r,i)&&(o[i]=r[i]);if(ft){n=ft(r);for(var s=0;s<n.length;s++)pt.call(r,n[s])&&(o[n[s]]=r[n[s]])}}return o},gt="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",yt=function(){};if("production"!==process.env.NODE_ENV){var wt=gt,vt={},bt=Function.call.bind(Object.prototype.hasOwnProperty);yt=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}}}function Ct(e,t,r,n,o){if("production"!==process.env.NODE_ENV)for(var a in e)if(bt(e,a)){var i;try{if("function"!=typeof e[a]){var s=Error((n||"React class")+": "+r+" type `"+a+"` is invalid; it must be a function, usually from the `prop-types` package, but received `"+typeof e[a]+"`.");throw s.name="Invariant Violation",s}i=e[a](t,a,n,r,null,wt)}catch(e){i=e}if(!i||i instanceof Error||yt((n||"React class")+": type specification of "+r+" `"+a+"` is invalid; the type checker function must return `null` or an `Error` but returned a "+typeof i+". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."),i instanceof Error&&!(i.message in vt)){vt[i.message]=!0;var c=o?o():"";yt("Failed "+r+" type: "+i.message+(null!=c?c:""))}}}Ct.resetWarningCache=function(){"production"!==process.env.NODE_ENV&&(vt={})};var xt=Ct,kt=i.exports,St=mt,Lt=gt,Et=xt,Ot=Function.call.bind(Object.prototype.hasOwnProperty),zt=function(){};function At(){return null}"production"!==process.env.NODE_ENV&&(zt=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}});function $t(){}function Nt(){}Nt.resetWarningCache=$t;if("production"!==process.env.NODE_ENV){var Pt=i.exports;ut.exports=function(e,t){var r="function"==typeof Symbol&&Symbol.iterator,n="<<anonymous>>",o={array:c("array"),bool:c("boolean"),func:c("function"),number:c("number"),object:c("object"),string:c("string"),symbol:c("symbol"),any:s(At),arrayOf:function(e){return s((function(t,r,n,o,a){if("function"!=typeof e)return new i("Property `"+a+"` of component `"+n+"` has invalid PropType notation inside arrayOf.");var s=t[r];if(!Array.isArray(s))return new i("Invalid "+o+" `"+a+"` of type `"+u(s)+"` supplied to `"+n+"`, expected an array.");for(var c=0;c<s.length;c++){var l=e(s,c,n,o,a+"["+c+"]",Lt);if(l instanceof Error)return l}return null}))},element:s((function(t,r,n,o,a){var s=t[r];return e(s)?null:new i("Invalid "+o+" `"+a+"` of type `"+u(s)+"` supplied to `"+n+"`, expected a single ReactElement.")})),elementType:s((function(e,t,r,n,o){var a=e[t];return kt.isValidElementType(a)?null:new i("Invalid "+n+" `"+o+"` of type `"+u(a)+"` supplied to `"+r+"`, expected a single ReactElement type.")})),instanceOf:function(e){return s((function(t,r,o,a,s){if(!(t[r]instanceof e)){var c=e.name||n;return new i("Invalid "+a+" `"+s+"` of type `"+((l=t[r]).constructor&&l.constructor.name?l.constructor.name:n)+"` supplied to `"+o+"`, expected instance of `"+c+"`.")}var l;return null}))},node:s((function(e,t,r,n,o){return l(e[t])?null:new i("Invalid "+n+" `"+o+"` supplied to `"+r+"`, expected a ReactNode.")})),objectOf:function(e){return s((function(t,r,n,o,a){if("function"!=typeof e)return new i("Property `"+a+"` of component `"+n+"` has invalid PropType notation inside objectOf.");var s=t[r],c=u(s);if("object"!==c)return new i("Invalid "+o+" `"+a+"` of type `"+c+"` supplied to `"+n+"`, expected an object.");for(var l in s)if(Ot(s,l)){var f=e(s,l,n,o,a+"."+l,Lt);if(f instanceof Error)return f}return null}))},oneOf:function(e){if(!Array.isArray(e))return"production"!==process.env.NODE_ENV&&zt(arguments.length>1?"Invalid arguments supplied to oneOf, expected an array, got "+arguments.length+" arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).":"Invalid argument supplied to oneOf, expected an array."),At;function t(t,r,n,o,s){for(var c=t[r],l=0;l<e.length;l++)if(a(c,e[l]))return null;var u=JSON.stringify(e,(function(e,t){return"symbol"===f(t)?String(t):t}));return new i("Invalid "+o+" `"+s+"` of value `"+String(c)+"` supplied to `"+n+"`, expected one of "+u+".")}return s(t)},oneOfType:function(e){if(!Array.isArray(e))return"production"!==process.env.NODE_ENV&&zt("Invalid argument supplied to oneOfType, expected an instance of array."),At;for(var t=0;t<e.length;t++){var r=e[t];if("function"!=typeof r)return zt("Invalid argument supplied to oneOfType. Expected an array of check functions, but received "+d(r)+" at index "+t+"."),At}return s((function(t,r,n,o,a){for(var s=0;s<e.length;s++)if(null==(0,e[s])(t,r,n,o,a,Lt))return null;return new i("Invalid "+o+" `"+a+"` supplied to `"+n+"`.")}))},shape:function(e){return s((function(t,r,n,o,a){var s=t[r],c=u(s);if("object"!==c)return new i("Invalid "+o+" `"+a+"` of type `"+c+"` supplied to `"+n+"`, expected `object`.");for(var l in e){var f=e[l];if(f){var d=f(s,l,n,o,a+"."+l,Lt);if(d)return d}}return null}))},exact:function(e){return s((function(t,r,n,o,a){var s=t[r],c=u(s);if("object"!==c)return new i("Invalid "+o+" `"+a+"` of type `"+c+"` supplied to `"+n+"`, expected `object`.");var l=St({},t[r],e);for(var f in l){var d=e[f];if(!d)return new i("Invalid "+o+" `"+a+"` key `"+f+"` supplied to `"+n+"`.\nBad object: "+JSON.stringify(t[r],null,"  ")+"\nValid keys: "+JSON.stringify(Object.keys(e),null,"  "));var p=d(s,f,n,o,a+"."+f,Lt);if(p)return p}return null}))}};function a(e,t){return e===t?0!==e||1/e==1/t:e!=e&&t!=t}function i(e){this.message=e,this.stack=""}function s(e){if("production"!==process.env.NODE_ENV)var r={},o=0;function a(a,s,c,l,u,f,d){if(l=l||n,f=f||c,d!==Lt){if(t){var p=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");throw p.name="Invariant Violation",p}if("production"!==process.env.NODE_ENV&&"undefined"!=typeof console){var h=l+":"+c;!r[h]&&o<3&&(zt("You are manually calling a React.PropTypes validation function for the `"+f+"` prop on `"+l+"`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."),r[h]=!0,o++)}}return null==s[c]?a?null===s[c]?new i("The "+u+" `"+f+"` is marked as required in `"+l+"`, but its value is `null`."):new i("The "+u+" `"+f+"` is marked as required in `"+l+"`, but its value is `undefined`."):null:e(s,c,l,u,f)}var s=a.bind(null,!1);return s.isRequired=a.bind(null,!0),s}function c(e){return s((function(t,r,n,o,a,s){var c=t[r];return u(c)!==e?new i("Invalid "+o+" `"+a+"` of type `"+f(c)+"` supplied to `"+n+"`, expected `"+e+"`."):null}))}function l(t){switch(typeof t){case"number":case"string":case"undefined":return!0;case"boolean":return!t;case"object":if(Array.isArray(t))return t.every(l);if(null===t||e(t))return!0;var n=function(e){var t=e&&(r&&e[r]||e["@@iterator"]);if("function"==typeof t)return t}(t);if(!n)return!1;var o,a=n.call(t);if(n!==t.entries){for(;!(o=a.next()).done;)if(!l(o.value))return!1}else for(;!(o=a.next()).done;){var i=o.value;if(i&&!l(i[1]))return!1}return!0;default:return!1}}function u(e){var t=typeof e;return Array.isArray(e)?"array":e instanceof RegExp?"object":function(e,t){return"symbol"===e||!!t&&("Symbol"===t["@@toStringTag"]||"function"==typeof Symbol&&t instanceof Symbol)}(t,e)?"symbol":t}function f(e){if(null==e)return""+e;var t=u(e);if("object"===t){if(e instanceof Date)return"date";if(e instanceof RegExp)return"regexp"}return t}function d(e){var t=f(e);switch(t){case"array":case"object":return"an "+t;case"boolean":case"date":case"regexp":return"a "+t;default:return t}}return i.prototype=Error.prototype,o.checkPropTypes=Et,o.resetWarningCache=Et.resetWarningCache,o.PropTypes=o,o}(Pt.isElement,!0)}else ut.exports=function(){function e(e,t,r,n,o,a){if("SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"!==a){var i=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw i.name="Invariant Violation",i}}function t(){return e}e.isRequired=e;var r={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,elementType:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t,checkPropTypes:Nt,resetWarningCache:$t};return r.PropTypes=r,r}();var _t=ut.exports;const It=e=>{const t=o();return r.default.createElement(lt,a({className:"af-button",theme:t||null},e),e.children)};It.prototype={theme:_t.object,variant:_t.oneOf(["outline","filled"])};const Tt=ct.div`
+*/
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+var objectAssign = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var ReactPropTypesSecret$3 = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+var ReactPropTypesSecret_1 = ReactPropTypesSecret$3;
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var printWarning$1 = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  var ReactPropTypesSecret$2 = ReactPropTypesSecret_1;
+  var loggedTypeFailures = {};
+  var has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
+
+  printWarning$1 = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes$1(typeSpecs, values, location, componentName, getStack) {
+  if (process.env.NODE_ENV !== 'production') {
+    for (var typeSpecName in typeSpecs) {
+      if (has$1(typeSpecs, typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error(
+              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+            );
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret$2);
+        } catch (ex) {
+          error = ex;
+        }
+        if (error && !(error instanceof Error)) {
+          printWarning$1(
+            (componentName || 'React class') + ': type specification of ' +
+            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+            'You may have forgotten to pass an argument to the type checker ' +
+            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+            'shape all require an argument).'
+          );
+        }
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          printWarning$1(
+            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+checkPropTypes$1.resetWarningCache = function() {
+  if (process.env.NODE_ENV !== 'production') {
+    loggedTypeFailures = {};
+  }
+};
+
+var checkPropTypes_1 = checkPropTypes$1;
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var ReactIs$1 = reactIs$1.exports;
+var assign = objectAssign;
+
+var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
+var checkPropTypes = checkPropTypes_1;
+
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+var printWarning = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
+
+var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if (process.env.NODE_ENV !== 'production') {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret$1) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          var err = new Error(
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+          err.name = 'Invariant Violation';
+          throw err;
+        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            printWarning(
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret$1);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!ReactIs$1.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      if (process.env.NODE_ENV !== 'production') {
+        if (arguments.length > 1) {
+          printWarning(
+            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
+            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+          );
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (has(propValue, key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret$1);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+      process.env.NODE_ENV !== 'production' ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunctionThatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        printWarning(
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
+        );
+        return emptyFunctionThatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret$1) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret$1);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from
+      // props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret$1);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var ReactPropTypesSecret = ReactPropTypesSecret_1;
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
+
+var factoryWithThrowingShims = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  }  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  }  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    elementType: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
+  };
+
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var ReactIs = reactIs$1.exports;
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  propTypes.exports = factoryWithTypeCheckers(ReactIs.isElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  propTypes.exports = factoryWithThrowingShims();
+}
+
+var PropTypes = propTypes.exports;
+
+/**
+ * @nmae Button
+ * @description Renders the Button component
+ * @param {*} props Props
+ * @prop backgroundColor - 'background-color' css property
+ * @prop borderColor - 'border-color' css property
+ * @prop color - 'color' css property
+ * @prop hoverBorderColor - 'border-color' css property for :hover selector
+ * @prop hoverBackgroundColor - 'background-color' css property for :hover selector
+ * @prop hoverColor - 'color' css property for :hover selector
+ * @prop fontSize - 'font-size' css property
+ * @prop theme - theme property : pass the theme object
+ * @prop padding - 'padding' css property
+ * @prop size - abstract prop for size
+ * @prop variant - abstract prop for border, background, 
+ * @returns Component
+ */
+
+const Button = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(StyledButton, _extends({
+    className: "af-button",
+    theme: theme ? theme : null
+  }, props), props.children);
+};
+Button.prototype = {
+  theme: PropTypes.object,
+  variant: PropTypes.oneOf(['outline', 'filled'])
+};
+
+const generateColumnJustifySelf = props => {
+  // SETUP
+  const alignment = props.alignment;
+  const theme = props.theme && props.theme.column; // IMPORTANCE 1 --> EXACT
+
+  if (alignment) return alignment.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.alignment) return theme.alignment.toLowerCase(); // DEFAULT
+
+  return 'inherit';
+};
+
+/**
+ * Styling for the Column Component
+ */
+
+const ColumnDiv = qe.div`
   align-items: center;
-  justify-self: ${e=>(e=>{const t=e.alignment,r=e.theme&&e.theme.column;return t?t.toLowerCase():r&&r.alignment?r.alignment.toLowerCase():"inherit"})(e)};
-`,Rt=e=>{const t=e.minHeight,r=e.theme&&e.theme.container;return t?t.toLowerCase():r&&r.minHeight?r.minHeight.toLowerCase():void 0},jt=ct.div`
-  background-color: ${e=>(e=>{const t=e.backgroundColor,r=e.theme&&e.theme.container;return t?t.toLowerCase():r&&r.backgroundColor?r.backgroundColor.toLowerCase():"white"})(e)};
-  max-height: ${e=>Rt(e)};
-  max-width: ${e=>(e=>{const t=e.maxWidth&&e.maxWidth.toLowerCase(),r=e.theme&&e.theme.container;return t||(r&&r.maxWidth?r.maxWidth.toLowerCase():void 0)})(e)};
-  min-height: ${e=>Rt(e)};
-  min-width: ${e=>(e=>{const t=e.minWidth,r=e.theme&&e.theme.minWidth;return t?t.toLowerCase():r&&r.minWidth?r.minWidth.toLowerCase():void 0})(e)};
-  padding: ${e=>(e=>{const t=e.padding,r=e.size,n=e.theme&&e.theme.container;if(t)return t.toLowerCase();if(r){if("large"===r)return"40px";if("medium"===r)return"20px";if("small"===r)return"10px"}if(n){if(n.padding)return n.padding.toLowerCase();if(n.size){if("large"===n.size)return"40px";if("medium"===n.size)return"20px";if("small"===n.size)return"10px"}}return"20px"})(e)};
-  margin: ${e=>(e=>{const t=e.margin&&e.margin.toLowerCase(),r=e.theme&&e.theme.container;return t||(r&&r.margin?r.margin.toLowerCase():"0px")})(e)};
-`,Dt=e=>{const t=o();return r.default.createElement(jt,a({className:"af-container",theme:t||null},e),e.children)},Mt=ct.div`
+  justify-self: ${props => generateColumnJustifySelf(props)};
+`;
+
+/**
+ * @name Column
+ * @description Renders the Column Component
+ * @param {*} props Props
+ * @prop alignment
+ * @prop theme
+ * @returns Component
+ */
+
+const Column = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(ColumnDiv, _extends({
+    className: "af-column",
+    theme: theme ? theme : null
+  }, props), props.children);
+};
+
+/**
+ * @name generateBackgroundColorStyle
+ * @description Converts the background color  into a background color for the container
+ * @param {String} backgroundColor Background color 
+ * @returns String - color
+ */
+const generateContainerBackgroundColor = props => {
+  // SETUP
+  const backgroundColor = props.backgroundColor;
+  const theme = props.theme && props.theme.container; // IMPORTANCE 1 --> EXACT
+
+  if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // DEFAULT
+
+  return 'white';
+};
+const generateContainerMaxWidth = props => {
+  // SETUP
+  const maxWidth = props.maxWidth && props.maxWidth.toLowerCase();
+  const theme = props.theme && props.theme.container; // IMPORTANCE 1 --> EXACT
+
+  if (maxWidth) return maxWidth; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.maxWidth) return theme.maxWidth.toLowerCase(); // NO DEFAULT
+};
+/**
+ * @name handleSizeStyle
+ * @description Converts the height  into a height for the contianer
+ * @param {String} height Height 
+ * @returns String height
+ */
+
+const generateContainerMinHeight = props => {
+  // SETUP
+  const minHeight = props.minHeight;
+  const theme = props.theme && props.theme.container; // IMPORTANCE 1 --> EXACT
+
+  if (minHeight) return minHeight.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.minHeight) return theme.minHeight.toLowerCase(); // NO DEFAULT
+};
+/**
+ * @name handleWidthStyle
+ * @description Converts the width  into a width for the container
+ * @param {String} width Width 
+ * @returns String width
+ */
+
+const generateContainerMinWidth = props => {
+  // SETUP
+  const minWidth = props.minWidth;
+  const theme = props.theme && props.theme.minWidth; // IMPORTANCE 1 --> EXACT
+
+  if (minWidth) return minWidth.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.minWidth) return theme.minWidth.toLowerCase(); // NO DEFAULT
+};
+const generateContainerMargin = props => {
+  // SETUP
+  const margin = props.margin && props.margin.toLowerCase();
+  const theme = props.theme && props.theme.container; // IMPORTANCE 1 --> EXACT
+
+  if (margin) return margin; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.margin) return theme.margin.toLowerCase(); // DEFAULT
+
+  return '0px';
+};
+const generateContainerPadding = props => {
+  // SETUP
+  const padding = props.padding;
+  const size = props.size;
+  const theme = props.theme && props.theme.container; // IMPORTANCE 1 --> EXACT
+
+  if (padding) return padding.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size === 'large') return '40px';
+    if (size === 'medium') return '20px';
+    if (size === 'small') return '10px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.padding) return theme.padding.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      if (theme.size === 'large') return '40px';
+      if (theme.size === 'medium') return '20px';
+      if (theme.size === 'small') return '10px';
+    }
+  } // DEFAULT
+
+
+  return '20px';
+};
+
+const ContainerDiv = qe.div`
+  background-color: ${props => generateContainerBackgroundColor(props)};
+  max-height: ${props => generateContainerMinHeight(props)};
+  max-width: ${props => generateContainerMaxWidth(props)};
+  min-height: ${props => generateContainerMinHeight(props)};
+  min-width: ${props => generateContainerMinWidth(props)};
+  padding: ${props => generateContainerPadding(props)};
+  margin: ${props => generateContainerMargin(props)};
+`;
+
+/**
+ * @name Container
+ * @description Renders the Container component
+ * @param {*} props Props
+ * @prop backgroundColor
+ * @prop theme
+ * @prop margin
+ * @prop maxHeight
+ * @prop maxWidth
+ * @prop minHeight
+ * @prop minWidth
+ * @prop padding
+ * @returns Component
+ */
+
+const Container = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(ContainerDiv, _extends({
+    className: "af-container",
+    theme: theme ? theme : null
+  }, props), props.children);
+};
+
+const generateSectionGridTemplateColumns = props => {
+  // SETUP
+  const columns = props.columns && props.columns.toLowerCase();
+  const children = props.children; // IMPORTANCE 1 --> EXACT
+
+  if (columns) return columns; // IF CHILDREN LENGTH > 1
+
+  if (children && children.length && children.length > 1) return `repeat(${children.length}, minmax(100px, 1fr))`; // DEFAULT
+
+  return '1fr';
+};
+const generateSectionAlignItems = props => {
+  // SETUP
+  const alignItems = props.alignItems && props.alignItems.toLowerCase();
+  const verticalAlignment = props.verticalAlignment && props.verticalAlignment.toLowerCase();
+  const theme = props.theme && props.theme.section; // IMPORTANCE 1 --> EXACT
+
+  if (alignItems) return alignItems; // IMPORTANCE 2 --> ABSTRACT
+
+  if (verticalAlignment) return verticalAlignment; // IMPORTANCE 3 --> GLOBAL
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.alignItems) return theme.alignItems.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) ABSTRACT
+
+    if (theme.verticalAlignment) return theme.verticalAlignment.toLowerCase();
+  } // DEFAULT
+
+
+  return 'center';
+};
+const generateSectionPadding = props => {
+  // SETUP
+  const padding = props.padding && props.padding.toLowerCase();
+  const theme = props.theme && props.theme.section; // IMPORTANCE 1 --> EXACT
+
+  if (padding) return padding; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.padding) return theme.padding.toLowerCase(); // DEFAULT
+
+  return '0px';
+};
+const generateSectionMinHeight = props => {
+  // SETUP
+  const minHeight = props.minHeight && props.minHeight.toLowerCase();
+  const theme = props.theme && props.theme.section; // IMPORTANCE 1 --> EXACT
+
+  if (minHeight) return minHeight; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.minHeight) return theme.minHeight.toLowerCase(); // DEFAULT
+
+  return '0px';
+};
+const generateBackgroundColor = props => {
+  // SETUP
+  const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
+  const theme = props.theme && props.theme.section; // IMPORTANCE 1 --> EXACT
+
+  if (backgroundColor) return backgroundColor; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // DEFAULT
+
+  return 'transparent';
+};
+
+const SectionDiv = qe.div`
   z-index: 0;
-  grid-template-columns: ${e=>(e=>{const t=e.columns&&e.columns.toLowerCase(),r=e.children;return t||(r&&r.length&&r.length>1?`repeat(${r.length}, minmax(100px, 1fr))`:"1fr")})(e)};
-  align-items: ${e=>(e=>{const t=e.alignItems&&e.alignItems.toLowerCase(),r=e.verticalAlignment&&e.verticalAlignment.toLowerCase(),n=e.theme&&e.theme.section;if(t)return t;if(r)return r;if(n){if(n.alignItems)return n.alignItems.toLowerCase();if(n.verticalAlignment)return n.verticalAlignment.toLowerCase()}return"center"})(e)};
-  padding: ${e=>(e=>{const t=e.padding&&e.padding.toLowerCase(),r=e.theme&&e.theme.section;return t||(r&&r.padding?r.padding.toLowerCase():"0px")})(e)};
-  min-height: ${e=>(e=>{const t=e.minHeight&&e.minHeight.toLowerCase(),r=e.theme&&e.theme.section;return t||(r&&r.minHeight?r.minHeight.toLowerCase():"0px")})(e)};
-  background-color: ${e=>(e=>{const t=e.backgroundColor&&e.backgroundColor.toLowerCase(),r=e.theme&&e.theme.section;return t||(r&&r.backgroundColor?r.backgroundColor.toLowerCase():"transparent")})(e)};
+  grid-template-columns: ${props => generateSectionGridTemplateColumns(props)};
+  align-items: ${props => generateSectionAlignItems(props)};
+  padding: ${props => generateSectionPadding(props)};
+  min-height: ${props => generateSectionMinHeight(props)};
+  background-color: ${props => generateBackgroundColor(props)};
   display: grid;
   column-gap: 1rem;
   align-items: center;
-`,Ft=e=>{const t=o();return r.default.createElement(Mt,a({className:"af-section",padding:e.padding?e.padding:"0 3vw",theme:t||null},e),e.children)},Ht=ct.div`
+`;
+
+/**
+ * @name Section
+ * @description Redners the Section component
+ * @param {*} Props props
+ * @prop alignItems
+ * @prop backgroundColor
+ * @prop columns
+ * @prop minHeight
+ * @prop padding
+ * @prop theme
+ * @prop verticalAlignment
+ * @returns Component
+ */
+
+const Section = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(SectionDiv, _extends({
+    className: "af-section",
+    padding: props.padding ? props.padding : '0 3vw',
+    theme: theme ? theme : null
+  }, props), props.children);
+};
+
+const generateHeaderBackgroundColor = props => {
+  // SETUP
+  const backgroundColor = props.backgroundColor;
+  const theme = props.theme && props.theme.header; // IMPORTANCE 1 --> EXACT
+
+  if (backgroundColor) return backgroundColor.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase();
+  return 'white';
+};
+const generateHeaderBoxShadow = props => {
+  // SETUP
+  const shadow = props.shadow;
+  const theme = props.theme && props.theme.header; // IMPORTANCE 1 --> EXACT
+
+  if (shadow) return '0px 10px 15px rgba(0,0,0,0.15)'; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.shadow) return shadow.toLowerCase(); // NO DEFAULT
+};
+const generateHeaderHeight = props => {
+  // SETUP
+  const size = props.size;
+  const height = props.height;
+  const theme = props.theme && props.theme.header; // IMPORTANCE 1 --> EXACT
+
+  if (height) return height.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size.toLowerCase() === 'large') return '10vh';
+    if (size.toLowerCase() === 'medium') return '7vh';
+    if (size.toLowerCase() === 'small') return '5vh';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.height) return theme.height.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '10vh';
+      if (theme.size.toLowerCase() === 'medium') return '7vh';
+      if (theme.size.toLowerCase() === 'small') return '5vh';
+    }
+  }
+
+  return '7vh';
+};
+const generateHeaderMaxHeight = props => {
+  // SETUP
+  const size = props.size;
+  const maxHeight = props.maxHeight;
+  const theme = props.theme && props.theme.header; // IMPORTANCE 1 --> EXACT
+
+  if (maxHeight) return maxHeight.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size.toLowerCase() === 'large') return '130px';
+    if (size.toLowerCase() === 'medium') return '100px';
+    if (size.toLowerCase() === 'small') return '70px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.maxHeight) return theme.maxHeight.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '130px';
+      if (theme.size.toLowerCase() === 'medium') return '100px';
+      if (theme.size.toLowerCase() === 'small') return '70px';
+    }
+  }
+
+  return '100px';
+};
+const generateHeaderMinHeight = props => {
+  // SETUP
+  const size = props.size;
+  const minHeight = props.minHeight;
+  const theme = props.theme && props.theme.header; // IMPORTANCE 1 --> EXACT
+
+  if (minHeight) return minHeight.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size.toLowerCase() === 'large') return '100px';
+    if (size.toLowerCase() === 'medium') return '70px';
+    if (size.toLowerCase() === 'small') return '40px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.minHeight) return theme.minHeight.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '100px';
+      if (theme.size.toLowerCase() === 'medium') return '70px';
+      if (theme.size.toLowerCase() === 'small') return '40px';
+    }
+  }
+
+  return '80px';
+};
+
+const StyledHeader = qe.div`
   z-index: 99;
   align-items: center;
   display: grid;
-  background-color: ${e=>(e=>{const t=e.backgroundColor,r=e.theme&&e.theme.header;return t?t.toLowerCase():r&&r.backgroundColor?r.backgroundColor.toLowerCase():"white"})(e)};
-  box-shadow: ${e=>(e=>{const t=e.shadow,r=e.theme&&e.theme.header;return t?"0px 10px 15px rgba(0,0,0,0.15)":r&&r.shadow?t.toLowerCase():void 0})(e)};
-  height: ${e=>(e=>{const t=e.size,r=e.height,n=e.theme&&e.theme.header;if(r)return r.toLowerCase();if(t){if("large"===t.toLowerCase())return"10vh";if("medium"===t.toLowerCase())return"7vh";if("small"===t.toLowerCase())return"5vh"}if(n){if(n.height)return n.height.toLowerCase();if(n.size){if("large"===n.size.toLowerCase())return"10vh";if("medium"===n.size.toLowerCase())return"7vh";if("small"===n.size.toLowerCase())return"5vh"}}return"7vh"})(e)};
-  max-height: ${e=>(e=>{const t=e.size,r=e.maxHeight,n=e.theme&&e.theme.header;if(r)return r.toLowerCase();if(t){if("large"===t.toLowerCase())return"130px";if("medium"===t.toLowerCase())return"100px";if("small"===t.toLowerCase())return"70px"}if(n){if(n.maxHeight)return n.maxHeight.toLowerCase();if(n.size){if("large"===n.size.toLowerCase())return"130px";if("medium"===n.size.toLowerCase())return"100px";if("small"===n.size.toLowerCase())return"70px"}}return"100px"})(e)};
-  min-height: ${e=>(e=>{const t=e.size,r=e.minHeight,n=e.theme&&e.theme.header;if(r)return r.toLowerCase();if(t){if("large"===t.toLowerCase())return"100px";if("medium"===t.toLowerCase())return"70px";if("small"===t.toLowerCase())return"40px"}if(n){if(n.minHeight)return n.minHeight.toLowerCase();if(n.size){if("large"===n.size.toLowerCase())return"100px";if("medium"===n.size.toLowerCase())return"70px";if("small"===n.size.toLowerCase())return"40px"}}return"80px"})(e)};
-`,Bt=Object.freeze({PROPS:{SIZES:{LARGE:"large",MEDIUM:"medium",SMALL:"small"},FONT_FAMILIES:{ROBOTO:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}}),Vt=(e,t)=>{const r=t.fontSize,n=t.theme&&t.theme.heading;if(r)return r.toLowerCase();if(e)switch(Number(e)){case 1:return n&&n.one&&n.one.fontSize?n.one.fontSize.toLowerCase():"4rem";case 2:return n&&n.two&&n.one.fontSize?n.two.fontSize.toLowerCase():"3rem";case 3:return n&&n.three&&n.one.fontSize?n.three.fontSize.toLowerCase():"2rem";case 4:return n&&n.four&&n.one.fontSize?n.four.fontSize.toLowerCase():"1.6rem";case 5:return n&&n.five&&n.one.fontSize?n.five.fontSize.toLowerCase():"1.2rem";case 6:return n&&n.six&&n.one.fontSize?n.six.fontSize.toLowerCase():"0.8rem"}return"3rem"},Wt=Ye`
-  background: ${e=>(e=>{const t=e.background;return t?`url(${t})`:"none"})(e)};
-  background-attachment: ${e=>(e=>{const t=e.background,r=e.backgroundAttachment;if(t)return r?r.toLowerCase():"scroll"})(e)};
+  background-color: ${props => generateHeaderBackgroundColor(props)};
+  box-shadow: ${props => generateHeaderBoxShadow(props)};
+  height: ${props => generateHeaderHeight(props)};
+  max-height: ${props => generateHeaderMaxHeight(props)};
+  min-height: ${props => generateHeaderMinHeight(props)};
+`;
+
+/**
+ * @name Header
+ * @description Renders the Header compoennt
+ * @param {*} props Props
+ * @prop backgroundColor
+ * @prop theme
+ * @prop height
+ * @prop maxHeight
+ * @prop minHeight
+ * @prop padding
+ * @prop shadow
+ * @prop size
+ * @returns Component
+ */
+
+const Header = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(StyledHeader, _extends({
+    className: "af-header",
+    theme: theme ? theme : null
+  }, props), /*#__PURE__*/React__default['default'].createElement(Section, _extends({
+    padding: props.padding ? props.padding : '0 3vw',
+    theme: theme ? theme : null,
+    verticalAlignment: "center"
+  }, props), props.children));
+};
+
+const Constants = Object.freeze({
+  PROPS: {
+    SIZES: {
+      LARGE: 'large',
+      MEDIUM: 'medium',
+      SMALL: 'small'
+    },
+    FONT_FAMILIES: {
+      ROBOTO: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`
+    }
+  }
+});
+
+const generateHeadingColor = props => {
+  // SETUP
+  const color = props.color;
+  const theme = props.theme && props.theme.heading; // IMPORTANCE 1 --> EXACT
+
+  if (color) return color.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.color) return theme.color.toLowerCase(); // DEFAULT
+
+  return 'black';
+};
+const generateHeadingFontWeight = props => {
+  // SETUP
+  const fontWeight = props.fontWeight;
+  const theme = props.theme && props.theme.heading; // IMPORTANCE 1 --> EXACT
+
+  if (fontWeight) return fontWeight.toLowerCase();
+  if (theme && theme.heading) return theme.heading.toLowerCase(); // DEFAULT
+
+  return fontWeight ? fontWeight.toLowerCase() : 300;
+};
+const generateHeadingFontSize = (level, props) => {
+  // SETUP
+  const fontSize = props.fontSize;
+  const theme = props.theme && props.theme.heading; // IMPORTANCE 1 --> EXACT
+
+  if (fontSize) return fontSize.toLowerCase(); // IMPORTANCE 2 --> LEVEL
+
+  if (level) {
+    switch (Number(level)) {
+      case 1:
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 1
+        if (theme && theme.one && theme.one.fontSize) return theme.one.fontSize.toLowerCase(); // DEFAULT LEVEL 1
+
+        return '4rem';
+
+      case 2:
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 2
+        if (theme && theme.two && theme.one.fontSize) return theme.two.fontSize.toLowerCase(); // DEFAULT LEVEL 2
+
+        return '3rem';
+
+      case 3:
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 3
+        if (theme && theme.three && theme.one.fontSize) return theme.three.fontSize.toLowerCase(); // DEFAULT LEVEL 3
+
+        return '2rem';
+
+      case 4:
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 4
+        if (theme && theme.four && theme.one.fontSize) return theme.four.fontSize.toLowerCase(); // DEFAULT LEVEL 4
+
+        return '1.6rem';
+
+      case 5:
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 5
+        if (theme && theme.five && theme.one.fontSize) return theme.five.fontSize.toLowerCase(); // DEFAULT LEVEL 5
+
+        return '1.2rem';
+
+      case 6:
+        // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 6
+        if (theme && theme.six && theme.one.fontSize) return theme.six.fontSize.toLowerCase(); // DEFAULT LEVEL 6
+
+        return '0.8rem';
+    }
+  } // DEFAULT
+
+
+  return '3rem';
+};
+const generateHeadingBackgroundRepeat = props => {
+  // SETUP
+  const background = props.background;
+  const backgroundRepeat = props.backgroundRepeat; // ONLY APPLY IF BACKGROUND IS PRESENT
+
+  if (background) {
+    if (backgroundRepeat) return backgroundRepeat.toLowerCase();
+    return 'no-repeat';
+  } // NO DEFAULT
+
+};
+const generateHeadingBackgroundSize = props => {
+  // SETUP
+  const background = props.background;
+  const backgroundSize = props.backgroundSize; // ONLY APPLY IF BACKGROUND IS PRESENT
+
+  if (background) {
+    if (backgroundSize) backgroundSize.toLowerCase();
+    return 'cover';
+  } // NO DEFAULT
+
+};
+const generateHeadingBackgroundAttachment = props => {
+  // SETUP
+  const background = props.background;
+  const backgroundAttachment = props.backgroundAttachment; // ONLY APPLY IF BACKGROUND IS PRESENT
+
+  if (background) {
+    if (backgroundAttachment) return backgroundAttachment.toLowerCase();
+    return 'scroll';
+  } // NO DEFAULT
+
+};
+const generateHeadingBackground = props => {
+  // SETUP
+  const background = props.background; // ONLY APPLY IF BACKGROUND IS PRESENT
+
+  if (background) return `url(${background})`; // DEFAULT
+
+  return 'none';
+};
+const generateHeadingWebkitTextFillColor = props => {
+  // SETUP
+  const background = props.background; // ONLY APPLY IF BACKGROUND IS PRESENT
+
+  if (background) return 'transparent'; // NO DEFAULT
+};
+
+const shared = Ae`
+  background: ${props => generateHeadingBackground(props)};
+  background-attachment: ${props => generateHeadingBackgroundAttachment(props)};
   background-clip: text;
-  background-repeat: ${e=>(e=>{const t=e.background,r=e.backgroundRepeat;if(t)return r?r.toLowerCase():"no-repeat"})(e)};
-  background-size: ${e=>(e=>{const t=e.background,r=e.backgroundSize;if(t)return r&&r.toLowerCase(),"cover"})(e)};
-  color: ${e=>(e=>{const t=e.color,r=e.theme&&e.theme.heading;return t?t.toLowerCase():r&&r.color?r.color.toLowerCase():"black"})(e)};
-  font-family: ${Bt.PROPS.FONT_FAMILIES.ROBOTO};
-  font-weight: ${e=>(e=>{const t=e.fontWeight,r=e.theme&&e.theme.heading;return t?t.toLowerCase():r&&r.heading?r.heading.toLowerCase():t?t.toLowerCase():300})(e)};
+  background-repeat: ${props => generateHeadingBackgroundRepeat(props)};
+  background-size: ${props => generateHeadingBackgroundSize(props)};
+  color: ${props => generateHeadingColor(props)};
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-weight: ${props => generateHeadingFontWeight(props)};
   margin-block-start: 0em;
   margin-block-end: .5em;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: ${e=>(e=>{if(e.background)return"transparent"})(e)};
-`,qt=ct.h1`
-  ${Wt}
-  font-size: ${e=>Vt(1,e)};
-`,Ut=ct.h2`
-  ${Wt}
-  font-size: ${e=>Vt(2,e)};
-`,Gt=ct.h3`
-  ${Wt}
-  font-size: ${e=>Vt(3,e)};
-`,Yt=ct.h4`
-  ${Wt}
-  font-size: ${e=>Vt(4,e)};
-`,Xt=ct.h5`
-  ${Wt}
-  font-size: ${e=>Vt(5,e)};
-`,Jt=ct.h6`
-  ${Wt}
-  font-size: ${e=>Vt(6,e)};
-`,Zt=ct.input`
+  -webkit-text-fill-color: ${props => generateHeadingWebkitTextFillColor(props)};
+`;
+const HeadingH1 = qe.h1`
+  ${shared}
+  font-size: ${props => generateHeadingFontSize(1, props)};
+`;
+const HeadingH2 = qe.h2`
+  ${shared}
+  font-size: ${props => generateHeadingFontSize(2, props)};
+`;
+const HeadingH3 = qe.h3`
+  ${shared}
+  font-size: ${props => generateHeadingFontSize(3, props)};
+`;
+const HeadingH4 = qe.h4`
+  ${shared}
+  font-size: ${props => generateHeadingFontSize(4, props)};
+`;
+const HeadingH5 = qe.h5`
+  ${shared}
+  font-size: ${props => generateHeadingFontSize(5, props)};
+`;
+const HeadingH6 = qe.h6`
+  ${shared}
+  font-size: ${props => generateHeadingFontSize(6, props)};
+`;
+
+/**
+ * @name Heading
+ * @description Renders the Heading component
+ * @param {*} props Props
+ * @prop background
+ * @prop backgroundAttachment
+ * @prop backgroundRepeat
+ * @prop backgroundSize
+ * @prop color
+ * @prop fontSize
+ * @prop fontWeight
+ * @prop theme
+ * @returns Component
+ */
+
+const Heading = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, !props.level ? /*#__PURE__*/React__default['default'].createElement(HeadingH2, _extends({
+    className: "af-heading"
+  }, props), props.children) : Number(props.level) === 1 ? /*#__PURE__*/React__default['default'].createElement(HeadingH1, _extends({
+    className: "af-heading",
+    theme: theme ? theme : null
+  }, props), props.children) : Number(props.level) === 2 ? /*#__PURE__*/React__default['default'].createElement(HeadingH2, _extends({
+    className: "af-heading",
+    theme: theme ? theme : null
+  }, props), props.children) : Number(props.level) === 3 ? /*#__PURE__*/React__default['default'].createElement(HeadingH3, _extends({
+    className: "af-heading",
+    theme: theme ? theme : null
+  }, props), props.children) : Number(props.level) === 4 ? /*#__PURE__*/React__default['default'].createElement(HeadingH4, _extends({
+    className: "af-heading",
+    theme: theme ? theme : null
+  }, props), props.children) : Number(props.level) === 5 ? /*#__PURE__*/React__default['default'].createElement(HeadingH5, _extends({
+    className: "af-heading",
+    theme: theme ? theme : null
+  }, props), props.children) : Number(props.level) === 6 ? /*#__PURE__*/React__default['default'].createElement(HeadingH6, _extends({
+    className: "af-heading",
+    theme: theme ? theme : null
+  }, props), props.children) : /*#__PURE__*/React__default['default'].createElement(HeadingH2, _extends({
+    className: "af-heading"
+  }, props), props.children));
+};
+
+const generateInputWidth = props => {
+  // SETUP
+  const width = props.width && props.width.toLowerCase();
+  const size = props.size && props.size.toLowerCase();
+  const padding = props.padding;
+  const theme = props.theme && props.theme.input; // IMPORTANCE 1 --> EXACT
+
+  if (width) {
+    // IMPORTANCE 1.1 --> PADDING
+    if (padding) return `calc(${width} - ${getHorizontalPadding(padding)})`; // DEFAULT
+
+    return width;
+  }
+
+  if (padding) return `calc(100% - ${getHorizontalPadding(padding)})`; // IMPORTANCE 3 --> SIZE
+
+  if (size) {
+    switch (size.toLowerCase()) {
+      case 'large':
+        return `calc(100% - 30px)`;
+
+      case 'medium':
+        return `calc(100% - 20px)`;
+
+      case 'small':
+        return `calc(100% - 10px)`;
+    }
+  } // IMPORTANCE 4 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 4.1 --> (GLOBAL) WIDTH
+    if (theme.width) {
+      // IMPORTANCE 4.1.1 --> (GLOBAL) WIDTH AND (GLOBAL) PADDING
+      if (theme.padding) return `calc(${theme.width} - ${getHorizontalPadding(theme.padding)})`; // IMPORTANCE 4.1.2 --> (GLOBAL) WIDTH AND PADDING
+
+      if (padding) return `calc(${theme.width} - ${getHorizontalPadding(padding)})`; // DEFAULT
+
+      return theme.width;
+    }
+
+    if (theme.padding) `calc(100% - ${getHorizontalPadding(theme.padding)})`; // IMPORTANCE 4.3 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
+        case 'large':
+          return `calc(100% - 30px)`;
+
+        case 'medium':
+          return `calc(100% - 20px)`;
+
+        case 'small':
+          return `calc(100% - 10px)`;
+      }
+    }
+  } // DEFAULT
+
+
+  return `calc(100% - 20px)`;
+};
+const generateInputPadding = props => {
+  // SETUP
+  const size = props.size && props.size.toLowerCase();
+  const padding = props.padding && props.padding.toLowerCase();
+  const theme = props.theme && props.theme.input; // IMPORTANCE 1 --> EXACT
+
+  if (padding) return padding.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size === 'large') return '15px';
+    if (size === 'medium') return '10px';
+    if (size === 'small') return '5px';
+  }
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) PADDING
+    if (theme.padding) return theme.padding.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '15px';
+      if (theme.size.toLowerCase() === 'medium') return '10px';
+      if (theme.size.toLowerCase() === 'small') return '5px';
+    }
+  } // DEFAULT
+
+
+  return '10px';
+};
+const generateInputLineHeight = props => {
+  // SETUP
+  const size = props.size && props.size.toLowerCase();
+  const lineHeight = props.lineHeight && props.lineHeight.toLowerCase();
+  const theme = props.theme && props.theme.input; // IMPORTANCE 1 --> EXACT
+
+  if (lineHeight) return lineHeight.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  switch (size) {
+    case 'large':
+      return '1.4em';
+
+    case 'medium':
+      return '1.2em';
+
+    case 'small':
+      return '1em';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.lineHeight) return theme.lineHeight.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      switch (theme.size) {
+        case 'large':
+          return '1.4em';
+
+        case 'medium':
+          return '1.2em';
+
+        case 'small':
+          return '1em';
+      }
+    }
+  } // DEFAULT
+
+
+  return '1.2em';
+};
+const generateInputFontSize = props => {
+  // SETUP
+  const size = props.size && props.size.toLowerCase();
+  const fontSize = props.fontSize && props.fontSize.toLowerCase();
+  const theme = props.theme && props.theme.input; // IMPORTANCE 1 --> EXACT
+
+  if (fontSize) return fontSize.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size === 'large') return '20px';
+    if (size === 'medium') return '16px';
+    if (size === 'small') return '12px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) FONT SIZE
+    if (theme.fontSize) return theme.fontSize.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
+        case 'large':
+          return '20px';
+
+        case 'medium':
+          return '16px';
+
+        case 'small':
+          return '12px';
+      }
+    }
+  } // DEFAULT
+
+
+  return '16px';
+};
+
+const StyledInput = qe.input`
   background-color: #fff;
   border: ;
   border-width: 1px;
@@ -100,77 +3118,743 @@ object-assign
   border-color: #999;
   border-style: solid;
   display: block;
-  font-size: ${e=>(e=>{const t=e.size&&e.size.toLowerCase(),r=e.fontSize&&e.fontSize.toLowerCase(),n=e.theme&&e.theme.input;if(r)return r.toLowerCase();if(t){if("large"===t)return"20px";if("medium"===t)return"16px";if("small"===t)return"12px"}if(n){if(n.fontSize)return n.fontSize.toLowerCase();if(n.size)switch(n.size.toLowerCase()){case"large":return"20px";case"medium":return"16px";case"small":return"12px"}}return"16px"})(e)};
-  line-height: ${e=>(e=>{const t=e.size&&e.size.toLowerCase(),r=e.lineHeight&&e.lineHeight.toLowerCase(),n=e.theme&&e.theme.input;if(r)return r.toLowerCase();switch(t){case"large":return"1.4em";case"medium":return"1.2em";case"small":return"1em"}if(n){if(n.lineHeight)return n.lineHeight.toLowerCase();if(n.size)switch(n.size){case"large":return"1.4em";case"medium":return"1.2em";case"small":return"1em"}}return"1.2em"})(e)};
+  font-size: ${props => generateInputFontSize(props)};
+  line-height: ${props => generateInputLineHeight(props)};
   margin-block-end: .67em;
   margin-block-start: .67em;
-  width: ${e=>(e=>{const t=e.width&&e.width.toLowerCase(),r=e.size&&e.size.toLowerCase(),n=e.padding,o=e.theme&&e.theme.input;if(t)return n?`calc(${t} - ${getHorizontalPadding(n)})`:t;if(n)return`calc(100% - ${getHorizontalPadding(n)})`;if(r)switch(r.toLowerCase()){case"large":return"calc(100% - 30px)";case"medium":return"calc(100% - 20px)";case"small":return"calc(100% - 10px)"}if(o){if(o.width)return o.padding?`calc(${o.width} - ${getHorizontalPadding(o.padding)})`:n?`calc(${o.width} - ${getHorizontalPadding(n)})`:o.width;if(o.padding&&getHorizontalPadding(o.padding),o.size)switch(o.size.toLowerCase()){case"large":return"calc(100% - 30px)";case"medium":return"calc(100% - 20px)";case"small":return"calc(100% - 10px)"}}return"calc(100% - 20px)"})(e)};
-  padding: ${e=>(e=>{const t=e.size&&e.size.toLowerCase(),r=e.padding&&e.padding.toLowerCase(),n=e.theme&&e.theme.input;if(r)return r.toLowerCase();if(t){if("large"===t)return"15px";if("medium"===t)return"10px";if("small"===t)return"5px"}if(n){if(n.padding)return n.padding.toLowerCase();if(n.size){if("large"===n.size.toLowerCase())return"15px";if("medium"===n.size.toLowerCase())return"10px";if("small"===n.size.toLowerCase())return"5px"}}return"10px"})(e)};
+  width: ${props => generateInputWidth(props)};
+  padding: ${props => generateInputPadding(props)};
   :focus {
     outline: none;
   }
-`,Kt=ct.span`
-  color: ${e=>(e=>{const t=e.color&&e.color.toLowerCase(),r=e.theme&&e.theme.link;return t?t.toLowerCase():r&&r.color?r.color.toLowerCase():"black"})(e)};
+`;
+
+/**
+ * @name Input
+ * @description Renders the Input component
+ * @param {*} props Props
+ * @prop fontSize
+ * @prop theme
+ * @prop lineHeight
+ * @prop padding
+ * @prop size
+ * @prop width
+ * @returns Component
+ */
+
+const Input = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(StyledInput, _extends({
+    className: "af-input",
+    theme: theme ? theme : null
+  }, props));
+};
+
+const generateLinkColor = props => {
+  // SETUP
+  const color = props.color && props.color.toLowerCase();
+  const theme = props.theme && props.theme.link; // IMPORTANCE 1 --> EXACT
+
+  if (color) return color.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.color) return theme.color.toLowerCase(); // DEFAULT
+
+  return 'black';
+};
+const generateLinkHoverColor = props => {
+  // SETUP
+  const color = props.color && props.color.toLowerCase();
+  const hoverColor = props.hoverColor && props.hoverColor.toLowerCase();
+  const theme = props.theme && props.theme.link; // IMPORTANCE 1 --> HOVER COLOR
+
+  if (hoverColor) return hoverColor; // IMPORTANCE 2 --> (GLOBAL) HOVER COLOR
+
+  if (theme && theme.hoverColor) return theme.hoverColor.toLowerCase(); // IMPORTANCE 3 --> COLOR
+
+  if (color) {
+    switch (color) {
+      case 'black':
+        return '#666';
+
+      case 'white':
+        return '#ccc';
+    }
+  } // IMPORTANCE 4 --> (GLOBAL) COLOR
+
+
+  if (theme && theme.color) switch (theme.color.toLowerCase()) {
+    case 'black':
+      return '#666';
+
+    case 'white':
+      return '#ccc';
+  } // DEFAULT
+
+  return '#666';
+};
+const generateLinkFontSize = props => {
+  // SETUP
+  const size = props.size && props.size.toLowerCase();
+  const fontSize = props.fontSize && props.fontSize.toLowerCase();
+  const theme = props.theme && props.theme.link; // IMPORTANCE 1 --> EXACT
+
+  if (fontSize) return fontSize; // IMPORTANCE 2 --> SIZE
+
+  switch (size) {
+    case 'large':
+      return '18px';
+
+    case 'medium':
+      return '16px';
+
+    case 'small':
+      return '14px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) FONT SIZE
+    if (theme.fontSize) return theme.fontSize.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
+        case 'large':
+          return '18px';
+
+        case 'medium':
+          return '16px';
+
+        case 'small':
+          return '14px';
+      }
+    }
+  } // DEFAULT
+
+
+  return '16px';
+};
+const generateLinkFontWeight = props => {
+  // SETUP
+  const weight = props.weight && props.weight.toLowerCase();
+  const theme = props.theme && props.theme.link; // IMPORTANCE 1 --> EXACT 
+
+  if (weight) return weight; // IMPORTANCE 2 --> GLOBALS
+
+  if (theme && theme.weight) return theme.weight.toLowerCase(); // DEFAULT
+
+  return 300;
+};
+
+const StyledLink = qe.span`
+  color: ${props => generateLinkColor(props)};
   display: inline;
-  font-family: ${Bt.PROPS.FONT_FAMILIES.ROBOTO};
-  font-size: ${e=>(e=>{const t=e.size&&e.size.toLowerCase(),r=e.fontSize&&e.fontSize.toLowerCase(),n=e.theme&&e.theme.link;if(r)return r;switch(t){case"large":return"18px";case"medium":return"16px";case"small":return"14px"}if(n){if(n.fontSize)return n.fontSize.toLowerCase();if(n.size)switch(n.size.toLowerCase()){case"large":return"18px";case"medium":return"16px";case"small":return"14px"}}return"16px"})(e)};
-  font-weight: ${e=>(e=>{const t=e.weight&&e.weight.toLowerCase(),r=e.theme&&e.theme.link;return t||(r&&r.weight?r.weight.toLowerCase():300)})(e)};
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-size: ${props => generateLinkFontSize(props)};
+  font-weight: ${props => generateLinkFontWeight(props)};
   :hover {
-    color: ${e=>(e=>{const t=e.color&&e.color.toLowerCase(),r=e.hoverColor&&e.hoverColor.toLowerCase(),n=e.theme&&e.theme.link;if(r)return r;if(n&&n.hoverColor)return n.hoverColor.toLowerCase();if(t)switch(t){case"black":return"#666";case"white":return"#ccc"}if(n&&n.color)switch(n.color.toLowerCase()){case"black":return"#666";case"white":return"#ccc"}return"#666"})(e)};
+    color: ${props => generateLinkHoverColor(props)};
     cursor: pointer;
     transition-duration: .3s;
   }
   :not(:hover) {
     transition-duration: .3s;
   }
-`,{useHistory:Qt}=require("react-router-dom"),er=ct.div`
-  color: ${e=>(e=>{const t=e.color&&e.color.toLowerCase(),r=e.theme&&e.theme.logo;return t||(r&&r.color?r.color:"black")})(e)};
-  font-family: ${Bt.PROPS.FONT_FAMILIES.ROBOTO};
-  font-size: ${e=>(e=>{const t=e.fontSize&&e.fontSize.toLowerCase(),r=e.size&&e.size.toLowerCase();if(t)return t.toLowerCase();if(r)switch(r.toLowerCase()){case"large":return"20px";case"medium":return"16px";case"small":return"14px"}if(theme){if(theme.fontSize)return theme.fontSize.toLowerCase();if(theme.size)switch(theme.size.toLowerCase()){case"large":return"20px";case"medium":return"16px";case"small":return"14px"}}return"18px"})(e)};
+`;
+
+const {
+  useHistory: useHistory$1
+} = require('react-router-dom');
+/**
+ * @name Link
+ * @description Renders the Link component.
+ * @param {*} props Props
+ * @prop color
+ * @prop fontSize
+ * @prop hoverColor
+ * @prop size
+ * @prop theme
+ * @prop weight
+ * @returns Component
+ */
+
+const Link = props => {
+  const theme = useThemeContext();
+  const history = useHistory$1();
+  /**
+   * @name handleClick
+   * @description Uses history to redirect to the provided path
+   */
+
+  const handleClick = () => {
+    if (props.to) history.push(props.to);
+    if (props.href) window.open(props.href, '_blank');
+  };
+
+  return /*#__PURE__*/React__default['default'].createElement(StyledLink, _extends({
+    className: "af-link",
+    onClick: handleClick,
+    theme: theme ? theme : null
+  }, props), props.children);
+};
+
+const generateLogoFontSize = props => {
+  // SETUP
+  const fontSize = props.fontSize && props.fontSize.toLowerCase();
+  const size = props.size && props.size.toLowerCase(); // IMPORTANCE 1 --> EXACT
+
+  if (fontSize) return fontSize.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    switch (size.toLowerCase()) {
+      case 'large':
+        return '20px';
+
+      case 'medium':
+        return '16px';
+
+      case 'small':
+        return '14px';
+    }
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.fontSize) return theme.fontSize.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
+        case 'large':
+          return '20px';
+
+        case 'medium':
+          return '16px';
+
+        case 'small':
+          return '14px';
+      }
+    }
+  } // DEFAULT
+
+
+  return '18px';
+};
+const generateLogoColor = props => {
+  // SETUP
+  const color = props.color && props.color.toLowerCase();
+  const theme = props.theme && props.theme.logo; // IMPORTANCE 1 --> EXACT
+
+  if (color) return color; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.color) return theme.color; // DEFAULT
+
+  return 'black';
+};
+
+const LogoDiv = qe.div`
+  color: ${props => generateLogoColor(props)};
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-size: ${props => generateLogoFontSize(props)};
   font-weight: 300;
   :hover {
     cursor: pointer;
   }
-`,{useHistory:tr}=require("react-router-dom"),rr=(e,t)=>{const r=e.direction&&e.direction.toLowerCase(),n=e.spaceBetween&&e.spaceBetween.toLowerCase(),o=e.theme&&e.theme.menu;if(!r||"horizontal"===r)switch(t){case"only":return"0vw";case"not-first-not-last":return n?`0px ${n}`:o&&o.spaceBetween?`0px ${o.spaceBetween}`:"0px 1.5vw";case"first":return n?`0px ${n} 0px 0px`:o&&o.spaceBetween?`0px ${o.spaceBetween} 0px 0px`:"0px 1.5vw 0px 0px";case"last":return n?`0px 0px 0px ${n}`:o&&o.spaceBetween?`0px 0px 0px ${o.spaceBetween}`:"0px 0px 0px 1.5vw";default:return"0vw"}return"0vw"},nr=ct.div`
-  justify-self: ${e=>(e=>{const t=e.alignment&&e.alignment.toLowerCase(),r=e.theme&&e.theme.menu;if(t)switch(t){case"start":case"left":return"start";case"center":return"center";case"end":case"right":return"end";default:return"start"}if(r&&r.alignment)switch(r.alignment){case"start":case"left":return"start";case"center":return"center";case"end":case"right":return"end";default:return"start"}return"start"})(e)};
-`,or=ct.div`
-  display: ${e=>(e=>{const t=e.direction&&e.direction.toLowerCase(),r=e.theme&&e.menu;if(t)switch(t){case"vertical":return"block";case"horizontal":default:return"inline"}if(r&&r.direction)switch(r.direction.toLowerCase()){case"vertical":return"block";case"horizontal":default:return"inline"}return"inline"})(e)};
-  padding: ${e=>(e=>{const t=e.padding&&e.padding.toLowerCase(),r=e.theme&&e.theme.menu;return t||(r&&r.padding?r.padding.toLowerCase():"0px")})(e)};
+`;
+
+const {
+  useHistory
+} = require('react-router-dom');
+/**
+ * @name Logo
+ * @description Renders the Logo component
+ * @param {*} props Props
+ * @prop color
+ * @prop fontSize
+ * @prop them
+ * @returns Component
+ */
+
+const Logo = props => {
+  const theme = useThemeContext();
+  const history = useHistory();
+  /**
+   * @name handleClick
+   * @description Uses history to redirect to the root path '/' if onclick not specified
+   * @returns null
+   */
+
+  const handleClick = () => props.onClick ? props.onClick() : history.push("/");
+
+  return /*#__PURE__*/React__default['default'].createElement(LogoDiv, _extends({
+    className: "af-logo",
+    onClick: handleClick,
+    theme: theme ? theme : null
+  }, props), props.children ? props.children : 'Amir Sharapov');
+};
+
+const generateMenuChildDisplay = props => {
+  // SETUP
+  const direction = props.direction && props.direction.toLowerCase();
+  const theme = props.theme && props.menu; // IMPORTANCE 1 --> EXACT
+
+  if (direction) {
+    switch (direction) {
+      case 'vertical':
+        return 'block';
+
+      case 'horizontal':
+      default:
+        return 'inline';
+    }
+  } // IMPORTANCE 2 --> GLOBAL
+
+
+  if (theme && theme.direction) switch (theme.direction.toLowerCase()) {
+    case 'vertical':
+      return 'block';
+
+    case 'horizontal':
+    default:
+      return 'inline';
+  } // DEFAULT
+
+  return 'inline';
+};
+const generateMenuDirectChildPadding = props => {
+  // SETUP
+  const padding = props.padding && props.padding.toLowerCase();
+  const theme = props.theme && props.theme.menu; // IMPORTANCE 1 --> EXACT
+
+  if (padding) return padding; // IMPORTANCE 2 --> GLOBALS
+
+  if (theme && theme.padding) return theme.padding.toLowerCase(); // DEFAULT
+
+  return '0px';
+};
+const generateMenuDirectChildMargin = (props, childSelector) => {
+  // SETUP
+  const direction = props.direction && props.direction.toLowerCase();
+  const spaceBetween = props.spaceBetween && props.spaceBetween.toLowerCase();
+  const theme = props.theme && props.theme.menu; // IF HORIZONTAL
+
+  if (!direction || direction === 'horizontal') switch (childSelector) {
+    // IF CHILD IS ONLY CHILD ELEMENT
+    case 'only':
+      return '0vw';
+    // IF CHILD ELEMENT IS NOT FIRST NOR LAST
+
+    case 'not-first-not-last':
+      // IMPORTANCE 1 --> EXACT
+      if (spaceBetween) return `0px ${spaceBetween}`; // IMPORTANCE 2 --> GLOBAL
+
+      if (theme && theme.spaceBetween) return `0px ${theme.spaceBetween}`;
+      return '0px 1.5vw';
+    // IF CHILD ELEMENT IS FIRST
+
+    case 'first':
+      // IMPORTANCE 1 --> EXACT
+      if (spaceBetween) return `0px ${spaceBetween} 0px 0px`; // IMPORTANCE 2 --> GLOBAL
+
+      if (theme && theme.spaceBetween) return `0px ${theme.spaceBetween} 0px 0px`;
+      return '0px 1.5vw 0px 0px';
+    // IF CHILD ELEMENT IS LAST
+
+    case 'last':
+      // IMPORTANCE 1 --> EXACT
+      if (spaceBetween) return `0px 0px 0px ${spaceBetween}`; // IMPORTANCE 2 --> GLOBAL
+
+      if (theme && theme.spaceBetween) return `0px 0px 0px ${theme.spaceBetween}`;
+      return '0px 0px 0px 1.5vw';
+    // ELSE --> ASSUME ONLY ELEMENT
+
+    default:
+      return '0vw';
+  } // DEFAULT
+
+  return '0vw';
+};
+const generateMenuJustifySelf = props => {
+  // SETUP
+  const alignment = props.alignment && props.alignment.toLowerCase();
+  const theme = props.theme && props.theme.menu; // IMPORTANCE 1 --> EXACT
+
+  if (alignment) {
+    switch (alignment) {
+      // IF START OR LEFT
+      case 'start':
+      case 'left':
+        return 'start';
+      // IF CENTER
+
+      case 'center':
+        return 'center';
+      // IF END OR RIGHT
+
+      case 'end':
+      case 'right':
+        return 'end';
+      // ELSE ASSUME START
+
+      default:
+        return 'start';
+    }
+  } // IMPORTANCE 2 --> GLOBAL
+
+
+  if (theme && theme.alignment) switch (theme.alignment) {
+    // IF START OR LEFT
+    case 'start':
+    case 'left':
+      return 'start';
+    // IF CENTER
+
+    case 'center':
+      return 'center';
+    // IF END OR RIGHT
+
+    case 'end':
+    case 'right':
+      return 'end';
+    // ELSE ASSUME START
+
+    default:
+      return 'start';
+  } // DEFAULT
+
+  return 'start';
+};
+
+const MenuDiv = qe.div`
+  justify-self: ${props => generateMenuJustifySelf(props)};
+`;
+const MenuChildDiv = qe.div`
+  display: ${props => generateMenuChildDisplay(props)};
+  padding: ${props => generateMenuDirectChildPadding(props)};
   :only-child {
-    margin: ${e=>rr(e,"only")};
+    margin: ${props => generateMenuDirectChildMargin(props, 'only')};
   }
   :last-child {
-    margin: ${e=>rr(e,"last")};
+    margin: ${props => generateMenuDirectChildMargin(props, 'last')};
   }
   :first-child {
-    margin: ${e=>rr(e,"first")};
+    margin: ${props => generateMenuDirectChildMargin(props, 'first')};
   }
   :not(first-child):not(last-child) {
-    margin: ${e=>rr(e,"not-first-not-last")};
+    margin: ${props => generateMenuDirectChildMargin(props, 'not-first-not-last')};
   }
-`,ar=ct.div`
+`;
+
+/**
+ * @name Menu
+ * @description Renders the Menu component
+ * @param {*} props Props
+ * @prop alignment
+ * @prop direction - vertical or horizontal
+ * @prop theme
+ * @prop padding
+ * @prop spaceBetween
+ * @returns Component
+ */
+
+const Menu = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(MenuDiv, _extends({
+    alignment: props.alignment ? props.alignment : 'left',
+    className: "af-menu",
+    direction: props.direction ? props.direction : 'horizontal',
+    theme: theme ? theme : null
+  }, props), props.children && !props.children.length && /*#__PURE__*/React__default['default'].createElement(MenuChildDiv, _extends({
+    alignment: props.alignment ? props.alignment : 'left',
+    className: "af-menu-child",
+    direction: props.direction ? props.direction : 'horizontal',
+    theme: theme ? theme : null
+  }, props), props.children), props.children && props.children.length > 1 && props.children.map((child, index) => /*#__PURE__*/React__default['default'].createElement(MenuChildDiv, _extends({
+    alignment: props.alignment ? props.alignment : 'left',
+    className: "af-menu-child",
+    direciton: props.direction ? props.direction : 'horizontal',
+    key: child + index,
+    theme: theme ? theme : null
+  }, props), child)));
+};
+
+const generateModalBackground = props => {
+  // SETUP
+  const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
+  const theme = props.theme && props.theme.modal; // IMPORTANCE 1 --> EXACT
+
+  if (backgroundColor) return backgroundColor; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.backgroundColor) return backgroundColor.toLowerCase(); // DEFAULT
+
+  return 'rgba(0,0,0,0.25)';
+};
+const generateModalAlignItems = props => {
+  // SETUP
+  const alignItems = props.alignItems && props.alignItems.toLowerCase();
+  const theme = props.theme && props.theme.modal; // IMPORTANCE 1 --> EXACT
+
+  if (alignItems) return alignItems; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.alignItems) return theme.alignItems.toLowerCase(); // DEFAULT
+
+  return 'center';
+};
+const generateModalJustifyContent = props => {
+  // SETUP
+  const justifyContent = props.justifyContent && props.justifyContent.toLowerCase();
+  const theme = props.theme && props.theme.modal; // IMPORTANCE 1 --> EXACT
+
+  if (justifyContent) return justifyContent; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.justifyContent) return theme.justifyContent.toLowerCase(); // DEFAULT
+
+  return 'center';
+};
+
+const StyledModal = qe.div`
   position: fixed;
   top: 0px;
   left: 0px;
-`,ir=ct.div`
-  background-color: ${e=>(e=>{const t=e.backgroundColor&&e.backgroundColor.toLowerCase(),r=e.theme&&e.theme.modal;return t||(r&&r.backgroundColor?t.toLowerCase():"rgba(0,0,0,0.25)")})(e)};
+`;
+const StyledModalBackground = qe.div`
+  background-color: ${props => generateModalBackground(props)};
   width: 100vw;
   height: 100vh;
   display: grid;
-  align-items: ${e=>(e=>{const t=e.alignItems&&e.alignItems.toLowerCase(),r=e.theme&&e.theme.modal;return t||(r&&r.alignItems?r.alignItems.toLowerCase():"center")})(e)};
-  justify-content: ${e=>(e=>{const t=e.justifyContent&&e.justifyContent.toLowerCase(),r=e.theme&&e.theme.modal;return t||(r&&r.justifyContent?r.justifyContent.toLowerCase():"center")})(e)};
-`,sr=ct.div`
+  align-items: ${props => generateModalAlignItems(props)};
+  justify-content: ${props => generateModalJustifyContent(props)};
+`;
+
+/**
+ * @name Modal
+ * @description Renders a modal.
+ * @param {*} props Props
+ * @prop alignItems
+ * @prop backgroundColor
+ * @prop theme
+ * @prop justifyContent
+ * @returns Component
+ */
+
+const Modal = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(StyledModal, _extends({
+    className: "af-modal",
+    hidden: !props.show,
+    theme: theme ? theme : null
+  }, props), /*#__PURE__*/React__default['default'].createElement(StyledModalBackground, _extends({
+    className: "af-modal-background",
+    theme: theme ? theme : null
+  }, props), /*#__PURE__*/React__default['default'].createElement(Container, _extends({
+    minWidth: props.width ? props.width.toLowercase() : '40vw',
+    maxWidth: props.width ? props.width.toLowercase() : '40vw',
+    margin: props.margin ? props.margin.toLowercase() : '20px',
+    theme: theme ? theme : null
+  }, props), props.children)));
+};
+
+const generatePageBackgroundColor = props => {
+  // SETUP
+  const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
+  const theme = props.theme && props.theme.page; // IMPORTANCE 1 --> EXACT
+
+  if (backgroundColor) return backgroundColor; // IMPORTANCE 1 --> GLOBAL
+
+  if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase(); // DEFUALT
+
+  return 'transparent';
+};
+
+const StyledPage = qe.div`
   z-index: 0;
-  background-color: ${e=>(e=>{const t=e.backgroundColor&&e.backgroundColor.toLowerCase(),r=e.theme&&e.theme.page;return t||(r&&r.backgroundColor?r.backgroundColor.toLowerCase():"transparent")})(e)};
-`,cr=ct.p`
-  font-family: ${Bt.PROPS.FONT_FAMILIES.ROBOTO};
-  font-size: ${e=>(e=>{const t=e.size&&e.size.toLowerCase(),r=e.fontSize&&e.fontSize.toLowerCase(),n=e.theme&&e.theme.paragraph;if(r)return r.toLowerCase();if(t){if("large"===t.toLowerCase())return"18px";if("medium"===t.toLowerCase())return"16px";if("small"===t.toLowerCase())return"14px"}if(n){if(n.fontSize)return n.fontSize.toLowerCase();if(n.size)switch(n.size.toLowerCase()){case"large":return"20px";case"medium":return"16px";case"small":return"12px"}}return"16px"})(e)};
-  font-weight: ${e=>(e=>{const t=e.fontWeight&&e.fontWeight.toLowerCase(),r=e.theme&&e.theme.paragraph;return t||(r&&r.fontWeight?r.fontWeight.toLowerCase():300)})(e)};
-  line-height: ${e=>(e=>{const t=e.lineHeight&&e.lineHeight.toLowerCase(),r=e.theme&&e.theme.paragraph;return t||(r&&r.lineHeight?r.lineHeight.toLowerCase():"1.8em")})(e)};
+  background-color: ${props => generatePageBackgroundColor(props)};
+`;
+
+/**
+ * @name Page
+ * @description Renders the Page component
+ * @param {*} props Props
+ * @prop backgroundColor
+ * @prop theme
+ * @returns Component
+ */
+
+const Page = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(StyledPage, _extends({
+    className: "af-page",
+    theme: theme ? theme : null
+  }, props), props.children);
+};
+
+const generateParagraphFontSize = props => {
+  // SETUP
+  const size = props.size && props.size.toLowerCase();
+  const fontSize = props.fontSize && props.fontSize.toLowerCase();
+  const theme = props.theme && props.theme.paragraph; // IMPORTANCE 1 --> EXACT
+
+  if (fontSize) return fontSize.toLowerCase(); // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    if (size.toLowerCase() === 'large') return '18px';
+    if (size.toLowerCase() === 'medium') return '16px';
+    if (size.toLowerCase() === 'small') return '14px';
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    // IMPORTANCE 3.1 --> (GLOBAL) EXACT
+    if (theme.fontSize) return theme.fontSize.toLowerCase(); // IMPORTANCE 3.2 --> (GLOBAL) SIZE
+
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
+        case 'large':
+          return '20px';
+
+        case 'medium':
+          return '16px';
+
+        case 'small':
+          return '12px';
+      }
+    }
+  } // DEFAULT
+
+
+  return '16px';
+};
+const generateParagraphFontWeight = props => {
+  // SETUP
+  const fontWeight = props.fontWeight && props.fontWeight.toLowerCase();
+  const theme = props.theme && props.theme.paragraph; // IMPORTANCE 1 --> EXACT
+
+  if (fontWeight) return fontWeight; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.fontWeight) return theme.fontWeight.toLowerCase(); // DEFAULT
+
+  return 300;
+};
+const generateParagraphLineHeight = props => {
+  // SETUP
+  const lineHeight = props.lineHeight && props.lineHeight.toLowerCase();
+  const theme = props.theme && props.theme.paragraph; // IMPORTANCE 1 --> EXACT
+
+  if (lineHeight) return lineHeight; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.lineHeight) return theme.lineHeight.toLowerCase(); // DEFAULT
+
+  return '1.8em';
+};
+
+const StyledParagraph = qe.p`
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-size: ${props => generateParagraphFontSize(props)};
+  font-weight: ${props => generateParagraphFontWeight(props)};
+  line-height: ${props => generateParagraphLineHeight(props)};
   margin-block-end: 2rem;
-`,lr=()=>{const e=props.fontSize&&props.fontSize.toLowerCase(),t=props.size&&props.size.toLowerCase(),r=props.theme&&props.theme.text;if(e)return e;if(t)switch(t){case"large":return"20px";case"medium":return"16px";case"small":return"12px"}if(r){if(r.fontSize)return r.fontSize.toLowerCase();if(r.size)switch(r.size.toLowerCase()){case"large":return"20px";case"medium":return"16px";case"small":return"12px"}}return"16px"};ct.span`
-  color: ${e=>(e=>{const t=e.color&&e.color.toLowerCase(),r=e.theme&&e.theme.text;return t||(r&&r.color?r.color.toLowerCase():"black")})(e)};
-  display: ${e=>(e=>{const t=e.display&&e.display.toLowerCase(),r=e.theme&&e.theme.text;return t||(r&&r.display?r.display.toLowerCase():void 0)})(e)};
-  font-family: ${Bt.PROPS.FONT_FAMILIES.ROBOTO};
-  font-size: ${e=>lr()};
-`,exports.Button=It,exports.Column=e=>{const t=o();return r.default.createElement(Tt,a({className:"af-column",theme:t||null},e),e.children)},exports.Container=Dt,exports.Header=e=>{const t=o();return r.default.createElement(Ht,a({className:"af-header",theme:t||null},e),r.default.createElement(Ft,a({padding:e.padding?e.padding:"0 3vw",theme:t||null,verticalAlignment:"center"},e),e.children))},exports.Heading=e=>{const t=o();return r.default.createElement(r.default.Fragment,null,e.level?1===Number(e.level)?r.default.createElement(qt,a({className:"af-heading",theme:t||null},e),e.children):2===Number(e.level)?r.default.createElement(Ut,a({className:"af-heading",theme:t||null},e),e.children):3===Number(e.level)?r.default.createElement(Gt,a({className:"af-heading",theme:t||null},e),e.children):4===Number(e.level)?r.default.createElement(Yt,a({className:"af-heading",theme:t||null},e),e.children):5===Number(e.level)?r.default.createElement(Xt,a({className:"af-heading",theme:t||null},e),e.children):6===Number(e.level)?r.default.createElement(Jt,a({className:"af-heading",theme:t||null},e),e.children):r.default.createElement(Ut,a({className:"af-heading"},e),e.children):r.default.createElement(Ut,a({className:"af-heading"},e),e.children))},exports.Input=e=>{const t=o();return r.default.createElement(Zt,a({className:"af-input",theme:t||null},e))},exports.Link=e=>{const t=o(),n=Qt();return r.default.createElement(Kt,a({className:"af-link",onClick:()=>{e.to&&n.push(e.to),e.href&&window.open(e.href,"_blank")},theme:t||null},e),e.children)},exports.Logo=e=>{const t=o(),n=tr();return r.default.createElement(er,a({className:"af-logo",onClick:()=>e.onClick?e.onClick():n.push("/"),theme:t||null},e),e.children?e.children:"Amir Sharapov")},exports.Menu=e=>{const t=o();return r.default.createElement(nr,a({alignment:e.alignment?e.alignment:"left",className:"af-menu",direction:e.direction?e.direction:"horizontal",theme:t||null},e),e.children&&!e.children.length&&r.default.createElement(or,a({alignment:e.alignment?e.alignment:"left",className:"af-menu-child",direction:e.direction?e.direction:"horizontal",theme:t||null},e),e.children),e.children&&e.children.length>1&&e.children.map(((n,o)=>r.default.createElement(or,a({alignment:e.alignment?e.alignment:"left",className:"af-menu-child",direciton:e.direction?e.direction:"horizontal",key:n+o,theme:t||null},e),n))))},exports.Modal=e=>{const t=o();return r.default.createElement(ar,a({className:"af-modal",hidden:!e.show,theme:t||null},e),r.default.createElement(ir,a({className:"af-modal-background",theme:t||null},e),r.default.createElement(Dt,a({minWidth:e.width?e.width.toLowercase():"40vw",maxWidth:e.width?e.width.toLowercase():"40vw",margin:e.margin?e.margin.toLowercase():"20px",theme:t||null},e),e.children)))},exports.Page=e=>{const t=o();return r.default.createElement(sr,a({className:"af-page",theme:t||null},e),e.children)},exports.Paragraph=e=>{const t=o();return r.default.createElement(cr,a({className:"af-paragraph",theme:t||null},e),e.children)},exports.Section=Ft,exports.ThemeProvider=({theme:e,...t})=>r.default.createElement(n.Provider,{value:e},t.children);
+`;
+
+/**
+ * @name Paragraph
+ * @description Renders the paragraph component
+ * @param {*} Props children
+ * @prop fontSize
+ * @prop fontWeight
+ * @prop theme
+ * @prop lineHeight
+ * @prop size
+ * @returns Component
+ */
+
+const Paragraph = props => {
+  const theme = useThemeContext();
+  return /*#__PURE__*/React__default['default'].createElement(StyledParagraph, _extends({
+    className: "af-paragraph",
+    theme: theme ? theme : null
+  }, props), props.children);
+};
+
+const generateTextColor = props => {
+  // SETUP
+  const color = props.color && props.color.toLowerCase();
+  const theme = props.theme && props.theme.text; // IMPORTANCE 1 --> EXACT
+
+  if (color) return color; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.color) return theme.color.toLowerCase(); // DEFAULT
+
+  return 'black';
+};
+const generateTextFontSize = () => {
+  // SETUP
+  const fontSize = props.fontSize && props.fontSize.toLowerCase();
+  const size = props.size && props.size.toLowerCase();
+  const theme = props.theme && props.theme.text; // IMPORTANCE 1 --> EXACT
+
+  if (fontSize) return fontSize; // IMPORTANCE 2 --> SIZE
+
+  if (size) {
+    switch (size) {
+      case 'large':
+        return '20px';
+
+      case 'medium':
+        return '16px';
+
+      case 'small':
+        return '12px';
+    }
+  } // IMPORTANCE 3 --> GLOBAL
+
+
+  if (theme) {
+    if (theme.fontSize) return theme.fontSize.toLowerCase();
+
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
+        case 'large':
+          return '20px';
+
+        case 'medium':
+          return '16px';
+
+        case 'small':
+          return '12px';
+      }
+    }
+  } // DEFAULT
+
+
+  return '16px';
+};
+const generateTextDisplay = props => {
+  // SETUP
+  const display = props.display && props.display.toLowerCase();
+  const theme = props.theme && props.theme.text; // IMPORTANCE 1 --> EXACT
+
+  if (display) return display; // IMPORTANCE 2 --> GLOBAL
+
+  if (theme && theme.display) return theme.display.toLowerCase(); // NO DEFAULT
+};
+
+qe.span`
+  color: ${props => generateTextColor(props)};
+  display: ${props => generateTextDisplay(props)};
+  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-size: ${props => generateTextFontSize()};
+`;
+
+exports.Button = Button;
+exports.Column = Column;
+exports.Container = Container;
+exports.Header = Header;
+exports.Heading = Heading;
+exports.Input = Input;
+exports.Link = Link;
+exports.Logo = Logo;
+exports.Menu = Menu;
+exports.Modal = Modal;
+exports.Page = Page;
+exports.Paragraph = Paragraph;
+exports.Section = Section;
+exports.ThemeProvider = ThemeProvider;
