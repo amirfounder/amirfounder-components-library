@@ -1,16 +1,16 @@
 export const generateHeadingColor = (props) => {
   // SETUP
   const color = props.color
-  const global = props.global && props.global.heading
+  const theme = props.theme && props.theme.heading
 
   // IMPORTANCE 1 --> EXACT
   if (color) return color.toLowerCase();
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.color
-  ) return global.color.toLowerCase();
+    theme &&
+    theme.color
+  ) return theme.color.toLowerCase();
   
   // DEFAULT
   return 'black';
@@ -19,15 +19,15 @@ export const generateHeadingColor = (props) => {
 export const generateHeadingFontWeight = (props) => {
   // SETUP
   const fontWeight = props.fontWeight
-  const global = props.global && props.global.heading
+  const theme = props.theme && props.theme.heading
   
   // IMPORTANCE 1 --> EXACT
   if (fontWeight) return fontWeight.toLowerCase();
 
   if (
-    global &&
-    global.heading
-  ) return global.heading.toLowerCase();
+    theme &&
+    theme.heading
+  ) return theme.heading.toLowerCase();
 
   // DEFAULT
   return fontWeight ? fontWeight.toLowerCase() : 300
@@ -36,7 +36,7 @@ export const generateHeadingFontWeight = (props) => {
 export const generateHeadingFontSize = (level, props) => {
   // SETUP
   const fontSize = props.fontSize
-  const global = props.global && props.global.heading
+  const theme = props.theme && props.theme.heading
 
   // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize.toLowerCase();
@@ -47,55 +47,55 @@ export const generateHeadingFontSize = (level, props) => {
       case 1:
         // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 1
         if (
-          global &&
-          global.one &&
-          global.one.fontSize
-        ) return global.one.fontSize.toLowerCase();
+          theme &&
+          theme.one &&
+          theme.one.fontSize
+        ) return theme.one.fontSize.toLowerCase();
         // DEFAULT LEVEL 1
         return '4rem'
       case 2:
         // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 2
         if (
-          global &&
-          global.two &&
-          global.one.fontSize
-        ) return global.two.fontSize.toLowerCase();
+          theme &&
+          theme.two &&
+          theme.one.fontSize
+        ) return theme.two.fontSize.toLowerCase();
         // DEFAULT LEVEL 2
         return '3rem'
       case 3:
         // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 3
         if (
-          global &&
-          global.three &&
-          global.one.fontSize
-        ) return global.three.fontSize.toLowerCase();
+          theme &&
+          theme.three &&
+          theme.one.fontSize
+        ) return theme.three.fontSize.toLowerCase();
         // DEFAULT LEVEL 3
         return '2rem'
       case 4:
         // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 4
         if (
-          global &&
-          global.four &&
-          global.one.fontSize
-        ) return global.four.fontSize.toLowerCase();
+          theme &&
+          theme.four &&
+          theme.one.fontSize
+        ) return theme.four.fontSize.toLowerCase();
         // DEFAULT LEVEL 4
         return '1.6rem'
       case 5:
         // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 5
         if (
-          global &&
-          global.five &&
-          global.one.fontSize
-        ) return global.five.fontSize.toLowerCase();
+          theme &&
+          theme.five &&
+          theme.one.fontSize
+        ) return theme.five.fontSize.toLowerCase();
         // DEFAULT LEVEL 5
         return '1.2rem'
       case 6:
         // IMPORTANCE 2.1 --> (GLOBAL) LEVEL 6
         if (
-          global &&
-          global.six &&
-          global.one.fontSize
-        ) return global.six.fontSize.toLowerCase();
+          theme &&
+          theme.six &&
+          theme.one.fontSize
+        ) return theme.six.fontSize.toLowerCase();
         // DEFAULT LEVEL 6
         return '0.8rem'
       default: { }

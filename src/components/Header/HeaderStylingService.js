@@ -1,16 +1,16 @@
 export const generateHeaderBackgroundColor = (props) => {
   // SETUP
   const backgroundColor = props.backgroundColor
-  const global = props.global && props.global.header
+  const theme = props.theme && props.theme.header
 
   // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor.toLowerCase();
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.backgroundColor
-  ) return global.backgroundColor.toLowerCase();
+    theme &&
+    theme.backgroundColor
+  ) return theme.backgroundColor.toLowerCase();
 
   return 'white'
 }
@@ -18,15 +18,15 @@ export const generateHeaderBackgroundColor = (props) => {
 export const generateHeaderBoxShadow = (props) => {
   // SETUP
   const shadow = props.shadow
-  const global = props.global && props.global.header
+  const theme = props.theme && props.theme.header
 
   // IMPORTANCE 1 --> EXACT
   if (shadow) return '0px 10px 15px rgba(0,0,0,0.15)'
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.shadow
+    theme &&
+    theme.shadow
   ) return shadow.toLowerCase();
 
   // NO DEFAULT
@@ -36,7 +36,7 @@ export const generateHeaderHeight = (props) => {
   // SETUP
   const size = props.size
   const height = props.height
-  const global = props.global && props.global.header
+  const theme = props.theme && props.theme.header
   
   // IMPORTANCE 1 --> EXACT
   if (height) return height.toLowerCase();
@@ -49,15 +49,15 @@ export const generateHeaderHeight = (props) => {
   }
   
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.height) return global.height.toLowerCase();
+    if (theme.height) return theme.height.toLowerCase();
     
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      if (global.size.toLowerCase() === 'large') return '10vh';
-      if (global.size.toLowerCase() === 'medium') return '7vh';
-      if (global.size.toLowerCase() === 'small') return '5vh';
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '10vh';
+      if (theme.size.toLowerCase() === 'medium') return '7vh';
+      if (theme.size.toLowerCase() === 'small') return '5vh';
     }
   }
 
@@ -68,7 +68,7 @@ export const generateHeaderMaxHeight = (props) => {
   // SETUP
   const size = props.size
   const maxHeight = props.maxHeight
-  const global = props.global && props.global.header
+  const theme = props.theme && props.theme.header
 
   // IMPORTANCE 1 --> EXACT
   if (maxHeight) return maxHeight.toLowerCase();
@@ -81,15 +81,15 @@ export const generateHeaderMaxHeight = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.maxHeight) return global.maxHeight.toLowerCase();
+    if (theme.maxHeight) return theme.maxHeight.toLowerCase();
 
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      if (global.size.toLowerCase() === 'large') return '130px';
-      if (global.size.toLowerCase() === 'medium') return '100px';
-      if (global.size.toLowerCase() === 'small') return '70px';
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '130px';
+      if (theme.size.toLowerCase() === 'medium') return '100px';
+      if (theme.size.toLowerCase() === 'small') return '70px';
     }
   }
 
@@ -100,7 +100,7 @@ export const generateHeaderMinHeight = (props) => {
   // SETUP
   const size = props.size
   const minHeight = props.minHeight
-  const global = props.global && props.global.header
+  const theme = props.theme && props.theme.header
 
   // IMPORTANCE 1 --> EXACT
   if (minHeight) return minHeight.toLowerCase();
@@ -113,15 +113,15 @@ export const generateHeaderMinHeight = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.minHeight) return global.minHeight.toLowerCase();
+    if (theme.minHeight) return theme.minHeight.toLowerCase();
     
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      if (global.size.toLowerCase() === 'large') return '100px';
-      if (global.size.toLowerCase() === 'medium') return '70px';
-      if (global.size.toLowerCase() === 'small') return '40px';
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '100px';
+      if (theme.size.toLowerCase() === 'medium') return '70px';
+      if (theme.size.toLowerCase() === 'small') return '40px';
     }
   }
 

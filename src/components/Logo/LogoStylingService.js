@@ -16,12 +16,12 @@ export const generateLogoFontSize = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.fontSize) return global.fontSize.toLowerCase();
+    if (theme.fontSize) return theme.fontSize.toLowerCase();
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      switch (global.size.toLowerCase()) {
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
         case 'large': return '20px';
         case 'medium': return '16px';
         case 'small': return '14px';
@@ -36,16 +36,16 @@ export const generateLogoFontSize = (props) => {
 export const generateLogoColor = (props) => {
   // SETUP
   const color = props.color && props.color.toLowerCase();
-  const global = props.global && props.global.logo
+  const theme = props.theme && props.theme.logo
 
   // IMPORTANCE 1 --> EXACT
   if (color) return color;
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.color
-  ) return global.color
+    theme &&
+    theme.color
+  ) return theme.color
 
   // DEFAULT
   return 'black'

@@ -4,14 +4,14 @@
  * @param {*} props Props
  * @prop variant
  * @prop backgroundColor
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonBackgroundColor = (props) => {
   // SETUP
   const variant = props.variant
   const backgroundColor = props.backgroundColor
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor.toLowerCase();
@@ -22,7 +22,7 @@ export const generateButtonBackgroundColor = (props) => {
       // IMPORTANCE 2.1 --> BACKGROUND COLOR
       if (backgroundColor) return backgroundColor.toLowerCase()
       // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
-      if (global && global.backgroundColor) return global.backgroundColor.toLowerCase()
+      if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase()
       // DEFAULT
       return 'white'
     };
@@ -30,32 +30,32 @@ export const generateButtonBackgroundColor = (props) => {
       // IMPORTANCE 2.1 --> BACKGROUND COLOR
       if (backgroundColor) return backgroundColor.toLowerCase()
       // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
-      if (global && global.backgroundColor) return global.backgroundColor.toLowerCase()
+      if (theme && theme.backgroundColor) return theme.backgroundColor.toLowerCase()
       // DEFAULT
       return 'black'
     };
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.backgroundColor) return global.backgroundColor.toLowerCase();
+    if (theme.backgroundColor) return theme.backgroundColor.toLowerCase();
 
     // IMPORTANCE 3.2 --> (GLOBAL) VARIANT
-    if (global.variant) {
-      if (global.variant.toLowerCase() === 'outline') {
+    if (theme.variant) {
+      if (theme.variant.toLowerCase() === 'outline') {
         // IMPORTANCE 2.1 --> BACKGROUND COLOR
         if (backgroundColor) return backgroundColor.toLowerCase()
         // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
-        if (global.backgroundColor) return global.backgroundColor.toLowerCase()
+        if (theme.backgroundColor) return theme.backgroundColor.toLowerCase()
         // DEFAULT
         return 'white'
       };
-      if (global.variant.toLowerCase() === 'filled') {
+      if (theme.variant.toLowerCase() === 'filled') {
         // IMPORTANCE 2.1 --> BACKGROUND COLOR
         if (backgroundColor) return backgroundColor.toLowerCase()
         // IMPORTANCE 2.2 --> (GLOBAL) BACKGROUND COLOR
-        if (global.backgroundColor) return global.backgroundColor.toLowerCase()
+        if (theme.backgroundColor) return theme.backgroundColor.toLowerCase()
         // DEFAULT
         return 'black'
       };
@@ -72,14 +72,14 @@ export const generateButtonBackgroundColor = (props) => {
  * @param {*} props Props
  * @prop backgroundColor
  * @prop borderColor
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonBorderColor = (props) => {
   // SETUP
   const backgroundColor = props.backgroundColor
   const borderColor = props.borderColor
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT
   if (borderColor) return borderColor.toLowerCase();
@@ -88,12 +88,12 @@ export const generateButtonBorderColor = (props) => {
   if (backgroundColor) return backgroundColor.toLowerCase();
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.borderColor) return global.borderColor.toLowerCase();
+    if (theme.borderColor) return theme.borderColor.toLowerCase();
 
     // IMPORTANCE 3.2 --> (GLOBAL) MATCH BACKGROUND COLOR
-    if (global.backgroundColor) return global.backgroundColor.toLowerCase();
+    if (theme.backgroundColor) return theme.backgroundColor.toLowerCase();
   }
 
   // DEFAULT
@@ -106,14 +106,14 @@ export const generateButtonBorderColor = (props) => {
  * @param {*} props Props
  * @prop variant
  * @prop color
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonColor = (props) => {
   // SETUP
   const variant = props.variant
   const color = props.color
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT
   if (color) return color.toLowerCase();
@@ -124,7 +124,7 @@ export const generateButtonColor = (props) => {
       // IMPORTANCE 2.1 --> COLOR
       if (color) return color.toLowerCase();
       // IMPORTANCE 2.2 --> (GLOBAL) COLOR
-      if (global && global.color) return global.color.toLowerCase();
+      if (theme && theme.color) return theme.color.toLowerCase();
       // DEFAULT
       return 'black'
     }
@@ -132,32 +132,32 @@ export const generateButtonColor = (props) => {
       // IMPORTANCE 2.1 --> COLOR
       if (color) return color.toLowerCase();
       // IMPORTANCE 2.2 --> (GLOBAL) COLOR
-      if (global && global.color) return global.color.toLowerCase();
+      if (theme && theme.color) return theme.color.toLowerCase();
       // DEFAULT
       return 'white'
     }
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.color) return global.color.toLowerCase();
+    if (theme.color) return theme.color.toLowerCase();
 
     // IMPORTANCE 3.2 --> (GLOBAL) VARIANT
-    if (global.variant) {
-      if (global.variant.toLowerCase() === 'outline') {
+    if (theme.variant) {
+      if (theme.variant.toLowerCase() === 'outline') {
         // IMPORTANCE 3.2.1 --> COLOR
         if (color) return color.toLowerCase();
         // IMPORTANCE 3.2.2 --> (GLOBAL) COLOR
-        if (global.color) return global.color.toLowerCase();
+        if (theme.color) return theme.color.toLowerCase();
         // DEFAULT
         return 'black'
       };
-      if (global.variant.toLowerCase() === 'filled') {
+      if (theme.variant.toLowerCase() === 'filled') {
         // IMPORTANCE 3.2.1 --> COLOR
         if (color) return color.toLowerCase();
         // IMPORTANCE 3.2.2 --> (GLOBAL) COLOR
-        if (global.color) return global.color.toLowerCase();
+        if (theme.color) return theme.color.toLowerCase();
         // DEFAULT
         return 'white'
       };
@@ -174,14 +174,14 @@ export const generateButtonColor = (props) => {
  * @param {*} props Props
  * @prop size
  * @prop fontSize
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonFontSize = (props) => {
   // SETUP
   const size = props.size
   const fontSize = props.fontSize
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT 
   if (fontSize) return fontSize.toLowerCase();
@@ -194,15 +194,15 @@ export const generateButtonFontSize = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.fontSize) return global.fontSize.toLowerCase();
+    if (theme.fontSize) return theme.fontSize.toLowerCase();
 
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      if (global.size.toLowerCase() === 'large') return '18px';
-      if (global.size.toLowerCase() === 'medium') return '15px';
-      if (global.size.toLowerCase() === 'small') return '12px';
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '18px';
+      if (theme.size.toLowerCase() === 'medium') return '15px';
+      if (theme.size.toLowerCase() === 'small') return '12px';
     }
   }
 
@@ -216,14 +216,14 @@ export const generateButtonFontSize = (props) => {
  * @param {*} props Props
  * @prop variant
  * @prop hoverBackgroundColor
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonHoverBackgroundColor = (props) => {
   // SETUP
   const variant = props.variant
   const hoverBackgroundColor = props.hoverBackgroundColor
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT
   if (hoverBackgroundColor) return hoverBackgroundColor.toLowerCase();
@@ -235,17 +235,17 @@ export const generateButtonHoverBackgroundColor = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (
-      global.hover &&
-      global.hover.backgroundColor
-    ) return global.hover.backgroundColor.toLowerCase();
+      theme.hover &&
+      theme.hover.backgroundColor
+    ) return theme.hover.backgroundColor.toLowerCase();
 
     // IMPORTANCE 3.2 --> (GLOBAL) VARIANT
-    if (global.variant) {
-      if (global.variant.toLowerCase() === 'outline') return 'black';
-      if (global.variant.toLowerCase() === 'filled') return '#333';
+    if (theme.variant) {
+      if (theme.variant.toLowerCase() === 'outline') return 'black';
+      if (theme.variant.toLowerCase() === 'filled') return '#333';
     }
   }
 
@@ -260,7 +260,7 @@ export const generateButtonHoverBackgroundColor = (props) => {
  * @prop variant
  * @prop hoverBackgroundColor
  * @prop hoverBorderColor
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonHoverBorderColor = (props) => {
@@ -268,7 +268,7 @@ export const generateButtonHoverBorderColor = (props) => {
   const variant = props.variant
   const hoverBackgroundColor = props.hoverBackgroundColor
   const hoverBorderColor = props.hoverBorderColor
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT
   if (hoverBorderColor) return hoverBorderColor.toLowerCase();
@@ -283,24 +283,24 @@ export const generateButtonHoverBorderColor = (props) => {
   if (hoverBackgroundColor) return hoverBackgroundColor.toLowerCase();
 
   // IMPORTANCE 4 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 4.1 --> (GLOBAL) EXACT
     if (
-      global.hover &&
-      global.hover.borderColor
-    ) return global.hover.borderColor.toLowerCase();
+      theme.hover &&
+      theme.hover.borderColor
+    ) return theme.hover.borderColor.toLowerCase();
 
     // IMPORTANCE 4.2 --> (GLOBAL) VARIANT
-    if (global.variant) {
-      if (global.variant === 'filled') return '#333'
-      if (global.variant === 'outline') return 'black'
+    if (theme.variant) {
+      if (theme.variant === 'filled') return '#333'
+      if (theme.variant === 'outline') return 'black'
     }
 
     // IMPORTANCE 4.3 --> (GLOBAL) MATCH HOVER BACKGROUND COLOR
     if (
-      global.hover &&
-      global.hover.backgroundColor
-    ) return global.hover.backgroundColor.toLowerCase();
+      theme.hover &&
+      theme.hover.backgroundColor
+    ) return theme.hover.backgroundColor.toLowerCase();
   }
 
   // DEFAULT
@@ -312,23 +312,23 @@ export const generateButtonHoverBorderColor = (props) => {
  * @description Generates a value for the 'color' css property for the :hover pseudo element
  * @param {*} props Props
  * @prop hoverColor
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonHoverColor = (props) => {
   // SETUP
   const hoverColor = props.hoverColor
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT
   if (hoverColor) return hoverColor.toLowerCase();
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.hover &&
-    global.hover.color
-  ) return global.hover.color.toLowerCase();
+    theme &&
+    theme.hover &&
+    theme.hover.color
+  ) return theme.hover.color.toLowerCase();
 
   // DEFAULT  
   return 'white';
@@ -340,14 +340,14 @@ export const generateButtonHoverColor = (props) => {
  * @param {*} props Props
  * @prop size
  * @prop padding
- * @prop global
+ * @prop theme
  * @returns String
  */
 export const generateButtonPadding = (props) => {
   // SETUP 
   const size = props.size
   const padding = props.padding
-  const global = props.global && props.global.button
+  const theme = props.theme && props.theme.button
 
   // IMPORTANCE 1 --> EXACT
   if (padding) return padding.toLowerCase();
@@ -360,18 +360,18 @@ export const generateButtonPadding = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
     if (
-      global.hover &&
-      global.hover.padding
-    ) return global.hover.padding.toLowerCase();
+      theme.hover &&
+      theme.hover.padding
+    ) return theme.hover.padding.toLowerCase();
 
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      if (global.size.toLowerCase() === 'large') return '12px 30px'
-      if (global.size.toLowerCase() === 'medium') return '8px 20px'
-      if (global.size.toLowerCase() === 'small') return '6px 15px'
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '12px 30px'
+      if (theme.size.toLowerCase() === 'medium') return '8px 20px'
+      if (theme.size.toLowerCase() === 'small') return '6px 15px'
     }
   }
 

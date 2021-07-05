@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 import StyledPage from './PageStyles';
 
 /**
@@ -6,13 +7,16 @@ import StyledPage from './PageStyles';
  * @description Renders the Page component
  * @param {*} props Props
  * @prop backgroundColor
- * @prop global
+ * @prop theme
  * @returns Component
  */
 export const Page = (props) => {
+  const theme = useThemeContext();
+
   return (
     <StyledPage
       className="af-page"
+      theme={theme}
       {...props}
     >
       {props.children}

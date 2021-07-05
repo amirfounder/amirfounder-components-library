@@ -1,7 +1,7 @@
 export const generateMenuChildDisplay = (props) => {
   // SETUP
   const direction = props.direction && props.direction.toLowerCase();
-  const global = props.global && props.global.toLowerCase();
+  const theme = props.theme && props.menu;
 
   // IMPORTANCE 1 --> EXACT
   if (direction) {
@@ -14,9 +14,9 @@ export const generateMenuChildDisplay = (props) => {
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.direction
-  ) switch (global.direction.toLowerCase()) {
+    theme &&
+    theme.direction
+  ) switch (theme.direction.toLowerCase()) {
     case 'vertical': return 'block'
     case 'horizontal':
     default: return 'inline'
@@ -29,16 +29,16 @@ export const generateMenuChildDisplay = (props) => {
 export const generateMenuDirectChildPadding = (props) => {
   // SETUP
   const padding = props.padding && props.padding.toLowerCase();
-  const global = props.global && props.global.menu
+  const theme = props.theme && props.theme.menu
 
   // IMPORTANCE 1 --> EXACT
   if (padding) return padding;
 
   // IMPORTANCE 2 --> GLOBALS
   if (
-    global &&
-    global.padding
-  ) return global.padding.toLowerCase();
+    theme &&
+    theme.padding
+  ) return theme.padding.toLowerCase();
 
   // DEFAULT
   return '0px'
@@ -48,7 +48,7 @@ export const generateMenuDirectChildMargin = (props, childSelector) => {
   // SETUP
   const direction = props.direction && props.direction.toLowerCase();
   const spaceBetween = props.spaceBetween && props.spaceBetween.toLowerCase();
-  const global = props.global && props.global.menu
+  const theme = props.theme && props.theme.menu
 
   // IF HORIZONTAL
   if (
@@ -65,7 +65,7 @@ export const generateMenuDirectChildMargin = (props, childSelector) => {
       // IMPORTANCE 1 --> EXACT
       if (spaceBetween) return `0px ${spaceBetween}`
       // IMPORTANCE 2 --> GLOBAL
-      if (global && global.spaceBetween) return `0px ${global.spaceBetween}`
+      if (theme && theme.spaceBetween) return `0px ${theme.spaceBetween}`
       return '0px 1.5vw';
 
     // IF CHILD ELEMENT IS FIRST
@@ -73,7 +73,7 @@ export const generateMenuDirectChildMargin = (props, childSelector) => {
       // IMPORTANCE 1 --> EXACT
       if (spaceBetween) return `0px ${spaceBetween} 0px 0px`
       // IMPORTANCE 2 --> GLOBAL
-      if (global && global.spaceBetween) return `0px ${global.spaceBetween} 0px 0px`
+      if (theme && theme.spaceBetween) return `0px ${theme.spaceBetween} 0px 0px`
       return '0px 1.5vw 0px 0px';
 
     // IF CHILD ELEMENT IS LAST
@@ -81,7 +81,7 @@ export const generateMenuDirectChildMargin = (props, childSelector) => {
       // IMPORTANCE 1 --> EXACT
       if (spaceBetween) return `0px 0px 0px ${spaceBetween}`
       // IMPORTANCE 2 --> GLOBAL
-      if (global && global.spaceBetween) return `0px 0px 0px ${global.spaceBetween}`
+      if (theme && theme.spaceBetween) return `0px 0px 0px ${theme.spaceBetween}`
       return '0px 0px 0px 1.5vw';
 
     // ELSE --> ASSUME ONLY ELEMENT
@@ -96,7 +96,7 @@ export const generateMenuDirectChildMargin = (props, childSelector) => {
 export const generateMenuJustifySelf = (props) => {
   // SETUP
   const alignment = props.alignment && props.alignment.toLowerCase();
-  const global = props.global && props.global.toLowerCase();
+  const theme = props.theme && props.theme.menu;
 
   // IMPORTANCE 1 --> EXACT
   if (alignment) {
@@ -120,9 +120,9 @@ export const generateMenuJustifySelf = (props) => {
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.alignment
-  ) switch (global.alignment) {
+    theme &&
+    theme.alignment
+  ) switch (theme.alignment) {
     // IF START OR LEFT
     case 'start':
     case 'left':

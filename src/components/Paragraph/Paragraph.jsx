@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 import StyledParagraph from './ParagraphStyles';
 
 /**
@@ -7,15 +8,18 @@ import StyledParagraph from './ParagraphStyles';
  * @param {*} Props children
  * @prop fontSize
  * @prop fontWeight
- * @prop global
+ * @prop theme
  * @prop lineHeight
  * @prop size
  * @returns Component
  */
 export const Paragraph = (props) => {
+  const theme = useThemeContext();
+
   return (
     <StyledParagraph
       className="af-paragraph"
+      theme={theme}
       {...props}
     >
       {props.children}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useThemeContext } from '../Theme/Theme';
 import StyledText from './TextStyles';
 
 /**
@@ -7,13 +8,15 @@ import StyledText from './TextStyles';
  * @param {*} props Props
  * @prop display
  * @prop fontSize
- * @prop global
+ * @prop theme
  * @prop size
  * @returns Component
  */
 const Text = (props) => {
+  const theme = useThemeContext();
   return (
     <StyledText
+      theme={theme}
       {...props}
     >
       {props.children}

@@ -14,7 +14,7 @@ import {
   Button,
   Modal,
   Input,
-  GlobalStylesProvider,
+  ThemeProvider,
   Section
 } from '../index'
 
@@ -143,13 +143,20 @@ stories.add('Sandbox 2', () => {
 stories.add('Sandbox 3', () => {
 
   /**
-   * @name GlobalStyles
+   * @name themeStyles
    * @constant
    */
-  const globalStyles = Object.freeze({
+  const themeStyles = Object.freeze({
     button: {
       size: 'large',
       variant: 'outline',
+      borderColor: 'red',
+      color: 'red',
+      hover: {
+        backgroundColor: 'red',
+        color: 'white',
+        borderColor: 'red'
+      }
     },
     heading: {
       color: "red",
@@ -165,15 +172,15 @@ stories.add('Sandbox 3', () => {
 
   return (
     <Page>
-      <GlobalStylesProvider
-        globalStyles={globalStyles}
+      <ThemeProvider
+        theme={themeStyles}
       >
         <Heading>
           Coming soon...
         </Heading>
         <Button size="small">Click me</Button>
         <Button size="medium">Click me</Button>
-      </GlobalStylesProvider>
+      </ThemeProvider>
     </Page>
   )
 })

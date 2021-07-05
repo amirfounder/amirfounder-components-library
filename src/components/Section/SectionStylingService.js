@@ -21,7 +21,7 @@ export const generateSectionAlignItems = (props) => {
   // SETUP
   const alignItems = props.alignItems && props.alignItems.toLowerCase();
   const verticalAlignment = props.verticalAlignment && props.verticalAlignment.toLowerCase();
-  const global = props.global && props.global.section
+  const theme = props.theme && props.theme.section
 
   // IMPORTANCE 1 --> EXACT
   if (alignItems) return alignItems;
@@ -30,11 +30,11 @@ export const generateSectionAlignItems = (props) => {
   if (verticalAlignment) return verticalAlignment;
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.alignItems) return global.alignItems.toLowerCase();
+    if (theme.alignItems) return theme.alignItems.toLowerCase();
     // IMPORTANCE 3.2 --> (GLOBAL) ABSTRACT
-    if (global.verticalAlignment) return global.verticalAlignment.toLowerCase();
+    if (theme.verticalAlignment) return theme.verticalAlignment.toLowerCase();
   }
 
   // DEFAULT
@@ -44,16 +44,16 @@ export const generateSectionAlignItems = (props) => {
 export const generateSectionPadding = (props) => {
   // SETUP
   const padding = props.padding && props.padding.toLowerCase();
-  const global = props.global && props.global.section
+  const theme = props.theme && props.theme.section
 
   // IMPORTANCE 1 --> EXACT
   if (padding) return padding
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.padding
-  ) return global.padding.toLowerCase();
+    theme &&
+    theme.padding
+  ) return theme.padding.toLowerCase();
 
   // DEFAULT
   return '0px'
@@ -62,16 +62,16 @@ export const generateSectionPadding = (props) => {
 export const generateSectionMinHeight = (props) => {
   // SETUP
   const minHeight = props.minHeight && props.minHeight.toLowerCase();
-  const global = props.global && props.global.section
+  const theme = props.theme && props.theme.section
 
   // IMPORTANCE 1 --> EXACT
   if (minHeight) return minHeight
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.minHeight
-  ) return global.minHeight.toLowerCase();
+    theme &&
+    theme.minHeight
+  ) return theme.minHeight.toLowerCase();
 
   // DEFAULT
   return '0px'
@@ -80,16 +80,16 @@ export const generateSectionMinHeight = (props) => {
 export const generateBackgroundColor = (props) => {
   // SETUP
   const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
-  const global = props.global && props.global.section
+  const theme = props.theme && props.theme.section
 
   // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.backgroundColor
-  ) return global.backgroundColor.toLowerCase();
+    theme &&
+    theme.backgroundColor
+  ) return theme.backgroundColor.toLowerCase();
 
   // DEFAULT
   return 'transparent'

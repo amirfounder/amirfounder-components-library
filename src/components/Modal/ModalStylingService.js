@@ -1,15 +1,15 @@
 export const generateModalBackground = (props) => {
   // SETUP
   const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
-  const global = props.global && props.global.modal
+  const theme = props.theme && props.theme.modal
 
   // IMPORTANCE 1 --> EXACT
   if (backgroundColor) return backgroundColor;
   
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.backgroundColor
+    theme &&
+    theme.backgroundColor
   ) return backgroundColor.toLowerCase();
 
   // DEFAULT
@@ -19,16 +19,16 @@ export const generateModalBackground = (props) => {
 export const generateModalAlignItems = (props) => {
   // SETUP
   const alignItems = props.alignItems && props.alignItems.toLowerCase();
-  const global = props.global && props.global.modal
+  const theme = props.theme && props.theme.modal
 
   // IMPORTANCE 1 --> EXACT
   if (alignItems) return alignItems;
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.alignItems
-  ) return global.alignItems.toLowerCase();
+    theme &&
+    theme.alignItems
+  ) return theme.alignItems.toLowerCase();
 
   // DEFAULT
   return 'center'
@@ -37,16 +37,16 @@ export const generateModalAlignItems = (props) => {
 export const generateModalJustifyContent = (props) => {
   // SETUP
   const justifyContent = props.justifyContent && props.justifyContent.toLowerCase();
-  const global = props.global && props.global.modal
+  const theme = props.theme && props.theme.modal
   
   // IMPORTANCE 1 --> EXACT
   if (justifyContent) return justifyContent;
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.justifyContent
-  ) return global.justifyContent.toLowerCase();
+    theme &&
+    theme.justifyContent
+  ) return theme.justifyContent.toLowerCase();
 
   // DEFAULT
   return 'center'

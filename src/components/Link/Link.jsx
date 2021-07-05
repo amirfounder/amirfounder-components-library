@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 const { useHistory } = require('react-router-dom')
 import StyledLink from './LinkStyles'
 
@@ -10,10 +11,12 @@ import StyledLink from './LinkStyles'
  * @prop fontSize
  * @prop hoverColor
  * @prop size
+ * @prop theme
  * @prop weight
  * @returns Component
  */
 export const Link = (props) => {
+  const theme = useThemeContext();
   const history = useHistory();
 
   /**
@@ -29,6 +32,7 @@ export const Link = (props) => {
     <StyledLink
       className='af-link'
       onClick={handleClick}
+      theme={theme}
       {...props}
     >
       {props.children}

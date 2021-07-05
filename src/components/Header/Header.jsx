@@ -1,5 +1,6 @@
 import React from 'react'
 import { Section } from '../Section/Section'
+import { useThemeContext } from '../Theme/Theme'
 import StyledHeader from './HeaderStyles'
 
 /**
@@ -7,7 +8,7 @@ import StyledHeader from './HeaderStyles'
  * @description Renders the Header compoennt
  * @param {*} props Props
  * @prop backgroundColor
- * @prop global
+ * @prop theme
  * @prop height
  * @prop maxHeight
  * @prop minHeight
@@ -17,13 +18,17 @@ import StyledHeader from './HeaderStyles'
  * @returns Component
  */
 export const Header = (props) => {
-  return(
+  const theme = useThemeContext();
+
+  return (
     <StyledHeader
       className="af-header"
+      theme={theme}
       {...props}
     >
       <Section
         padding={props.padding ? props.padding : '0 3vw'}
+        theme={theme}
         verticalAlignment="center"
         {...props}
       >

@@ -1,16 +1,16 @@
 export const generateLinkColor = (props) => {
   // SETUP
   const color = props.color && props.color.toLowerCase();
-  const global = props.global && props.global.link
+  const theme = props.theme && props.theme.link
 
   // IMPORTANCE 1 --> EXACT
   if (color) return color.toLowerCase();
 
   // IMPORTANCE 2 --> GLOBAL
   if (
-    global &&
-    global.color
-  ) return global.color.toLowerCase();
+    theme &&
+    theme.color
+  ) return theme.color.toLowerCase();
 
   // DEFAULT
   return 'black'
@@ -20,16 +20,16 @@ export const generateLinkHoverColor = (props) => {
   // SETUP
   const color = props.color && props.color.toLowerCase();
   const hoverColor = props.hoverColor && props.hoverColor.toLowerCase();
-  const global = props.global && props.global.link
+  const theme = props.theme && props.theme.link
 
   // IMPORTANCE 1 --> HOVER COLOR
   if (hoverColor) return hoverColor
 
   // IMPORTANCE 2 --> (GLOBAL) HOVER COLOR
   if (
-    global &&
-    global.hoverColor
-  ) return global.hoverColor.toLowerCase();
+    theme &&
+    theme.hoverColor
+  ) return theme.hoverColor.toLowerCase();
 
   // IMPORTANCE 3 --> COLOR
   if (color) {
@@ -41,9 +41,9 @@ export const generateLinkHoverColor = (props) => {
 
   // IMPORTANCE 4 --> (GLOBAL) COLOR
   if (
-    global &&
-    global.color
-  ) switch (global.color.toLowerCase()) {
+    theme &&
+    theme.color
+  ) switch (theme.color.toLowerCase()) {
     case 'black': return '#666'
     case 'white': return '#ccc'
   }
@@ -56,7 +56,7 @@ export const generateLinkFontSize = (props) => {
   // SETUP
   const size = props.size && props.size.toLowerCase();
   const fontSize = props.fontSize && props.fontSize.toLowerCase();
-  const global = props.global && props.global.link
+  const theme = props.theme && props.theme.link
 
   // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize;
@@ -69,12 +69,12 @@ export const generateLinkFontSize = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) FONT SIZE
-    if (global.fontSize) return global.fontSize.toLowerCase()
+    if (theme.fontSize) return theme.fontSize.toLowerCase()
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      switch (global.size.toLowerCase()) {
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
         case 'large': return '18px';
         case 'medium': return '16px';
         case 'small': return '14px';
@@ -89,16 +89,16 @@ export const generateLinkFontSize = (props) => {
 export const generateLinkFontWeight = (props) => {
   // SETUP
   const weight = props.weight && props.weight.toLowerCase();
-  const global = props.global && props.global.link
+  const theme = props.theme && props.theme.link
 
   // IMPORTANCE 1 --> EXACT 
   if (weight) return weight;
 
   // IMPORTANCE 2 --> GLOBALS
   if (
-    global &&
-    global.weight
-  ) return global.weight.toLowerCase();
+    theme &&
+    theme.weight
+  ) return theme.weight.toLowerCase();
 
   // DEFAULT
   return 300

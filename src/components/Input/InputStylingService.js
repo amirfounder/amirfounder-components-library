@@ -3,7 +3,7 @@ export const generateInputWidth = (props) => {
   const width = props.width && props.width.toLowerCase();
   const size = props.size && props.size.toLowerCase();
   const padding = props.padding
-  const global = props.global && props.global.input
+  const theme = props.theme && props.theme.input
 
   // IMPORTANCE 1 --> EXACT
   if (width) {
@@ -26,23 +26,23 @@ export const generateInputWidth = (props) => {
   }
 
   // IMPORTANCE 4 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 4.1 --> (GLOBAL) WIDTH
-    if (global.width) {
+    if (theme.width) {
       // IMPORTANCE 4.1.1 --> (GLOBAL) WIDTH AND (GLOBAL) PADDING
-      if (global.padding) return `calc(${global.width} - ${getHorizontalPadding(global.padding)})`
+      if (theme.padding) return `calc(${theme.width} - ${getHorizontalPadding(theme.padding)})`
       // IMPORTANCE 4.1.2 --> (GLOBAL) WIDTH AND PADDING
-      if (padding) return `calc(${global.width} - ${getHorizontalPadding(padding)})`
+      if (padding) return `calc(${theme.width} - ${getHorizontalPadding(padding)})`
       // DEFAULT
-      return global.width
+      return theme.width
     };
 
     // IMPORTANCE 4.2 --> (GLOBAL) PADDING
-    if (global.padding) `calc(100% - ${getHorizontalPadding(global.padding)})`
+    if (theme.padding) `calc(100% - ${getHorizontalPadding(theme.padding)})`
     
     // IMPORTANCE 4.3 --> (GLOBAL) SIZE
-    if (global.size) {
-      switch (global.size.toLowerCase()) {
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
         case 'large': return `calc(100% - 30px)`
         case 'medium': return `calc(100% - 20px)`
         case 'small': return `calc(100% - 10px)` 
@@ -58,7 +58,7 @@ export const generateInputPadding = (props) => {
   // SETUP
   const size = props.size && props.size.toLowerCase();
   const padding = props.padding && props.padding.toLowerCase();
-  const global = props.global && props.global.input
+  const theme = props.theme && props.theme.input
 
   // IMPORTANCE 1 --> EXACT
   if (padding) return padding.toLowerCase();
@@ -71,14 +71,14 @@ export const generateInputPadding = (props) => {
   };
   
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) PADDING
-    if (global.padding) return global.padding.toLowerCase();
+    if (theme.padding) return theme.padding.toLowerCase();
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      if (global.size.toLowerCase() === 'large') return '15px'
-      if (global.size.toLowerCase() === 'medium') return '10px'
-      if (global.size.toLowerCase() === 'small') return '5px'
+    if (theme.size) {
+      if (theme.size.toLowerCase() === 'large') return '15px'
+      if (theme.size.toLowerCase() === 'medium') return '10px'
+      if (theme.size.toLowerCase() === 'small') return '5px'
     }
   }
 
@@ -90,7 +90,7 @@ export const generateInputLineHeight = (props) => {
   // SETUP
   const size = props.size && props.size.toLowerCase();
   const lineHeight = props.lineHeight && props.lineHeight.toLowerCase();
-  const global = props.global && props.global.input
+  const theme = props.theme && props.theme.input
 
   // IMPORTANCE 1 --> EXACT
   if (lineHeight) return lineHeight.toLowerCase();
@@ -103,12 +103,12 @@ export const generateInputLineHeight = (props) => {
   }
 
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) EXACT
-    if (global.lineHeight) return global.lineHeight.toLowerCase();
+    if (theme.lineHeight) return theme.lineHeight.toLowerCase();
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      switch (global.size) {
+    if (theme.size) {
+      switch (theme.size) {
         case 'large': return '1.4em'
         case 'medium': return '1.2em'
         case 'small': return '1em'
@@ -124,7 +124,7 @@ export const generateInputFontSize = (props) => {
   // SETUP
   const size = props.size && props.size.toLowerCase();
   const fontSize = props.fontSize && props.fontSize.toLowerCase();
-  const global = props.global && props.global.input
+  const theme = props.theme && props.theme.input
 
   // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize.toLowerCase();
@@ -137,12 +137,12 @@ export const generateInputFontSize = (props) => {
   }
   
   // IMPORTANCE 3 --> GLOBAL
-  if (global) {
+  if (theme) {
     // IMPORTANCE 3.1 --> (GLOBAL) FONT SIZE
-    if (global.fontSize) return global.fontSize.toLowerCase();
+    if (theme.fontSize) return theme.fontSize.toLowerCase();
     // IMPORTANCE 3.2 --> (GLOBAL) SIZE
-    if (global.size) {
-      switch (global.size.toLowerCase()) {
+    if (theme.size) {
+      switch (theme.size.toLowerCase()) {
         case 'large': return '20px';
         case 'medium': return '16px';
         case 'small': return '12px';

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 import StyledInput from './InputStyles'
 
 /**
@@ -6,7 +7,7 @@ import StyledInput from './InputStyles'
  * @description Renders the Input component
  * @param {*} props Props
  * @prop fontSize
- * @prop global
+ * @prop theme
  * @prop lineHeight
  * @prop padding
  * @prop size
@@ -14,9 +15,12 @@ import StyledInput from './InputStyles'
  * @returns Component
  */
 export const Input = (props) => {
+  const theme = useThemeContext();
+
   return(
     <StyledInput
       className='af-input'
+      theme={theme}
       {...props}
     />
   )

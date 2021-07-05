@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalStylesContext } from '../GlobalStyles/GlobalStyles';
+import { useThemeContext } from '../Theme/Theme';
 import StyledButton from './ButtonStyles';
 import PropTypes from 'prop-types';
 
@@ -14,20 +14,19 @@ import PropTypes from 'prop-types';
  * @prop hoverBackgroundColor - 'background-color' css property for :hover selector
  * @prop hoverColor - 'color' css property for :hover selector
  * @prop fontSize - 'font-size' css property
- * @prop global - global property : pass the globalStyles object
+ * @prop theme - theme property : pass the theme object
  * @prop padding - 'padding' css property
  * @prop size - abstract prop for size
  * @prop variant - abstract prop for border, background, 
  * @returns Component
  */
 export const Button = (props) => {
-
-  const globalStyles = useGlobalStylesContext();
+  const theme = useThemeContext();
 
   return (
     <StyledButton
       className="af-button"
-      global={globalStyles}
+      theme={theme}
       {...props}
     >
       {props.children}
@@ -36,7 +35,7 @@ export const Button = (props) => {
 }
 
 Button.prototype = {
-  global: PropTypes.object,
+  theme: PropTypes.object,
   variant: PropTypes.oneOf([
     'outline',
     'filled'

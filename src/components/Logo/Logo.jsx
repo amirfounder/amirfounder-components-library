@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 const { useHistory } = require('react-router-dom')
 import LogoDiv from './LogoStyles';
 
@@ -8,10 +9,11 @@ import LogoDiv from './LogoStyles';
  * @param {*} props Props
  * @prop color
  * @prop fontSize
- * @prop global
+ * @prop them
  * @returns Component
  */
 export const Logo = (props) => {
+  const theme = useThemeContext();
   const history = useHistory();
 
   /**
@@ -25,6 +27,7 @@ export const Logo = (props) => {
     <LogoDiv
       className='af-logo'
       onClick={handleClick}
+      theme={theme}
       {...props} 
     >
       {props.children ? props.children : 'Amir Sharapov'}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 import ColumnDiv from './ColumnStyles';
 
 /**
@@ -6,13 +7,16 @@ import ColumnDiv from './ColumnStyles';
  * @description Renders the Column Component
  * @param {*} props Props
  * @prop alignment
- * @prop global
+ * @prop theme
  * @returns Component
  */
 export const Column = (props) => {
-  return(
+  const theme = useThemeContext();
+
+  return (
     <ColumnDiv
       className='af-column'
+      theme={theme}
       {...props}
     >
       {props.children}

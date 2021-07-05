@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 import SectionDiv from './SectionStyles';
 
 /**
@@ -10,14 +11,17 @@ import SectionDiv from './SectionStyles';
  * @prop columns
  * @prop minHeight
  * @prop padding
+ * @prop theme
  * @prop verticalAlignment
  * @returns Component
  */
 export const Section = (props) => {
+  const theme = useThemeContext();
   return (
     <SectionDiv
       className='af-section'
       padding={props.padding ? props.padding : '0 3vw'}
+      theme={theme}
       {...props}
     >
       {props.children}

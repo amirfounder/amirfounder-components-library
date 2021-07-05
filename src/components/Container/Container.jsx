@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../Theme/Theme';
 import ContainerDiv from './ContainerStyles';
 
 /**
@@ -6,7 +7,7 @@ import ContainerDiv from './ContainerStyles';
  * @description Renders the Container component
  * @param {*} props Props
  * @prop backgroundColor
- * @prop global
+ * @prop theme
  * @prop margin
  * @prop maxHeight
  * @prop maxWidth
@@ -16,9 +17,12 @@ import ContainerDiv from './ContainerStyles';
  * @returns Component
  */
 export const Container = (props) => {
+  const theme = useThemeContext();
+  
   return(
     <ContainerDiv
       className='af-container'
+      theme={theme}
       {...props}
     >
       {props.children}
