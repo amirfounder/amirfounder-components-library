@@ -199,3 +199,4 @@ Components can now accept global styles into their styling services by using the
 5. Converted global to theme
 6. Theme bug fix #1
 7. Theme bug fix #2
+8. Removed terser to help with bug fix
