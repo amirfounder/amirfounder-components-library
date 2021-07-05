@@ -16,7 +16,7 @@ export const Column = (props) => {
   return (
     <ColumnDiv
       className='af-column'
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}

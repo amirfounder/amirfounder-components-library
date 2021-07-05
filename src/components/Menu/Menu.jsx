@@ -24,7 +24,7 @@ export const Menu = (props) => {
       alignment={props.alignment ? props.alignment : 'left'}
       className='af-menu'
       direction={props.direction ? props.direction : 'horizontal'}
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children && !props.children.length &&
@@ -32,7 +32,7 @@ export const Menu = (props) => {
           alignment={props.alignment ? props.alignment : 'left'}
           className='af-menu-child'
           direction={props.direction ? props.direction : 'horizontal'}
-          theme={theme}
+          theme={theme ? theme : null}
           {...props}
         >
           {props.children}
@@ -45,7 +45,7 @@ export const Menu = (props) => {
             className='af-menu-child'
             direciton={props.direction ? props.direction : 'horizontal'}
             key={child + index}
-            theme={theme}
+            theme={theme ? theme : null}
             {...props}
           >
             {child}

@@ -21,7 +21,7 @@ export const Section = (props) => {
     <SectionDiv
       className='af-section'
       padding={props.padding ? props.padding : '0 3vw'}
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}

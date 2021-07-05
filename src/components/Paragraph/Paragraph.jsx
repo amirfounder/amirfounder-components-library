@@ -19,7 +19,7 @@ export const Paragraph = (props) => {
   return (
     <StyledParagraph
       className="af-paragraph"
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}

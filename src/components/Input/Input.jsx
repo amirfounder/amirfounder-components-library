@@ -20,7 +20,7 @@ export const Input = (props) => {
   return(
     <StyledInput
       className='af-input'
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     />
   )

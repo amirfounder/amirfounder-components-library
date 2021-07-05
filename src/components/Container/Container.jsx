@@ -18,11 +18,11 @@ import ContainerDiv from './ContainerStyles';
  */
 export const Container = (props) => {
   const theme = useThemeContext();
-  
+
   return(
     <ContainerDiv
       className='af-container'
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}

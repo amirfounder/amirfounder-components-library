@@ -32,7 +32,7 @@ export const Link = (props) => {
     <StyledLink
       className='af-link'
       onClick={handleClick}
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}

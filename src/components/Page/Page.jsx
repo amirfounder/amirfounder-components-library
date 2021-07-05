@@ -16,7 +16,7 @@ export const Page = (props) => {
   return (
     <StyledPage
       className="af-page"
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}

@@ -23,12 +23,12 @@ export const Header = (props) => {
   return (
     <StyledHeader
       className="af-header"
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       <Section
         padding={props.padding ? props.padding : '0 3vw'}
-        theme={theme}
+        theme={theme ? theme : null}
         verticalAlignment="center"
         {...props}
       >

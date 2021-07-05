@@ -27,7 +27,7 @@ export const Logo = (props) => {
     <LogoDiv
       className='af-logo'
       onClick={handleClick}
-      theme={theme}
+      theme={theme ? theme : null}
       {...props} 
     >
       {props.children ? props.children : 'Amir Sharapov'}

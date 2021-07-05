@@ -23,19 +23,19 @@ export const Modal = (props) => {
     <StyledModal
       className="af-modal"
       hidden={!props.show}
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       <StyledModalBackground
         className="af-modal-background"
-        theme={theme}
+        theme={theme ? theme : null}
         {...props}
       >
         <Container
           minWidth={props.width ? props.width.toLowercase() : '40vw'}
           maxWidth={props.width ? props.width.toLowercase() : '40vw'}
           margin={props.margin ? props.margin.toLowercase() : '20px'}
-          theme={theme}
+          theme={theme ? theme : null}
           {...props}
         >
           {props.children}

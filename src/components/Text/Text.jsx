@@ -16,7 +16,7 @@ const Text = (props) => {
   const theme = useThemeContext();
   return (
     <StyledText
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}

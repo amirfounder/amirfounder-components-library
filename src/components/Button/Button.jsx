@@ -26,7 +26,7 @@ export const Button = (props) => {
   return (
     <StyledButton
       className="af-button"
-      theme={theme}
+      theme={theme ? theme : null}
       {...props}
     >
       {props.children}
