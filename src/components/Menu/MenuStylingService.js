@@ -1,7 +1,7 @@
 export const generateMenuChildDisplay = (props) => {
   // SETUP
   const direction = props.direction && props.direction.toLowerCase();
-  const theme = props.theme && props.menu;
+  const theme = props.theme && props.theme.menu;
 
   // IMPORTANCE 1 --> EXACT
   if (direction) {

@@ -2401,7 +2401,7 @@ const generateContainerMinHeight = props => {
 const generateContainerMinWidth = props => {
   // SETUP
   const minWidth = props.minWidth;
-  const theme = props.theme && props.theme.minWidth; // IMPORTANCE 1 --> EXACT
+  const theme = props.theme && props.theme.container; // IMPORTANCE 1 --> EXACT
 
   if (minWidth) return minWidth.toLowerCase(); // IMPORTANCE 2 --> GLOBAL
 
@@ -3292,7 +3292,8 @@ const Link = props => {
 const generateLogoFontSize = props => {
   // SETUP
   const fontSize = props.fontSize && props.fontSize.toLowerCase();
-  const size = props.size && props.size.toLowerCase(); // IMPORTANCE 1 --> EXACT
+  const size = props.size && props.size.toLowerCase();
+  const theme = props.theme && props.theme.logo; // IMPORTANCE 1 --> EXACT
 
   if (fontSize) return fontSize.toLowerCase(); // IMPORTANCE 2 --> SIZE
 
@@ -3387,7 +3388,7 @@ const Logo = props => {
 const generateMenuChildDisplay = props => {
   // SETUP
   const direction = props.direction && props.direction.toLowerCase();
-  const theme = props.theme && props.menu; // IMPORTANCE 1 --> EXACT
+  const theme = props.theme && props.theme.menu; // IMPORTANCE 1 --> EXACT
 
   if (direction) {
     switch (direction) {

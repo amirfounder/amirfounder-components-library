@@ -87,7 +87,7 @@ export const generateContainerMinHeight = (props) => {
 export const generateContainerMinWidth = (props) => {
   // SETUP
   const minWidth = props.minWidth
-  const theme = props.theme && props.theme.minWidth
+  const theme = props.theme && props.theme.container
 
   // IMPORTANCE 1 --> EXACT
   if (minWidth) return minWidth.toLowerCase();

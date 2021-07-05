@@ -2,6 +2,7 @@ export const generateLogoFontSize = (props) => {
   // SETUP
   const fontSize = props.fontSize && props.fontSize.toLowerCase();
   const size = props.size && props.size.toLowerCase();
+  const theme = props.theme && props.theme.logo
 
   // IMPORTANCE 1 --> EXACT
   if (fontSize) return fontSize.toLowerCase();
