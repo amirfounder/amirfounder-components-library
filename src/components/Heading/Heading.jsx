@@ -13,6 +13,14 @@ import {
  * @name Heading
  * @description Renders the Heading component
  * @param {*} props Props
+ * @prop background
+ * @prop backgroundAttachment
+ * @prop backgroundRepeat
+ * @prop backgroundSize
+ * @prop color
+ * @prop fontSize
+ * @prop fontWeight
+ * @prop global
  * @returns Component
  */
 export const Heading = (props) => {

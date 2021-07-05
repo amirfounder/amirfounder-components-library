@@ -6,6 +6,14 @@ import StyledHeader from './HeaderStyles'
  * @name Header
  * @description Renders the Header compoennt
  * @param {*} props Props
+ * @prop backgroundColor
+ * @prop global
+ * @prop height
+ * @prop maxHeight
+ * @prop minHeight
+ * @prop padding
+ * @prop shadow
+ * @prop size
  * @returns Component
  */
 export const Header = (props) => {

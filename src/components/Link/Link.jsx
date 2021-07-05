@@ -6,6 +6,11 @@ import StyledLink from './LinkStyles'
  * @name Link
  * @description Renders the Link component.
  * @param {*} props Props
+ * @prop color
+ * @prop fontSize
+ * @prop hoverColor
+ * @prop size
+ * @prop weight
  * @returns Component
  */
 export const Link = (props) => {

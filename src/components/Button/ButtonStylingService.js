@@ -1,3 +1,12 @@
+/**
+ * @name generateButtonBackgroundColor
+ * @description Generates a value for the 'background-color' css property
+ * @param {*} props Props
+ * @prop variant
+ * @prop backgroundColor
+ * @prop global
+ * @returns String
+ */
 export const generateButtonBackgroundColor = (props) => {
   // SETUP
   const variant = props.variant
@@ -57,6 +66,15 @@ export const generateButtonBackgroundColor = (props) => {
   return 'black'
 }
 
+/**
+ * @name generateButtonBorderColor
+ * @description Generates a value for the 'border-color' css property
+ * @param {*} props Props
+ * @prop backgroundColor
+ * @prop borderColor
+ * @prop global
+ * @returns String
+ */
 export const generateButtonBorderColor = (props) => {
   // SETUP
   const backgroundColor = props.backgroundColor
@@ -82,6 +100,15 @@ export const generateButtonBorderColor = (props) => {
   return 'black'
 }
 
+/**
+ * @name generateButtonColor
+ * @description Generates a value for the 'color' css property
+ * @param {*} props Props
+ * @prop variant
+ * @prop color
+ * @prop global
+ * @returns String
+ */
 export const generateButtonColor = (props) => {
   // SETUP
   const variant = props.variant
@@ -141,6 +168,15 @@ export const generateButtonColor = (props) => {
   return 'white';
 }
 
+/**
+ * @name generateButtonFontSize
+ * @description Generates a value for the 'font-size' css property
+ * @param {*} props Props
+ * @prop size
+ * @prop fontSize
+ * @prop global
+ * @returns String
+ */
 export const generateButtonFontSize = (props) => {
   // SETUP
   const size = props.size
@@ -174,6 +210,15 @@ export const generateButtonFontSize = (props) => {
   return '15px';
 }
 
+/**
+ * @name generateButtonHoverBackgroundColor
+ * @description Generates a value for the 'background-color' css property for the :hover pseudo element
+ * @param {*} props Props
+ * @prop variant
+ * @prop hoverBackgroundColor
+ * @prop global
+ * @returns String
+ */
 export const generateButtonHoverBackgroundColor = (props) => {
   // SETUP
   const variant = props.variant
@@ -208,6 +253,16 @@ export const generateButtonHoverBackgroundColor = (props) => {
   return '#333'
 }
 
+/**
+ * @name generateButtonHoverBorderColor
+ * @description Generates a value for the 'border-color' css property for the :hover pseudo element
+ * @param {*} props Props
+ * @prop variant
+ * @prop hoverBackgroundColor
+ * @prop hoverBorderColor
+ * @prop global
+ * @returns String
+ */
 export const generateButtonHoverBorderColor = (props) => {
   // SETUP
   const variant = props.variant
@@ -252,6 +307,14 @@ export const generateButtonHoverBorderColor = (props) => {
   return '#333';
 }
 
+/**
+ * @name generateButtonHoverColor
+ * @description Generates a value for the 'color' css property for the :hover pseudo element
+ * @param {*} props Props
+ * @prop hoverColor
+ * @prop global
+ * @returns String
+ */
 export const generateButtonHoverColor = (props) => {
   // SETUP
   const hoverColor = props.hoverColor
@@ -271,6 +334,15 @@ export const generateButtonHoverColor = (props) => {
   return 'white';
 }
 
+/**
+ * @name generateButtonPadding
+ * @description Generates a value for the 'padding' css property
+ * @param {*} props Props
+ * @prop size
+ * @prop padding
+ * @prop global
+ * @returns String
+ */
 export const generateButtonPadding = (props) => {
   // SETUP 
   const size = props.size

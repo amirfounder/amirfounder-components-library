@@ -8,6 +8,11 @@ import {
  * @name Menu
  * @description Renders the Menu component
  * @param {*} props Props
+ * @prop alignment
+ * @prop direction - vertical or horizontal
+ * @prop global
+ * @prop padding
+ * @prop spaceBetween
  * @returns Component
  */
 export const Menu = (props) => {

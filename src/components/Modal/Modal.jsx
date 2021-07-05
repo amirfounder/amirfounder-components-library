@@ -8,8 +8,11 @@ import { Container } from '../Container/Container';
 /**
  * @name Modal
  * @description Renders a modal.
- * @recommendedChild Container component
- * @param {*} Props children, show
+ * @param {*} props Props
+ * @prop alignItems
+ * @prop backgroundColor
+ * @prop global
+ * @prop justifyContent
  * @returns Component
  */
 export const Modal = (props) => {

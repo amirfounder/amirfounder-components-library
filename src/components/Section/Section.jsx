@@ -3,8 +3,14 @@ import SectionDiv from './SectionStyles';
 
 /**
  * @name Section
- * @description Redners a section that allows multiple columns. Recommended to use column componenet as children wrapper.
- * @param {*} Props children, columns, className, horizontalPadding, backgroundColor, verticalPadding, minHeight, verticalAlign
+ * @description Redners the Section component
+ * @param {*} Props props
+ * @prop alignItems
+ * @prop backgroundColor
+ * @prop columns
+ * @prop minHeight
+ * @prop padding
+ * @prop verticalAlignment
  * @returns Component
  */
 export const Section = (props) => {

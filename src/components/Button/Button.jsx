@@ -4,8 +4,9 @@ import StyledButton from './ButtonStyles';
 import PropTypes from 'prop-types';
 
 /**
- * Renders the Button component
- * @param {*} Props
+ * @nmae Button
+ * @description Renders the Button component
+ * @param {*} props Props
  * @prop backgroundColor - 'background-color' css property
  * @prop borderColor - 'border-color' css property
  * @prop color - 'color' css property

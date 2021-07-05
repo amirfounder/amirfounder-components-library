@@ -61,17 +61,17 @@ export const generateSectionPadding = (props) => {
 
 export const generateSectionMinHeight = (props) => {
   // SETUP
-  const height = props.height && props.height.toLowerCase();
+  const minHeight = props.minHeight && props.minHeight.toLowerCase();
   const global = props.global && props.global.section
 
   // IMPORTANCE 1 --> EXACT
-  if (height) return height
+  if (minHeight) return minHeight
 
   // IMPORTANCE 2 --> GLOBAL
   if (
     global &&
-    global.height
-  ) return global.height.toLowerCase();
+    global.minHeight
+  ) return global.minHeight.toLowerCase();
 
   // DEFAULT
   return '0px'

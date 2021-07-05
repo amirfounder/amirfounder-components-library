@@ -3,8 +3,13 @@ import StyledParagraph from './ParagraphStyles';
 
 /**
  * @name Paragraph
- * @description Renders a paragraph componenet for text
+ * @description Renders the paragraph component
  * @param {*} Props children
+ * @prop fontSize
+ * @prop fontWeight
+ * @prop global
+ * @prop lineHeight
+ * @prop size
  * @returns Component
  */
 export const Paragraph = (props) => {

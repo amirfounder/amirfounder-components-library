@@ -6,6 +6,9 @@ import LogoDiv from './LogoStyles';
  * @name Logo
  * @description Renders the Logo component
  * @param {*} props Props
+ * @prop color
+ * @prop fontSize
+ * @prop global
  * @returns Component
  */
 export const Logo = (props) => {

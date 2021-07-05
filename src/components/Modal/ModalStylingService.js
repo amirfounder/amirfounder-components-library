@@ -1,9 +1,3 @@
-/**
- * @name generateModalBackground
- * @description Generates css styling for the modal background color
- * @param {String} backgroundColor Background color
- * @returns String css style
- */
 export const generateModalBackground = (props) => {
   // SETUP
   const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
