@@ -6,7 +6,7 @@ Backlog → https://github.com/orgs/amirfounder/projects/1
 
 ## Usage
 
-A componenet library for the ReactJS Framework, built to be used by the @amirfounder brand.
+A component library for the ReactJS Framework, built to be used by the @amirfounder brand.
 
 ### Components
 
@@ -195,3 +195,4 @@ Components can now accept global styles into their styling services by using the
 1. Added JSdocs to each component
 2. Added the Text component
 3. Added export to index.js
+4. Fixed bug with Text component

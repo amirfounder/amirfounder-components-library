@@ -109,18 +109,18 @@ object-assign
   :focus {
     outline: none;
   }
-`,Kt=lt.div`
+`,Kt=lt.span`
   color: ${e=>(e=>{const t=e.color&&e.color.toLowerCase(),r=e.global&&e.global.link;return t?t.toLowerCase():r&&r.color?r.color.toLowerCase():"black"})(e)};
   display: inline;
   font-family: ${Bt.PROPS.FONT_FAMILIES.ROBOTO};
   font-size: ${e=>(e=>{const t=e.size&&e.size.toLowerCase(),r=e.fontSize&&e.fontSize.toLowerCase(),n=e.global&&e.global.link;if(r)return r;switch(t){case"large":return"18px";case"medium":return"16px";case"small":return"14px"}if(n){if(n.fontSize)return n.fontSize.toLowerCase();if(n.size)switch(n.size.toLowerCase()){case"large":return"18px";case"medium":return"16px";case"small":return"14px"}}return"16px"})(e)};
   font-weight: ${e=>(e=>{const t=e.weight&&e.weight.toLowerCase(),r=e.global&&e.global.link;return t||(r&&r.weight?r.weight.toLowerCase():300)})(e)};
-  &:hover {
+  :hover {
     color: ${e=>(e=>{const t=e.color&&e.color.toLowerCase(),r=e.hoverColor&&e.hoverColor.toLowerCase(),n=e.global&&e.global.link;if(r)return r;if(n&&n.hoverColor)return n.hoverColor.toLowerCase();if(t)switch(t){case"black":return"#666";case"white":return"#ccc"}if(n&&n.color)switch(n.color.toLowerCase()){case"black":return"#666";case"white":return"#ccc"}return"#666"})(e)};
     cursor: pointer;
     transition-duration: .3s;
   }
-  &:not(:hover) {
+  :not(:hover) {
     transition-duration: .3s;
   }
 `,{useHistory:Qt}=require("react-router-dom"),er=lt.div`
@@ -171,6 +171,6 @@ object-assign
 `,cr=()=>{const e=props.fontSize&&props.fontSize.toLowerCase(),t=props.size&&props.size.toLowerCase(),r=props.global&&props.global.text;if(e)return e;if(t)switch(t){case"large":return"20px";case"medium":return"16px";case"small":return"12px"}if(r){if(r.fontSize)return r.fontSize.toLowerCase();if(r.size)switch(r.size.toLowerCase()){case"large":return"20px";case"medium":return"16px";case"small":return"12px"}}return"16px"};lt.span`
   color: ${e=>(e=>{const t=e.color&&e.color.toLowerCase(),r=e.global&&e.global.text;return t||(r&&r.color?r.color.toLowerCase():"black")})(e)};
   display: ${e=>(e=>{const t=e.display&&e.display.toLowerCase(),r=e.global&&e.global.text;return t||(r&&r.display?r.display.toLowerCase():void 0)})(e)};
-  font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
+  font-family: ${Bt.PROPS.FONT_FAMILIES.ROBOTO};
   font-size: ${e=>cr()};
 `,exports.Button=It,exports.Column=e=>r.default.createElement(Tt,n({className:"af-column"},e),e.children),exports.Container=Dt,exports.GlobalStylesProvider=({globalStyles:e,...t})=>r.default.createElement(o.Provider,{value:e},t.children),exports.Header=e=>r.default.createElement(Ht,n({className:"af-header"},e),r.default.createElement(Ft,n({padding:e.padding?e.padding:"0 3vw",verticalAlignment:"center"},e),e.children)),exports.Heading=e=>{const t=a();return r.default.createElement(r.default.Fragment,null,e.level?1===Number(e.level)?r.default.createElement(qt,n({className:"af-heading",global:t},e),e.children):2===Number(e.level)?r.default.createElement(Gt,n({className:"af-heading",global:t},e),e.children):3===Number(e.level)?r.default.createElement(Ut,n({className:"af-heading",global:t},e),e.children):4===Number(e.level)?r.default.createElement(Yt,n({className:"af-heading",global:t},e),e.children):5===Number(e.level)?r.default.createElement(Xt,n({className:"af-heading",global:t},e),e.children):6===Number(e.level)?r.default.createElement(Jt,n({className:"af-heading",global:t},e),e.children):r.default.createElement(Gt,n({className:"af-heading"},e),e.children):r.default.createElement(Gt,n({className:"af-heading"},e),e.children))},exports.Input=e=>r.default.createElement(Zt,n({className:"af-input"},e)),exports.Link=e=>{const t=Qt();return r.default.createElement(Kt,n({className:"af-link",onClick:()=>{e.to&&t.push(e.to),e.href&&window.open(e.href,"_blank")}},e),e.children)},exports.Logo=e=>{const t=tr();return r.default.createElement(er,n({className:"af-logo",onClick:()=>e.onClick?e.onClick():t.push("/")},e),e.children?e.children:"Amir Sharapov")},exports.Menu=e=>r.default.createElement(nr,{className:"af-menu",direction:e.direction?e.direction:"horizontal",alignment:e.alignment?e.alignment:"left"},e.children&&!e.children.length&&r.default.createElement(or,{className:"af-menu-child",direction:e.direction?e.direction:"horizontal",alignment:e.alignment?e.alignment:"left"},e.children),e.children&&e.children.length>1&&e.children.map(((t,n)=>r.default.createElement(or,{className:"af-menu-child",key:t+n,direciton:e.direction?e.direction:"horizontal",alignment:e.alignment?e.alignment:"left"},t)))),exports.Modal=e=>r.default.createElement(ar,n({className:"af-modal",hidden:!e.show},e),r.default.createElement(ir,n({className:"af-modal-background"},e),r.default.createElement(Dt,n({minWidth:e.width?e.width.toLowercase():"40vw",maxWidth:e.width?e.width.toLowercase():"40vw",margin:e.margin?e.margin.toLowercase():"20px"},e),e.children))),exports.Page=e=>r.default.createElement(sr,n({className:"af-page"},e),e.children),exports.Paragraph=e=>r.default.createElement(lr,n({className:"af-paragraph"},e),e.children),exports.Section=Ft,exports.useGlobalStylesContext=a;
