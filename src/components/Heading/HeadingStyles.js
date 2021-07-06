@@ -26,32 +26,32 @@ const shared = css`
   -webkit-text-fill-color: ${(props) => generateHeadingWebkitTextFillColor(props)};
 `
 
-export const HeadingH1 = styled.h1`
+export const StyledH1 = styled.h1`
   ${shared}
   font-size: ${(props) => generateHeadingFontSize(1, props)};
 `
 
-export const HeadingH2 = styled.h2`
+export const StyledH2 = styled.h2`
   ${shared}
   font-size: ${(props) => generateHeadingFontSize(2, props)};
 `
 
-export const HeadingH3 = styled.h3`
+export const StyledH3 = styled.h3`
   ${shared}
   font-size: ${(props) => generateHeadingFontSize(3, props)};
 `
 
-export const HeadingH4 = styled.h4`
+export const StyledH4 = styled.h4`
   ${shared}
   font-size: ${(props) => generateHeadingFontSize(4, props)};
 `
 
-export const HeadingH5 = styled.h5`
+export const StyledH5 = styled.h5`
   ${shared}
   font-size: ${(props) => generateHeadingFontSize(5, props)};
 `
 
-export const HeadingH6 = styled.h6`
+export const StyledH6 = styled.h6`
   ${shared}
   font-size: ${(props) => generateHeadingFontSize(6, props)};
 `

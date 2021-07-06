@@ -1,6 +1,6 @@
 import React from 'react';
 import { useThemeContext } from '../Theme/Theme';
-import SectionDiv from './SectionStyles';
+import StyledSection from './SectionStyles';
 
 /**
  * @name Section
@@ -18,13 +18,13 @@ import SectionDiv from './SectionStyles';
 export const Section = (props) => {
   const theme = useThemeContext();
   return (
-    <SectionDiv
+    <StyledSection
       className='af-section'
       padding={props.padding ? props.padding : '0 3vw'}
       theme={theme ? theme : null}
       {...props}
     >
       {props.children}
-    </SectionDiv>
+    </StyledSection>
   )
 }

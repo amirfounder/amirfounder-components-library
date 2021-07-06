@@ -7,7 +7,7 @@ import {
   generateSectionPadding
 } from "./SectionStylingService";
 
-const SectionDiv = styled.div`
+const StyledSection = styled.div`
   z-index: 0;
   grid-template-columns: ${(props) => generateSectionGridTemplateColumns(props)};
   align-items: ${(props) => generateSectionAlignItems(props)};
@@ -19,4 +19,4 @@ const SectionDiv = styled.div`
   align-items: center;
 `
 
-export default SectionDiv
+export default StyledSection

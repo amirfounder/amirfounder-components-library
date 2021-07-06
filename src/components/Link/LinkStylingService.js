@@ -12,8 +12,7 @@ export const generateLinkColor = (props) => {
     theme.color
   ) return theme.color.toLowerCase();
 
-  // DEFAULT
-  return 'black'
+  // NO DEFAULT
 }
 
 export const generateLinkHoverColor = (props) => {
@@ -82,8 +81,7 @@ export const generateLinkFontSize = (props) => {
     }
   }
 
-  // DEFAULT
-  return '16px';
+  // NO DEFAULT
 }
 
 export const generateLinkFontWeight = (props) => {
@@ -102,4 +100,57 @@ export const generateLinkFontWeight = (props) => {
 
   // DEFAULT
   return 300
+}
+
+export const generateLinkBackgroundColor = (props) => {
+  // SETUP
+  const backgroundColor = props.backgroundColor && props.backgroundColor.toLowerCase();
+  const theme = props.theme && props.theme.link
+
+  // IMPORTANCE 1 -> EXACT
+  if (backgroundColor) return backgroundColor
+  
+  // IMPORTANCE 2 -> GLOBAL
+  if (
+    theme &&
+    theme.backgroundColor
+  ) return theme.backgroundColor.toLowerCase();
+
+  // NO DEFAULT
+}
+
+export const generateLinkHoverBackgroundColor = (props) => {
+    // SETUP
+    const hoverBackgroundColor = props.hoverBackgroundColor && props.hoverBackgroundColor.toLowerCase();
+    const theme = props.theme && props.theme.link
+  
+    // IMPORTANCE 1 -> EXACT
+    if (hoverBackgroundColor) return hoverBackgroundColor
+    
+    // IMPORTANCE 2 -> GLOBAL
+    if (
+      theme &&
+      theme.hover &&
+      theme.hover.backgroundColor
+    ) return theme.hover.backgroundColor.toLowerCase();
+  
+    // NO DEFAULT
+}
+
+export const generateLinkPadding = (props) => {
+  // DEFAULT
+  const padding = props.padding && props.padding.toLowerCase();
+  const theme = props.theme && props.theme.link
+  console.log(props.theme.link)
+
+  // IMPORTANCE 1 - EXACT
+  if (padding) return padding
+
+  // IMPORTANCE 2 - THEME
+  if (
+    theme &&
+    theme.padding
+  ) return theme.padding.toLowerCase();
+
+  // NO DEFAULT
 }

@@ -15,7 +15,9 @@ import {
   Modal,
   Input,
   ThemeProvider,
-  Section
+  Section,
+  Dropdown,
+  MenuItem
 } from '../index'
 
 const stories = storiesOf('Sandbox', module)
@@ -182,5 +184,57 @@ stories.add('Sandbox 3', () => {
         <Button size="medium">Click me</Button>
       </ThemeProvider>
     </Page>
+  )
+})
+
+stories.add('testing dropdown', () => {
+
+  const Anchor = () => <Link>Link 4</Link>
+
+  const dropdownTheme = Object.freeze({
+    menu: {
+      padding: '20px',
+      backgroundColor: '#f4f4f4'
+    },
+    link: {
+      padding: '15px 30px',
+      hover: {
+        backgroundColor: 'white'
+      }
+    }
+  })
+
+  return (
+    <Header backgroundColor="#f4f4f4">
+      <Logo />
+      <Menu alignment="right">
+        <MenuItem>Link 1</MenuItem>
+        <MenuItem>Link 2</MenuItem>
+        <MenuItem>Link 3</MenuItem>
+        <Dropdown
+          anchor={Anchor}
+          padding="29px 0px 0px 0px"
+        >
+          <ThemeProvider theme={dropdownTheme}>
+            <Menu direction="vertical">
+              <MenuItem>Link a</MenuItem>
+              <MenuItem>Link b</MenuItem>
+              <MenuItem>Link c</MenuItem>
+              <Dropdown
+                anchor={() => <Link>Link d</Link>}
+                padding="0px 0px 0px 0px"
+              >
+                <Menu>
+                  <MenuItem>Link i</MenuItem>
+                  <MenuItem>Link ii</MenuItem>
+                  <MenuItem>Link iii</MenuItem>
+                </Menu>
+              </Dropdown>
+            </Menu>
+          </ThemeProvider>
+        </Dropdown>
+        <MenuItem>Link 5</MenuItem>
+      </Menu>
+    </Header>
   )
 })

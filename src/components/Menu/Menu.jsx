@@ -1,9 +1,6 @@
 import React from 'react';
 import { useThemeContext } from '../Theme/Theme';
-import {
-  MenuDiv,
-  MenuChildDiv
-} from './MenuStyles';
+import { StyledMenu } from './MenuStyles';
 
 /**
  * @name Menu
@@ -20,37 +17,12 @@ export const Menu = (props) => {
   const theme = useThemeContext();
 
   return (
-    <MenuDiv
-      alignment={props.alignment ? props.alignment : 'left'}
+    <StyledMenu
       className='af-menu'
-      direction={props.direction ? props.direction : 'horizontal'}
       theme={theme ? theme : null}
       {...props}
     >
-      {props.children && !props.children.length &&
-        <MenuChildDiv
-          alignment={props.alignment ? props.alignment : 'left'}
-          className='af-menu-child'
-          direction={props.direction ? props.direction : 'horizontal'}
-          theme={theme ? theme : null}
-          {...props}
-        >
-          {props.children}
-        </MenuChildDiv>
-      }
-      {props.children && props.children.length > 1 &&
-        props.children.map((child, index) => (
-          <MenuChildDiv
-            alignment={props.alignment ? props.alignment : 'left'}
-            className='af-menu-child'
-            direciton={props.direction ? props.direction : 'horizontal'}
-            key={child + index}
-            theme={theme ? theme : null}
-            {...props}
-          >
-            {child}
-          </MenuChildDiv>
-        ))}
-    </MenuDiv>
+      {props.children}
+    </StyledMenu>
   )
 }

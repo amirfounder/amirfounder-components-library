@@ -6,9 +6,9 @@ import {
 /**
  * Styling for the Column Component
  */
-const ColumnDiv = styled.div`
+const StyledColumn = styled.div`
   align-items: center;
   justify-self: ${(props) => generateColumnJustifySelf(props)};
 `
 
-export default ColumnDiv
+export default StyledColumn

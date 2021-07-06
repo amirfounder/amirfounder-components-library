@@ -1,28 +1,31 @@
 import styled from 'styled-components';
 import {
-  generateMenuChildDisplay,
-  generateMenuDirectChildMargin,
-  generateMenuDirectChildPadding,
-  generateMenuJustifySelf
+  generateMenuJustifySelf,
+  generateMenuItemDisplay,
+  generateMenuItemMargin,
+  generateMenuItemPadding,
+  generateMenuBackgroundColor
 } from './MenuStylingService';
 
-export const MenuDiv = styled.div`
+export const StyledMenu = styled.ul`
+  background-color: ${(props) => generateMenuBackgroundColor(props)};
   justify-self: ${(props) => generateMenuJustifySelf(props)};
-`
-
-export const MenuChildDiv = styled.div`
-  display: ${(props) => generateMenuChildDisplay(props)};
-  padding: ${(props) => generateMenuDirectChildPadding(props)};
-  :only-child {
-    margin: ${(props) => generateMenuDirectChildMargin(props, 'only')};
+  list-style-type: none;
+  padding: 0px;
+  & > li {
+    display: ${(props) => generateMenuItemDisplay(props)};
+    padding: ${(props) => generateMenuItemPadding(props)};
   }
-  :last-child {
-    margin: ${(props) => generateMenuDirectChildMargin(props, 'last')};
+  & > :only-child {
+    margin: ${(props) => generateMenuItemMargin(props, 'only')};
   }
-  :first-child {
-    margin: ${(props) => generateMenuDirectChildMargin(props, 'first')};
+  & > :last-child {
+    margin: ${(props) => generateMenuItemMargin(props, 'last')};
   }
-  :not(first-child):not(last-child) {
-    margin: ${(props) => generateMenuDirectChildMargin(props, 'not-first-not-last')};
+  & > :first-child {
+    margin: ${(props) => generateMenuItemMargin(props, 'first')};
+  }
+  & > :not(first-child):not(last-child) {
+    margin: ${(props) => generateMenuItemMargin(props, 'not-first-not-last')};
   }
 `

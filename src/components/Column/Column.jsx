@@ -1,6 +1,6 @@
 import React from 'react';
 import { useThemeContext } from '../Theme/Theme';
-import ColumnDiv from './ColumnStyles';
+import StyledColumn from './ColumnStyles';
 
 /**
  * @name Column
@@ -14,12 +14,12 @@ export const Column = (props) => {
   const theme = useThemeContext();
 
   return (
-    <ColumnDiv
+    <StyledColumn
       className='af-column'
       theme={theme ? theme : null}
       {...props}
     >
       {props.children}
-    </ColumnDiv>
+    </StyledColumn>
   )
 }

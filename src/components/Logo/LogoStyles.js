@@ -5,7 +5,7 @@ import {
   generateLogoFontSize
 } from './LogoStylingService';
 
-const LogoDiv = styled.div`
+const StyledLogo = styled.div`
   color: ${(props) => generateLogoColor(props)};
   font-family: ${Constants.PROPS.FONT_FAMILIES.ROBOTO};
   font-size: ${(props) => generateLogoFontSize(props)};
@@ -15,4 +15,4 @@ const LogoDiv = styled.div`
   }
 `
 
-export default LogoDiv
+export default StyledLogo

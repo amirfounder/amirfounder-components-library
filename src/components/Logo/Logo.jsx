@@ -1,7 +1,7 @@
 import React from 'react';
 import { useThemeContext } from '../Theme/Theme';
 const { useHistory } = require('react-router-dom')
-import LogoDiv from './LogoStyles';
+import StyledLogo from './LogoStyles';
 
 /**
  * @name Logo
@@ -24,13 +24,13 @@ export const Logo = (props) => {
   const handleClick = () => props.onClick ? props.onClick() : history.push("/")
 
   return (
-    <LogoDiv
+    <StyledLogo
       className='af-logo'
       onClick={handleClick}
       theme={theme ? theme : null}
       {...props} 
     >
       {props.children ? props.children : 'Amir Sharapov'}
-    </LogoDiv>
+    </StyledLogo>
   )
 }

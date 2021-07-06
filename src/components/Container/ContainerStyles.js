@@ -8,7 +8,7 @@ import {
   generateContainerMargin
 } from "./ContainerStylingService";
 
-const ContainerDiv = styled.div`
+const StyledContainer = styled.div`
   background-color: ${(props) => generateContainerBackgroundColor(props)};
   max-height: ${(props) => generateContainerMinHeight(props)};
   max-width: ${(props) => generateContainerMaxWidth(props)};
@@ -18,4 +18,4 @@ const ContainerDiv = styled.div`
   margin: ${(props) => generateContainerMargin(props)};
 `
 
-export default ContainerDiv
+export default StyledContainer

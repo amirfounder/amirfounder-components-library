@@ -1,6 +1,6 @@
 import React from 'react';
 import { useThemeContext } from '../Theme/Theme';
-import ContainerDiv from './ContainerStyles';
+import StyledContainer from './ContainerStyles';
 
 /**
  * @name Container
@@ -20,12 +20,12 @@ export const Container = (props) => {
   const theme = useThemeContext();
 
   return(
-    <ContainerDiv
+    <StyledContainer
       className='af-container'
       theme={theme ? theme : null}
       {...props}
     >
       {props.children}
-    </ContainerDiv>
+    </StyledContainer>
   )
 }
