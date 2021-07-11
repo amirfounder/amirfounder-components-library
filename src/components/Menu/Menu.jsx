@@ -1,28 +1,34 @@
 import React from 'react';
-import { useThemeContext } from '../Theme/Theme';
-import { StyledMenu } from './MenuStyles';
+import { generateClassNameString } from '../../utils/Generators';
+import styles from './Menu.module.scss'
+import MenuSubmenu from './MenuSubmenu';
+import MenuItem from './MenuItem';
 
 /**
  * @name Menu
  * @description Renders the Menu component
  * @param {*} props Props
- * @prop alignment
- * @prop direction - vertical or horizontal
- * @prop theme
- * @prop padding
- * @prop spaceBetween
  * @returns Component
  */
 export const Menu = (props) => {
-  const theme = useThemeContext();
+  const {
+    children,
+    classes,
+    ...other
+  } = props;
+
+  const className =
+    generateClassNameString(styles, classes);
 
   return (
-    <StyledMenu
-      className='af-menu'
-      theme={theme ? theme : null}
-      {...props}
+    <div
+      className={className}
+      {...other}
     >
       {props.children}
-    </StyledMenu>
+    </div>
   )
 }
+
+Menu.Item = MenuItem
+Menu.Submenu = MenuSubmenu

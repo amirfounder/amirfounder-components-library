@@ -1,0 +1,48 @@
+/* -------- TOKNES -------- */
+@import '../../utils/SCSSTokens.scss';
+
+.menu {
+
+  &__item {
+    display: inline-block;
+    cursor: pointer;
+    height: 100%;
+
+    &:hover {
+      background-color: blue;
+    }
+  }
+
+  &__submenu {
+    position: absolute;
+    background-color: black;
+
+    &__item {
+      padding: 10px;
+      display: block;
+      cursor: pointer;
+      position: relative;
+      min-width: 5rem;
+      
+      &:hover {
+        background-color: darkgray;
+        transition-duration: .2s;
+      }
+
+      &:not(:hover) {
+        transition-duration: .2s;
+      }
+    }
+
+    &--dir-lft {
+      top: 0px;
+      left: calc(-100% - 12px);
+    }
+
+    &--dir-rgt {
+      top: 0px;
+      left: 100%;
+    }
+
+  }
+}

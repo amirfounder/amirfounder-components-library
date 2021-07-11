@@ -1,5 +1,5 @@
 import React from 'react'
-import { useThemeContext } from '../Theme/Theme';
+
 import StyledText from './TextStyles';
 
 /**

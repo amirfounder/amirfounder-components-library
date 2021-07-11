@@ -5,10 +5,16 @@
  * @param {Object} stylesObj Styles object to reduce
  * @returns String - Classname
  */
-export const generateClassNameString = (cssModule, stylesArr) => {
+export const generateClassNameString = (cssModule, classes) => {
+  let classesArr;
   let className = ''
 
-  stylesArr?.forEach((style) => {
+  if (!classes) return
+  if (typeof(classes) === 'object') classesArr = classes
+  if (typeof(classes) === 'string') classesArr = classes?.split(' ')
+
+
+  classesArr?.forEach((style) => {
     className += ` ${cssModule[style]}`
   });
 

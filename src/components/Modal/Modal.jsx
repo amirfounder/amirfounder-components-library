@@ -3,8 +3,8 @@ import {
   StyledModal,
   StyledModalBackground
 } from './ModalStyles';
-import { Container } from '../Box/Box';
-import { useThemeContext } from '../Theme/Theme';
+import { Box } from '../Box/Box';
+
 
 /**
  * @name Modal
@@ -31,7 +31,7 @@ export const Modal = (props) => {
         theme={theme ? theme : null}
         {...props}
       >
-        <Container
+        <Box
           minWidth={props.width ? props.width.toLowercase() : '40vw'}
           maxWidth={props.width ? props.width.toLowercase() : '40vw'}
           margin={props.margin ? props.margin.toLowercase() : '20px'}
@@ -39,7 +39,7 @@ export const Modal = (props) => {
           {...props}
         >
           {props.children}
-        </Container>
+        </Box>
       </StyledModalBackground>
     </StyledModal>
   )

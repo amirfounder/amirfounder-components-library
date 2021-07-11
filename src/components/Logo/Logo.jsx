@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeContext } from '../Theme/Theme';
+
 const { useHistory } = require('react-router-dom')
 import StyledLogo from './LogoStyles';
 

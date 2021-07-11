@@ -1,5 +1,5 @@
 /* -------- TOKENS -------- */
-@import '../../utils/CSSCustomTokens.scss';
+@import '../../utils/SCSSTokens.scss';
 
 /* -------- IMPLEMENTING -------- */
 @import '../Column/Column.module.scss';
@@ -44,12 +44,27 @@
   &--shdw-hv { @include defineHeaderShadow(0px 15px 25px rgba(0,0,0,0.2)) }
 }
 
+@mixin defineHeaderSize($min-height, $height, $max-height) {
+  min-height: $min-height;
+  height: $height;
+  max-height: $max-height;
+}
+
+@mixin defineHeaderSizeOptions {
+  &--sm { @include defineHeaderSize(40px, 5vh, 80px) }
+  &--md { @include defineHeaderSize(60px, 7vh, 90px) }
+  &--lg { @include defineHeaderSize(90px, 10vh, 120px) }
+}
+
 .header {
 
+  & > * {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+  }
   /* -------- DEFAULT STYLES -------- */
   background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   height: 8vh;
   max-height: 100px;
   min-height: 70px;
@@ -67,7 +82,14 @@
   /* -------- SHADOW -------- */
   @include defineHeaderShadowOptions();
 
+  /* -------- SIZE -------- */
+  @include defineHeaderSizeOptions();
+
   &__col {
+
+    height: 100%;
+    display: grid;
+    align-items: center;
 
     /* -------- DEFAULT STYLES -------- */
     @include defineColumnDefaultStyles();

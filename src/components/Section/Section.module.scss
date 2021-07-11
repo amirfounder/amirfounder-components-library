@@ -1,5 +1,5 @@
 /* -------- TOKENS -------- */
-@import '../../utils/CSSCustomTokens.scss';
+@import '../../utils/SCSSTokens.scss';
 
 /* -------- IMPLEMENTING -------- */
 @import '../Column/Column.module.scss';
@@ -10,8 +10,8 @@
 }
 
 @mixin defineSectionWidthOptions {
-  &--full-width { @include defineSectionWidth(100%) }
-  &--contained { @include defineSectionWidth(1080px) }
+  &--full-width > * { @include defineSectionWidth(100%) }
+  &--contained > * { @include defineSectionWidth(1140px) }
 }
 
 @mixin defineSectionPadding($padding) {
@@ -31,10 +31,13 @@
 
 .section {
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1rem;
-  align-items: center;
+  & > * {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    align-items: center;
+  }
+  
   padding: var(--section--pd-md-padding);
 
   @include defineSectionWidthOptions();

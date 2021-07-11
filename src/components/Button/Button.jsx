@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Button.module.scss';
 import { generateClassNameString } from '../../utils/Generators';
+import { useHistory } from 'react-router-dom';
 
 /**
  * @nmae Button
@@ -13,24 +14,32 @@ import { generateClassNameString } from '../../utils/Generators';
 export const Button = (props) => {
   const {
     children,
-    label,
     classes,
+    href,
+    label,
+    onClick,
+    to,
     ...other
-  } = props
+  } = props;
+
+  const history = useHistory();
 
   const className =
-    generateClassNameString(
-      styles,
-      classes
-        ?.split(' ')
-    )
+    generateClassNameString(styles, classes);
+  
+  const handleClick = () => {
+    if (to) history.push(to)
+    if (href) window.open(href, '_blank')
+    if (onClick) onClick();
+  };
 
   return (
     <button
+      onClick={handleClick}
       className={className}
       {...other}
     >
       {children || label}
     </button>
-  )
-}
+  );
+};

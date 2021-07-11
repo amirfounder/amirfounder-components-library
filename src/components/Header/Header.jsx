@@ -7,14 +7,6 @@ import { generateClassNameString } from '../../utils/Generators';
  * @name Header
  * @description Renders the Header compoennt
  * @param {*} props Props
- * @prop backgroundColor
- * @prop theme
- * @prop height
- * @prop maxHeight
- * @prop minHeight
- * @prop padding
- * @prop shadow
- * @prop size
  * @returns Component
  */
 
@@ -38,7 +30,9 @@ export const Header = (props) => {
       className={className}
       {...other}
     >
-      {children}
+      <div>
+        {children}
+      </div>
     </div>
   )
 }

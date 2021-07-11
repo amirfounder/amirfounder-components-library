@@ -28,7 +28,9 @@ export const Section = (props) => {
       className={className}
       {...other}
     >
-      {children}
+      <div>
+        {children}
+      </div>
     </div>
   )
 }
