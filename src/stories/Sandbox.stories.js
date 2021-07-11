@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 import {
@@ -14,10 +14,6 @@ const stories = storiesOf('Sandbox', module)
 stories.add('Demo Site', () => {
 
   const root = document.documentElement;
-
-  const [showSubmenu_1, setShowSubmenu_1] = useState(false);
-  const [showSubmenu_1_1, setShowSubmenu_1_1] = useState(false);
-
   root.style.setProperty('--button--custom-color', 'violet')
   root.style.setProperty('--button--custom-hover-color', 'purple')
 
@@ -39,36 +35,26 @@ stories.add('Demo Site', () => {
           <Menu classes="menu">
             <Menu.Item classes="menu__item menu__item--sqr">Item 1</Menu.Item>
             <Menu.Item classes="menu__item menu__item--sqr">Item 2</Menu.Item>
-            <Menu.Item
-              classes="menu__item menu__item--sqr"
-              onMouseOver={() => setShowSubmenu_1(true)}
-              onMouseOut={() => setShowSubmenu_1(false)}
-            >
-              Item 3
-              <Menu.Submenu
-                classes="menu__submenu"
-                hidden={!showSubmenu_1}
-              >
+            <Menu.Item classes="menu__item menu__item--sqr">Item 3
+              <Menu.Submenu classes="menu__submenu">
                 <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.1</Menu.Item>
                 <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.2</Menu.Item>
-                <Menu.Item
-                  classes="menu__submenu__item menu__submenu__item--sqr"
-                  onMouseOver={() => setShowSubmenu_1_1(true)}
-                  onMouseOut={() => setShowSubmenu_1_1(false)}
-                > 
-                  Item 3.3
-                  <Menu.Submenu
-                    classes="menu__submenu menu__submenu--dir-rgt"
-                    hidden={!showSubmenu_1_1}
-                  >
+                <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3
+                  <Menu.Submenu classes="menu__submenu menu__submenu--dir-lft">
                     <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.1</Menu.Item>
-                    <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.1</Menu.Item>
-                    <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.1</Menu.Item>
+                    <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.2</Menu.Item>
+                    <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.3
+                      <Menu.Submenu classes="menu__submenu menu__submenu--dir-rgt">
+                        <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.3.1</Menu.Item>
+                        <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.3.2</Menu.Item>
+                        <Menu.Item classes="menu__submenu__item menu__submenu__item--sqr">Item 3.3.3.3</Menu.Item>
+                      </Menu.Submenu>
+                    </Menu.Item>
                   </Menu.Submenu>
                 </Menu.Item>
               </Menu.Submenu>
             </Menu.Item>
-            <Menu.Item classes="menu__item menu__item-sqr"></Menu.Item>
+            <Menu.Item classes="menu__item menu__item-sqr">Item 4</Menu.Item>
           </Menu>
         </Header.Column>
       </Header>

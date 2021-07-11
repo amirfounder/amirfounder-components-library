@@ -1,32 +1,61 @@
 /* -------- TOKNES -------- */
 @import '../../utils/SCSSTokens.scss';
 
+:root {
+  --menu__item-color: blue;
+  --menu__item-hover-color: blue;
+  --menu__item-background-color: blue;
+  --menu__item-hover-background-color: blue;
+}
+
+@mixin defineMenuItemColor {
+  color: green;
+}
+
 .menu {
 
+  /* -------- MENU ITEM -------- */
   &__item {
+
     display: inline-block;
     cursor: pointer;
-    height: 100%;
 
     &:hover {
-      background-color: blue;
+      background-color: green;
+    }
+
+    &:hover > * {
+      display: block;
+    }
+
+    &:not(:last-child) {
+      margin-right: 3vw;
     }
   }
 
+  /* -------- SUBMENU -------- */
   &__submenu {
-    position: absolute;
-    background-color: black;
 
+    position: absolute;
+    display: none;
+
+    /* -------- SUBMENU ITEM -------- */
     &__item {
       padding: 10px;
       display: block;
       cursor: pointer;
       position: relative;
-      min-width: 5rem;
+      background-color: black;
+      color: white;
+      min-width: 8rem;
       
       &:hover {
-        background-color: darkgray;
+        background-color: green;
         transition-duration: .2s;
+      }
+
+      &:hover > * {
+        display: block;
       }
 
       &:not(:hover) {
@@ -34,15 +63,17 @@
       }
     }
 
+    /* -------- SUBMENU > SUBMENUS -------- */
     &--dir-lft {
-      top: 0px;
-      left: calc(-100% - 12px);
+      left: -100%;
+      top: 0;
     }
 
     &--dir-rgt {
-      top: 0px;
       left: 100%;
+      top: 0;
     }
 
   }
+
 }

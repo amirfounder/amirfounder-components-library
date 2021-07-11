@@ -51,9 +51,9 @@
 }
 
 @mixin defineHeaderSizeOptions {
-  &--sm { @include defineHeaderSize(40px, 5vh, 80px) }
-  &--md { @include defineHeaderSize(60px, 7vh, 90px) }
-  &--lg { @include defineHeaderSize(90px, 10vh, 120px) }
+  &--sm > *, &--sm { @include defineHeaderSize(40px, 5vh, 80px) }
+  &--md > * { @include defineHeaderSize(60px, 7vh, 90px) }
+  &--lg > * { @include defineHeaderSize(90px, 10vh, 120px) }
 }
 
 .header {
