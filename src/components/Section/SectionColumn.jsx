@@ -1,27 +1,20 @@
 import React from 'react';
 import { generateClassNameString } from '../../utils/Generators';
-import styles from './Section.module.scss';
-import SectionColumn from './SectionColumn';
+import styles from './Section.module.scss'
 
-/**
- * @name Section
- * @description Redners the Section component
- * @param {*} Props props
- * @returns Component
- */
-export const Section = (props) => {
+const SectionColumn = (props) => {
   const {
     children,
     classes,
     ...other
-  } = props
+  } = props;
 
   const className = 
     generateClassNameString(
       styles,
       classes
         ?.split(' ')
-    );
+    )
 
   return (
     <div
@@ -33,6 +26,4 @@ export const Section = (props) => {
   )
 }
 
-Section.Column = SectionColumn
-
-// export default Section;
+export default SectionColumn;

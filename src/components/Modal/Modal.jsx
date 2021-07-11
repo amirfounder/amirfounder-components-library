@@ -3,7 +3,7 @@ import {
   StyledModal,
   StyledModalBackground
 } from './ModalStyles';
-import { Container } from '../Container/Container';
+import { Container } from '../Box/Box';
 import { useThemeContext } from '../Theme/Theme';
 
 /**

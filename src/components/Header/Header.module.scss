@@ -1,18 +1,80 @@
+/* -------- TOKENS -------- */
+@import '../../utils/CSSCustomTokens.scss';
+
+/* -------- IMPLEMENTING -------- */
 @import '../Column/Column.module.scss';
+@import '../Section/Section.module.scss';
 
-.header {
-  /* -------- DEFAULT STYLES -------- */
-  background-color: white;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  min-height: 70px;
-  height: 8vh;
-  max-height: 100px;
-
+@mixin defineHeaderColor($background-color, $color) {
+  background-color: $background-color;
+  color: $color;
 }
 
-.header__col {
-  @include defineColumnDefaultStyles();
+@mixin defineHeaderColorOptions {
+  &--primary { @include defineHeaderColor(white, black) }
+  &--secondary { @include defineHeaderColor(black, white) }
+  &--custom { @include defineHeaderColor(
+    var(--header--custom-background-color),
+    var(--header--custom-color)
+  ) }
+}
+
+@mixin defineHeaderPadding($padding) {
+  @include defineSectionPadding($padding);
+}
+
+@mixin defineHeaderPaddingOptions {
+  &--pd-xx-sm { @include defineHeaderPadding(var(--header--pd-xx-sm-padding)) }
+  &--pd-x-sm { @include defineHeaderPadding(var(--header--pd-x-sm-padding)) }
+  &--pd-sm { @include defineHeaderPadding(var(--header--pd-sm-padding)) }
+  &--pd-md { @include defineHeaderPadding(var(--header--pd-md-padding)) }
+  &--pd-lg { @include defineHeaderPadding(var(--header--pd-lg-padding)) }
+  &--pd-x-lg { @include defineHeaderPadding(var(--header--pd-x-lg-padding)) }
+  &--pd-xx-lg { @include defineHeaderPadding(var(--header--pd-xx-lg-padding)) }
+  &--pd-custom { @include defineHeaderPadding(var(--header--pd-custom-padding)) }
+}
+
+@mixin defineHeaderShadow($shadow) {
+  box-shadow: $shadow;
+}
+
+@mixin defineHeaderShadowOptions {
+  &--shdw-lt { @include defineHeaderShadow(0px 5px 8px rgba(0,0,0,0.1)) }
+  &--shdw-md { @include defineHeaderShadow(0px 10px 15px rgba(0,0,0,0.15)) }
+  &--shdw-hv { @include defineHeaderShadow(0px 15px 25px rgba(0,0,0,0.2)) }
+}
+
+.header {
+
+  /* -------- DEFAULT STYLES -------- */
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 8vh;
+  max-height: 100px;
+  min-height: 70px;
+  padding: var(--header--pd-md-padding);
+
+  /* -------- HEADER VARIANTS -------- */
+  @include defineHeaderColorOptions();
+
+  /* -------- WIDTH -------- */
+  @include defineSectionWidthOptions();
+
+  /* -------- PADDING -------- */
+  @include defineHeaderPaddingOptions();
+
+  /* -------- SHADOW -------- */
+  @include defineHeaderShadowOptions();
+
+  &__col {
+
+    /* -------- DEFAULT STYLES -------- */
+    @include defineColumnDefaultStyles();
+    
+    /* -------- OPTIONS -------- */
+    @include defineColumnContentPositionOptions();
+
+  }
+
 }

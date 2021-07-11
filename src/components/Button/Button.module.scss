@@ -1,4 +1,4 @@
-@import '../../utils/GlobalTokens.scss';
+/* -------- TOKENS -------- */
 @import '../../utils/CSSCustomTokens.scss';
 
 /* ---- VARIABLES ----*/
@@ -7,14 +7,14 @@ $danger-color: var(--button--danger-color);
 $default-color: var(--button--default-color);
 $info-color: var(--button--info-color);
 $success-color: var(--button--success-color);
-$theme-color: var(--button--theme-color);
+$custom-color: var(--button--custom-color);
 $warn-color: var(--button--warn-color);
 
 $danger-hover-color: var(--button--danger-hover-color);
 $default-hover-color: var(--button--default-hover-color);
 $info-hover-color: var(--button--info-hover-color);
 $success-hover-color: var(--button--success-hover-color);
-$theme-hover-color: var(--button--theme-hover-color);
+$custom-hover-color: var(--button--custom-hover-color);
 $warn-hover-color: var(--button--warn-hover-color);
 
 $xx-sm-font-size: var(--button--xx-sm-font-size);
@@ -37,8 +37,11 @@ $sharp-radius: var(--button--sharp-border-radius);
 $rounded-radius: var(--button--rounded-border-radius);
 $circle-radius: var(--button--circle-border-radius);
 
-/* ---- MIXINS ----*/
+/* ------------------------ */
+/* -------- MIXINS -------- */
+/* ------------------------ */
 
+/* -------- INDIVIDUAL -------- */
 @mixin defineButtonColors($color, $hover-color) {
   /* ---- DEFAULT ---- */
   background-color: $color;
@@ -72,13 +75,43 @@ $circle-radius: var(--button--circle-border-radius);
   padding: $padding;
 }
 
-@mixin defineButtonFullWidth() {
+@mixin defineButtonWidth($width) {
   display: block;
-  width: 100%;
+  width: $width;
 }
 
 @mixin defineButtonBorderRadius($border-radius) {
   border-radius: $border-radius;
+}
+
+/* -------- OPTIONS -------- */
+@mixin defineButtonWidthOptions {
+  &--full-width { @include defineButtonWidth(100%) }
+}
+
+@mixin defineButtonSizeOptions {
+  &--xx-sm { @include defineButtonSize($xx-sm-font-size, $xx-sm-padding) }
+  &--x-sm { @include defineButtonSize($x-sm-font-size, $x-sm-padding) }
+  &--sm { @include defineButtonSize($sm-font-size, $sm-padding) }
+  &--md { @include defineButtonSize($md-font-size, $md-padding) }
+  &--lg { @include defineButtonSize($lg-font-size, $lg-padding) }
+  &--x-lg { @include defineButtonSize($x-lg-font-size, $x-lg-padding) }
+  &--xx-lg { @include defineButtonSize($xx-lg-font-size, $xx-lg-padding) }
+}
+
+@mixin defineButtonCornerRadiusOptions {
+  &--sharp { @include defineButtonBorderRadius($sharp-radius)}
+  &--rounded { @include defineButtonBorderRadius($rounded-radius)}
+  &--circle { @include defineButtonBorderRadius($circle-radius)}
+}
+
+@mixin defineButtonColorOptions {
+  &--danger { @include defineButtonColors($danger-color, $danger-hover-color) }
+  &--default { @include defineButtonColors($default-color, $default-hover-color) }
+  &--info { @include defineButtonColors($info-color, $info-hover-color) }
+  &--success { @include defineButtonColors($success-color, $success-hover-color) }
+  &--custom { @include defineButtonColors($custom-color, $custom-hover-color) }
+  &--warn { @include defineButtonColors($warn-color, $warn-hover-color) }
 }
 
 .btn {
@@ -103,37 +136,16 @@ $circle-radius: var(--button--circle-border-radius);
     transition-duration: .3s;
   }
 
-
-
-  /* ----------------------------- */
-  /* ---- USER DEFINED STYLES ---- */
-  /* ----------------------------- */
-
-
-
   /* ---- FULL WIDTH ---- */
-  &--full-width { @include defineButtonFullWidth() }
+  @include defineButtonWidthOptions();
 
   /* ---- SIZES ---- */
-  &--xx-sm { @include defineButtonSize($xx-sm-font-size, $xx-sm-padding) }
-  &--x-sm { @include defineButtonSize($x-sm-font-size, $x-sm-padding) }
-  &--sm { @include defineButtonSize($sm-font-size, $sm-padding) }
-  &--md { @include defineButtonSize($md-font-size, $md-padding) }
-  &--lg { @include defineButtonSize($lg-font-size, $lg-padding) }
-  &--x-lg { @include defineButtonSize($x-lg-font-size, $x-lg-padding) }
-  &--xx-lg { @include defineButtonSize($xx-lg-font-size, $xx-lg-padding) }
+  @include defineButtonSizeOptions();
 
   /* ----- CORNER-RADIUS ----- */
-  &--sharp { @include defineButtonBorderRadius($sharp-radius)}
-  &--rounded { @include defineButtonBorderRadius($rounded-radius)}
-  &--circle { @include defineButtonBorderRadius($circle-radius)}
+  @include defineButtonCornerRadiusOptions();
 
   /* ---- COLORS ---- */
-  &--danger { @include defineButtonColors($danger-color, $danger-hover-color) }
-  &--default { @include defineButtonColors($default-color, $default-hover-color) }
-  &--info { @include defineButtonColors($info-color, $info-hover-color) }
-  &--success { @include defineButtonColors($success-color, $success-hover-color) }
-  &--theme { @include defineButtonColors($theme-color, $theme-hover-color) }
-  &--warn { @include defineButtonColors($warn-color, $warn-hover-color) }
+  @include defineButtonColorOptions();
 
 }
