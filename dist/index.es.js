@@ -1153,38 +1153,46 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".Button-module_button__2X_Ir{line-height:2px}";
-var styles = {"button":"Button-module_button__2X_Ir"};
+var css_248z = ":root{--button--xx-sm-font-size:10px;--button--x-sm-font-size:12px;--button--sm-font-size:14px;--button--md-font-size:16px;--button--lg-font-size:18px;--button--x-lg-font-size:20px;--button--xx-lg-font-size:24px;--button--xx-sm-padding:4px 8px;--button--x-sm-padding:6px 12px;--button--sm-padding:8px 18px;--button--md-padding:12px 26px;--button--lg-padding:14px 30px;--button--x-lg-padding:18px 40px;--button--xx-lg-padding:20px 44px;--button--success-color:#1cb341;--button--success-hover-color:#088527;--button--info-color:#2b86d1;--button--info-hover-color:#095ca0;--button--danger-color: ;--button--danger-hover-color: }.Button-module_btn__1lqJX{cursor:pointer;border-radius:5px;border:1px solid #000;font-size:var(--button--md-font-size);line-height:1em;padding:var(--button--md-padding)}.Button-module_btn__1lqJX:hover{background-color:#000;color:#fff}.Button-module_btn__1lqJX:hover,.Button-module_btn__1lqJX:not(:hover){transition-duration:.3s}.Button-module_btn--full-width__3jQiS{display:block;width:100%}.Button-module_btn--xx-sm__qLvcg{font-size:var(--button--xx-sm-font-size,10px);padding:var(--button--xx-sm-padding,4px 8px)}.Button-module_btn--x-sm__SgX8V{font-size:var(--button--x-sm-font-size,12px);padding:var(--button--x-sm-padding,6px 12px)}.Button-module_btn--sm__ukvwb{font-size:var(--button--sm-font-size,14px);padding:var(--button--sm-padding,8px 20px)}.Button-module_btn--md__1m1sH{font-size:var(--button--md-font-size,16px);padding:var(--button--md-padding,10px 12px)}.Button-module_btn--lg__1cVTv{font-size:var(--button--lg-font-size,18px);padding:var(--button--lg-padding,4px 8px)}.Button-module_btn--x-lg__DI_eT{font-size:var(--button--x-lg-font-size,20px);padding:var(--button--x-lg-padding,4px 8px)}.Button-module_btn--xx-lg__32KvQ{font-size:var(--button--xx-lg-font-size,24px);padding:var(--button--xx-lg-padding,4px 8px)}.Button-module_btn--sharp__1IlTV{border-radius:0}.Button-module_btn--rounded__H9d8l{border-radius:5px}.Button-module_btn--circle__3Z1HP{border-radius:999rem}.Button-module_btn--success__3J-On,.Button-module_btn--success__3J-On.Button-module_btn--fill__2tmpZ{background-color:var(--button--success-color);border-color:var(--button--success-color);color:#fff}.Button-module_btn--success__3J-On.Button-module_btn--outline__1o5Hz{background-color:#fff;border-color:var(--button--success-color);color:var(--button--success-color)}.Button-module_btn--success__3J-On:hover{background-color:var(--button--success-hover-color);border-color:var(--button--success-hover-color);color:#fff}.Button-module_btn--info__cNEH7,.Button-module_btn--info__cNEH7.Button-module_btn--fill__2tmpZ{background-color:var(--button--info-color);border-color:var(--button--info-color);color:#fff}.Button-module_btn--info__cNEH7.Button-module_btn--outline__1o5Hz{background-color:#fff;border-color:var(--button--info-color)}.Button-module_btn--info__cNEH7:hover{background-color:var(--button--info-hover-color);border-color:var(--button--info-hover-color)}";
+var styles = {"btn":"Button-module_btn__1lqJX","btn--full-width":"Button-module_btn--full-width__3jQiS","btn--xx-sm":"Button-module_btn--xx-sm__qLvcg","btn--x-sm":"Button-module_btn--x-sm__SgX8V","btn--sm":"Button-module_btn--sm__ukvwb","btn--md":"Button-module_btn--md__1m1sH","btn--lg":"Button-module_btn--lg__1cVTv","btn--x-lg":"Button-module_btn--x-lg__DI_eT","btn--xx-lg":"Button-module_btn--xx-lg__32KvQ","btn--sharp":"Button-module_btn--sharp__1IlTV","btn--rounded":"Button-module_btn--rounded__H9d8l","btn--circle":"Button-module_btn--circle__3Z1HP","btn--success":"Button-module_btn--success__3J-On","btn--fill":"Button-module_btn--fill__2tmpZ","btn--outline":"Button-module_btn--outline__1o5Hz","btn--info":"Button-module_btn--info__cNEH7"};
 styleInject(css_248z);
+
+/**
+ * @name generateClassNameString
+ * @description Generates a className string from an object
+ * @param {Object} cssModule CSS Module
+ * @param {Object} stylesObj Styles object to reduce
+ * @returns String - Classname
+ */
+const generateClassNameString = (cssModule, stylesArr) => {
+  let className = '';
+  stylesArr?.forEach(style => {
+    className += ` ${cssModule[style]}`;
+  });
+  return className.trim();
+};
 
 /**
  * @nmae Button
  * @description Renders the Button component
  * @param {*} props Props
- * @prop backgroundColor - 'background-color' css property
- * @prop borderColor - 'border-color' css property
- * @prop color - 'color' css property
- * @prop hoverBorderColor - 'border-color' css property for :hover selector
- * @prop hoverBackgroundColor - 'background-color' css property for :hover selector
- * @prop hoverColor - 'color' css property for :hover selector
- * @prop fontSize - 'font-size' css property
- * @prop theme - theme property : pass the theme object
- * @prop padding - 'padding' css property
- * @prop size - abstract prop for size
- * @prop variant - abstract prop for border, background, 
+ * @prop classes
+ * @prop label
  * @returns Component
  */
 
 const Button = props => {
-  const theme = useThemeContext();
+  const {
+    children,
+    label,
+    classes,
+    ...other
+  } = props;
+  const classesArr = classes?.split(' ');
+  let className = generateClassNameString(styles, classesArr);
   return /*#__PURE__*/React.createElement("button", _extends({
-    className: styles.main,
-    theme: theme ? theme : null
-  }, props), props.children);
-};
-Button.PropTypes = {
-  theme: PropTypes.object,
-  variant: PropTypes.oneOf(['outline', 'filled'])
+    className: className
+  }, other), children || label);
 };
 
 function stylis_min (W) {

@@ -1,0 +1,46 @@
+:root {
+  
+  /* ---------------------------- */
+  /* ---------- BUTTON ---------- */
+  /* ---------------------------- */
+  
+
+  /* --------- FONT SIZE ---------*/
+  --button--xx-sm-font-size: 10px;
+  --button--x-sm-font-size: 12px;
+  --button--sm-font-size: 14px;
+  --button--md-font-size: 16px;
+  --button--lg-font-size: 18px;
+  --button--x-lg-font-size: 20px;
+  --button--xx-lg-font-size: 24px;
+
+  /* --------- PADDING ---------*/
+  --button--xx-sm-padding: 4px 8px;
+  --button--x-sm-padding: 6px 12px;
+  --button--sm-padding: 8px 18px;
+  --button--md-padding: 12px 26px;
+  --button--lg-padding: 14px 30px;
+  --button--x-lg-padding: 18px 40px;
+  --button--xx-lg-padding: 20px 44px;
+
+  /* --------- BORDER ---------*/
+  --button--sharp-border-radius: 0px;
+  --button--rounded-border-radius: 5px;
+  --button--circle-border-radius: 999em;
+
+  /* --------- VARIANT --------- */
+  --button--success-color: rgb(28, 179, 65);
+  --button--success-hover-color: rgb(10, 128, 39);
+  --button--info-color: rgb(43, 134, 209);
+  --button--info-hover-color: rgb(4, 88, 156);
+  --button--danger-color: rgb(219, 70, 70);
+  --button--danger-hover-color: rgb(197, 29, 29);
+  --button--warn-color: rgb(240, 184, 81);
+  --button--warn-hover-color: rgb(228, 156, 49);
+  --button--default-color: rgb(63, 63, 63);
+  --button--default-hover-color: rgb(44, 44, 44);
+  
+  /* -------- USER CUSTOM -------- */
+  // --button--theme-color: none;
+  // --button--theme-hover-color: none;
+}
