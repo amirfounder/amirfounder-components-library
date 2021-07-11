@@ -1,5 +1,5 @@
 import React from 'react';
-import { generateClassNameString } from '../../utils/Generators';
+import { generateClassNameString } from '../../utils/Helpers';
 import styles from './Menu.module.scss'
 
 const MenuSubmenu = (props) => {

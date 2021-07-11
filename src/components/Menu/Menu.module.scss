@@ -1,41 +1,62 @@
 /* -------- TOKNES -------- */
 @import '../../utils/SCSSTokens.scss';
 
-:root {
-  --menu__item-color: blue;
-  --menu__item-hover-color: blue;
-  --menu__item-background-color: blue;
-  --menu__item-hover-background-color: blue;
+@mixin defineItem {
+  cursor: pointer;
 }
 
-@mixin defineMenuItemColor {
-  color: green;
+@mixin defineItemSubmenuDisplay {
+  &:hover > * {
+    display: block;
+  }
+}
+
+@mixin defineItemTransitions {
+  &:hover {
+    transition-duration: .3s;
+  }
+  &:not(:hover) {
+    transition-duration: .3s;
+  }
+}
+
+@mixin defineItemColor($color, $background-color, $hover-color, $hover-background-color) {
+
+  background-color: $background-color;
+  color: $color;
+
+  &:hover {
+    background-color: $hover-background-color;
+    color: $hover-color;
+  }
+}
+
+@mixin defineMenuItemDistance($distance) {
+  & > * {
+    padding-top: $distance;
+  }
 }
 
 .menu {
 
+  height: 100%; 
   /* -------- MENU ITEM -------- */
   &__item {
-
     display: inline-block;
-    cursor: pointer;
-
-    &:hover {
-      background-color: green;
-    }
-
-    &:hover > * {
-      display: block;
-    }
+    @include defineItem();
+    @include defineItemTransitions();
+    @include defineItemSubmenuDisplay();
+    @include defineItemColor(white, black, gray, black);
+    @include defineMenuItemDistance(7px);
 
     &:not(:last-child) {
       margin-right: 3vw;
     }
+
   }
 
   /* -------- SUBMENU -------- */
   &__submenu {
-
     position: absolute;
     display: none;
 
@@ -45,23 +66,14 @@
       display: block;
       cursor: pointer;
       position: relative;
-      background-color: black;
-      color: white;
-      min-width: 8rem;
+      min-width: 8em;
+      width: fit-content;
       
-      &:hover {
-        background-color: green;
-        transition-duration: .2s;
-      }
-
-      &:hover > * {
-        display: block;
-      }
-
-      &:not(:hover) {
-        transition-duration: .2s;
-      }
-    }
+      @include defineItem();
+      @include defineItemTransitions();
+      @include defineItemSubmenuDisplay();
+      @include defineItemColor(black, white, gray, white);
+  }
 
     /* -------- SUBMENU > SUBMENUS -------- */
     &--dir-lft {

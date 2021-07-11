@@ -44,30 +44,43 @@
   &--shdw-hv { @include defineHeaderShadow(0px 15px 25px rgba(0,0,0,0.2)) }
 }
 
-@mixin defineHeaderSize($min-height, $height, $max-height) {
+@mixin defineHeaderSize($min-height, $max-height, $font-size) {
   min-height: $min-height;
-  height: $height;
   max-height: $max-height;
+  font-size: $font-size;
 }
 
 @mixin defineHeaderSizeOptions {
-  &--sm > *, &--sm { @include defineHeaderSize(40px, 5vh, 80px) }
-  &--md > * { @include defineHeaderSize(60px, 7vh, 90px) }
-  &--lg > * { @include defineHeaderSize(90px, 10vh, 120px) }
+  &--sm > * { @include defineHeaderSize(
+    var(--header--sm-min-height, 5vh),
+    var(--header--sm-max-height, 80px),
+    var(--header--sm-font-size, 14px)
+  ) }
+  &--md > * { @include defineHeaderSize(
+    var(--header--md-min-height, 8vh),
+    var(--header--md-max-height, 100px),
+    var(--header--md-font-size, 16px)
+    ) }
+  &--lg > * { @include defineHeaderSize(
+    var(--header--lg-min-height, 10vh),
+    var(--header--lg-max-height, 120px),
+    var(--header--sm-font-size, 18px)
+    ) }
+}
+
+@mixin defineHeaderColumns {
+  grid-template-columns: repeat(var(--header--column-count, 2), 1fr);
 }
 
 .header {
-
+  
   & > * {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100%;
+    @include defineHeaderColumns()
   }
+
   /* -------- DEFAULT STYLES -------- */
   background-color: white;
-  height: 8vh;
-  max-height: 100px;
-  min-height: 70px;
   padding: var(--header--pd-md-padding);
 
   /* -------- HEADER VARIANTS -------- */
@@ -87,7 +100,6 @@
 
   &__col {
 
-    height: 100%;
     display: grid;
     align-items: center;
 

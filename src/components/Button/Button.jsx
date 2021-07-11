@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Button.module.scss';
-import { generateClassNameString } from '../../utils/Generators';
+import { generateClassNameString } from '../../utils/Helpers';
 import { useHistory } from 'react-router-dom';
 
 /**

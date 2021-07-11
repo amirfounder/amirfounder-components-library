@@ -19,7 +19,7 @@ stories.add('Demo Site', () => {
 
   return (
     <BrowserRouter>
-      <Header classes="header header--custom header--full-width header--contained">
+      <Header classes="header header--custom header--full-width header--contained header--md">
         <Header.Column classes="header__col header__col--center-left">
           Amir Sharapov
         </Header.Column>
@@ -29,7 +29,7 @@ stories.add('Demo Site', () => {
       </Header>
       <Header classes="header header--sm header--secondary header--contained">
         <Header.Column classes="header__col header__col--center-left">
-          Something here
+          Auoo
         </Header.Column>
         <Header.Column classes="header__col header__col--center-right">
           <Menu classes="menu">
@@ -58,7 +58,12 @@ stories.add('Demo Site', () => {
           </Menu>
         </Header.Column>
       </Header>
-      <Section classes="section section--cols-5 section--contained">
+      <Section classes="section section--8 section--contained">
+        <Section.Column classes="section__col">
+          Hello
+        </Section.Column>
+      </Section>
+      <Section classes="section section--contained">
         <Section.Column classes="section__col">
           <Box style={{ padding: '10px' }}>
             <Button classes="btn btn--danger btn--outline btn--sm" label="Danger!" />
@@ -68,8 +73,6 @@ stories.add('Demo Site', () => {
             <Button classes="btn btn--default btn--outline btn--sm" label="Default" />
             <Button classes="btn btn--custom btn--outline btn--sm" label="Custom" />
           </Box>
-        </Section.Column>
-        <Section.Column classes="section__col section__col--center-right">
           <Box style={{ padding: '10px' }}>
             <Button classes="btn btn--danger btn--fill btn--sm" label="Danger!" />
             <Button classes="btn btn--warn btn--fill btn--sm" label="Warning" />

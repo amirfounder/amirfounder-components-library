@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderColumn from './HeaderColumn'
 import styles from './Header.module.scss'
-import { generateClassNameString } from '../../utils/Generators';
+import { generateClassNameString } from '../../utils/Helpers';
 
 /**
  * @name Header
