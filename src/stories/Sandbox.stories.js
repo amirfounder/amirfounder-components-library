@@ -17,6 +17,7 @@ import {
   ThemeProvider,
   Section,
   Dropdown,
+  SubMenu,
   MenuItem
 } from '../index'
 
@@ -210,31 +211,16 @@ stories.add('testing dropdown', () => {
       <Menu alignment="right">
         <MenuItem>Link 1</MenuItem>
         <MenuItem>Link 2</MenuItem>
-        <MenuItem>Link 3</MenuItem>
-        <Dropdown
-          anchor={Anchor}
-          padding="29px 0px 0px 0px"
-        >
-          <ThemeProvider theme={dropdownTheme}>
-            <Menu direction="vertical">
-              <MenuItem>Link a</MenuItem>
-              <MenuItem>Link b</MenuItem>
-              <MenuItem>Link c</MenuItem>
-              <Dropdown
-                anchor={() => <Link>Link d</Link>}
-                padding="0px 0px 0px 0px"
-              >
-                <Menu>
-                  <MenuItem>Link i</MenuItem>
-                  <MenuItem>Link ii</MenuItem>
-                  <MenuItem>Link iii</MenuItem>
-                </Menu>
-              </Dropdown>
-            </Menu>
-          </ThemeProvider>
-        </Dropdown>
+        <MenuItem>
+          Link 3
+          <SubMenu direction="vertical">
+            <MenuItem>Link aa</MenuItem>
+            <MenuItem>Link bad</MenuItem>
+            <MenuItem>Link c</MenuItem>
+          </SubMenu>
+        </MenuItem>
         <MenuItem>Link 5</MenuItem>
       </Menu>
-    </Header>
+    </Header >
   )
 })

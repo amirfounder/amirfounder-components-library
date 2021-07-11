@@ -11,6 +11,7 @@ export const StyledMenu = styled.ul`
   background-color: ${(props) => generateMenuBackgroundColor(props)};
   justify-self: ${(props) => generateMenuJustifySelf(props)};
   list-style-type: none;
+  position: relative;
   padding: 0px;
   & > li {
     display: ${(props) => generateMenuItemDisplay(props)};

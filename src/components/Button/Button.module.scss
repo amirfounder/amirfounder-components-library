@@ -1,0 +1,165 @@
+:root {
+  /* ---- SIZE ---- */
+  --button--xx-sm-font-size: 10px;
+  --button--x-sm-font-size: 12px;
+  --button--sm-font-size: 14px;
+  --button--md-font-size: 16px;
+  --button--lg-font-size: 18px;
+  --button--x-lg-font-size: 20px;
+  --button--xx-lg-font-size: 24px;
+
+  --button--xx-sm-padding: 4px 8px;
+  --button--x-sm-padding: 6px 12px;
+  --button--sm-padding: 8px 18px;
+  --button--md-padding: 12px 26px;
+  --button--lg-padding: 14px 30px;
+  --button--x-lg-padding: 18px 40px;
+  --button--xx-lg-padding: 20px 44px;
+
+  /* ---- VARIANT ---- */
+  --button--success-color: rgb(28, 179, 65);
+  --button--success-hover-color: rgb(8, 133, 39);
+
+  --button--info-color: rgb(43, 134, 209);
+  --button--info-hover-color: rgb(9, 92, 160);
+
+  --button--danger-color: ;
+  --button--danger-hover-color: ;
+}
+
+.btn {
+
+  /* ---- VARIABLE ----  */
+  
+  $btn: &;
+
+  /* ---- DEFAULT STYLES ---- */
+
+  cursor: pointer;
+  border-color: black;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: var(--button--md-font-size);
+  line-height: 1em;
+  padding: var(--button--md-padding);
+
+  &:hover {
+    background-color: black;
+    color: white;
+    transition-duration: .3s;
+  }
+  &:not(:hover) {
+    transition-duration: .3s;
+  }
+
+  /* ---- FULL WIDTH ---- */
+
+  &--full-width {
+    display: block;
+    width: 100%;
+  }
+
+  /* ---- SIZES ---- */
+
+  &--xx-sm {
+    font-size: var(--button--xx-sm-font-size, 10px);
+    padding: var(--button--xx-sm-padding, 4px 8px);
+  }
+  &--x-sm {
+    font-size: var(--button--x-sm-font-size, 12px);
+    padding: var(--button--x-sm-padding, 6px 12px);
+  }
+  &--sm {
+    font-size: var(--button--sm-font-size, 14px);
+    padding: var(--button--sm-padding, 8px 20px);
+  }
+  &--md {
+    font-size: var(--button--md-font-size, 16px);
+    padding: var(--button--md-padding, 10px 12px);
+  }
+  &--lg {
+    font-size: var(--button--lg-font-size, 18px);
+    padding: var(--button--lg-padding, 4px 8px);
+  }
+  &--x-lg {
+    font-size: var(--button--x-lg-font-size, 20px);
+    padding: var(--button--x-lg-padding, 4px 8px);
+  }
+  &--xx-lg {
+    font-size: var(--button--xx-lg-font-size, 24px);
+    padding: var(--button--xx-lg-padding, 4px 8px);
+  }
+
+  /* ----- CORNER-RADIUS ----- */
+
+  &--sharp {
+    border-radius: 0px;
+  }
+  &--rounded {
+    border-radius: 5px;
+  }
+  &--circle {
+    border-radius: 999rem;
+  }
+
+  /* ---- VARIANTS ---- */
+
+  &--success {
+
+    /* ---- DEFAULT ---- */
+    background-color: var(--button--success-color);
+    border-color: var(--button--success-color);
+    color: white;
+
+    /* ---- FILL ---- */
+    &#{$btn}--fill {
+      background-color: var(--button--success-color);
+      border-color: var(--button--success-color);
+      color: white;
+    }
+
+    /* ---- OUTLINE ---- */
+    &#{$btn}--outline {
+      background-color: white;
+      border-color: var(--button--success-color);
+      color: var(--button--success-color);
+    }
+    
+    /* ---- BOTH ---- */
+    &:hover {
+      background-color: var(--button--success-hover-color);
+      border-color: var(--button--success-hover-color);
+      color: white;
+    }
+  }
+
+  &--info {
+
+    /* ---- DEFAULT ---- */
+    background-color: var(--button--info-color);
+    border-color: var(--button--info-color);
+    color: white;
+
+    /* ---- FILL ---- */
+    &#{$btn}--fill {
+      background-color: var(--button--info-color);
+      border-color: var(--button--info-color);
+      color: white;
+    }
+
+    /* ---- OUTLINE ---- */
+    &#{$btn}--outline {
+      background-color: white;
+      border-color: var(--button--info-color);
+    }
+
+    /* ---- BOTH ---- */
+    &:hover {
+      background-color: var(--button--info-hover-color);
+      border-color: var(--button--info-hover-color);
+    }
+
+  }
+
+}

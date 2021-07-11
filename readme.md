@@ -81,6 +81,14 @@ globalStyles = {
 - rollup-plugin-poscss: Used to allow css files in rollup
 - ...
 
+### Storybook Plugins:
+
+- @storybook/preset-scss
+- css-loader
+- sass
+- sass-loader
+- style-loader
+
 ## Developers:
 
 ### TODO:

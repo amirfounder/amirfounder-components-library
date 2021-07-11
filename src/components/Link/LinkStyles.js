@@ -10,7 +10,7 @@ import {
   generateLinkPadding,
 } from './LinkStylingService';
 
-const StyledLink = styled.span`
+const StyledLink = styled.div`
   background-color: ${(props) => generateLinkBackgroundColor(props)};
   color: ${(props) => generateLinkColor(props)};
   display: inline-block;
