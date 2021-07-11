@@ -1,19 +1,10 @@
 import React from 'react';
-import styles from './Button.module.scss';
 import { generateClassNameString } from '../../utils/Generators';
+import styles from './Header.module.scss'
 
-/**
- * @nmae Button
- * @description Renders the Button component
- * @param {*} props Props
- * @prop classes
- * @prop label
- * @returns Component
- */
-export const Button = (props) => {
+const HeaderColumn = (props) => {
   const {
     children,
-    label,
     classes,
     ...other
   } = props
@@ -26,11 +17,13 @@ export const Button = (props) => {
     )
 
   return (
-    <button
+    <div
       className={className}
       {...other}
     >
-      {children || label}
-    </button>
+      {children}
+    </div>
   )
 }
+
+export default HeaderColumn;

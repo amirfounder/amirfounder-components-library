@@ -1,6 +1,6 @@
 import React from 'react';
-import { useThemeContext } from '../Theme/Theme';
-import StyledColumn from './ColumnStyles';
+import { generateClassNameString } from '../../utils/Generators';
+import styles from './Column.module.scss';
 
 /**
  * @name Column
@@ -11,15 +11,25 @@ import StyledColumn from './ColumnStyles';
  * @returns Component
  */
 export const Column = (props) => {
-  const theme = useThemeContext();
+  const {
+    children,
+    classes,
+    ...other
+  } = props
+
+  const className =
+  generateClassNameString(
+    styles,
+    classes
+      ?.split(' ')
+  )
 
   return (
-    <StyledColumn
-      className='af-column'
-      theme={theme ? theme : null}
-      {...props}
+    <div
+      className={className}
+      {...other}
     >
-      {props.children}
-    </StyledColumn>
+      {children}
+    </div>
   )
 }

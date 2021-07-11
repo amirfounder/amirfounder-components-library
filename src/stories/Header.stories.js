@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Button } from '../index';
+import { Header } from '../index';
 
 export default {
   title: 'Components/Individual',
-  component: Button,
+  component: Header,
   argTypes: {
     classes: {
       control: 'text',
@@ -17,4 +17,4 @@ export default {
   }
 }
 
-export const Btn = (args) => <Button {...args} />
+export const Hdr = (args) => <Header {...args} />

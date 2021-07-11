@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Button } from '../index';
+import { Column } from '../index';
 
 export default {
   title: 'Components/Individual',
-  component: Button,
+  component: Column,
   argTypes: {
     classes: {
       control: 'text',
@@ -17,4 +17,4 @@ export default {
   }
 }
 
-export const Btn = (args) => <Button {...args} />
+export const Col = (args) => <Column {...args} />

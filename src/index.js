@@ -1,6 +1,6 @@
 export { ThemeProvider } from './components/Theme/Theme'
 export * from './components/Button'
-export * from './components/Column//Column'
+export * from './components/Column'
 export * from './components/Container/Container'
 export * from './components/Header/Header'
 export * from './components/Heading/Heading'

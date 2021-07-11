@@ -1,0 +1,18 @@
+@import '../Column/Column.module.scss';
+
+.header {
+  /* -------- DEFAULT STYLES -------- */
+  background-color: white;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 70px;
+  height: 8vh;
+  max-height: 100px;
+
+}
+
+.header__col {
+  @include defineColumnDefaultStyles();
+}

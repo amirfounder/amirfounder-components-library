@@ -1,7 +1,7 @@
 import React from 'react'
-import { Section } from '../Section/Section'
-import { useThemeContext } from '../Theme/Theme'
-import StyledHeader from './HeaderStyles'
+import HeaderColumn from './HeaderColumn'
+import styles from './Header.module.scss'
+import { generateClassNameString } from '../../utils/Generators';
 
 /**
  * @name Header
@@ -17,23 +17,30 @@ import StyledHeader from './HeaderStyles'
  * @prop size
  * @returns Component
  */
+
+
 export const Header = (props) => {
-  const theme = useThemeContext();
+  const {
+    classes,
+    children,
+    ...other
+  } = props;
+
+  const className =
+    generateClassNameString(
+      styles,
+      classes
+        ?.split(' ')
+    )
 
   return (
-    <StyledHeader
-      className="af-header"
-      theme={theme ? theme : null}
-      {...props}
+    <div
+      className={className}
+      {...other}
     >
-      <Section
-        padding={props.padding ? props.padding : '0 3vw'}
-        theme={theme ? theme : null}
-        verticalAlignment="center"
-        {...props}
-      >
-        {props.children}
-      </Section>
-    </StyledHeader>
+      {children}
+    </div>
   )
 }
+
+Header.Column = HeaderColumn;
