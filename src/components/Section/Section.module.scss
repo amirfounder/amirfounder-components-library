@@ -29,6 +29,10 @@
   &--pd-theme { @include defineSectionPadding(var(--section--pd-custom-padding)) }
 }
 
+@mixin defineSectionSize {
+  
+}
+
 .section {
 
   & > * {

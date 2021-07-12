@@ -52,7 +52,7 @@
 
 @mixin defineHeaderSizeOptions {
   &--sm > * { @include defineHeaderSize(
-    var(--header--sm-min-height, 5vh),
+    var(--header--sm-min-height, 6vh),
     var(--header--sm-max-height, 80px),
     var(--header--sm-font-size, 14px)
   ) }

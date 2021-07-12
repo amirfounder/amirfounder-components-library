@@ -65,15 +65,13 @@ stories.add('Demo Site', () => {
       </Section>
       <Section classes="section section--contained">
         <Section.Column classes="section__col">
-          <Box style={{ padding: '10px' }}>
+          <Box>
             <Button classes="btn btn--danger btn--outline btn--sm" label="Danger!" />
             <Button classes="btn btn--warn btn--outline btn--sm" label="Warning" />
             <Button classes="btn btn--info btn--outline btn--sm" label="Info" />
             <Button classes="btn btn--success btn--outline btn--sm" label="Success!" />
             <Button classes="btn btn--default btn--outline btn--sm" label="Default" />
             <Button classes="btn btn--custom btn--outline btn--sm" label="Custom" />
-          </Box>
-          <Box style={{ padding: '10px' }}>
             <Button classes="btn btn--danger btn--fill btn--sm" label="Danger!" />
             <Button classes="btn btn--warn btn--fill btn--sm" label="Warning" />
             <Button classes="btn btn--info btn--fill btn--sm" label="Info" />

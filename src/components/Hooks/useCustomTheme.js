@@ -10,11 +10,10 @@ export const useCustomTheme = (customTheme) => {
 
   const {
     buttonStyles,
-    headerStyles,
+    headerStyles, 
     ...rest
   } = customTheme
 
   setCustomVariable(root, '--button--custom-color')
   setCustomVariable(root, '--button--custom-hover-color')
-
 }
