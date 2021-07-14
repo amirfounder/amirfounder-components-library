@@ -30,12 +30,12 @@ export const Link = (props) => {
     generateClassNameString(styles, classes)
   
   return(
-    <StyledLink
+    <a
       className={className}
       onClick={handleClick}
       {...other}
     >
       {props.children}
-    </StyledLink>
+    </a>
   )
 }

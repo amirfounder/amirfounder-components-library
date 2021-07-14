@@ -3036,7 +3036,7 @@ const Link = props => {
   };
 
   const className = generateClassNameString(styles$4, classes);
-  return /*#__PURE__*/React.createElement(StyledLink, _extends$1({
+  return /*#__PURE__*/React.createElement("a", _extends$1({
     className: className,
     onClick: handleClick
   }, other), props.children);

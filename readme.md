@@ -221,3 +221,7 @@ Components can now accept global styles into their styling services by using the
 Test Deployment. Every component implement SCSS as their primary style source. Many of the
 previous attributes and props have been removed, as using the 'style' prop is a far simpler solution
 to custom styles.
+
+#### V 2.0.1 - V 2.0.x - Bug Fixes
+
+1. Fixed styled component bug in Link
