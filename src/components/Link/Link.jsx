@@ -1,39 +1,39 @@
 import React from 'react';
-
+import { generateClassNameString } from '../../utils/Helpers';
+import styles from './Link.module.scss'
 const { useHistory } = require('react-router-dom')
-import StyledLink from './LinkStyles'
 
 /**
  * @name Link
  * @description Renders the Link component.
  * @param {*} props Props
- * @prop color
- * @prop fontSize
- * @prop hoverColor
- * @prop size
- * @prop theme
- * @prop weight
  * @returns Component
  */
 export const Link = (props) => {
-  const theme = useThemeContext();
+  const {
+    children,
+    classes,
+    href,
+    to,
+    ...other
+  } = props;
+
   const history = useHistory();
 
-  /**
-   * @name handleClick
-   * @description Uses history to redirect to the provided path
-   */
   const handleClick = () => {
-    if (props.to) history.push(props.to);
-    if (props.href) window.open(props.href, '_blank')
+    props.to && history.push(props.to);
+    props.href && window.open(props.href, '_blank')
+    onClick && onClick();
   }
+
+  const className =
+    generateClassNameString(styles, classes)
   
   return(
     <StyledLink
-      className='af-link'
+      className={className}
       onClick={handleClick}
-      theme={theme ? theme : null}
-      {...props}
+      {...other}
     >
       {props.children}
     </StyledLink>

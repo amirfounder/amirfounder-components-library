@@ -1,9 +1,9 @@
 import React from 'react';
-import {
-  StyledModal,
-  StyledModalBackground
-} from './ModalStyles';
-import { Box } from '../Box/Box';
+import { generateClassNameString } from '../../utils/Helpers';
+import styles from './Modal.module.scss'
+
+import ModalBackground from './ModalBackground';
+import ModalBox from './ModalBox';
 
 
 /**
@@ -17,30 +17,26 @@ import { Box } from '../Box/Box';
  * @returns Component
  */
 export const Modal = (props) => {
-  const theme = useThemeContext();
+  const {
+    children,
+    classes,
+    show,
+    ...other
+  } = props;
+
+  const className =
+    generateClassNameString(styles, classes)
 
   return (
-    <StyledModal
-      className="af-modal"
-      hidden={!props.show}
-      theme={theme ? theme : null}
-      {...props}
+    <div
+      className={className}
+      hidden={!show}
+      {...other}
     >
-      <StyledModalBackground
-        className="af-modal-background"
-        theme={theme ? theme : null}
-        {...props}
-      >
-        <Box
-          minWidth={props.width ? props.width.toLowercase() : '40vw'}
-          maxWidth={props.width ? props.width.toLowercase() : '40vw'}
-          margin={props.margin ? props.margin.toLowercase() : '20px'}
-          theme={theme ? theme : null}
-          {...props}
-        >
-          {props.children}
-        </Box>
-      </StyledModalBackground>
-    </StyledModal>
+      {children}
+    </div>
   )
 }
+
+Modal.Background = ModalBackground
+Modal.Box = ModalBox

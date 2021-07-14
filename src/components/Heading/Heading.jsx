@@ -1,40 +1,38 @@
 import React from 'react';
-
-import {
-  StyledH1,
-  StyledH2,
-  StyledH3,
-  StyledH4,
-  StyledH5,
-  StyledH6
-} from './HeadingStyles';
+import { generateClassNameString } from '../../utils/Helpers';
+import styles from './Heading.module.scss'
 
 /**
  * @name Heading
  * @description Renders the Heading component
  * @param {*} props Props
- * @prop background
- * @prop backgroundAttachment
- * @prop backgroundRepeat
- * @prop backgroundSize
- * @prop color
- * @prop fontSize
- * @prop fontWeight
- * @prop theme
+ * @todo bgImg
  * @returns Component
  */
 export const Heading = (props) => {
-  const theme = useThemeContext();
+  const {
+    children,
+    classes,
+    level,
+    ...other
+  } = props;
+
+  const className =
+    generateClassNameString(styles, classes)
+
   return (
     <>
-      {!props.level ? <StyledH2 className="af-heading" {...props}>{props.children}</StyledH2> :
-        Number(props.level) === 1 ? <StyledH1 className="af-heading" theme={theme ? theme : null} {...props}>{props.children}</StyledH1> :
-          Number(props.level) === 2 ? <StyledH2 className="af-heading" theme={theme ? theme : null} {...props}>{props.children}</StyledH2> :
-            Number(props.level) === 3 ? <StyledH3 className="af-heading" theme={theme ? theme : null} {...props}>{props.children}</StyledH3> :
-              Number(props.level) === 4 ? <StyledH4 className="af-heading" theme={theme ? theme : null} {...props}>{props.children}</StyledH4> :
-                Number(props.level) === 5 ? <StyledH5 className="af-heading" theme={theme ? theme : null} {...props}>{props.children}</StyledH5> :
-                  Number(props.level) === 6 ? <StyledH6 className="af-heading" theme={theme ? theme : null} {...props}>{props.children}</StyledH6> :
-                    <StyledH2 className="af-heading" {...props}>{props.children}</StyledH2>}
+      {
+        !level ? <h2 className={className} {...other}>{children}</h2> :
+        level == 1 ? <h1 className={className} {...other}>{children}</h1> :
+        level == 2 ? <h2 className={className} {...other}>{children}</h2> :
+        level == 3 ? <h3 className={className} {...other}>{children}</h3> :
+        level == 4 ? <h4 className={className} {...other}>{children}</h4> :
+        level == 5 ? <h5 className={className} {...other}>{children}</h5> :
+        level == 6 ? <h6 className={className} {...other}>{children}</h6> :
+        <h2 className={className} {...other}>{children}</h2>
+      }
     </>
   )
+
 }

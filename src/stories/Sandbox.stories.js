@@ -66,7 +66,7 @@ stories.add('Demo Site', () => {
       <Section classes="section section--contained">
         <Section.Column classes="section__col">
           <Box>
-            <Button classes="btn btn--danger btn--outline btn--sm" label="Danger!" />
+          <Button classes="btn btn--danger btn--outline btn--sm" label="Danger!" /><Button classes="btn btn--danger btn--outline btn--sm" label="Danger!" />
             <Button classes="btn btn--warn btn--outline btn--sm" label="Warning" />
             <Button classes="btn btn--info btn--outline btn--sm" label="Info" />
             <Button classes="btn btn--success btn--outline btn--sm" label="Success!" />

@@ -1,14 +1,8 @@
 import React from 'react';
 import { generateClassNameString } from '../../utils/Helpers';
-import styles from './Input.module.scss'
+import styles from './Modal.module.scss'
 
-/**
- * @name Input
- * @description Renders the Input component
- * @param {*} props Props
- * @returns Component
- */
-export const Input = (props) => {
+const ModalBox = (props) => {
   const {
     children,
     classes,
@@ -17,11 +11,15 @@ export const Input = (props) => {
 
   const className =
     generateClassNameString(styles, classes)
-
-  return(
-    <input
+  
+  return (
+    <Box
       className={className}
       {...other}
-    />
+    >
+      {children}
+    </Box>
   )
 }
+
+export default ModalBox

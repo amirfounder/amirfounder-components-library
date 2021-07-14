@@ -1,28 +1,29 @@
 import React from 'react';
-
-import StyledParagraph from './ParagraphStyles';
+import { generateClassNameString } from '../../utils/Helpers';
+import styles from './Paragraph.module.scss'
 
 /**
  * @name Paragraph
  * @description Renders the paragraph component
  * @param {*} Props children
- * @prop fontSize
- * @prop fontWeight
- * @prop theme
- * @prop lineHeight
- * @prop size
  * @returns Component
  */
 export const Paragraph = (props) => {
-  const theme = useThemeContext();
+  const {
+    children,
+    classes,
+    ...other
+  } = props;
+
+  const className =
+    generateClassNameString(styles, classes)
 
   return (
-    <StyledParagraph
-      className="af-paragraph"
-      theme={theme ? theme : null}
-      {...props}
+    <p
+      className={className}
+      {...other}
     >
-      {props.children}
-    </StyledParagraph>
+      {children}
+    </p>
   )
 }
