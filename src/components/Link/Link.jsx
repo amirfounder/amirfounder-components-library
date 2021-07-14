@@ -1,7 +1,7 @@
 import React from 'react';
 import { generateClassNameString } from '../../utils/Helpers';
 import styles from './Link.module.scss'
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 /**
  * @name Link

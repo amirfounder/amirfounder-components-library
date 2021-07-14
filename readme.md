@@ -226,3 +226,4 @@ to custom styles.
 
 1. Fixed styled component bug in Link
 2. Fixed styling but with link and menu
+3. Fixed import on link
