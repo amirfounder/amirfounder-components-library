@@ -11,6 +11,7 @@ import SectionColumn from './SectionColumn';
  */
 export const Section = (props) => {
   const {
+    bgImg,
     children,
     classes,
     ...other
@@ -25,6 +26,8 @@ export const Section = (props) => {
 
   return (
     <div
+      // created styled component and add bgImg to styled component
+      style={{ backgroundImage: `url(${bgImg})` }}
       className={className}
       {...other}
     >
@@ -36,5 +39,3 @@ export const Section = (props) => {
 }
 
 Section.Column = SectionColumn
-
-// export default Section;

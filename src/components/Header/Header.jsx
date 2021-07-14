@@ -10,7 +10,6 @@ import { generateClassNameString } from '../../utils/Helpers';
  * @returns Component
  */
 
-
 export const Header = (props) => {
   const {
     classes,
@@ -19,11 +18,7 @@ export const Header = (props) => {
   } = props;
 
   const className =
-    generateClassNameString(
-      styles,
-      classes
-        ?.split(' ')
-    )
+    generateClassNameString(styles, classes)
 
   return (
     <div

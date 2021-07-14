@@ -124,7 +124,9 @@ Paramaters should be in the following order for easier readability and maintanab
 2. Actual (i.e. padding : paddingProp, color: colorProp, etc) → The actual attribute if it exists
 3. Other → Any other prop that can help determine the return value of the function
 
-## Version History:
+# Version History:
+
+## V 1
 
 ### V 1.0: Semi-Failed Attempts
 
@@ -209,3 +211,13 @@ Components can now accept global styles into their styling services by using the
 7. Theme bug fix attempt #2
 8. Removed terser
 9. Theme bug fix attempt #3
+
+## V 2
+
+### V 2.0.0
+
+<< BREAKING CHANGES! >>
+
+Test Deployment. Every component implement SCSS as their primary style source. Many of the
+previous attributes and props have been removed, as using the 'style' prop is a far simpler solution
+to custom styles.
