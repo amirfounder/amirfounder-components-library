@@ -225,3 +225,4 @@ to custom styles.
 #### V 2.0.1 - V 2.0.x - Bug Fixes
 
 1. Fixed styled component bug in Link
+2. Fixed styling but with link and menu

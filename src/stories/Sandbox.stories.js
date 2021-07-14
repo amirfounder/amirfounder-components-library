@@ -6,7 +6,8 @@ import {
   Button,
   Header,
   Section,
-  Menu
+  Menu,
+  Link
 } from '../index'
 
 const stories = storiesOf('Sandbox', module)
@@ -33,7 +34,7 @@ stories.add('Demo Site', () => {
         </Header.Column>
         <Header.Column classes="header__col header__col--center-right">
           <Menu classes="menu">
-            <Menu.Item classes="menu__item menu__item--sqr">Item 1</Menu.Item>
+            <Menu.Item classes="menu__item menu__item--sqr"><Link classes="link">Item1</Link></Menu.Item>
             <Menu.Item classes="menu__item menu__item--sqr">Item 2</Menu.Item>
             <Menu.Item classes="menu__item menu__item--sqr">Item 3
               <Menu.Submenu classes="menu__submenu">

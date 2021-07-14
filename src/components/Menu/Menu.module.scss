@@ -32,7 +32,7 @@
 }
 
 @mixin defineMenuItemDistance($distance) {
-  & > * {
+  & > div {
     padding-top: $distance;
   }
 }
@@ -47,7 +47,7 @@
     @include defineItemTransitions();
     @include defineItemSubmenuDisplay();
     @include defineItemColor(white, black, gray, black);
-    @include defineMenuItemDistance(7px);
+    @include defineMenuItemDistance(5px);
 
     &:not(:last-child) {
       margin-right: 3vw;

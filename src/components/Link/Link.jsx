@@ -1,7 +1,7 @@
 import React from 'react';
 import { generateClassNameString } from '../../utils/Helpers';
 import styles from './Link.module.scss'
-const { useHistory } = require('react-router-dom')
+import { useHistory } from 'react-router';
 
 /**
  * @name Link
@@ -14,6 +14,7 @@ export const Link = (props) => {
     children,
     classes,
     href,
+    onClick,
     to,
     ...other
   } = props;
@@ -21,8 +22,8 @@ export const Link = (props) => {
   const history = useHistory();
 
   const handleClick = () => {
-    props.to && history.push(props.to);
-    props.href && window.open(props.href, '_blank')
+    to && history.push(to);
+    href && window.open(href, '_blank')
     onClick && onClick();
   }
 
