@@ -167,3 +167,4 @@ to custom styles.
 3. Fixed import on link
 4. Bug fix attempt
 5. Updated package.json
+6. Bug fix attempt

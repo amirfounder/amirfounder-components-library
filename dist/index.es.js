@@ -3433,13 +3433,12 @@ const Link = props => {
     classes,
     href,
     onClick,
-    to,
     ...other
   } = props;
+  const history = useHistory();
 
   const handleClick = () => {
-    const history = useHistory();
-    to && history.push(to);
+    props.to && history.push(props.to);
     href && window.open(href, '_blank');
     onClick && onClick();
   };
