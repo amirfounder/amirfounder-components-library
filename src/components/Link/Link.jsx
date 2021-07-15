@@ -2,9 +2,6 @@ import React from 'react';
 import { generateClassNameString } from '../../utils/Helpers';
 import styles from './Link.module.scss'
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
-
-const StyledLink = styled.a``
 
 /**
  * @name Link
@@ -18,13 +15,14 @@ export const Link = (props) => {
     classes,
     href,
     onClick,
+    to,
     ...other
   } = props;
 
   const history = useHistory();
   
   const handleClick = () => {
-    props.to && history.push(props.to);
+    history && to && history.push(to)
     href && window.open(href, '_blank')
     onClick && onClick();
   }
@@ -33,12 +31,12 @@ export const Link = (props) => {
     generateClassNameString(styles, classes)
   
   return(
-    <StyledLink
+    <span
       className={className}
       onClick={handleClick}
       {...other}
     >
       {props.children}
-    </StyledLink>
+    </span>
   )
 }
