@@ -166,3 +166,4 @@ to custom styles.
 2. Fixed styling but with link and menu
 3. Fixed import on link
 4. Bug fix attempt
+5. Updated package.json

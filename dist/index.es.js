@@ -3354,8 +3354,8 @@ const Header = props => {
 };
 Header.Column = HeaderColumn;
 
-var css_248z$6 = ".Heading-module_hdng__11uXt{margin-block-start:0;margin-block-end:.5em;color:#000;font-weight:500}";
-var styles$6 = {"hdng":"Heading-module_hdng__11uXt"};
+var css_248z$6 = ".Heading-module_heading__3EbyB{margin-block-start:0;margin-block-end:.5em;color:#000;font-weight:500}";
+var styles$6 = {"heading":"Heading-module_heading__3EbyB"};
 styleInject(css_248z$6);
 
 /**
