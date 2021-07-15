@@ -2,6 +2,9 @@ import React from 'react';
 import { generateClassNameString } from '../../utils/Helpers';
 import styles from './Link.module.scss'
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledLink = styled.a``
 
 /**
  * @name Link
@@ -30,12 +33,12 @@ export const Link = (props) => {
     generateClassNameString(styles, classes)
   
   return(
-    <a
+    <StyledLink
       className={className}
       onClick={handleClick}
       {...other}
     >
       {props.children}
-    </a>
+    </StyledLink>
   )
 }
