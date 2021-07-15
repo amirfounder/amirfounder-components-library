@@ -4,73 +4,11 @@ NOTE: Breaking Changes released WEEKLY if not DAILY! Do not install and use on p
 
 Backlog → https://github.com/orgs/amirfounder/projects/1
 
-## Usage
+# Usage
 
 A component library for the ReactJS Framework, built to be used by the @amirfounder brand.
 
-### Components
-
-- Button
-  - backgroundColor
-  - borderColor
-  - color
-  - hoverBorderColor
-  - hoverBackgroundColor
-  - hoverColor
-  - fontSize
-  - global
-  - padding
-  - size
-  - variant
-- Column
-  - 
-- Container
-- Header
-- Heading
-- Input
-- Link
-- Logo
-- Menu
-- Modal
-- Page
-- Paragraph
-- Section
-
-### Global Styles (NEW)
-
-`globalStyles` Object structure:
-
-```
-globalStyles = {
-  <COMPONENT>: {
-    <PROPERTY>: <VALUE>,
-    ...
-    <PSEUDO-SELECTOR>: {
-      <PROPERTY>: <VALUE>,
-      ...
-    },
-    ...
-  },
-  ...
-}
-```
-
-`globalStyles` Object example:
-
-```
-globalStyles = {
-  button: {
-    backgroundColor: "red",
-    color: "#fff",
-    hover {
-      backgroundColor: "dark-red"
-    }
-  }
-}
-
-```
-
-## Dependencies:
+# Dependencies:
 
 - Storybook: Used for viewing components
 - Rollup: Used to compress all libraries into a single file (See below for plugins)
@@ -89,7 +27,7 @@ globalStyles = {
 - sass-loader
 - style-loader
 
-## Developers:
+# Developers:
 
 ### TODO:
 
@@ -227,3 +165,4 @@ to custom styles.
 1. Fixed styled component bug in Link
 2. Fixed styling but with link and menu
 3. Fixed import on link
+4. Bug fix attempt

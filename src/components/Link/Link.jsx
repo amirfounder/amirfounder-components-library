@@ -19,9 +19,9 @@ export const Link = (props) => {
     ...other
   } = props;
 
-  const history = useHistory();
-
+  
   const handleClick = () => {
+    const history = useHistory();
     to && history.push(to);
     href && window.open(href, '_blank')
     onClick && onClick();
