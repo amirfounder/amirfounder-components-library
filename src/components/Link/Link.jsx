@@ -10,6 +10,8 @@ import { useHistory } from 'react-router-dom';
  * @returns Component
  */
 export const Link = (props) => {
+  const history = useHistory();
+
   const {
     children,
     classes,
@@ -18,13 +20,11 @@ export const Link = (props) => {
     to,
     ...other
   } = props;
-
-  const history = useHistory();
   
   const handleClick = () => {
-    history && to && history.push(to)
-    href && window.open(href, '_blank')
-    onClick && onClick();
+    if (to) history.push(to)
+    if (href) window.open(href, '_blank')
+    if (onClick) onClick();
   }
 
   const className =

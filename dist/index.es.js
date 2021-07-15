@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React$1, { Component } from 'react';
 
 function _extends$1() {
   _extends$1 = Object.assign || function (target) {
@@ -82,7 +82,7 @@ const Box$1 = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$a, classes?.split(' '));
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), props.children);
 };
@@ -1311,6 +1311,21 @@ function invariant(condition, message) {
     throw new Error(prefix + ": " + (message || ''));
 }
 
+function addLeadingSlash$1(path) {
+  return path.charAt(0) === '/' ? path : '/' + path;
+}
+function stripLeadingSlash(path) {
+  return path.charAt(0) === '/' ? path.substr(1) : path;
+}
+function hasBasename(path, prefix) {
+  return path.toLowerCase().indexOf(prefix.toLowerCase()) === 0 && '/?#'.indexOf(path.charAt(prefix.length)) !== -1;
+}
+function stripBasename$1(path, prefix) {
+  return hasBasename(path, prefix) ? path.substr(prefix.length) : path;
+}
+function stripTrailingSlash(path) {
+  return path.charAt(path.length - 1) === '/' ? path.slice(0, -1) : path;
+}
 function parsePath(path) {
   var pathname = path || '/';
   var search = '';
@@ -1469,6 +1484,597 @@ function createTransitionManager() {
     appendListener: appendListener,
     notifyListeners: notifyListeners
   };
+}
+
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+function getConfirmation(message, callback) {
+  callback(window.confirm(message)); // eslint-disable-line no-alert
+}
+/**
+ * Returns true if the HTML5 history API is supported. Taken from Modernizr.
+ *
+ * https://github.com/Modernizr/Modernizr/blob/master/LICENSE
+ * https://github.com/Modernizr/Modernizr/blob/master/feature-detects/history.js
+ * changed to avoid false negatives for Windows Phones: https://github.com/reactjs/react-router/issues/586
+ */
+
+function supportsHistory() {
+  var ua = window.navigator.userAgent;
+  if ((ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) && ua.indexOf('Mobile Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Windows Phone') === -1) return false;
+  return window.history && 'pushState' in window.history;
+}
+/**
+ * Returns true if browser fires popstate on hash change.
+ * IE10 and IE11 do not.
+ */
+
+function supportsPopStateOnHashChange() {
+  return window.navigator.userAgent.indexOf('Trident') === -1;
+}
+/**
+ * Returns false if using go(n) with hash history causes a full page reload.
+ */
+
+function supportsGoWithoutReloadUsingHash() {
+  return window.navigator.userAgent.indexOf('Firefox') === -1;
+}
+/**
+ * Returns true if a given popstate event is an extraneous WebKit event.
+ * Accounts for the fact that Chrome on iOS fires real popstate events
+ * containing undefined state when pressing the back button.
+ */
+
+function isExtraneousPopstateEvent(event) {
+  return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
+}
+
+var PopStateEvent = 'popstate';
+var HashChangeEvent = 'hashchange';
+
+function getHistoryState() {
+  try {
+    return window.history.state || {};
+  } catch (e) {
+    // IE 11 sometimes throws when accessing window.history.state
+    // See https://github.com/ReactTraining/history/pull/289
+    return {};
+  }
+}
+/**
+ * Creates a history object that uses the HTML5 history API including
+ * pushState, replaceState, and the popstate event.
+ */
+
+
+function createBrowserHistory(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  !canUseDOM ? process.env.NODE_ENV !== "production" ? invariant(false, 'Browser history needs a DOM') : invariant(false) : void 0;
+  var globalHistory = window.history;
+  var canUseHistory = supportsHistory();
+  var needsHashChangeListener = !supportsPopStateOnHashChange();
+  var _props = props,
+      _props$forceRefresh = _props.forceRefresh,
+      forceRefresh = _props$forceRefresh === void 0 ? false : _props$forceRefresh,
+      _props$getUserConfirm = _props.getUserConfirmation,
+      getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
+      _props$keyLength = _props.keyLength,
+      keyLength = _props$keyLength === void 0 ? 6 : _props$keyLength;
+  var basename = props.basename ? stripTrailingSlash(addLeadingSlash$1(props.basename)) : '';
+
+  function getDOMLocation(historyState) {
+    var _ref = historyState || {},
+        key = _ref.key,
+        state = _ref.state;
+
+    var _window$location = window.location,
+        pathname = _window$location.pathname,
+        search = _window$location.search,
+        hash = _window$location.hash;
+    var path = pathname + search + hash;
+    process.env.NODE_ENV !== "production" ? warning(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') : void 0;
+    if (basename) path = stripBasename$1(path, basename);
+    return createLocation(path, state, key);
+  }
+
+  function createKey() {
+    return Math.random().toString(36).substr(2, keyLength);
+  }
+
+  var transitionManager = createTransitionManager();
+
+  function setState(nextState) {
+    _extends(history, nextState);
+
+    history.length = globalHistory.length;
+    transitionManager.notifyListeners(history.location, history.action);
+  }
+
+  function handlePopState(event) {
+    // Ignore extraneous popstate events in WebKit.
+    if (isExtraneousPopstateEvent(event)) return;
+    handlePop(getDOMLocation(event.state));
+  }
+
+  function handleHashChange() {
+    handlePop(getDOMLocation(getHistoryState()));
+  }
+
+  var forceNextPop = false;
+
+  function handlePop(location) {
+    if (forceNextPop) {
+      forceNextPop = false;
+      setState();
+    } else {
+      var action = 'POP';
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (ok) {
+          setState({
+            action: action,
+            location: location
+          });
+        } else {
+          revertPop(location);
+        }
+      });
+    }
+  }
+
+  function revertPop(fromLocation) {
+    var toLocation = history.location; // TODO: We could probably make this more reliable by
+    // keeping a list of keys we've seen in sessionStorage.
+    // Instead, we just default to 0 for keys we don't know.
+
+    var toIndex = allKeys.indexOf(toLocation.key);
+    if (toIndex === -1) toIndex = 0;
+    var fromIndex = allKeys.indexOf(fromLocation.key);
+    if (fromIndex === -1) fromIndex = 0;
+    var delta = toIndex - fromIndex;
+
+    if (delta) {
+      forceNextPop = true;
+      go(delta);
+    }
+  }
+
+  var initialLocation = getDOMLocation(getHistoryState());
+  var allKeys = [initialLocation.key]; // Public interface
+
+  function createHref(location) {
+    return basename + createPath(location);
+  }
+
+  function push(path, state) {
+    process.env.NODE_ENV !== "production" ? warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to push when the 1st ' + 'argument is a location-like object that already has state; it is ignored') : void 0;
+    var action = 'PUSH';
+    var location = createLocation(path, state, createKey(), history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var href = createHref(location);
+      var key = location.key,
+          state = location.state;
+
+      if (canUseHistory) {
+        globalHistory.pushState({
+          key: key,
+          state: state
+        }, null, href);
+
+        if (forceRefresh) {
+          window.location.href = href;
+        } else {
+          var prevIndex = allKeys.indexOf(history.location.key);
+          var nextKeys = allKeys.slice(0, prevIndex + 1);
+          nextKeys.push(location.key);
+          allKeys = nextKeys;
+          setState({
+            action: action,
+            location: location
+          });
+        }
+      } else {
+        process.env.NODE_ENV !== "production" ? warning(state === undefined, 'Browser history cannot push state in browsers that do not support HTML5 history') : void 0;
+        window.location.href = href;
+      }
+    });
+  }
+
+  function replace(path, state) {
+    process.env.NODE_ENV !== "production" ? warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to replace when the 1st ' + 'argument is a location-like object that already has state; it is ignored') : void 0;
+    var action = 'REPLACE';
+    var location = createLocation(path, state, createKey(), history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var href = createHref(location);
+      var key = location.key,
+          state = location.state;
+
+      if (canUseHistory) {
+        globalHistory.replaceState({
+          key: key,
+          state: state
+        }, null, href);
+
+        if (forceRefresh) {
+          window.location.replace(href);
+        } else {
+          var prevIndex = allKeys.indexOf(history.location.key);
+          if (prevIndex !== -1) allKeys[prevIndex] = location.key;
+          setState({
+            action: action,
+            location: location
+          });
+        }
+      } else {
+        process.env.NODE_ENV !== "production" ? warning(state === undefined, 'Browser history cannot replace state in browsers that do not support HTML5 history') : void 0;
+        window.location.replace(href);
+      }
+    });
+  }
+
+  function go(n) {
+    globalHistory.go(n);
+  }
+
+  function goBack() {
+    go(-1);
+  }
+
+  function goForward() {
+    go(1);
+  }
+
+  var listenerCount = 0;
+
+  function checkDOMListeners(delta) {
+    listenerCount += delta;
+
+    if (listenerCount === 1 && delta === 1) {
+      window.addEventListener(PopStateEvent, handlePopState);
+      if (needsHashChangeListener) window.addEventListener(HashChangeEvent, handleHashChange);
+    } else if (listenerCount === 0) {
+      window.removeEventListener(PopStateEvent, handlePopState);
+      if (needsHashChangeListener) window.removeEventListener(HashChangeEvent, handleHashChange);
+    }
+  }
+
+  var isBlocked = false;
+
+  function block(prompt) {
+    if (prompt === void 0) {
+      prompt = false;
+    }
+
+    var unblock = transitionManager.setPrompt(prompt);
+
+    if (!isBlocked) {
+      checkDOMListeners(1);
+      isBlocked = true;
+    }
+
+    return function () {
+      if (isBlocked) {
+        isBlocked = false;
+        checkDOMListeners(-1);
+      }
+
+      return unblock();
+    };
+  }
+
+  function listen(listener) {
+    var unlisten = transitionManager.appendListener(listener);
+    checkDOMListeners(1);
+    return function () {
+      checkDOMListeners(-1);
+      unlisten();
+    };
+  }
+
+  var history = {
+    length: globalHistory.length,
+    action: 'POP',
+    location: initialLocation,
+    createHref: createHref,
+    push: push,
+    replace: replace,
+    go: go,
+    goBack: goBack,
+    goForward: goForward,
+    block: block,
+    listen: listen
+  };
+  return history;
+}
+
+var HashChangeEvent$1 = 'hashchange';
+var HashPathCoders = {
+  hashbang: {
+    encodePath: function encodePath(path) {
+      return path.charAt(0) === '!' ? path : '!/' + stripLeadingSlash(path);
+    },
+    decodePath: function decodePath(path) {
+      return path.charAt(0) === '!' ? path.substr(1) : path;
+    }
+  },
+  noslash: {
+    encodePath: stripLeadingSlash,
+    decodePath: addLeadingSlash$1
+  },
+  slash: {
+    encodePath: addLeadingSlash$1,
+    decodePath: addLeadingSlash$1
+  }
+};
+
+function stripHash(url) {
+  var hashIndex = url.indexOf('#');
+  return hashIndex === -1 ? url : url.slice(0, hashIndex);
+}
+
+function getHashPath() {
+  // We can't use window.location.hash here because it's not
+  // consistent across browsers - Firefox will pre-decode it!
+  var href = window.location.href;
+  var hashIndex = href.indexOf('#');
+  return hashIndex === -1 ? '' : href.substring(hashIndex + 1);
+}
+
+function pushHashPath(path) {
+  window.location.hash = path;
+}
+
+function replaceHashPath(path) {
+  window.location.replace(stripHash(window.location.href) + '#' + path);
+}
+
+function createHashHistory(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  !canUseDOM ? process.env.NODE_ENV !== "production" ? invariant(false, 'Hash history needs a DOM') : invariant(false) : void 0;
+  var globalHistory = window.history;
+  var canGoWithoutReload = supportsGoWithoutReloadUsingHash();
+  var _props = props,
+      _props$getUserConfirm = _props.getUserConfirmation,
+      getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
+      _props$hashType = _props.hashType,
+      hashType = _props$hashType === void 0 ? 'slash' : _props$hashType;
+  var basename = props.basename ? stripTrailingSlash(addLeadingSlash$1(props.basename)) : '';
+  var _HashPathCoders$hashT = HashPathCoders[hashType],
+      encodePath = _HashPathCoders$hashT.encodePath,
+      decodePath = _HashPathCoders$hashT.decodePath;
+
+  function getDOMLocation() {
+    var path = decodePath(getHashPath());
+    process.env.NODE_ENV !== "production" ? warning(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') : void 0;
+    if (basename) path = stripBasename$1(path, basename);
+    return createLocation(path);
+  }
+
+  var transitionManager = createTransitionManager();
+
+  function setState(nextState) {
+    _extends(history, nextState);
+
+    history.length = globalHistory.length;
+    transitionManager.notifyListeners(history.location, history.action);
+  }
+
+  var forceNextPop = false;
+  var ignorePath = null;
+
+  function locationsAreEqual$$1(a, b) {
+    return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash;
+  }
+
+  function handleHashChange() {
+    var path = getHashPath();
+    var encodedPath = encodePath(path);
+
+    if (path !== encodedPath) {
+      // Ensure we always have a properly-encoded hash.
+      replaceHashPath(encodedPath);
+    } else {
+      var location = getDOMLocation();
+      var prevLocation = history.location;
+      if (!forceNextPop && locationsAreEqual$$1(prevLocation, location)) return; // A hashchange doesn't always == location change.
+
+      if (ignorePath === createPath(location)) return; // Ignore this change; we already setState in push/replace.
+
+      ignorePath = null;
+      handlePop(location);
+    }
+  }
+
+  function handlePop(location) {
+    if (forceNextPop) {
+      forceNextPop = false;
+      setState();
+    } else {
+      var action = 'POP';
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (ok) {
+          setState({
+            action: action,
+            location: location
+          });
+        } else {
+          revertPop(location);
+        }
+      });
+    }
+  }
+
+  function revertPop(fromLocation) {
+    var toLocation = history.location; // TODO: We could probably make this more reliable by
+    // keeping a list of paths we've seen in sessionStorage.
+    // Instead, we just default to 0 for paths we don't know.
+
+    var toIndex = allPaths.lastIndexOf(createPath(toLocation));
+    if (toIndex === -1) toIndex = 0;
+    var fromIndex = allPaths.lastIndexOf(createPath(fromLocation));
+    if (fromIndex === -1) fromIndex = 0;
+    var delta = toIndex - fromIndex;
+
+    if (delta) {
+      forceNextPop = true;
+      go(delta);
+    }
+  } // Ensure the hash is encoded properly before doing anything else.
+
+
+  var path = getHashPath();
+  var encodedPath = encodePath(path);
+  if (path !== encodedPath) replaceHashPath(encodedPath);
+  var initialLocation = getDOMLocation();
+  var allPaths = [createPath(initialLocation)]; // Public interface
+
+  function createHref(location) {
+    var baseTag = document.querySelector('base');
+    var href = '';
+
+    if (baseTag && baseTag.getAttribute('href')) {
+      href = stripHash(window.location.href);
+    }
+
+    return href + '#' + encodePath(basename + createPath(location));
+  }
+
+  function push(path, state) {
+    process.env.NODE_ENV !== "production" ? warning(state === undefined, 'Hash history cannot push state; it is ignored') : void 0;
+    var action = 'PUSH';
+    var location = createLocation(path, undefined, undefined, history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var path = createPath(location);
+      var encodedPath = encodePath(basename + path);
+      var hashChanged = getHashPath() !== encodedPath;
+
+      if (hashChanged) {
+        // We cannot tell if a hashchange was caused by a PUSH, so we'd
+        // rather setState here and ignore the hashchange. The caveat here
+        // is that other hash histories in the page will consider it a POP.
+        ignorePath = path;
+        pushHashPath(encodedPath);
+        var prevIndex = allPaths.lastIndexOf(createPath(history.location));
+        var nextPaths = allPaths.slice(0, prevIndex + 1);
+        nextPaths.push(path);
+        allPaths = nextPaths;
+        setState({
+          action: action,
+          location: location
+        });
+      } else {
+        process.env.NODE_ENV !== "production" ? warning(false, 'Hash history cannot PUSH the same path; a new entry will not be added to the history stack') : void 0;
+        setState();
+      }
+    });
+  }
+
+  function replace(path, state) {
+    process.env.NODE_ENV !== "production" ? warning(state === undefined, 'Hash history cannot replace state; it is ignored') : void 0;
+    var action = 'REPLACE';
+    var location = createLocation(path, undefined, undefined, history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var path = createPath(location);
+      var encodedPath = encodePath(basename + path);
+      var hashChanged = getHashPath() !== encodedPath;
+
+      if (hashChanged) {
+        // We cannot tell if a hashchange was caused by a REPLACE, so we'd
+        // rather setState here and ignore the hashchange. The caveat here
+        // is that other hash histories in the page will consider it a POP.
+        ignorePath = path;
+        replaceHashPath(encodedPath);
+      }
+
+      var prevIndex = allPaths.indexOf(createPath(history.location));
+      if (prevIndex !== -1) allPaths[prevIndex] = path;
+      setState({
+        action: action,
+        location: location
+      });
+    });
+  }
+
+  function go(n) {
+    process.env.NODE_ENV !== "production" ? warning(canGoWithoutReload, 'Hash history go(n) causes a full page reload in this browser') : void 0;
+    globalHistory.go(n);
+  }
+
+  function goBack() {
+    go(-1);
+  }
+
+  function goForward() {
+    go(1);
+  }
+
+  var listenerCount = 0;
+
+  function checkDOMListeners(delta) {
+    listenerCount += delta;
+
+    if (listenerCount === 1 && delta === 1) {
+      window.addEventListener(HashChangeEvent$1, handleHashChange);
+    } else if (listenerCount === 0) {
+      window.removeEventListener(HashChangeEvent$1, handleHashChange);
+    }
+  }
+
+  var isBlocked = false;
+
+  function block(prompt) {
+    if (prompt === void 0) {
+      prompt = false;
+    }
+
+    var unblock = transitionManager.setPrompt(prompt);
+
+    if (!isBlocked) {
+      checkDOMListeners(1);
+      isBlocked = true;
+    }
+
+    return function () {
+      if (isBlocked) {
+        isBlocked = false;
+        checkDOMListeners(-1);
+      }
+
+      return unblock();
+    };
+  }
+
+  function listen(listener) {
+    var unlisten = transitionManager.appendListener(listener);
+    checkDOMListeners(1);
+    return function () {
+      checkDOMListeners(-1);
+      unlisten();
+    };
+  }
+
+  var history = {
+    length: globalHistory.length,
+    action: 'POP',
+    location: initialLocation,
+    createHref: createHref,
+    push: push,
+    replace: replace,
+    go: go,
+    goBack: goBack,
+    goForward: goForward,
+    block: block,
+    listen: listen
+  };
+  return history;
 }
 
 function clamp(n, lowerBound, upperBound) {
@@ -1782,7 +2388,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
   };
 }
 
-var index = React.createContext || createReactContext;
+var index = React$1.createContext || createReactContext;
 
 var pathToRegexp$2 = {exports: {}};
 
@@ -2694,7 +3300,7 @@ createNamedContext$1("Router");
  * The public API for putting history on context.
  */
 
-var Router =
+var Router$1 =
 /*#__PURE__*/
 function (_React$Component) {
   _inheritsLoose(Router, _React$Component);
@@ -2755,30 +3361,30 @@ function (_React$Component) {
   };
 
   _proto.render = function render() {
-    return React.createElement(context.Provider, {
+    return React$1.createElement(context.Provider, {
       value: {
         history: this.props.history,
         location: this.state.location,
         match: Router.computeRootMatch(this.state.location.pathname),
         staticContext: this.props.staticContext
       }
-    }, React.createElement(historyContext.Provider, {
+    }, React$1.createElement(historyContext.Provider, {
       children: this.props.children || null,
       value: this.props.history
     }));
   };
 
   return Router;
-}(React.Component);
+}(React$1.Component);
 
 if (process.env.NODE_ENV !== "production") {
-  Router.propTypes = {
+  Router$1.propTypes = {
     children: PropTypes.node,
     history: PropTypes.object.isRequired,
     staticContext: PropTypes.object
   };
 
-  Router.prototype.componentDidUpdate = function (prevProps) {
+  Router$1.prototype.componentDidUpdate = function (prevProps) {
     process.env.NODE_ENV !== "production" ? warning(prevProps.history === this.props.history, "You cannot change <Router history>") : void 0;
   };
 }
@@ -2807,14 +3413,14 @@ function (_React$Component) {
   var _proto = MemoryRouter.prototype;
 
   _proto.render = function render() {
-    return React.createElement(Router, {
+    return React$1.createElement(Router$1, {
       history: this.history,
       children: this.props.children
     });
   };
 
   return MemoryRouter;
-}(React.Component);
+}(React$1.Component);
 
 if (process.env.NODE_ENV !== "production") {
   MemoryRouter.propTypes = {
@@ -2857,7 +3463,7 @@ if (process.env.NODE_ENV !== "production") {
   };
 
   return Lifecycle;
-})(React.Component);
+})(React$1.Component);
 
 if (process.env.NODE_ENV !== "production") {
   var messageType = PropTypes.oneOfType([PropTypes.func, PropTypes.string]);
@@ -2956,7 +3562,7 @@ function matchPath(pathname, options) {
 }
 
 function isEmptyChildren(children) {
-  return React.Children.count(children) === 0;
+  return React$1.Children.count(children) === 0;
 }
 
 function evalChildrenDev(children, props, path) {
@@ -2983,7 +3589,7 @@ function (_React$Component) {
   _proto.render = function render() {
     var _this = this;
 
-    return React.createElement(context.Consumer, null, function (context$1) {
+    return React$1.createElement(context.Consumer, null, function (context$1) {
       !context$1 ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Route> outside a <Router>") : invariant(false) : void 0;
       var location = _this.props.location || context$1.location;
       var match = _this.props.computedMatch ? _this.props.computedMatch // <Switch> already computed the match for us
@@ -3004,14 +3610,14 @@ function (_React$Component) {
         children = null;
       }
 
-      return React.createElement(context.Provider, {
+      return React$1.createElement(context.Provider, {
         value: props
-      }, props.match ? children ? typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : children : component ? React.createElement(component, props) : render ? render(props) : null : typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : null);
+      }, props.match ? children ? typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : children : component ? React$1.createElement(component, props) : render ? render(props) : null : typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : null);
     });
   };
 
   return Route;
-}(React.Component);
+}(React$1.Component);
 
 if (process.env.NODE_ENV !== "production") {
   Route.propTypes = {
@@ -3150,14 +3756,14 @@ function (_React$Component) {
       listen: this.handleListen,
       block: this.handleBlock
     };
-    return React.createElement(Router, _extends({}, rest, {
+    return React$1.createElement(Router$1, _extends({}, rest, {
       history: history,
       staticContext: context
     }));
   };
 
   return StaticRouter;
-}(React.Component);
+}(React$1.Component);
 
 if (process.env.NODE_ENV !== "production") {
   StaticRouter.propTypes = {
@@ -3189,7 +3795,7 @@ function (_React$Component) {
   _proto.render = function render() {
     var _this = this;
 
-    return React.createElement(context.Consumer, null, function (context) {
+    return React$1.createElement(context.Consumer, null, function (context) {
       !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Switch> outside a <Router>") : invariant(false) : void 0;
       var location = _this.props.location || context.location;
       var element, match; // We use React.Children.forEach instead of React.Children.toArray().find()
@@ -3197,8 +3803,8 @@ function (_React$Component) {
       // to trigger an unmount/remount for two <Route>s that render the same
       // component at different URLs.
 
-      React.Children.forEach(_this.props.children, function (child) {
-        if (match == null && React.isValidElement(child)) {
+      React$1.Children.forEach(_this.props.children, function (child) {
+        if (match == null && React$1.isValidElement(child)) {
           element = child;
           var path = child.props.path || child.props.from;
           match = path ? matchPath(location.pathname, _extends({}, child.props, {
@@ -3206,7 +3812,7 @@ function (_React$Component) {
           })) : context.match;
         }
       });
-      return match ? React.cloneElement(element, {
+      return match ? React$1.cloneElement(element, {
         location: location,
         computedMatch: match
       }) : null;
@@ -3214,7 +3820,7 @@ function (_React$Component) {
   };
 
   return Switch;
-}(React.Component);
+}(React$1.Component);
 
 if (process.env.NODE_ENV !== "production") {
   Switch.propTypes = {
@@ -3228,7 +3834,7 @@ if (process.env.NODE_ENV !== "production") {
   };
 }
 
-var useContext = React.useContext;
+var useContext = React$1.useContext;
 function useHistory() {
   if (process.env.NODE_ENV !== "production") {
     !(typeof useContext === "function") ? process.env.NODE_ENV !== "production" ? invariant(false, "You must use React >= 16.8 in order to use useHistory()") : invariant(false) : void 0;
@@ -3260,6 +3866,310 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 /**
+ * The public API for a <Router> that uses HTML5 history.
+ */
+
+var BrowserRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  _inheritsLoose(BrowserRouter, _React$Component);
+
+  function BrowserRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.history = createBrowserHistory(_this.props);
+    return _this;
+  }
+
+  var _proto = BrowserRouter.prototype;
+
+  _proto.render = function render() {
+    return React$1.createElement(Router$1, {
+      history: this.history,
+      children: this.props.children
+    });
+  };
+
+  return BrowserRouter;
+}(React$1.Component);
+
+if (process.env.NODE_ENV !== "production") {
+  BrowserRouter.propTypes = {
+    basename: PropTypes.string,
+    children: PropTypes.node,
+    forceRefresh: PropTypes.bool,
+    getUserConfirmation: PropTypes.func,
+    keyLength: PropTypes.number
+  };
+
+  BrowserRouter.prototype.componentDidMount = function () {
+    process.env.NODE_ENV !== "production" ? warning(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.") : void 0;
+  };
+}
+
+/**
+ * The public API for a <Router> that uses window.location.hash.
+ */
+
+var HashRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  _inheritsLoose(HashRouter, _React$Component);
+
+  function HashRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.history = createHashHistory(_this.props);
+    return _this;
+  }
+
+  var _proto = HashRouter.prototype;
+
+  _proto.render = function render() {
+    return React$1.createElement(Router$1, {
+      history: this.history,
+      children: this.props.children
+    });
+  };
+
+  return HashRouter;
+}(React$1.Component);
+
+if (process.env.NODE_ENV !== "production") {
+  HashRouter.propTypes = {
+    basename: PropTypes.string,
+    children: PropTypes.node,
+    getUserConfirmation: PropTypes.func,
+    hashType: PropTypes.oneOf(["hashbang", "noslash", "slash"])
+  };
+
+  HashRouter.prototype.componentDidMount = function () {
+    process.env.NODE_ENV !== "production" ? warning(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.") : void 0;
+  };
+}
+
+var resolveToLocation = function resolveToLocation(to, currentLocation) {
+  return typeof to === "function" ? to(currentLocation) : to;
+};
+var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
+  return typeof to === "string" ? createLocation(to, null, null, currentLocation) : to;
+};
+
+var forwardRefShim = function forwardRefShim(C) {
+  return C;
+};
+
+var forwardRef = React$1.forwardRef;
+
+if (typeof forwardRef === "undefined") {
+  forwardRef = forwardRefShim;
+}
+
+function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+
+var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
+  var innerRef = _ref.innerRef,
+      navigate = _ref.navigate,
+      _onClick = _ref.onClick,
+      rest = _objectWithoutPropertiesLoose(_ref, ["innerRef", "navigate", "onClick"]);
+
+  var target = rest.target;
+
+  var props = _extends({}, rest, {
+    onClick: function onClick(event) {
+      try {
+        if (_onClick) _onClick(event);
+      } catch (ex) {
+        event.preventDefault();
+        throw ex;
+      }
+
+      if (!event.defaultPrevented && // onClick prevented default
+      event.button === 0 && ( // ignore everything but left clicks
+      !target || target === "_self") && // let browser handle "target=_blank" etc.
+      !isModifiedEvent(event) // ignore clicks with modifier keys
+      ) {
+          event.preventDefault();
+          navigate();
+        }
+    }
+  }); // React 15 compat
+
+
+  if (forwardRefShim !== forwardRef) {
+    props.ref = forwardedRef || innerRef;
+  } else {
+    props.ref = innerRef;
+  }
+  /* eslint-disable-next-line jsx-a11y/anchor-has-content */
+
+
+  return React$1.createElement("a", props);
+});
+
+if (process.env.NODE_ENV !== "production") {
+  LinkAnchor.displayName = "LinkAnchor";
+}
+/**
+ * The public API for rendering a history-aware <a>.
+ */
+
+
+var Link$1 = forwardRef(function (_ref2, forwardedRef) {
+  var _ref2$component = _ref2.component,
+      component = _ref2$component === void 0 ? LinkAnchor : _ref2$component,
+      replace = _ref2.replace,
+      to = _ref2.to,
+      innerRef = _ref2.innerRef,
+      rest = _objectWithoutPropertiesLoose(_ref2, ["component", "replace", "to", "innerRef"]);
+
+  return React$1.createElement(context.Consumer, null, function (context) {
+    !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Link> outside a <Router>") : invariant(false) : void 0;
+    var history = context.history;
+    var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
+    var href = location ? history.createHref(location) : "";
+
+    var props = _extends({}, rest, {
+      href: href,
+      navigate: function navigate() {
+        var location = resolveToLocation(to, context.location);
+        var method = replace ? history.replace : history.push;
+        method(location);
+      }
+    }); // React 15 compat
+
+
+    if (forwardRefShim !== forwardRef) {
+      props.ref = forwardedRef || innerRef;
+    } else {
+      props.innerRef = innerRef;
+    }
+
+    return React$1.createElement(component, props);
+  });
+});
+
+if (process.env.NODE_ENV !== "production") {
+  var toType = PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func]);
+  var refType = PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.shape({
+    current: PropTypes.any
+  })]);
+  Link$1.displayName = "Link";
+  Link$1.propTypes = {
+    innerRef: refType,
+    onClick: PropTypes.func,
+    replace: PropTypes.bool,
+    target: PropTypes.string,
+    to: toType.isRequired
+  };
+}
+
+var forwardRefShim$1 = function forwardRefShim(C) {
+  return C;
+};
+
+var forwardRef$1 = React$1.forwardRef;
+
+if (typeof forwardRef$1 === "undefined") {
+  forwardRef$1 = forwardRefShim$1;
+}
+
+function joinClassnames() {
+  for (var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++) {
+    classnames[_key] = arguments[_key];
+  }
+
+  return classnames.filter(function (i) {
+    return i;
+  }).join(" ");
+}
+/**
+ * A <Link> wrapper that knows if it's "active" or not.
+ */
+
+
+var NavLink = forwardRef$1(function (_ref, forwardedRef) {
+  var _ref$ariaCurrent = _ref["aria-current"],
+      ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent,
+      _ref$activeClassName = _ref.activeClassName,
+      activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName,
+      activeStyle = _ref.activeStyle,
+      classNameProp = _ref.className,
+      exact = _ref.exact,
+      isActiveProp = _ref.isActive,
+      locationProp = _ref.location,
+      sensitive = _ref.sensitive,
+      strict = _ref.strict,
+      styleProp = _ref.style,
+      to = _ref.to,
+      innerRef = _ref.innerRef,
+      rest = _objectWithoutPropertiesLoose(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
+
+  return React$1.createElement(context.Consumer, null, function (context) {
+    !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <NavLink> outside a <Router>") : invariant(false) : void 0;
+    var currentLocation = locationProp || context.location;
+    var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
+    var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
+
+    var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
+    var match = escapedPath ? matchPath(currentLocation.pathname, {
+      path: escapedPath,
+      exact: exact,
+      sensitive: sensitive,
+      strict: strict
+    }) : null;
+    var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
+    var className = isActive ? joinClassnames(classNameProp, activeClassName) : classNameProp;
+    var style = isActive ? _extends({}, styleProp, {}, activeStyle) : styleProp;
+
+    var props = _extends({
+      "aria-current": isActive && ariaCurrent || null,
+      className: className,
+      style: style,
+      to: toLocation
+    }, rest); // React 15 compat
+
+
+    if (forwardRefShim$1 !== forwardRef$1) {
+      props.ref = forwardedRef || innerRef;
+    } else {
+      props.innerRef = innerRef;
+    }
+
+    return React$1.createElement(Link$1, props);
+  });
+});
+
+if (process.env.NODE_ENV !== "production") {
+  NavLink.displayName = "NavLink";
+  var ariaCurrentType = PropTypes.oneOf(["page", "step", "location", "date", "time", "true"]);
+  NavLink.propTypes = _extends({}, Link$1.propTypes, {
+    "aria-current": ariaCurrentType,
+    activeClassName: PropTypes.string,
+    activeStyle: PropTypes.object,
+    className: PropTypes.string,
+    exact: PropTypes.bool,
+    isActive: PropTypes.func,
+    location: PropTypes.object,
+    sensitive: PropTypes.bool,
+    strict: PropTypes.bool,
+    style: PropTypes.object
+  });
+}
+
+/**
  * @nmae Button
  * @description Renders the Button component
  * @param {*} props Props
@@ -3287,7 +4197,7 @@ const Button = props => {
     if (onClick) onClick();
   };
 
-  return /*#__PURE__*/React.createElement("button", _extends$1({
+  return /*#__PURE__*/React$1.createElement("button", _extends$1({
     onClick: handleClick,
     className: className
   }, other), children || label);
@@ -3313,7 +4223,7 @@ const Column = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$8, classes?.split(' '));
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), children);
 };
@@ -3329,7 +4239,7 @@ const HeaderColumn = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$7, classes?.split(' '));
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), children);
 };
@@ -3348,9 +4258,9 @@ const Header = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$7, classes);
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
-  }, other), /*#__PURE__*/React.createElement("div", null, children));
+  }, other), /*#__PURE__*/React$1.createElement("div", null, children));
 };
 Header.Column = HeaderColumn;
 
@@ -3374,21 +4284,21 @@ const Heading = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$6, classes);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, !level ? /*#__PURE__*/React.createElement("h2", _extends$1({
+  return /*#__PURE__*/React$1.createElement(React$1.Fragment, null, !level ? /*#__PURE__*/React$1.createElement("h2", _extends$1({
     className: className
-  }, other), children) : level == 1 ? /*#__PURE__*/React.createElement("h1", _extends$1({
+  }, other), children) : level == 1 ? /*#__PURE__*/React$1.createElement("h1", _extends$1({
     className: className
-  }, other), children) : level == 2 ? /*#__PURE__*/React.createElement("h2", _extends$1({
+  }, other), children) : level == 2 ? /*#__PURE__*/React$1.createElement("h2", _extends$1({
     className: className
-  }, other), children) : level == 3 ? /*#__PURE__*/React.createElement("h3", _extends$1({
+  }, other), children) : level == 3 ? /*#__PURE__*/React$1.createElement("h3", _extends$1({
     className: className
-  }, other), children) : level == 4 ? /*#__PURE__*/React.createElement("h4", _extends$1({
+  }, other), children) : level == 4 ? /*#__PURE__*/React$1.createElement("h4", _extends$1({
     className: className
-  }, other), children) : level == 5 ? /*#__PURE__*/React.createElement("h5", _extends$1({
+  }, other), children) : level == 5 ? /*#__PURE__*/React$1.createElement("h5", _extends$1({
     className: className
-  }, other), children) : level == 6 ? /*#__PURE__*/React.createElement("h6", _extends$1({
+  }, other), children) : level == 6 ? /*#__PURE__*/React$1.createElement("h6", _extends$1({
     className: className
-  }, other), children) : /*#__PURE__*/React.createElement("h2", _extends$1({
+  }, other), children) : /*#__PURE__*/React$1.createElement("h2", _extends$1({
     className: className
   }, other), children));
 };
@@ -3411,7 +4321,7 @@ const Input = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$5, classes);
-  return /*#__PURE__*/React.createElement("input", _extends$1({
+  return /*#__PURE__*/React$1.createElement("input", _extends$1({
     className: className
   }, other));
 };
@@ -3428,6 +4338,7 @@ styleInject(css_248z$4);
  */
 
 const Link = props => {
+  const history = useHistory();
   const {
     children,
     classes,
@@ -3436,16 +4347,15 @@ const Link = props => {
     to,
     ...other
   } = props;
-  const history = useHistory();
 
   const handleClick = () => {
-    history && to && history.push(to);
-    href && window.open(href, '_blank');
-    onClick && onClick();
+    if (to) history.push(to);
+    if (href) window.open(href, '_blank');
+    if (onClick) onClick();
   };
 
   const className = generateClassNameString(styles$4, classes);
-  return /*#__PURE__*/React.createElement("span", _extends$1({
+  return /*#__PURE__*/React$1.createElement("span", _extends$1({
     className: className,
     onClick: handleClick
   }, other), props.children);
@@ -3462,7 +4372,7 @@ const MenuSubmenu = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$3, classes);
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), children);
 };
@@ -3474,7 +4384,7 @@ const MenuItem = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$3, classes);
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), children);
 };
@@ -3493,7 +4403,7 @@ const Menu = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$3, classes);
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), props.children);
 };
@@ -3511,7 +4421,7 @@ const ModalBackground = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$2, classes);
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), children);
 };
@@ -3523,7 +4433,7 @@ const ModalBox = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$2, classes);
-  return /*#__PURE__*/React.createElement(Box, _extends$1({
+  return /*#__PURE__*/React$1.createElement(Box, _extends$1({
     className: className
   }, other), children);
 };
@@ -3547,7 +4457,7 @@ const Modal = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$2, classes);
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className,
     hidden: !show
   }, other), children);
@@ -3573,7 +4483,7 @@ const Paragraph = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles$1, classes);
-  return /*#__PURE__*/React.createElement("p", _extends$1({
+  return /*#__PURE__*/React$1.createElement("p", _extends$1({
     className: className
   }, other), children);
 };
@@ -3589,7 +4499,7 @@ const SectionColumn = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles, classes?.split(' '));
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     className: className
   }, other), children);
 };
@@ -3609,14 +4519,22 @@ const Section = props => {
     ...other
   } = props;
   const className = generateClassNameString(styles, classes?.split(' '));
-  return /*#__PURE__*/React.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("div", _extends$1({
     // created styled component and add bgImg to styled component
     style: {
       backgroundImage: `url(${bgImg})`
     },
     className: className
-  }, other), /*#__PURE__*/React.createElement("div", null, children));
+  }, other), /*#__PURE__*/React$1.createElement("div", null, children));
 };
 Section.Column = SectionColumn;
 
-export { Box$1 as Box, Button, Column, Header, Heading, Input, Link, Menu, Modal, Paragraph, Section };
+const Router = props => {
+  const {
+    children,
+    ...other
+  } = props;
+  return /*#__PURE__*/React.createElement(BrowserRouter, other, children);
+};
+
+export { Box$1 as Box, Button, Column, Header, Heading, Input, Link, Menu, Modal, Paragraph, Router, Section };

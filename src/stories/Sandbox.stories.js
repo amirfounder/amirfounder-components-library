@@ -20,7 +20,7 @@ stories.add('Demo Site', () => {
 
   return (
     <BrowserRouter>
-      <Header classes="header header--custom header--full-width header--contained header--md">
+      <Header classes="header header--custom header--full-width header--contained header--lg">
         <Header.Column classes="header__col header__col--center-left">
           Amir Sharapov
         </Header.Column>
