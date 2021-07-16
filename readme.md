@@ -175,3 +175,4 @@ to custom styles.
 11. Bug fixed. Testing compatability
 12. Test scss compatability with react-router
 13. Test prop desturing compatability with react-router
+14. Testing native html tags with usehistory prop
