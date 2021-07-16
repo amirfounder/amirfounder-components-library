@@ -5364,6 +5364,9 @@ const Link = props => {
   const {
     to,
     classes,
+    children,
+    href,
+    onClick,
     ...other
   } = props;
   const history = useHistory();
@@ -5373,15 +5376,16 @@ const Link = props => {
    */
 
   const handleClick = () => {
-    if (props.to) history.push(props.to);
-    if (props.href) window.open(props.href, '_blank');
+    if (to) history.push(to);
+    if (href) window.open(href, '_blank');
+    if (onClick) onClick();
   };
 
   const className = generateClassNameString(styles$4, classes);
   return /*#__PURE__*/React$1.createElement(StyledLink, _extends$1({
     className: className,
     onClick: handleClick
-  }, other), props.children);
+  }, other), children);
 };
 
 var css_248z$3 = ":root{--white:#fff;--roboto:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen,Ubuntu,Cantarell,\"Open Sans\",\"Helvetica Neue\",sans-serif;--button--xx-sm-font-size:10px;--button--x-sm-font-size:12px;--button--sm-font-size:14px;--button--md-font-size:16px;--button--lg-font-size:18px;--button--x-lg-font-size:20px;--button--xx-lg-font-size:24px;--button--xx-sm-padding:4px 8px;--button--x-sm-padding:6px 12px;--button--sm-padding:8px 18px;--button--md-padding:12px 26px;--button--lg-padding:14px 30px;--button--x-lg-padding:18px 40px;--button--xx-lg-padding:20px 44px;--button--sharp-border-radius:0px;--button--rounded-border-radius:5px;--button--circle-border-radius:999em;--button--success-color:#37a746;--button--success-hover-color:#0a8027;--button--info-color:#2b86d1;--button--info-hover-color:#04589c;--button--danger-color:#eb6363;--button--danger-hover-color:#c51d1d;--button--warn-color:#f7c465;--button--warn-hover-color:#e49c31;--button--default-color:#818181;--button--default-hover-color:#5a5a5a;--section--pd-xx-sm-padding:0 1vw;--section--pd-x-sm-padding:0 1.5vw;--section--pd-sm-padding:0 2vw;--section--pd-md-padding:0 3vw;--section--pd-lg-padding:0 4vw;--section--pd-x-lg-padding:0 5vw;--section--pd-xx-lg-padding:0 6vw;--header--pd-xx-sm-padding:0 .5vw;--header--pd-x-sm-padding:0 1.25vw;--header--pd-sm-padding:0 2vw;--header--pd-md-padding:0 3vw;--header--pd-lg-padding:0 4vw;--header--pd-x-lg-padding:0 5vw;--header--pd-xx-lg-padding:0 6vw;--header--custom-background-color:#f4f4f4;--header--custom-color:#000}.Menu-module_menu__1GyQ7{height:100%}.Menu-module_menu__item__EfaBF{display:inline-block;cursor:pointer;background-color:#000;color:#fff}.Menu-module_menu__item__EfaBF:hover,.Menu-module_menu__item__EfaBF:not(:hover){transition-duration:.3s}.Menu-module_menu__item__EfaBF:hover>*{display:block}.Menu-module_menu__item__EfaBF:hover{background-color:#000;color:grey}.Menu-module_menu__item__EfaBF>div{padding-top:5px}.Menu-module_menu__item__EfaBF:not(:last-child){margin-right:3vw}.Menu-module_menu__submenu__258Ol{position:absolute;display:none}.Menu-module_menu__submenu__item__2YibF{padding:10px;display:block;position:relative;min-width:8em;width:fit-content;cursor:pointer;background-color:#fff;color:#000}.Menu-module_menu__submenu__item__2YibF:hover,.Menu-module_menu__submenu__item__2YibF:not(:hover){transition-duration:.3s}.Menu-module_menu__submenu__item__2YibF:hover>*{display:block}.Menu-module_menu__submenu__item__2YibF:hover{background-color:#fff;color:grey}.Menu-module_menu__submenu--dir-lft__3e5JT{left:-100%;top:0}.Menu-module_menu__submenu--dir-rgt__11Bqb{left:100%;top:0}";

@@ -14,6 +14,9 @@ export const Link = (props) => {
   const {
     to,
     classes,
+    children,
+    href,
+    onClick,
     ...other
   } = props;
 
@@ -24,8 +27,9 @@ export const Link = (props) => {
    * @description Uses history to redirect to the provided path
    */
   const handleClick = () => {
-    if (props.to) history.push(props.to);
-    if (props.href) window.open(props.href, '_blank')
+    if (to) history.push(to);
+    if (href) window.open(href, '_blank');
+    if (onClick) onClick();
   }
 
   const className =
@@ -37,7 +41,7 @@ export const Link = (props) => {
       onClick={handleClick}
       {...other}
     >
-      {props.children}
+      {children}
     </StyledLink>
   )
 }

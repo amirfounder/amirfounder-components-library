@@ -171,6 +171,7 @@ to custom styles.
 7. Bug fix attempt
 8. Bug fix attempt
 9. Bug fix attempt
-10. Bug fix attempt with Styled Component
-11. Bug fixed. Testing breaking points #1.
+10. Bug fix attempt
+11. Bug fixed. Testing compatability
 12. Test scss compatability with react-router
+13. Test prop desturing compatability with react-router
