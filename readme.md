@@ -172,3 +172,4 @@ to custom styles.
 8. Bug fix attempt
 9. Bug fix attempt
 10. Bug fix attempt with Styled Component
+11. Bug fixed. Testing breaking points.

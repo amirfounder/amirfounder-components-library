@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledLink = styled.div`
+const StyledLink = styled.a`
   line-height: 2em;
 `
 
