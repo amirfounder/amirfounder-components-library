@@ -1,5 +1,7 @@
 import React from 'react';
 import StyledLink from './StyledLink'
+import styles from './Link.module.scss'
+import { generateClassNameString } from '../../utils/Helpers';
 const { useHistory } = require('react-router-dom')
 
 /**
@@ -25,10 +27,13 @@ export const Link = (props) => {
     if (props.to) history.push(props.to);
     if (props.href) window.open(props.href, '_blank')
   }
+
+  const className =
+    generateClassNameString(styles, classes);
   
   return(
     <StyledLink
-      className='af-link'
+      className={className}
       onClick={handleClick}
       {...other}
     >
