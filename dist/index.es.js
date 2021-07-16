@@ -4363,7 +4363,7 @@ const Link = props => {
   };
 
   const className = generateClassNameString(styles$4, classes);
-  return /*#__PURE__*/React$1.createElement("div", _extends$1({
+  return /*#__PURE__*/React$1.createElement("a", _extends$1({
     className: className,
     onClick: handleClick
   }, other), children);

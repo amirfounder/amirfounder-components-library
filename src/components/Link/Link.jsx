@@ -1,5 +1,4 @@
 import React from 'react';
-// import StyledLink from './StyledLink'
 import styles from './Link.module.scss'
 import { generateClassNameString } from '../../utils/Helpers';
 const { useHistory } = require('react-router-dom')
@@ -36,12 +35,12 @@ export const Link = (props) => {
     generateClassNameString(styles, classes);
   
   return(
-    <div
+    <a
       className={className}
       onClick={handleClick}
       {...other}
     >
       {children}
-    </div>
+    </a>
   )
 }
