@@ -39,7 +39,6 @@
 
 .menu {
 
-  height: 100%; 
   /* -------- MENU ITEM -------- */
   &__item {
     display: inline-block;
@@ -47,7 +46,6 @@
     @include defineItemTransitions();
     @include defineItemSubmenuDisplay();
     @include defineItemColor(white, black, gray, black);
-    @include defineMenuItemDistance(5px);
 
     &:not(:last-child) {
       margin-right: 3vw;

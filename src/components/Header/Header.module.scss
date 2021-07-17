@@ -52,19 +52,19 @@
 
 @mixin defineHeaderSizeOptions {
   &--sm > * { @include defineHeaderSize(
-    var(--header--sm-min-height, 6vh),
-    var(--header--sm-max-height, 80px),
-    var(--header--sm-font-size, 14px)
+    var(--header--sm-min-height, 8vh),
+    var(--header--sm-max-height, 90px),
+    var(--header--sm-font-size, 16px)
   ) }
   &--md > * { @include defineHeaderSize(
-    var(--header--md-min-height, 8vh),
-    var(--header--md-max-height, 100px),
-    var(--header--md-font-size, 16px)
+    var(--header--md-min-height, 10vh),
+    var(--header--md-max-height, 120px),
+    var(--header--md-font-size, 17px)
     ) }
   &--lg > * { @include defineHeaderSize(
-    var(--header--lg-min-height, 10vh),
-    var(--header--lg-max-height, 120px),
-    var(--header--sm-font-size, 18px)
+    var(--header--lg-min-height, 12vh),
+    var(--header--lg-max-height, 150px),
+    var(--header--sm-font-size, 20px)
     ) }
 }
 

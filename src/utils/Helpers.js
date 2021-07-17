@@ -6,8 +6,9 @@
  * @returns String - Classname
  */
 export const generateClassNameString = (cssModule, classes) => {
-  let classesArr;
-  let className = ''
+  let
+    classesArr,
+    className = ''
 
   if (!classes) return
   if (typeof (classes) === 'object') classesArr = classes
@@ -19,6 +20,31 @@ export const generateClassNameString = (cssModule, classes) => {
   });
 
   return className.trim();
+}
+
+/**
+ * @name generateGradient
+ * @description Generates a gradient value
+ * @param {*} gradientColors String or array of color gradients
+ * @param {String} gradientDirection direction of the gradient
+ * @returns String
+ */
+export const generateGradient = (gradientColors, gradientDirection) => {
+  let gradientArr;
+  debugger
+  
+  if (!gradientColors) return
+  if (typeof(gradientColors) === 'object') gradientArr = gradientColors
+  if (typeof(gradientColors) === 'string') gradientArr = gradientColors?.split(',')
+  
+  if (gradientArr.length == 0) return
+  if (gradientArr.length == 1) gradientArr = [...gradientArr, ...gradientArr]
+
+  gradientArr.forEach((gradient, index, arr) => arr[index] = gradient.trim());
+
+  if (gradientDirection) gradientArr.unshift(gradientDirection)
+
+  return gradientArr.join(', ')
 }
 
 /**

@@ -7,8 +7,8 @@
 }
 
 @mixin defineColumnContentPosition($vertical-alignment, $horizontal-alignment) {
-  align-self: $vertical-alignment;
-  justify-self: $horizontal-alignment;
+  align-items: $vertical-alignment;
+  justify-content: $horizontal-alignment;
 }
 
 @mixin defineColumnContentPositionOptions {

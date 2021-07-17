@@ -10,11 +10,7 @@ const SectionColumn = (props) => {
   } = props;
 
   const className = 
-    generateClassNameString(
-      styles,
-      classes
-        ?.split(' ')
-    )
+    generateClassNameString(styles, classes)
 
   return (
     <div
