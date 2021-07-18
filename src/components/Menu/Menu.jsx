@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { generateClassNameString } from '../../utils/Helpers';
 import styles from './Menu.module.scss'
 import MenuSubmenu from './MenuSubmenu';
@@ -17,11 +17,19 @@ export const Menu = (props) => {
     ...other
   } = props;
 
+  const menuRef = useRef(null);
+
   const className =
     generateClassNameString(styles, classes);
 
+  const hideMenu = () => {
+  }
+
   return (
     <div
+      onClick={() => console.log('clicked')}
+      ref={menuRef}
+      onClick={hideMenu}
       className={className}
       {...other}
     >

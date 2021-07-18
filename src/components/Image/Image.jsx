@@ -1,29 +1,20 @@
 import React from 'react';
 import { generateClassNameString } from '../../utils/Helpers';
-import styles from './Menu.module.scss'
+import styles from 'Image.module.scss';
 
-const MenuSubmenu = (props) => {
+export const Image = (props) => {
   const {
-    children,
     classes,
-    distance,
     ...other
   } = props;
 
   const className =
     generateClassNameString(styles, classes)
-  
+
   return (
-    <div
+    <img
       className={className}
-      style={{
-        paddingTop: distance,
-      }}
       {...other}
-    >
-      {children}
-    </div>
+    />
   )
 }
-
-export default MenuSubmenu

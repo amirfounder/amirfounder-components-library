@@ -14,6 +14,7 @@ const MenuItem = (props) => {
 
   return (
     <div
+      onClick={() => console.log('clicked')}
       className={className}
       {...other}
     >

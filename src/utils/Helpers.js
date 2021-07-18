@@ -31,7 +31,6 @@ export const generateClassNameString = (cssModule, classes) => {
  */
 export const generateGradient = (gradientColors, gradientDirection) => {
   let gradientArr;
-  debugger
   
   if (!gradientColors) return
   if (typeof(gradientColors) === 'object') gradientArr = gradientColors
